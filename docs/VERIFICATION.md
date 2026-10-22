@@ -25,8 +25,8 @@ Commands: `node --test tests/*.test.js`, `python tools/build.py`, `python tools/
 - Camera auto-return and propeller use frame-based runtime animation; manual visual spot checking is not a full hardware compatibility test.
 - Scenery is decorative and not collidable, as requested.
 
-## Deployment blocker
+## Deployment
 
-The connected GitHub tool identifies `kevinMejia` but exposes no repository creation or Pages configuration operation. The available browser reaches GitHub sign-in. No repository was created remotely and no public deployment was verified. README includes exact deployment steps. The local Git repository includes the editable Blender sources, generators, runtime GLBs, preview renders and Pages workflow.
+Uploaded to `kevinMejia/Octonauts-Oceanbound` and configured Pages to use GitHub Actions on October 22, 2026. The local Git repository includes the editable Blender sources, generators, runtime GLBs, preview renders and Pages workflow.
 
 Model fidelity limitation: no clean rear/top production orthographics; rear details and interior are approximate. This is a simplified, reference-guided model rather than an exact show asset.

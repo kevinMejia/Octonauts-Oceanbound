@@ -39,7 +39,9 @@ Reviewed a separate shallow clone of https://github.com/kevinMejia/little-big-di
 
 ## Publish to GitHub Pages
 
-Repository creation and Pages setup require GitHub access with those capabilities. The connected GitHub tool can identify the account but does not expose those operations; the app browser was signed out during implementation. No remote repository or deployment is claimed.
+Repository: https://github.com/kevinMejia/Octonauts-Oceanbound
+
+GitHub Pages uses the included GitHub Actions workflow. Changes pushed to main are tested, built and published automatically.
 
 Using an authenticated GitHub CLI:
 
@@ -51,7 +53,7 @@ gh workflow run pages.yml
 
 Alternatively create that empty public repository on GitHub, push this local main branch, then choose Settings → Pages → GitHub Actions. The included workflow tests, builds and publishes `dist`. All imports and GLB URLs are relative, including under `/octonauts-underwater-explorer/`.
 
-Expected URL after successful deployment: https://kevinmejia.github.io/Octonauts-Oceanbound/
+Game URL: https://kevinmejia.github.io/Octonauts-Oceanbound/
 
 Verify the successful Pages run, then load the public URL, check browser console/network for failures, and exercise movement before declaring deployment complete.
 
