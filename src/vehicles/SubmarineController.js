@@ -1,10 +1,11 @@
 import {submarineConfig as c} from '../config/submarineConfig.js';
 import {worldConfig as w} from '../config/worldConfig.js';
+import {TurboBoost} from '../turbo/TurboBoost.js';
 import {heightAt} from '../environment/terrainMath.js';
 const damp=(a,b,k,dt)=>a+(b-a)*(1-Math.exp(-k*dt));
 export class SubmarineController{
- constructor(){this.position={x:0,y:8,z:0};this.heading=0;this.speed=0;this.vertical=0;this.steer=0;this.bank=0;this.pitch=0;}
- update(dt,input){dt=Math.min(dt,.05);this.steer=damp(this.steer,input.turn,5,dt);this.heading+=this.steer*c.turnSpeed*dt;this.speed=damp(this.speed,input.thrust*(input.thrust>=0?c.maxForwardSpeed:c.maxReverseSpeed),input.thrust?c.acceleration:c.drag,dt);this.vertical=damp(this.vertical,input.rise*(input.rise>=0?c.ascendSpeed:c.descendSpeed),input.rise?c.acceleration:c.drag,dt);
+ constructor(){this.turbo=new TurboBoost();this.position={x:0,y:8,z:0};this.heading=0;this.speed=0;this.vertical=0;this.steer=0;this.bank=0;this.pitch=0;}
+ update(dt,input){dt=Math.min(dt,.05);this.turbo.request(input.boost);this.turbo.step(dt,input.thrust>0);const boost=this.turbo.multiplier;this.steer=damp(this.steer,input.turn,5,dt);this.heading+=this.steer*c.turnSpeed*dt;this.speed=damp(this.speed,input.thrust*(input.thrust>=0?c.maxForwardSpeed*boost:c.maxReverseSpeed),input.thrust?c.acceleration*boost:c.drag,dt);this.vertical=damp(this.vertical,input.rise*(input.rise>=0?c.ascendSpeed:c.descendSpeed),input.rise?c.acceleration:c.drag,dt);
  const p=this.position,edge=w.size/2-12,soft=edge-w.boundaryMargin;
  let dx=Math.sin(this.heading)*this.speed,dz=Math.cos(this.heading)*this.speed;
  if(p.x*dx>0&&Math.abs(p.x)>soft)dx*=Math.max(0,(edge-Math.abs(p.x))/w.boundaryMargin);

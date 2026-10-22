@@ -1,0 +1,17 @@
+19:23:28 | INFO: Starting glTF 2.0 export
+19:23:28 | INFO: Extracting primitive: Core_Bezel_Mesh
+19:23:28 | INFO: Primitives created: 1
+19:23:28 | INFO: Extracting primitive: Core_GoldShell_Mesh
+19:23:28 | INFO: Primitives created: 1
+19:23:28 | INFO: Extracting primitive: Core_EnergyFace_Mesh
+19:23:28 | INFO: Primitives created: 1
+19:23:28 | INFO: Extracting primitive: Core_HotFilament_Mesh
+19:23:28 | INFO: Primitives created: 1
+19:23:28 | INFO: Finished glTF 2.0 export in 0.018922805786132812 s
+Info: Saved "turbo-lightning.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\.cache\little-big-dirt-tools\blender-4.2.3-windows-x64\4.2\python\lib\site-packages\extern_draco.dll
+
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-15 01:37:33)
+Read blend: "E:\Workspace\Gup-G\assets\blender\turbo-original.blend"
+
+Blender quit

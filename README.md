@@ -1,6 +1,6 @@
 # Octonauts Underwater Explorer
 
-A standalone Three.js underwater exploration proof of concept. Pilot a Blender-authored GUP-B through a 1.6 km seeded sandy world. No missions, collectibles, ground-vehicle physics, or external runtime CDN dependencies.
+A standalone Three.js underwater exploration proof of concept. Pilot a Blender-authored GUP-B through a 1.6 km seeded sandy world. No missions or ground-vehicle physics, or external runtime CDN dependencies.
 
 ## Run
 
@@ -14,7 +14,7 @@ node --test tests/*.test.js
 
 Open http://localhost:5173/. ES modules must be served over HTTP.
 
-W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag the ocean to orbit; camera returns after release. Touch devices receive a multitouch directional pad and separate rise/dive buttons. The Controls panel also enables touch controls manually. Landscape is preferred; portrait is supported. Release thrust to hover.
+W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag the ocean to orbit; camera returns after release. Touch devices receive a proportional analog thumbstick and separate rise/dive buttons. Touch selection, callouts, magnification, drag and zoom gestures are suppressed on gameplay surfaces, following Little Big Dirt. The Controls panel also enables touch controls manually. Landscape is preferred; portrait is supported. Release thrust to hover. Turbo uses the same rules as Little Big Dirt: double-tap W/Up and hold the second press, or push the thumbstick forward, release it, then push forward again within 300 ms and hold. Turbo adds 80% forward speed and acceleration, drains 20 charge/second, and passively recharges 1/second. Floating lightning restores 25 charge and respawns after 5 seconds. The meter starts empty; depleted turbo requires releasing and rearming.
 
 ## Assets and architecture
 
@@ -35,7 +35,7 @@ Finite boundaries use an outward velocity falloff across the final 90 metres, fo
 
 ## Reference project review
 
-Reviewed a separate shallow clone of https://github.com/kevinMejia/little-big-dirt-poc. Used architectural concepts from DrivingInput.js, GameTouchGestures.js, the GLTF showroom loader and the static Pages workflow: separate vehicle/input/view systems, additive pointer ownership, interruption cleanup, GLB assets, relative static paths. None of its car physics, gameplay or project files were changed or copied into this game.
+Reviewed a separate shallow clone of https://github.com/kevinMejia/little-big-dirt-poc. Used architectural concepts from DrivingInput.js, GameTouchGestures.js, the GLTF showroom loader and the static Pages workflow: separate vehicle/input/view systems, additive pointer ownership, interruption cleanup, GLB assets, relative static paths. Little Big Dirt remains unmodified. TurboBoost/TurboInput behavior, touch guards and lightning-core artwork are ported from that user-owned reference; underwater pickup collection uses a swept 3D sphere. The lightning source is retained in assets/blender/turbo-original.blend, with a core-only editable derivative and extraction script. No showroom, rings or pedestal are loaded into the game.
 
 ## Publish to GitHub Pages
 

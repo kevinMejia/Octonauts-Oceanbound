@@ -30,3 +30,10 @@ Commands: `node --test tests/*.test.js`, `python tools/build.py`, `python tools/
 Uploaded to `kevinMejia/Octonauts-Oceanbound` and configured Pages to use GitHub Actions on October 22, 2026. The local Git repository includes the editable Blender sources, generators, runtime GLBs, preview renders and Pages workflow.
 
 Model fidelity limitation: no clean rear/top production orthographics; rear details and interior are approximate. This is a simplified, reference-guided model rather than an exact show asset.
+
+## Analog and turbo update
+
+- 13 automated tests pass, including stick clamp/dead zone and cancellation ownership, browser-gesture cancellation, turbo double-press/autorepeat handling, charge/drain/exhaustion/rearming, 3D swept pickup detection, deterministic underwater placement, and boosted versus normal speed.
+- Desktop browser: analog controls render, held stick input exercised, double-tap W reduced charge from approximately 21.4 to 7.6 over a 0.7-second boost; no console errors/warnings.
+- Original lightning core extracted through Blender into an editable standalone .blend and runtime GLB; no pedestal or showroom code is included.
+- Safari-specific magnifier/callout suppression uses the same capture-phase guards as Little Big Dirt, plus descendant -webkit-user-select and -webkit-touch-callout CSS. Real iPhone multi-touch and Safari OS gestures still require device verification.
