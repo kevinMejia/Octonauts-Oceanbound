@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {cameraValues,cameraDefaults,loadCameraSettings,saveCameraSettings} from '../src/ui/cameraPreferences.js';
+test('saved camera offsets validate and clamp independently',()=>{assert.deepEqual(cameraValues({distance:99,height:-5}),{distance:40,height:1});assert.deepEqual(cameraValues({distance:NaN,height:'5'}),cameraDefaults);assert.deepEqual(cameraValues(null),cameraDefaults);});
+test('camera preferences persist and safely recover corrupt or unavailable storage',()=>{let data=null;const storage={getItem:()=>data,setItem:(key,value)=>data=value};assert(saveCameraSettings(storage,{distance:20,height:8}));assert.deepEqual(loadCameraSettings(storage),{distance:20,height:8});data='{broken';assert.deepEqual(loadCameraSettings(storage),cameraDefaults);assert.deepEqual(loadCameraSettings(undefined),cameraDefaults);assert(!saveCameraSettings(undefined,cameraDefaults));});
