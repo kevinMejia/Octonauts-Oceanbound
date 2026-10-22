@@ -6,7 +6,6 @@ export class Input{
   this.keys=new Set();this.pointers=new Map();this.orbit={x:0,y:0,last:-100};this.drag=null;this.turbo=new TurboInput();
   this.removeGuards=installGameTouchGuards();
   this.stick=new AnalogStick(document.querySelector('#joystick'));
-  document.querySelector('#toggleTouch').onclick=e=>{this.clear();const enabled=document.body.classList.toggle('touch-enabled');e.target.setAttribute('aria-pressed',String(enabled));};
   const codes=['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','ShiftLeft','ShiftRight'];
   addEventListener('keydown',e=>{if(!codes.includes(e.code))return;e.preventDefault();if(!this.keys.has(e.code)&&['KeyW','ArrowUp'].includes(e.code))this.turbo.press(e.code);this.keys.add(e.code);});
   addEventListener('keyup',e=>{this.keys.delete(e.code);this.turbo.release(e.code);});
