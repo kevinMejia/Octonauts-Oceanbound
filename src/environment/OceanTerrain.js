@@ -1,0 +1,7 @@
+import * as T from 'three';
+import {worldConfig as c} from '../config/worldConfig.js';
+import {heightAt,noise} from './terrainMath.js';
+export class OceanTerrain{
+ constructor(scene){const g=new T.PlaneGeometry(c.size,c.size,c.resolution,c.resolution);g.rotateX(-Math.PI/2);const p=g.attributes.position,colors=[];const col=new T.Color();for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i);p.setY(i,heightAt(x,z));col.setHSL(.115,.32,.56+noise(x/16,z/16)*.12);colors.push(col.r,col.g,col.b);}g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.computeVertexNormals();const m=new T.MeshStandardMaterial({vertexColors:true,roughness:1});this.material=m;m.onBeforeCompile=s=>{s.uniforms.uTime={value:0};this.shader=s;s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vWorld;').replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvWorld=(modelMatrix*vec4(transformed,1.)).xyz;');s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vWorld;uniform float uTime;').replace('#include <color_fragment>','#include <color_fragment>\nfloat ripple=sin(vWorld.x*2.8+sin(vWorld.z*.7)*1.6);float caustic=pow(abs(sin(vWorld.x*.46+sin(vWorld.z*.38+uTime*.3))*sin(vWorld.z*.53+cos(vWorld.x*.29-uTime*.22))),9.);diffuseColor.rgb*=.96+ripple*.025;diffuseColor.rgb+=vec3(.12,.17,.12)*caustic;');};const mesh=new T.Mesh(g,m);scene.add(mesh);}
+ update(t){if(this.shader)this.shader.uniforms.uTime.value=t;}
+}

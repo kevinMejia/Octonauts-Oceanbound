@@ -1,0 +1,53 @@
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-15 01:37:33)
+Info: Total files 0 | Changed 0 | Failed 0
+19:06:32 | INFO: Starting glTF 2.0 export
+19:06:32 | INFO: Extracting primitive: coral.011
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: kelp.002
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere.001
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: grass.001
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Finished glTF 2.0 export in 0.025905370712280273 s
+19:06:32 | INFO: Starting glTF 2.0 export
+19:06:32 | INFO: Extracting primitive: coral.014
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: kelp.006
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere.002
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere.003
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: grass.005
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Finished glTF 2.0 export in 0.02390742301940918 s
+19:06:32 | INFO: Starting glTF 2.0 export
+19:06:32 | INFO: Extracting primitive: coral.028
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: kelp.010
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere.004
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: Icosphere.005
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Extracting primitive: grass.011
+19:06:32 | INFO: Primitives created: 1
+19:06:32 | INFO: Finished glTF 2.0 export in 0.02991962432861328 s
+Warning: No mesh data to join
+Warning: No mesh data to join
+Info: Saved "environment-0.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\.cache\little-big-dirt-tools\blender-4.2.3-windows-x64\4.2\python\lib\site-packages\extern_draco.dll
+
+Warning: No mesh data to join
+Warning: No mesh data to join
+Info: Saved "environment-1.blend"
+
+Warning: No mesh data to join
+Warning: No mesh data to join
+Info: Saved "environment-2.blend"
+
+
+Blender quit

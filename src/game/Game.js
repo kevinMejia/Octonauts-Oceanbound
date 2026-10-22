@@ -1,0 +1,12 @@
+import * as T from 'three';
+import {OceanTerrain} from '../environment/OceanTerrain.js';
+import {OceanDecorations} from '../environment/OceanDecorations.js';
+import {atmosphere} from '../environment/UnderwaterAtmosphere.js';
+import {GupB} from '../vehicles/GupB.js';
+import {SubmarineController} from '../vehicles/SubmarineController.js';
+import {Input} from '../input/Input.js';
+import {ChaseCamera} from '../camera/ChaseCamera.js';
+import {worldConfig} from '../config/worldConfig.js';
+export class Game{
+ async start(){const canvas=document.querySelector('canvas');this.renderer=new T.WebGLRenderer({canvas,antialias:!matchMedia('(any-pointer:coarse)').matches,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,matchMedia('(any-pointer:coarse)').matches?1.5:2));this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.15;const scene=this.scene=new T.Scene();this.camera=new T.PerspectiveCamera(55,1,.1,650);const resize=()=>{this.renderer.setSize(innerWidth,innerHeight);this.camera.aspect=innerWidth/innerHeight;this.camera.updateProjectionMatrix();};addEventListener('resize',resize);resize();this.terrain=new OceanTerrain(scene);this.particles=atmosphere(scene);this.decor=new OceanDecorations();const [gup]=await Promise.all([GupB.load(),this.decor.load(scene)]);this.gup=gup;scene.add(gup.group);this.sub=new SubmarineController();this.input=new Input(canvas);this.chase=new ChaseCamera(this.camera);document.querySelector('#status').hidden=true;this.ready=true;let previous=performance.now(),time=0;this.renderer.setAnimationLoop(now=>{const dt=Math.min((now-previous)/1000,.05);previous=now;if(document.hidden)return;time+=dt;this.sub.update(dt,this.input.read());gup.update(dt,this.sub);this.chase.update(dt,this.sub,this.input);this.terrain.update(time);this.decor.update(time);this.particles.position.x=Math.round(this.sub.position.x/60)*60;this.particles.position.z=Math.round(this.sub.position.z/60)*60;this.particles.rotation.y=time*.003;document.querySelector('#depth').textContent=(worldConfig.surface-this.sub.position.y).toFixed(1)+' m';this.renderer.render(scene,this.camera);});canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();document.querySelector('#status').hidden=false;document.querySelector('#status').textContent='Graphics interrupted. Reload to continue your dive.';});}
+}

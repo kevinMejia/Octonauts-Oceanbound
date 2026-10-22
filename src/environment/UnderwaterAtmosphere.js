@@ -1,0 +1,3 @@
+import * as T from 'three';
+import {random} from './terrainMath.js';
+export function atmosphere(scene){scene.background=new T.Color('#208d9f');scene.fog=new T.FogExp2('#208d9f',.013);scene.add(new T.HemisphereLight(0xb4f4ef,0x526b55,2.4));const sun=new T.DirectionalLight(0xfff1c8,2.7);sun.position.set(-30,70,25);scene.add(sun);const rng=random(123),p=[];for(let i=0;i<550;i++)p.push((rng()-.5)*150,rng()*48,(rng()-.5)*150);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));const points=new T.Points(g,new T.PointsMaterial({color:0xc8fff1,size:.045,transparent:true,opacity:.34,depthWrite:false}));scene.add(points);return points;}

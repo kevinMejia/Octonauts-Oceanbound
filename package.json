@@ -1,0 +1,1 @@
+{"name":"octonauts-underwater-explorer","version":"0.1.0","private":true,"type":"module","scripts":{"build":"python tools/build.py","test":"node --test tests/*.test.js","dev":"python -m http.server 5173"}}

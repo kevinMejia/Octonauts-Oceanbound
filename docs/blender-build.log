@@ -1,0 +1,457 @@
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-15 01:37:33)
+Info: Total files 0 | Changed 0 | Failed 0
+19:04:31 | INFO: Starting glTF 2.0 export
+19:04:31 | INFO: Extracting primitive: Sphere
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.001
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.002
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.003
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.004
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.005
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.006
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Pectoral fin
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.007
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.008
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Pectoral fin.001
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Smile seam
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Dorsal fin
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Tail fin
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.009
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.010
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.011
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.012
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.013
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.014
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.015
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.016
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.017
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.018
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.019
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.020
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.021
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.022
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.023
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.024
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.025
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.026
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.027
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.028
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.029
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.030
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.031
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.032
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.033
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.034
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.035
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.036
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.037
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.038
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.039
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.040
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.041
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.042
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.043
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.044
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.045
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.046
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.047
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.048
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.049
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.050
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.051
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.052
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.053
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Extracting primitive: Sphere.054
+19:04:31 | INFO: Primitives created: 1
+19:04:31 | INFO: Finished glTF 2.0 export in 0.2792778015136719 s
+Fra:1 Mem:33.08M (Peak 33.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Rounded shark hull
+Fra:1 Mem:33.09M (Peak 33.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower jaw
+Fra:1 Mem:33.17M (Peak 33.17M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bubble canopy
+Fra:1 Mem:33.24M (Peak 33.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin
+Fra:1 Mem:33.33M (Peak 33.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark pupil.001
+Fra:1 Mem:35.40M (Peak 35.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin.001
+Fra:1 Mem:35.52M (Peak 35.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark smile
+Fra:1 Mem:35.91M (Peak 35.91M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal fin
+Fra:1 Mem:35.92M (Peak 35.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Tail fin
+Fra:1 Mem:35.92M (Peak 35.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge head
+Fra:1 Mem:35.98M (Peak 35.98M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle
+Fra:1 Mem:36.48M (Peak 36.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.001
+Fra:1 Mem:36.60M (Peak 36.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.002
+Fra:1 Mem:36.68M (Peak 36.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.003
+Fra:1 Mem:36.71M (Peak 36.71M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge head.001
+Fra:1 Mem:36.86M (Peak 36.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.004
+Fra:1 Mem:36.95M (Peak 36.95M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.006
+Fra:1 Mem:37.00M (Peak 37.00M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.002
+Fra:1 Mem:37.07M (Peak 37.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.003
+Fra:1 Mem:37.29M (Peak 37.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.005
+Fra:1 Mem:37.55M (Peak 37.55M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.006
+Fra:1 Mem:37.66M (Peak 37.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.007
+Fra:1 Mem:37.83M (Peak 37.83M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.009
+Fra:1 Mem:37.92M (Peak 37.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.010
+Fra:1 Mem:38.02M (Peak 38.04M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.029
+Fra:1 Mem:38.07M (Peak 38.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.011
+Fra:1 Mem:38.26M (Peak 38.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.012
+Fra:1 Mem:38.33M (Peak 38.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.013
+Fra:1 Mem:38.47M (Peak 38.47M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.017
+Fra:1 Mem:38.58M (Peak 38.58M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.019
+Fra:1 Mem:38.71M (Peak 38.71M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.018
+Fra:1 Mem:38.77M (Peak 38.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.021
+Fra:1 Mem:39.20M (Peak 39.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.022
+Fra:1 Mem:39.32M (Peak 39.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.023
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.024
+Fra:1 Mem:39.60M (Peak 39.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.025
+Fra:1 Mem:39.66M (Peak 39.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.026
+Fra:1 Mem:39.82M (Peak 39.82M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.027
+Fra:1 Mem:40.01M (Peak 40.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:37.43M (Peak 40.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:37.43M (Peak 40.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:37.43M (Peak 40.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:37.43M (Peak 40.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:37.52M (Peak 40.01M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:37.53M (Peak 40.01M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:37.53M (Peak 40.01M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:37.53M (Peak 40.01M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:37.53M (Peak 40.01M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:39.41M (Peak 40.01M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:40.13M (Peak 40.13M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:40.12M (Peak 40.13M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:40.13M (Peak 40.13M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:40.13M (Peak 40.13M) | Time:00:00.01 | Mem:4.50M, Peak:4.50M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:40.13M (Peak 40.13M) | Time:00:00.01 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:40.13M (Peak 40.13M) | Time:00:00.01 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.84M, Peak:12.92M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:44.37M (Peak 44.37M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:98.78M (Peak 98.78M) | Time:00:00.10 | Remaining:00:01.93 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:121.67M (Peak 156.00M) | Time:00:04.34 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:121.67M (Peak 156.00M) | Time:00:04.34 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\gup-b-hero.png'
+Time: 00:04.58 (Saving: 00:00.23)
+
+Fra:1 Mem:35.13M (Peak 35.13M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Rounded shark hull
+Fra:1 Mem:35.13M (Peak 35.13M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cockpit dark inset
+Fra:1 Mem:35.13M (Peak 35.13M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bubble canopy
+Fra:1 Mem:35.20M (Peak 35.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark eye white
+Fra:1 Mem:35.34M (Peak 35.34M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin
+Fra:1 Mem:35.39M (Peak 35.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark smile
+Fra:1 Mem:35.48M (Peak 35.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark eye white.001
+Fra:1 Mem:35.70M (Peak 35.70M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark pupil.001
+Fra:1 Mem:35.84M (Peak 35.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin.001
+Fra:1 Mem:35.98M (Peak 35.98M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal fin
+Fra:1 Mem:36.00M (Peak 36.00M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Tail fin
+Fra:1 Mem:36.00M (Peak 36.00M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Propeller blade
+Fra:1 Mem:36.15M (Peak 36.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Propeller blade.001
+Fra:1 Mem:36.21M (Peak 36.21M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle
+Fra:1 Mem:36.24M (Peak 36.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.001
+Fra:1 Mem:36.74M (Peak 36.74M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.002
+Fra:1 Mem:36.78M (Peak 36.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge blue.001
+Fra:1 Mem:36.85M (Peak 36.85M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.004
+Fra:1 Mem:36.92M (Peak 36.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.005
+Fra:1 Mem:36.99M (Peak 36.99M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.007
+Fra:1 Mem:37.11M (Peak 37.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.001
+Fra:1 Mem:37.26M (Peak 37.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.003
+Fra:1 Mem:37.35M (Peak 37.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.004
+Fra:1 Mem:37.42M (Peak 37.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.006
+Fra:1 Mem:37.66M (Peak 37.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.007
+Fra:1 Mem:37.77M (Peak 37.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.008
+Fra:1 Mem:37.80M (Peak 37.80M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.009
+Fra:1 Mem:37.94M (Peak 37.94M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.010
+Fra:1 Mem:37.96M (Peak 37.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.012
+Fra:1 Mem:38.04M (Peak 38.04M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.013
+Fra:1 Mem:38.15M (Peak 38.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.014
+Fra:1 Mem:38.29M (Peak 38.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.015
+Fra:1 Mem:38.30M (Peak 38.30M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.018
+Fra:1 Mem:38.37M (Peak 38.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.017
+Fra:1 Mem:38.46M (Peak 38.46M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.019
+Fra:1 Mem:38.72M (Peak 38.72M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.029
+Fra:1 Mem:38.82M (Peak 38.82M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.022
+Fra:1 Mem:38.88M (Peak 38.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.023
+Fra:1 Mem:39.00M (Peak 39.00M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.025
+Fra:1 Mem:39.15M (Peak 39.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.026
+Fra:1 Mem:39.31M (Peak 39.31M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.028
+Fra:1 Mem:39.34M (Peak 39.34M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.027
+Fra:1 Mem:40.05M (Peak 40.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:37.45M (Peak 40.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:37.45M (Peak 40.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:37.45M (Peak 40.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:37.45M (Peak 40.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:37.54M (Peak 40.05M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:37.56M (Peak 40.05M) | Time:00:00.00 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:37.56M (Peak 40.05M) | Time:00:00.00 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:37.56M (Peak 40.05M) | Time:00:00.00 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:37.56M (Peak 40.05M) | Time:00:00.00 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:39.44M (Peak 40.05M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:40.16M (Peak 40.16M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:40.15M (Peak 40.16M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:40.15M (Peak 40.16M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:40.15M (Peak 40.16M) | Time:00:00.01 | Mem:4.50M, Peak:4.50M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:40.15M (Peak 40.16M) | Time:00:00.01 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:40.15M (Peak 40.16M) | Time:00:00.01 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:44.39M (Peak 44.39M) | Time:00:00.01 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:44.40M (Peak 44.40M) | Time:00:00.01 | Mem:12.84M, Peak:12.92M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.40M (Peak 44.40M) | Time:00:00.01 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:44.40M (Peak 44.40M) | Time:00:00.01 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:44.40M (Peak 44.40M) | Time:00:00.01 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:44.40M (Peak 44.40M) | Time:00:00.01 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:98.80M (Peak 98.80M) | Time:00:00.10 | Remaining:00:01.90 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:121.69M (Peak 156.03M) | Time:00:04.40 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:121.69M (Peak 156.03M) | Time:00:04.40 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\gup-b-side.png'
+Time: 00:04.48 (Saving: 00:00.07)
+
+Fra:1 Mem:35.16M (Peak 35.16M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Rounded shark hull
+Fra:1 Mem:35.24M (Peak 35.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower jaw
+Fra:1 Mem:35.33M (Peak 35.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cockpit dark inset
+Fra:1 Mem:35.42M (Peak 35.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Seat back
+Fra:1 Mem:35.42M (Peak 35.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bubble canopy
+Fra:1 Mem:35.49M (Peak 35.49M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark pupil
+Fra:1 Mem:35.61M (Peak 35.61M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin
+Fra:1 Mem:35.68M (Peak 35.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark pupil.001
+Fra:1 Mem:35.89M (Peak 35.89M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin.001
+Fra:1 Mem:35.94M (Peak 35.94M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark smile
+Fra:1 Mem:36.05M (Peak 36.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal fin
+Fra:1 Mem:36.05M (Peak 36.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Tail fin
+Fra:1 Mem:36.06M (Peak 36.06M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Propeller blade.001
+Fra:1 Mem:36.09M (Peak 36.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Propeller blade.002
+Fra:1 Mem:36.17M (Peak 36.17M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge head
+Fra:1 Mem:36.48M (Peak 36.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle
+Fra:1 Mem:36.64M (Peak 36.64M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.002
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge head.001
+Fra:1 Mem:36.70M (Peak 36.70M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.004
+Fra:1 Mem:36.91M (Peak 36.91M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.005
+Fra:1 Mem:36.97M (Peak 36.97M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet
+Fra:1 Mem:37.09M (Peak 37.10M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.002
+Fra:1 Mem:37.19M (Peak 37.19M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.003
+Fra:1 Mem:37.30M (Peak 37.30M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.004
+Fra:1 Mem:37.42M (Peak 37.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.005
+Fra:1 Mem:37.45M (Peak 37.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.006
+Fra:1 Mem:37.52M (Peak 37.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.007
+Fra:1 Mem:37.71M (Peak 37.71M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.008
+Fra:1 Mem:37.89M (Peak 37.89M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.010
+Fra:1 Mem:38.23M (Peak 38.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.011
+Fra:1 Mem:38.34M (Peak 38.34M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.012
+Fra:1 Mem:38.35M (Peak 38.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.013
+Fra:1 Mem:38.49M (Peak 38.49M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.015
+Fra:1 Mem:38.62M (Peak 38.62M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.017
+Fra:1 Mem:38.61M (Peak 38.62M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.018
+Fra:1 Mem:38.79M (Peak 38.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.020
+Fra:1 Mem:38.79M (Peak 38.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.029
+Fra:1 Mem:38.87M (Peak 38.87M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.026
+Fra:1 Mem:39.05M (Peak 39.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.027
+Fra:1 Mem:39.13M (Peak 39.13M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.028
+Fra:1 Mem:40.08M (Peak 40.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:37.47M (Peak 40.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:37.47M (Peak 40.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:37.47M (Peak 40.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:37.47M (Peak 40.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:37.56M (Peak 40.08M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:37.57M (Peak 40.08M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:37.57M (Peak 40.08M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:37.57M (Peak 40.08M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:37.57M (Peak 40.08M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:39.46M (Peak 40.08M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:40.18M (Peak 40.18M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:40.17M (Peak 40.18M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:40.17M (Peak 40.18M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:40.17M (Peak 40.18M) | Time:00:00.01 | Mem:4.50M, Peak:4.50M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:40.17M (Peak 40.18M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:40.17M (Peak 40.18M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:44.41M (Peak 44.41M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:44.42M (Peak 44.42M) | Time:00:00.02 | Mem:12.84M, Peak:12.92M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.42M (Peak 44.42M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:44.42M (Peak 44.42M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:44.42M (Peak 44.42M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:44.42M (Peak 44.42M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:98.82M (Peak 98.82M) | Time:00:00.10 | Remaining:00:01.66 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:121.71M (Peak 156.05M) | Time:00:04.07 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:121.71M (Peak 156.05M) | Time:00:04.07 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\gup-b-rear.png'
+Time: 00:04.15 (Saving: 00:00.07)
+
+Fra:1 Mem:35.19M (Peak 35.19M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Rounded shark hull
+Fra:1 Mem:35.19M (Peak 35.19M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cockpit dark inset
+Fra:1 Mem:35.26M (Peak 35.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Seat back
+Fra:1 Mem:35.38M (Peak 35.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bubble canopy
+Fra:1 Mem:35.45M (Peak 35.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin
+Fra:1 Mem:35.55M (Peak 35.55M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark eye white.001
+Fra:1 Mem:35.66M (Peak 35.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pectoral fin.001
+Fra:1 Mem:35.76M (Peak 35.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Shark smile
+Fra:1 Mem:36.08M (Peak 36.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal fin
+Fra:1 Mem:36.08M (Peak 36.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge head
+Fra:1 Mem:36.10M (Peak 36.10M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.001
+Fra:1 Mem:36.19M (Peak 36.19M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.002
+Fra:1 Mem:36.42M (Peak 36.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.003
+Fra:1 Mem:36.52M (Peak 36.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge blue.001
+Fra:1 Mem:36.54M (Peak 36.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.005
+Fra:1 Mem:36.63M (Peak 36.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.006
+Fra:1 Mem:36.65M (Peak 36.65M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Badge tentacle.007
+Fra:1 Mem:36.90M (Peak 36.90M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.001
+Fra:1 Mem:37.30M (Peak 37.30M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.002
+Fra:1 Mem:37.35M (Peak 37.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.006
+Fra:1 Mem:37.52M (Peak 37.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.007
+Fra:1 Mem:37.52M (Peak 37.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.008
+Fra:1 Mem:37.59M (Peak 37.59M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.009
+Fra:1 Mem:37.78M (Peak 37.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.010
+Fra:1 Mem:37.83M (Peak 37.83M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.011
+Fra:1 Mem:37.96M (Peak 37.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.012
+Fra:1 Mem:38.03M (Peak 38.03M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.014
+Fra:1 Mem:38.48M (Peak 38.49M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.015
+Fra:1 Mem:38.56M (Peak 38.56M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.016
+Fra:1 Mem:38.80M (Peak 38.80M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.018
+Fra:1 Mem:38.91M (Peak 38.91M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.020
+Fra:1 Mem:38.96M (Peak 38.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.023
+Fra:1 Mem:39.10M (Peak 39.10M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.024
+Fra:1 Mem:39.15M (Peak 39.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.025
+Fra:1 Mem:39.34M (Peak 39.34M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.026
+Fra:1 Mem:39.41M (Peak 39.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull seam rivet.027
+Fra:1 Mem:40.12M (Peak 40.12M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:37.49M (Peak 40.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:37.49M (Peak 40.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:37.49M (Peak 40.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:37.49M (Peak 40.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:37.58M (Peak 40.12M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:37.59M (Peak 40.12M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:37.59M (Peak 40.12M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:37.59M (Peak 40.12M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:37.59M (Peak 40.12M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:39.47M (Peak 40.12M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.01 | Mem:0.73M, Peak:0.73M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.01 | Mem:4.50M, Peak:4.50M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:40.19M (Peak 40.19M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:8.60M, Peak:12.37M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.84M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.92M, Peak:12.92M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.84M, Peak:12.92M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:44.44M (Peak 44.44M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:44.44M (Peak 44.44M) | Time:00:00.02 | Mem:12.93M, Peak:12.93M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:98.84M (Peak 98.84M) | Time:00:00.12 | Remaining:00:02.45 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:121.73M (Peak 156.06M) | Time:00:05.07 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:121.73M (Peak 156.06M) | Time:00:05.07 | Mem:67.29M, Peak:67.29M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\gup-b-top.png'
+Time: 00:05.15 (Saving: 00:00.07)
+
+Info: Saved "gup-b.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\.cache\little-big-dirt-tools\blender-4.2.3-windows-x64\4.2\python\lib\site-packages\extern_draco.dll
+
+
+Blender quit
