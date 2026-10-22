@@ -37,3 +37,7 @@ Model fidelity limitation: no clean rear/top production orthographics; rear deta
 - Desktop browser: analog controls render, held stick input exercised, double-tap W reduced charge from approximately 21.4 to 7.6 over a 0.7-second boost; no console errors/warnings.
 - Original lightning core extracted through Blender into an editable standalone .blend and runtime GLB; no pedestal or showroom code is included.
 - Safari-specific magnifier/callout suppression uses the same capture-phase guards as Little Big Dirt, plus descendant -webkit-user-select and -webkit-touch-callout CSS. Real iPhone multi-touch and Safari OS gestures still require device verification.
+
+## Steering/depth thumbstick and throttle buttons
+
+14 tests pass. The analog now controls turn and rise independently of throttle. Forward and Brake/Reverse occupy the right side; back input brakes at positive speed before engaging reverse. Turbo's double-tap source moved from the stick to Forward, retaining keyboard activation. Browser held-stick ascent changed depth from 38.0 m to 32.5 m over 1.5 seconds; a Forward double-tap consumed charge. No browser console warnings/errors. Real iPhone testing remains required.
