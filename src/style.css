@@ -5,9 +5,11 @@ html,body,body *{-webkit-user-select:none;user-select:none;-webkit-touch-callout
 #touch{pointer-events:none}#touch>*{pointer-events:auto}
 #joystick{--stick-x:0px;--stick-y:0px;position:absolute;left:max(20px,env(safe-area-inset-left));bottom:max(24px,env(safe-area-inset-bottom));width:150px;height:150px;border-radius:50%;border:1px solid #ceffff60;background:radial-gradient(circle,#0b5f7040,#013b5266);box-shadow:inset 0 0 25px #b5ffff10;touch-action:none}
 .stick-ring{position:absolute;inset:24px;border:1px dashed #caffff38;border-radius:50%;pointer-events:none}.stick-knob{position:absolute;left:48px;top:48px;width:54px;height:54px;border-radius:50%;border:1px solid #e5ffffaa;background:radial-gradient(circle at 35% 30%,#a6f3edaa,#337c9290);box-shadow:0 4px 15px #00334566;transform:translate(var(--stick-x),var(--stick-y));pointer-events:none}#joystick:not(.engaged) .stick-knob{transition:transform .12s}#joystick>small{position:absolute;bottom:9px;text-align:center;width:100%;font-size:7px;pointer-events:none}.engaged{border-color:#aaffee!important}
-#turboHud{position:absolute;right:max(32px,env(safe-area-inset-right));top:160px;width:150px;padding:12px 15px;border:1px solid #cfffff33;border-radius:14px;background:#034e6266;pointer-events:none}#turboHud span{font-size:10px;letter-spacing:2px}#turboCharge{display:block;width:100%;height:10px;margin:8px 0;accent-color:#ffe178}#turboCharge::-webkit-meter-bar{background:#033d51;border:0;border-radius:5px}#turboCharge::-webkit-meter-optimum-value{background:#ffe178;border-radius:5px}.boosting #turboHud{box-shadow:0 0 25px #68eaff80;border-color:#9effff}.boosting #turboState{color:#afffff}
-@media(any-pointer:coarse){#turboHud{top:115px;right:max(20px,env(safe-area-inset-right));width:125px;padding:9px 12px}}
-@media(max-width:500px){#joystick{width:140px;height:140px}.stick-knob{left:43px;top:43px}.touch-enabled .vertical{flex-direction:column}#turboHud{top:115px;right:20px;width:125px}}
-@media(max-height:500px){#joystick{width:130px;height:130px}.stick-knob{left:38px;top:38px}#turboHud{top:105px;padding:8px 12px}header p{display:none}}
+#turboHud{position:absolute;left:50%;right:auto;top:calc(env(safe-area-inset-top,0px) + 2px);transform:translateX(-50%);width:125px;padding:0;border:0;background:none;box-shadow:none;pointer-events:none;text-align:center}#turboHud span{font-size:10px;letter-spacing:2px}#turboCharge{display:block;width:100%;height:10px;margin:4px 0;accent-color:#ffe178}#turboCharge::-webkit-meter-bar{background:#033d51;border:0;border-radius:5px}#turboCharge::-webkit-meter-optimum-value{background:#ffe178;border-radius:5px}.boosting #turboCharge{filter:drop-shadow(0 0 5px #68eaff)}
+@media(any-pointer:coarse){}
+@media(max-width:500px){#joystick{width:140px;height:140px}.stick-knob{left:43px;top:43px}.touch-enabled .vertical{flex-direction:column}}
+@media(max-height:500px){#joystick{width:130px;height:130px}.stick-knob{left:38px;top:38px}header p{display:none}}
 
 .vertical button{width:78px;height:70px}.vertical button small{font-size:8px;letter-spacing:.5px}
+
+
