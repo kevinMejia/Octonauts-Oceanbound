@@ -7,5 +7,6 @@ export const worldConfig = {
   boundaryMargin: 90, // Soft slowdown zone at the map edge.
   sceneryCount: 11000, // Sparse instanced patches across the map.
 };
-export const cameraConfig={distance:12,height:4,follow:5,returnDelay:2.5,returnRate:1.3};
+export const cameraConfig={distance:14.4,height:4,follow:5,returnDelay:2.5,returnRate:1.3};
+
 
