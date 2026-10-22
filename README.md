@@ -44,14 +44,14 @@ Repository creation and Pages setup require GitHub access with those capabilitie
 Using an authenticated GitHub CLI:
 
 ```sh
-gh repo create kevinMejia/octonauts-underwater-explorer --public --source=. --remote=origin --push
-gh api --method POST repos/kevinMejia/octonauts-underwater-explorer/pages -f build_type=workflow
+gh repo create kevinMejia/Octonauts-Oceanbound --public --source=. --remote=origin --push
+gh api --method POST repos/kevinMejia/Octonauts-Oceanbound/pages -f build_type=workflow
 gh workflow run pages.yml
 ```
 
 Alternatively create that empty public repository on GitHub, push this local main branch, then choose Settings → Pages → GitHub Actions. The included workflow tests, builds and publishes `dist`. All imports and GLB URLs are relative, including under `/octonauts-underwater-explorer/`.
 
-Expected URL after successful deployment: https://kevinmejia.github.io/octonauts-underwater-explorer/
+Expected URL after successful deployment: https://kevinmejia.github.io/Octonauts-Oceanbound/
 
 Verify the successful Pages run, then load the public URL, check browser console/network for failures, and exercise movement before declaring deployment complete.
 
