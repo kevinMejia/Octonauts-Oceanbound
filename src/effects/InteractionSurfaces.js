@@ -1,0 +1,13 @@
+import {SurfaceGrid,sweepSurface} from './interactionMath.js';
+import {heightAt} from '../environment/terrainMath.js';
+export class InteractionSurfaces{
+ constructor(habitat,decor,proxies){this.grid=new SurfaceGrid();this.near=[];this.rocks=[];
+  for(const p of habitat?.layout??[]){const co=Math.cos(p.angle),si=Math.sin(p.angle);for(const s of proxies[p.type])this.grid.add({x:p.x+(co*s.center[0]+si*s.center[2])*p.scale,y:p.y+s.center[1]*p.scale,z:p.z+(-si*s.center[0]+co*s.center[2])*p.scale,radius:s.radius*p.scale,surface:s.surface,color:s.color,branch:s.branch});}
+  for(const c of habitat?.colliders??[])this.grid.add({...c,radius:Math.max(c.rx,c.rz),surface:'rock'});
+  // Existing scattered scenery outside the habitat also exposes cached mesh bounds.
+  for(const r of decor.layout.records){const b=decor.surfaceBounds?.get(r.kind);if(!b)continue;this.grid.add({x:r.x,y:r.y+b.y*r.scale,z:r.z,radius:b.radius*r.scale,surface:b.surface,color:b.color,branch:r.kind.startsWith('branch')});}
+ }
+ query(a,b){return this.grid.query(b.x,b.z,5+Math.hypot(b.x-a.x,b.z-a.z),this.near);}
+ contact(a,b,heading=0){let best=null;let score=Infinity;const dx=Math.sin(heading)*2,dz=Math.cos(heading)*2;for(const s of this.near){if(s.surface!=='coral')continue;let hit=false;for(const sign of [-1,0,1])if(sweepSurface({x:a.x+dx*sign,y:a.y,z:a.z+dz*sign},{x:b.x+dx*sign,y:b.y,z:b.z+dz*sign},s,1.1))hit=true;if(!hit)continue;const d=Math.hypot(b.x-s.x,b.y-s.y,b.z-s.z)-s.radius;if(d<score){score=d;best=s;}}return best;}
+ ground(x,z,y){let floor=heightAt(x,z);for(const c of this.near){if(c.surface!=='rock'||!c.rx)continue;const co=Math.cos(c.angle),si=Math.sin(c.angle),dx=x-c.x,dz=z-c.z,lx=co*dx-si*dz,lz=si*dx+co*dz,q=lx*lx/(c.rx*c.rx)+lz*lz/(c.rz*c.rz);if(q<1){const top=c.y+c.ry*Math.sqrt(1-q);if(top<y+.3)floor=Math.max(floor,top);}}return floor;}
+}

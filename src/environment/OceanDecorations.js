@@ -1,3 +1,4 @@
+import {bendVegetation} from '../effects/vegetationInteraction.js';
 import {habitatEnabled} from '../config/habitatConfig.js';
 import {reefStoneTextures} from './reefTextures.js';
 import {insideHabitat} from './habitatLayout.js';
@@ -13,9 +14,10 @@ export class OceanDecorations{
   const {color:rockMap,normal:rockNormal}=reefStoneTextures();
   const sources=new Map();assets.traverse(o=>{if(!o.isMesh)return;const geo=o.geometry.clone();geo.applyMatrix4(o.matrixWorld);const mat=o.material.clone();mat.roughness=.88;
    if(o.name.startsWith('rock')){mat.map=rockMap;mat.normalMap=rockNormal;mat.normalScale=new T.Vector2(.6,.6);}
-   if(/kelp|seaweed|grass/.test(o.name)){mat.side=T.DoubleSide;mat.onBeforeCompile=s=>{s.uniforms.uReefTime={value:0};this.sway.push(s);s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nuniform float uReefTime;').replace('#include <begin_vertex>','#include <begin_vertex>\ntransformed.x+=sin(uReefTime*.65+position.y*1.6+instanceMatrix[3].x)*max(0.,position.y)*.045;transformed.z+=cos(uReefTime*.48+position.y*1.3+instanceMatrix[3].z)*max(0.,position.y)*.035;');};}
+   if(/kelp|seaweed|grass/.test(o.name)){mat.side=T.DoubleSide;mat.onBeforeCompile=s=>{s.uniforms.uReefTime={value:0};this.sway.push(s);bendVegetation(s);s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nuniform float uReefTime;').replace('#include <begin_vertex>','#include <begin_vertex>\ntransformed.x+=sin(uReefTime*.65+position.y*1.6+instanceMatrix[3].x)*max(0.,position.y)*.045;transformed.z+=cos(uReefTime*.48+position.y*1.3+instanceMatrix[3].z)*max(0.,position.y)*.035;');};}
    sources.set(o.name,{geo,mat});
   });
+  this.surfaceBounds=new Map();for(const [name,src] of sources){if(name.endsWith('_low'))continue;src.geo.computeBoundingBox();const b=src.geo.boundingBox,attr=src.geo.getAttribute('color'),color=attr?[attr.getX(0),attr.getY(0),attr.getZ(0)]:[.3,.5,.3];this.surfaceBounds.set(name,{y:(b.max.y+b.min.y)/2,radius:Math.max(b.max.x-b.min.x,b.max.y-b.min.y,b.max.z-b.min.z)*.4,surface:/branch|brain|tube/.test(name)?'coral':/rock/.test(name)?'rock':'vegetation',color});}
   const byKind=new Map(),dummy=new T.Object3D();
   for(let i=0;i<this.layout.records.length;i++){const r=this.layout.records[i];if(profile.reefFraction<1&&/grass|seaweed/.test(r.kind)&&i%3===0)continue;
    dummy.position.set(r.x,r.y,r.z);const normal=new T.Vector3(heightAt(r.x-.3,r.z)-heightAt(r.x+.3,r.z),.6,heightAt(r.x,r.z-.3)-heightAt(r.x,r.z+.3)).normalize();dummy.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),normal);dummy.rotateY(r.angle);dummy.scale.setScalar(r.scale);dummy.updateMatrix();r.matrix=dummy.matrix.clone();r.tint=.91+.09*Math.sin(r.x*17+r.z*11);

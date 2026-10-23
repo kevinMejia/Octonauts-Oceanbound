@@ -15,6 +15,7 @@ export class SubmarineController{
  if(p.z*dz>0&&Math.abs(p.z)>soft)dz*=Math.max(0,(edge-Math.abs(p.z))/w.boundaryMargin);
  p.x=Math.max(-edge,Math.min(edge,p.x+dx*dt));p.z=Math.max(-edge,Math.min(edge,p.z+dz*dt));p.y+=this.vertical*dt;
  let floor=heightAt(p.x,p.z);for(const a of [-1,1])floor=Math.max(floor,heightAt(p.x+Math.sin(this.heading)*3*a,p.z+Math.cos(this.heading)*3*a));floor+=c.minTerrainClearance;
+ this.floorContact={clearance:Math.max(0,p.y-floor),touching:p.y<=floor+.025,impact:p.y<floor?Math.max(0,-this.vertical):0,floor:floor-c.minTerrainClearance};
  if(p.y<floor){p.y=floor;this.vertical=Math.max(0,this.vertical);}if(p.y>w.surface-2.5){p.y=w.surface-2.5;this.vertical=Math.min(0,this.vertical);}this.bank=damp(this.bank,-this.steer*c.bankAmount,4,dt);this.pitch=damp(this.pitch,-this.vertical/c.ascendSpeed*c.pitchAmount,4,dt);
  }
 }
