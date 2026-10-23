@@ -1,0 +1,21 @@
+import * as T from 'three';
+import {marineLifeConfig as c} from '../config/marineLifeConfig.js';
+import {heightAt} from './terrainMath.js';
+import {worldConfig} from '../config/worldConfig.js';
+function geometry(kind){const p=[],col=[],idx=[],add=(x,y,z,color)=>{p.push(x,y,z);col.push(...color);return p.length/3-1;};
+ if(kind==='ray'){const steps=12;for(let layer=0;layer<2;layer++)for(let j=0;j<=steps;j++)for(let i=0;i<=steps;i++){const v=j/steps*2-1,u=i/steps*2-1,width=1.9*Math.pow(Math.max(0,1-Math.abs(v)),.55)+.03;add(u*width,(layer?-.07:.16)*(1-u*u)*Math.cos(v*Math.PI/2),v*1.15,layer?[.63,.8,.76]:[.16+.1*(1-u*u),.36+.12*(1-u*u),.42+.13*(1-u*u)]);}
+  for(let layer=0;layer<2;layer++)for(let j=0;j<steps;j++)for(let i=0;i<steps;i++){const a=layer*(steps+1)**2+j*(steps+1)+i,b=a+1,d=a+steps+1;idx.push(a,d,b,b,d,d+1);}
+  for(let i=0;i<8;i++){const a=add(-.035,-.03-i*.03,-1-i*.3,[.18,.36,.4]),b=add(.035,-.03-i*.03,-1-i*.3,[.18,.36,.4]);if(i)idx.push(a-2,a,b,a-2,b,b-1);}
+  for(const sign of [-1,1]){const a=add(sign*.22,.13,.62,[.01,.025,.035]),b=add(sign*.22+.08,.14,.73,[.01,.025,.035]),d=add(sign*.22-.08,.14,.73,[.01,.025,.035]);idx.push(a,b,d);}
+ }else{const rings=8,sides=16;for(let j=0;j<=rings;j++)for(let i=0;i<sides;i++){const t=j/rings*Math.PI*.56,a=i/sides*Math.PI*2,r=Math.sin(t)*(.75+.035*Math.cos(a*8));add(Math.cos(a)*r,Math.cos(t)*.85,Math.sin(a)*r,[.56+j*.025,.8+j*.015,.9]);}
+  for(let j=0;j<rings;j++)for(let i=0;i<sides;i++){const a=j*sides+i,b=j*sides+(i+1)%sides;idx.push(a,a+sides,b,b,a+sides,b+sides);}
+  for(let tentacle=0;tentacle<7;tentacle++){const a=tentacle/7*Math.PI*2;let prev=-1;for(let j=0;j<10;j++){const x=Math.cos(a)*.46+Math.sin(j*.7+a)*.07,y=-.15-j*.21,z=Math.sin(a)*.46;const n=add(x-.025,y,z,[.6,.82,.94]);add(x+.025,y,z,[.6,.82,.94]);if(prev>=0)idx.push(prev,n,n+1,prev,n+1,prev+1);prev=n;}}
+ }
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('color',new T.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();return g;
+}
+export class MarineVisitors{
+ constructor(scene,low){this.capacity=low?c.lowVisitorCount:c.visitorCount;this.dummy=new T.Object3D();this.time={value:0};this.meshes=['ray','jelly'].map(kind=>{const material=new T.MeshStandardMaterial({vertexColors:true,side:T.DoubleSide,roughness:kind==='ray'?.75:.35,envMapIntensity:.2,transparent:kind==='jelly',opacity:kind==='jelly'?.7:1,depthWrite:kind!=='jelly',forceSinglePass:true});material.onBeforeCompile=s=>{s.uniforms.uMarineTime=this.time;s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nuniform float uMarineTime;').replace('#include <begin_vertex>',kind==='ray'?'#include <begin_vertex>\ntransformed.y+=sin(uMarineTime*1.8+instanceMatrix[3].x*.1)*pow(abs(position.x)/1.9,1.5)*.42;':'#include <begin_vertex>\nfloat pulse=sin(uMarineTime*2.+instanceMatrix[3].z*.13);transformed.xz*=1.+pulse*.10;transformed.x+=sin(uMarineTime*1.4-position.y*2.)*max(0.,-position.y)*.11;');};material.customProgramCacheKey=()=>kind+'-marine-v1';const mesh=new T.InstancedMesh(geometry(kind),material,this.capacity);mesh.name=kind==='ray'?'Gliding reef rays':'Pulsing jellyfish';mesh.frustumCulled=false;mesh.count=0;scene.add(mesh);return mesh;});this.active={rays:0,jellyfish:0};}
+ update(time,groups,camera){this.time.value=time;let rays=0,jellies=0;for(let i=0;i<groups.length;i++){const g=groups[i],kind=g.seed%2,mesh=this.meshes[kind],n=kind?jellies:rays;if(n>=this.capacity)continue;if(g.nextFloor<0)continue;const t=time*.09+g.phase,x=g.x+Math.sin(t)*(kind?5:15),z=g.z+Math.cos(t)*(kind?5:10),y=Math.min(worldConfig.surface-3,Math.max(heightAt(x,z)+2,g.floor+(kind?10:8)+Math.sin(time*.4+g.phase)));if(Math.hypot(x-camera.position.x,z-camera.position.z)>95)continue;this.dummy.position.set(x,y,z);this.dummy.rotation.set(kind?0:Math.cos(time*.6+g.phase)*.1,kind?t:Math.atan2(Math.cos(t)*15,-Math.sin(t)*10),kind?0:Math.sin(time*.7+g.phase)*.18);this.dummy.scale.setScalar(kind?.95+(g.seed%4)*.12:1+(g.seed%3)*.18);this.dummy.updateMatrix();mesh.setMatrixAt(n,this.dummy.matrix);if(kind)jellies++;else rays++;}
+ for(const [i,n] of [rays,jellies].entries()){this.meshes[i].count=n;this.meshes[i].visible=n>0;this.meshes[i].instanceMatrix.needsUpdate=true;}this.active.rays=rays;this.active.jellyfish=jellies;
+ }
+}
