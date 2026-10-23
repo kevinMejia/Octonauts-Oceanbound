@@ -1,0 +1,1 @@
+{"quality":"low","viewport":[1280,720],"medianFrameMs":7,"p95FrameMs":7.1,"medianFps":142.9,"meanFps":142.3,"cpuSubmitMedianMs":1.2,"gpuMedianMs":0.84,"gpuTimerSupported":true,"drawCalls":126,"triangles":739999,"activeMeshes":182,"geometries":127,"textures":7,"visibleGeometryBufferMiB":11.37,"jsHeapMiB":81.69,"pixelRatio":1}
