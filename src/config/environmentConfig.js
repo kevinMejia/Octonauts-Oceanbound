@@ -6,7 +6,7 @@ export const environmentConfig={
  reefSpacing:55, // Metres between candidate reef pockets, with jitter and rejection.
  openingPocketAttempts:70,
  openSandDecorations:850,
- sandRippleScale:.8,
- profiles:{high:{pixelRatio:1.75,terrainSegments:48,drawDistance:260,reefFraction:1},low:{pixelRatio:1.25,terrainSegments:32,drawDistance:190,reefFraction:.7}},
+
+ profiles:{high:{pixelRatio:1.75,terrainSegments:48,drawDistance:260,reefFraction:1},low:{pixelRatio:1.25,terrainSegments:40,drawDistance:220,reefFraction:.7}},
 };
 export function renderingProfile(){const requested=new URLSearchParams(location.search).get('quality');return requested==='high'||requested==='low'?requested:matchMedia('(any-pointer:coarse)').matches?'low':'high';}

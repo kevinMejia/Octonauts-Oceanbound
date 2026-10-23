@@ -2,8 +2,8 @@ export const octopodConfig={
  enabled:true,
  position:{x:180,y:0,z:100}, // Feet on the locally leveled seabed; fixed between sessions.
  scale:1, // Blender metres match the existing GUP-B world units.
- levelRadius:34, // Flat sand only under the complete base footprint.
- blendRadius:90, // Smooth transition back to untouched procedural terrain.
+ levelRadius:30, // Flat sand only under the complete base footprint.
+ blendRadius:70, // Smooth transition back to untouched procedural terrain.
  sceneryClearance:39, // Includes support feet, pods and decoration footprint margins.
  collisionEnabled:true,
  navigationMarkerEnabled:true,

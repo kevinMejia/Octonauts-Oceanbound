@@ -1,3 +1,4 @@
+import {visualConfig} from '../config/visualConfig.js';
 import {applyWaterCaustics} from './waterCaustics.js';
 import * as T from 'three';
 import {worldConfig as world} from '../config/worldConfig.js';
@@ -7,15 +8,13 @@ function texture(name,color=false){const t=new T.TextureLoader().load(new URL('.
 export class OceanTerrain{
  constructor(scene,profile=config.profiles.high){
   this.chunks=[];this.profile=profile;
-  const material=this.material=new T.MeshStandardMaterial({map:texture('sand-color.jpg',true),normalMap:texture('sand-normal.png'),normalScale:new T.Vector2(config.sandRippleScale,config.sandRippleScale),roughnessMap:texture('sand-roughness.png'),roughness:1,vertexColors:true});
+  const material=this.material=new T.MeshStandardMaterial({map:texture('sand-color.jpg',true),normalMap:texture('sand-normal.png'),normalScale:new T.Vector2(visualConfig.sand.normalStrength,visualConfig.sand.normalStrength),roughnessMap:texture('sand-roughness.png'),roughness:1,vertexColors:true});
   const white=new T.DataTexture(new Uint8Array([255,255,255,255]),1,1);white.needsUpdate=true;this.occlusion=white;
   material.onBeforeCompile=s=>{
    s.uniforms.uReefOcclusion={value:this.occlusion};this.shader=s;
    s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vSandWorld;').replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvSandWorld=(modelMatrix*vec4(transformed,1.)).xyz;');
    s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vSandWorld;uniform sampler2D uReefOcclusion;');
    s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
-    float grain=fract(sin(dot(vSandWorld.xz,vec2(127.1,311.7)))*43758.5453);
-    diffuseColor.rgb*=.965+grain*.07;
     diffuseColor.rgb*=.57+.43*texture2D(uReefOcclusion,vSandWorld.xz/1600.+.5).r;
    `);
   };
@@ -23,7 +22,7 @@ export class OceanTerrain{
   const width=config.terrainChunkSize,segments=profile.terrainSegments;
   for(let z=-world.size/2;z<world.size/2;z+=width)for(let x=-world.size/2;x<world.size/2;x+=width){
    const g=new T.PlaneGeometry(width,width,segments,segments);g.rotateX(-Math.PI/2);const p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv,colors=[];const col=new T.Color();
-   for(let i=0;i<p.count;i++){const wx=p.getX(i)+x+width/2,wz=p.getZ(i)+z+width/2;p.setY(i,heightAt(wx,wz));uv.setXY(i,wx/8,wz/8);const normal=new T.Vector3(heightAt(wx-.2,wz)-heightAt(wx+.2,wz),.4,heightAt(wx,wz-.2)-heightAt(wx,wz+.2)).normalize();n.setXYZ(i,normal.x,normal.y,normal.z);const variation=.83+noise(wx/18,wz/18)*.17;col.setRGB(variation,variation,variation*.98);colors.push(col.r,col.g,col.b);}
+   for(let i=0;i<p.count;i++){const wx=p.getX(i)+x+width/2,wz=p.getZ(i)+z+width/2;p.setY(i,heightAt(wx,wz));uv.setXY(i,wx/visualConfig.sand.tileMetres,wz/visualConfig.sand.tileMetres);const normal=new T.Vector3(heightAt(wx-.2,wz)-heightAt(wx+.2,wz),.4,heightAt(wx,wz-.2)-heightAt(wx,wz+.2)).normalize();n.setXYZ(i,normal.x,normal.y,normal.z);const variation=.83+noise(wx/18,wz/18)*.17;col.setRGB(variation,variation,variation*.98);colors.push(col.r,col.g,col.b);}
    g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.computeBoundingSphere();const mesh=new T.Mesh(g,material);mesh.position.set(x+width/2,0,z+width/2);mesh.receiveShadow=true;scene.add(mesh);this.chunks.push(mesh);
   }
  }

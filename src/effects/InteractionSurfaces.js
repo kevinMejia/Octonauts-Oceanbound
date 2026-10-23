@@ -5,7 +5,8 @@ export class InteractionSurfaces{
   for(const p of habitat?.layout??[]){const co=Math.cos(p.angle),si=Math.sin(p.angle);for(const s of proxies[p.type])add({x:p.x+(co*s.center[0]+si*s.center[2])*p.scale,y:p.y+s.center[1]*p.scale,z:p.z+(-si*s.center[0]+co*s.center[2])*p.scale,radius:s.radius*p.scale,surface:s.surface,color:s.color,branch:s.branch});}
   for(const c of habitat?.colliders??[])add({...c,radius:Math.max(c.rx,c.rz),surface:'rock'});
   // Existing scattered scenery outside the habitat also exposes cached mesh bounds.
-  for(const r of decor.layout.records){const b=decor.surfaceBounds?.get(r.kind);if(!b)continue;add({x:r.x,y:r.y+b.y*r.scale,z:r.z,radius:Math.max(b.radius,b.rx??0,b.rz??0)*r.scale,surface:b.surface,loose:true,rx:b.rx*r.scale,ry:b.ry*r.scale,rz:b.rz*r.scale,angle:r.angle,color:b.color,branch:r.kind.startsWith('branch')});}
+  for(const s of decor.showcaseColliders??[])add({...s,surface:'rock'});
+  for(const r of decor.layout.records){if(r.module)continue;const b=decor.surfaceBounds?.get(r.kind);if(!b)continue;add({x:r.x,y:r.y+b.y*r.scale,z:r.z,radius:Math.max(b.radius,b.rx??0,b.rz??0)*r.scale,surface:b.surface,loose:true,rx:b.rx*r.scale,ry:b.ry*r.scale,rz:b.rz*r.scale,angle:r.angle,color:b.color,branch:r.kind.startsWith('branch')});}
  }
  query(a,b){return this.grid.query(b.x,b.z,5+Math.hypot(b.x-a.x,b.z-a.z),this.near);}
  contact(a,b,heading=0){let best=null;let score=Infinity;const dx=Math.sin(heading)*2,dz=Math.cos(heading)*2;for(const s of this.near){if(s.surface!=='coral')continue;let hit=false;for(let sign=-1;sign<=1;sign++)if(sweepSurface(a,b,s,1.1,dx*sign,dz*sign))hit=true;if(!hit)continue;const d=Math.hypot(b.x-s.x,b.y-s.y,b.z-s.z)-s.radius;if(d<score){score=d;best=s;}}return best;}

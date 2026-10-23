@@ -15,8 +15,8 @@ export function applyWaterCaustics(material,strength=1,low=false){if(!config.cau
  shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
  varying vec3 vWaterSurfacePosition;varying float vWaterFacing;uniform float uWaterTime,uWaterStrength,uWaterScale,uWaterAnimation,uWaterSurface,uWaterDepthFalloff;uniform sampler2D uWaterCausticMap;`);
  shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>',`vec2 waterXZ=vWaterSurfacePosition.xz;float wt=uWaterTime*uWaterAnimation;
- float ca=texture2D(uWaterCausticMap,waterXZ*uWaterScale+vec2(sin(waterXZ.y*.22+wt*.18),cos(waterXZ.x*.19-wt*.13))*.06+vec2(wt*.007,-wt*.004)).r;
- ${low?'':`float cb=texture2D(uWaterCausticMap,waterXZ*uWaterScale*1.16+vec2(cos(waterXZ.y*.17-wt*.14),sin(waterXZ.x*.24+wt*.12))*.05+vec2(-wt*.005,wt*.006)).r;ca=ca*.65+cb*.35;`}
+ float ca=texture2D(uWaterCausticMap,waterXZ*uWaterScale+vec2(sin(waterXZ.y*.22+wt*.18),cos(waterXZ.x*.19-wt*.13))*.12+vec2(wt*.007,-wt*.004)).r;
+ ${low?'':`float cb=texture2D(uWaterCausticMap,waterXZ*uWaterScale*1.16+vec2(cos(waterXZ.y*.17-wt*.14),sin(waterXZ.x*.24+wt*.12))*.11+vec2(-wt*.005,wt*.006)).r;ca=ca*.65+cb*.35;`}
  float waterDepth=exp(-max(0.,uWaterSurface-vWaterSurfacePosition.y)*uWaterDepthFalloff);
  outgoingLight+=diffuseColor.rgb*vec3(.91,1.,.84)*ca*uWaterStrength*waterDepth*vWaterFacing;
  #include <opaque_fragment>`);

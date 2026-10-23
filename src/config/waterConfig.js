@@ -7,8 +7,8 @@ export const waterConfig={
   maxParticles:800,lowParticles:320,minSize:.018,maxSize:.045},
  motion:{enabled:true,speedThreshold:14,streakIntensity:.12,maxStreaks:12,
   lowStreaks:0,lifetime:.75}, // Optional flow streaks are disabled in low quality.
- caustics:{enabled:true,intensity:.34,animationSpeed:1,scale:.075,
+ caustics:{enabled:true,intensity:.26,animationSpeed:1,scale:.12,
   depthFalloff:.006,reefIntensity:.4}, // Low quality uses one sample and rock surfaces only.
- atmosphere:{fogDensity:.0072,fogColor:'#087a9e',depthTint:'#086e91',
-  depthTintStrength:.12,depthRange:46,lightShaftIntensity:.025},
+ atmosphere:{fogDensity:.0054,fogColor:'#08789f',depthTint:'#086e91',
+  depthTintStrength:.12,depthRange:46,lightShaftIntensity:.045},
 };
