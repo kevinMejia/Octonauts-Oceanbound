@@ -1,3 +1,4 @@
+export const recenterAngle=(angle,rate,dt)=>Math.atan2(Math.sin(angle),Math.cos(angle))*Math.exp(-Math.max(0,dt)*rate);
 export const smoothFactor=(rate,dt)=>1-Math.exp(-Math.max(0,rate)*Math.max(0,dt));
 export function speedFraming(speed,c){const t=Math.max(0,Math.min(1,(Math.abs(speed)-c.speedStart)/(c.speedFull-c.speedStart)));return t*t*(3-2*t);}
 export function aspectDistance(aspect,c){return Math.max(1,Math.min(c.portraitDistanceMax,Math.sqrt(1.45/Math.max(.25,aspect))));}

@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>Actual game camera scenarios</title>
+<style>body{margin:0;background:#102b38;color:white;font:14px system-ui}nav{padding:8px;display:flex;gap:8px;flex-wrap:wrap}button{padding:8px}iframe{display:block;width:100%;height:calc(100vh - 90px);border:0}body.mobile iframe{width:844px;height:390px;margin:20px auto;border:1px solid #789}body.portrait iframe{width:375px;height:667px;margin:auto}</style>
+<nav><button data-scene="open">Open water</button><button data-scene="reef">Reef passage</button><button data-scene="floor">Near seabed</button><button data-scene="base">Base obstruction</button><button id="landscape">Mobile landscape</button><button id="portrait">Mobile portrait</button><button id="desktop">Desktop</button></nav>
+<iframe title="Actual game camera test" src="../dist/?quality=low&inspect=1"></iframe><output id="scenarioMetrics" hidden></output><p id="status">Loading actual game</p>
+<script type="module">
+const frame=document.querySelector('iframe'),status=document.querySelector('#status');
+const terrain=await import('../dist/src/environment/terrainMath.js');
+const scenarios={open:[180,20,195,Math.PI],reef:[0,8,82,Math.PI],floor:[0,0,82,Math.PI],base:[180,20,113,Math.PI]};
+for(const b of document.querySelectorAll('[data-scene]'))b.onclick=()=>{const g=frame.contentWindow.explorer;if(!g?.ready)return;const [x,y,z,heading]=scenarios[b.dataset.scene];g.input.clear();g.input.orbit.x=0;g.input.orbit.y=0;g.input.orbit.last=-100;Object.assign(g.sub.position,{x,y:b.dataset.scene==='floor'?terrain.heightAt(x,z)+1.8:y,z});g.sub.heading=heading;g.sub.speed=g.sub.vertical=0;g.chase.initial=true;g.sub.turbo.charge=100;status.textContent='Scenario: '+b.textContent;frame.focus();};
+const mode=name=>{document.body.className=name;frame.contentDocument.body.classList.toggle('touch-enabled',!!name);};
+document.querySelector('#landscape').onclick=()=>mode('mobile');document.querySelector('#portrait').onclick=()=>mode('portrait');document.querySelector('#desktop').onclick=()=>mode('');
+setInterval(()=>{const doc=frame.contentDocument;document.querySelector('#scenarioMetrics').dataset.metrics=JSON.stringify({camera:doc.querySelector('#cameraMetrics')?.dataset.metrics,render:doc.querySelector('#renderMetrics')?.dataset.metrics});},200);
+frame.onload=()=>status.textContent='Use scenario buttons, then the normal game controls. No simulated screenshots.';
+</script>
