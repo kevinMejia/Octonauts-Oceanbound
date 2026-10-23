@@ -4,6 +4,7 @@ paths=['index.html','src/main.js','src/game/Game.js','vendor/three.module.js','v
 paths+=['assets/models/reef-formations/interactions.json','src/effects/EnvironmentalInteractions.js','src/config/interactionConfig.js','assets/models/octopod.glb','assets/models/octopod-collision.json','src/navigation/Compass.js','src/config/octopodConfig.js']
 paths+=['src/environment/AmbientWater.js','src/environment/waterCaustics.js','src/effects/PropulsionWater.js','src/effects/waterMath.js','src/config/waterConfig.js']
 paths+=['src/camera/ChaseCamera.js','src/camera/CameraObstacles.js','src/camera/cameraMath.js','src/config/cameraConfig.js']
+paths+=['src/ui/TurboMeter.js']
 for path in paths:
  with urllib.request.urlopen(base+path) as r:
   assert r.status==200
