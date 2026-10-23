@@ -9,9 +9,10 @@ models=['gup-b.glb','turbo-lightning.glb','underwater-environment.glb']
 for p in (out/'assets/models').glob('*.glb'):
  if p.name not in models:p.unlink()
 for name in models:shutil.copy2(ROOT/'assets/models'/name,out/'assets/models'/name)
+shutil.copytree(ROOT/'assets/models/reef-formations',out/'assets/models/reef-formations',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/textures',out/'assets/textures',dirs_exist_ok=True)
 (out/'.nojekyll').touch()
-for p in (out/'assets/models').glob('*.glb'):
+for p in (out/'assets/models').rglob('*.glb'):
  data=p.read_bytes();assert data[:4]==b'glTF';assert struct.unpack_from('<I',data,8)[0]==len(data)
 print('Production site built; all GLB headers and lengths verified.')
 
@@ -19,6 +20,7 @@ print('Production site built; all GLB headers and lengths verified.')
 hash_input=b''.join(p.read_bytes() for p in sorted((ROOT/'src').rglob('*')) if p.is_file())+(ROOT/'index.html').read_bytes()
 hash_input+=b''.join((ROOT/'assets/models'/name).read_bytes() for name in models)
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/textures').glob('*')) if p.is_file())
+hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/reef-formations').glob('*')) if p.is_file())
 version=hashlib.sha256(hash_input).hexdigest()[:12]
 for p in [out/'index.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')

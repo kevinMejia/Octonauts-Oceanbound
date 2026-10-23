@@ -1,3 +1,6 @@
+import {habitatEnabled} from '../config/habitatConfig.js';
+import {reefStoneTextures} from './reefTextures.js';
+import {insideHabitat} from './habitatLayout.js';
 import * as T from 'three';
 import {GLTFLoader} from '../../vendor/GLTFLoader.js';
 import {heightAt} from './terrainMath.js';
@@ -5,10 +8,9 @@ import {reefLayout} from './reefLayout.js';
 import {environmentConfig as config} from '../config/environmentConfig.js';
 export class OceanDecorations{
  async load(scene,profile=config.profiles.high){
-  this.sway=[];this.batches=[];this.profile=profile;this.layout=reefLayout();this.lastPosition=null;this.lastUpdate=-1;this.frustum=new T.Frustum();this.clip=new T.Matrix4();this.sphere=new T.Sphere();
+  this.sway=[];this.batches=[];this.profile=profile;this.layout=reefLayout();if(habitatEnabled()){this.layout.records=this.layout.records.filter(r=>!insideHabitat(r.x,r.z));this.layout.rocks=this.layout.rocks.filter(r=>!insideHabitat(r.x,r.z));}this.lastPosition=null;this.lastUpdate=-1;this.frustum=new T.Frustum();this.clip=new T.Matrix4();this.sphere=new T.Sphere();
   const {scene:assets}=await new GLTFLoader().loadAsync(new URL('../../assets/models/underwater-environment.glb',import.meta.url).href);assets.updateMatrixWorld(true);
-  const loader=new T.TextureLoader(),rockMap=loader.load(new URL('../../assets/textures/rock-color.jpg',import.meta.url).href),rockNormal=loader.load(new URL('../../assets/textures/rock-normal.png',import.meta.url).href);rockMap.colorSpace=T.SRGBColorSpace;
-  for(const t of [rockMap,rockNormal]){t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(2,2);t.anisotropy=4;}
+  const {color:rockMap,normal:rockNormal}=reefStoneTextures();
   const sources=new Map();assets.traverse(o=>{if(!o.isMesh)return;const geo=o.geometry.clone();geo.applyMatrix4(o.matrixWorld);const mat=o.material.clone();mat.roughness=.88;
    if(o.name.startsWith('rock')){mat.map=rockMap;mat.normalMap=rockNormal;mat.normalScale=new T.Vector2(.6,.6);}
    if(/kelp|seaweed|grass/.test(o.name)){mat.side=T.DoubleSide;mat.onBeforeCompile=s=>{s.uniforms.uReefTime={value:0};this.sway.push(s);s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nuniform float uReefTime;').replace('#include <begin_vertex>','#include <begin_vertex>\ntransformed.x+=sin(uReefTime*.65+position.y*1.6+instanceMatrix[3].x)*max(0.,position.y)*.045;transformed.z+=cos(uReefTime*.48+position.y*1.3+instanceMatrix[3].z)*max(0.,position.y)*.035;');};}
@@ -24,6 +26,7 @@ export class OceanDecorations{
   sources.forEach(s=>this.assetTriangles+=(s.geo.index?.count??s.geo.attributes.position.count)/3);this.color=new T.Color();this.createOcclusion();
  }
  createOcclusion(){
+  this.occlusion?.dispose();
   const size=1024,canvas=document.createElement('canvas');canvas.width=canvas.height=size;const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,size,size);
   for(const r of this.layout.rocks){const x=(r.x/1600+.5)*size,y=(.5-r.z/1600)*size,radius=Math.max(2.5,r.radius*1.4)*size/1600;const gradient=ctx.createRadialGradient(x,y,0,x,y,radius);gradient.addColorStop(0,'rgba(0,0,0,.7)');gradient.addColorStop(.45,'rgba(0,0,0,.4)');gradient.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=gradient;ctx.fillRect(x-radius,y-radius,radius*2,radius*2);}
   this.occlusion=new T.CanvasTexture(canvas);this.occlusion.colorSpace=T.NoColorSpace;
