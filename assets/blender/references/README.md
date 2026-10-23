@@ -16,3 +16,7 @@ Regenerate from repository root:
 `blender -b --python assets/blender/scripts/create-environment.py`
 
 Main source saves before studio additions. Four inspection renders are under docs/. Environment sources contain three variations each of coral, kelp, rocks, shells and grass, batched at runtime with instancing.
+
+## October 22 environment library
+
+`underwater-environment.blend` and `scripts/create-underwater-environment.py` form the current reef source. The user-supplied ocean concept guided the palette, varied coral forms and clustered composition; it is not embedded or redistributed. Authored organic surfaces and reduced LODs are procedural Blender meshes, with no downloaded scenery or textures. Studio and actual gameplay inspection evidence is under `docs/environment-upgrade/`.

@@ -45,3 +45,7 @@ Model fidelity limitation: no clean rear/top production orthographics; rear deta
 ## Camera settings menu
 
 16 automated tests pass, including camera bounds, invalid stored values, persistence and unavailable storage. Browser verified hamburger > Settings, live slider changes to distance 22 m / height 8 m, and the same values after reload. No console warnings/errors. Native dialog clears held gameplay controls and excludes sliders from gameplay gesture guards. Default camera remains 14.4 m behind / 4 m above. Real iPhone layout and slider gestures still require device confirmation.
+
+## Major visual environment upgrade
+
+20 automated tests pass. Dedicated Blender reef library, three-scale terrain, sand and rock materials, animated caustics, reef composition, lighting and rendering profiles are documented in [the visual review](environment-upgrade/REPORT.md), with actual game screenshots and high/low desktop rendering samples. Original GUP-B, controller, input, turbo and camera files/parameters are preserved. Real iPhone target-device performance remains unverified.

@@ -19,9 +19,11 @@ W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag 
 ## Assets and architecture
 
 - `assets/blender/gup-b.blend`: editable vehicle source, with materials and named Propeller parent.
-- `assets/blender/environment-*.blend`: three reusable scenery libraries.
+- `assets/blender/underwater-environment.blend`: authored reef library with 24 variations and reduced mobile/distant meshes.
+- `assets/blender/environment-*.blend`: legacy scenery source, preserved but no longer loaded.
 - `assets/blender/scripts/`: Blender Python generators. Blender 4.2.3 was used.
-- `assets/models/`: exported runtime GLBs; production ships these only.
+- `assets/models/`: exported runtime GLBs. Production ships GUP-B, lightning and the new reef library.
+- `assets/textures/`: seamless 512px sand/rock maps and caustic light texture; generator in `tools/create_sand_textures.py`.
 - `assets/blender/references/README.md`: reference links and documented accuracy limits.
 - `docs/gup-b-*.png`: inspected front three-quarter, side, rear and top studio renders.
 - `src/vehicles/SubmarineController.js`: independent underwater kinematics, drag, volume limits.
@@ -31,7 +33,11 @@ W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag 
 - `src/config/`: commented movement, world and camera tuning. Change `seed` to generate another layout.
 - `vendor/`: pinned Three.js r168 and loader utilities; license included.
 
-Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and prevents ascent above the water ceiling. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.5, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
+Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and prevents ascent above the water ceiling. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.25, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
+
+## Environment visual upgrade
+
+See [the visual review and real gameplay screenshots](docs/environment-upgrade/REPORT.md) for the staged before/after comparison, all four requested views, authored assets, performance samples and limitations. Quality profiles live in `src/config/environmentConfig.js`; coarse-pointer devices use reduced geometry and no shadow map. Add `?quality=low` or `?quality=high` to compare without adding a gameplay menu. Device-specific iPhone performance remains unverified.
 
 ## Reference project review
 
@@ -51,7 +57,7 @@ gh api --method POST repos/kevinMejia/Octonauts-Oceanbound/pages -f build_type=w
 gh workflow run pages.yml
 ```
 
-Alternatively create that empty public repository on GitHub, push this local main branch, then choose Settings → Pages → GitHub Actions. The included workflow tests, builds and publishes `dist`. All imports and GLB URLs are relative, including under `/octonauts-underwater-explorer/`.
+Alternatively create that empty public repository on GitHub, push this local main branch, then choose Settings → Pages → GitHub Actions. The included workflow tests, builds and publishes `dist`. All imports and GLB URLs are relative, including under `/Octonauts-Oceanbound/`.
 
 Game URL: https://kevinmejia.github.io/Octonauts-Oceanbound/
 

@@ -17,9 +17,13 @@ print('Production site built; all GLB headers and lengths verified.')
 
 # Version the module graph together: Safari may otherwise reuse old imports after a deploy.
 hash_input=b''.join(p.read_bytes() for p in sorted((ROOT/'src').rglob('*')) if p.is_file())+(ROOT/'index.html').read_bytes()
+hash_input+=b''.join((ROOT/'assets/models'/name).read_bytes() for name in models)
+hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/textures').glob('*')) if p.is_file())
 version=hashlib.sha256(hash_input).hexdigest()[:12]
 for p in [out/'index.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')
  text=re.sub(r"([\"'])(\.{1,2}/[^\"'\s]+\.(?:js|css))\1",lambda m:m[1]+m[2]+'?v='+version+m[1],text)
+ if p.suffix=='.js' and 'src' in p.relative_to(out).parts:
+  text=re.sub(r"(new URL\([^;\n]+?,import\.meta\.url\)\.href)",lambda m:m[1]+"+'?v="+version+"'",text)
  p.write_text(text,encoding='utf-8')
 print('Versioned production modules:',version)
