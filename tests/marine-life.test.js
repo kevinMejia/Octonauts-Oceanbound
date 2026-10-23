@@ -8,3 +8,6 @@ test('shared fish, visitor and bubble pools have explicit smaller mobile budgets
 
 import {nearbySchools} from '../src/environment/marineLayout.js';
 test('marine schools cover opening and distant exploration with deterministic anchors',()=>{for(const [x,z] of [[180,195],[0,70],[-400,-300],[500,600]]){const a=nearbySchools(x,z,105);assert(a.length>=5);assert.deepEqual(a,nearbySchools(x,z,105));assert(new Set(a.map(g=>g.id)).size===a.length);assert(Math.hypot(a[0].x-x,a[0].z-z)<60);}});
+
+import {kelpMeadows} from '../src/environment/marineLayout.js';
+test('tall kelp meadows are repeatable, grounded and stay inside world bounds',()=>{const a=kelpMeadows();assert.deepEqual(a,kelpMeadows());assert(a.length>300&&a.length<1500);assert(a.every(r=>Math.abs(r.x)<800&&Math.abs(r.z)<800&&r.scale>=1.5&&Number.isFinite(r.y)));});
