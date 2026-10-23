@@ -1,0 +1,64 @@
+/* Octopod monitor: physical bezel, inset screen, and native interactive controls. */
+#settingsDialog{
+ --frame-dark:#364548;--frame-light:#81928c;--screen-deep:#07525f;--screen-light:#168e90;
+ --accent:#a8f5e9;--accent-warm:#ffc473;--bezel:15px;--corner:42px;--screen-glow:#8dfff333;
+ width:min(760px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 32px));
+ max-width:none;max-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 32px);
+ max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 32px);
+ inset:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
+ margin:auto;padding:var(--bezel);border:2px solid #91a29a;border-radius:var(--corner);overflow:hidden;
+ color:#eafff7;background:linear-gradient(145deg,#84948b 0%,#526361 12%,var(--frame-dark) 68%,#657875);
+ box-shadow:0 22px 70px #001a3566,inset 0 3px 2px #d2dad05c,inset 0 -5px 3px #182d3680;
+ font:14px Arial,sans-serif;touch-action:pan-y;
+}
+#settingsDialog[open]{display:flex;animation:monitor-in .2s ease-out}
+#settingsDialog::backdrop{background:#002c4255;animation:overlay-in .2s ease-out}
+#settingsDialog.is-closing{animation:monitor-out .2s ease-in forwards}
+#settingsDialog.is-closing::backdrop{animation:overlay-out .2s ease-in forwards}
+.monitor-screen{position:relative;display:flex;flex-direction:column;min-width:0;width:100%;overflow:hidden;border:3px solid #273f43;border-radius:calc(var(--corner) - var(--bezel));background:radial-gradient(ellipse at 90% 0%,#4bd2b547,transparent 65%),linear-gradient(135deg,var(--screen-light),var(--screen-deep));box-shadow:0 0 0 2px var(--frame-light),inset 0 0 24px #002c4b88,inset 0 2px 5px var(--screen-glow)}
+.monitor-screen::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b4012 3px,#003b4012 4px),linear-gradient(120deg,#d1fff30a,transparent 35%);}
+.monitor-header{display:flex;align-items:center;gap:12px;flex-shrink:0;padding:23px 26px 20px;border-bottom:1px solid #bcfff12e;}
+.monitor-header>div{min-width:0;flex:1}.monitor-header img{flex-shrink:0;object-fit:contain}
+#settingsDialog .monitor-eyebrow{font-size:9px;font-weight:bold;letter-spacing:2.5px;color:var(--accent);margin:0 0 6px;}
+#settingsDialog h2{font-size:19px;letter-spacing:1px;margin:0;line-height:1.3;text-wrap:balance;}
+#settingsDialog button{font-family:inherit;cursor:pointer;touch-action:manipulation;backdrop-filter:none;-webkit-backdrop-filter:none;}
+#settingsDialog #closeSettings{flex-shrink:0;width:44px;height:44px;min-height:44px;border:1px solid #b8fff199;border-radius:15px;background:#06465180;color:var(--accent);font-size:22px;box-shadow:inset 0 1px #ccfff533,0 3px 0 #033b4855}
+.settings-tabs{display:flex;gap:10px;padding:18px 26px 0;flex-shrink:0;}
+#settingsDialog .settings-tabs button{width:auto;min-width:110px;height:44px;border-radius:14px;border:1px solid #b9fff170;background:#084f5c;color:#c3f8ee;font-size:14px;font-weight:bold;letter-spacing:.5px;box-shadow:inset 0 1px #d5fff129,0 3px 0 #003f4f66;}
+#settingsDialog .settings-tabs button[aria-selected=true]{color:#154c55;background:linear-gradient(#c3faea,#8ad9d1);border-color:#d0fff4;box-shadow:0 2px 0 #002e4155;}
+.monitor-content{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 26px 24px;scrollbar-width:thin;scrollbar-color:#8cdbce #064c57;touch-action:pan-y;}
+#settingsDialog [hidden]{display:none!important}
+#settingsDialog h3{font-size:20px;letter-spacing:.1px;margin:0 0 6px;}
+#settingsDialog .section-description{font-size:12px;color:#c3ece2;line-height:1.5;margin:0 0 22px;}
+.settings-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 24px;margin:0 0 18px;}
+.setting-wide{grid-column:1/-1}.setting-row{min-width:0;}
+#settingsDialog .setting-row label{display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.5;font-size:13px;font-weight:bold;}
+#settingsDialog output{white-space:nowrap;font-size:13px;font-variant-numeric:tabular-nums;color:var(--accent-warm);}
+#settingsDialog input[type=range]{display:block;-webkit-appearance:none;appearance:none;width:100%;height:44px;margin:1px 0 0;padding:0;background:transparent;cursor:pointer;touch-action:pan-y;--range:50%;}
+#settingsDialog input[type=range]::-webkit-slider-runnable-track{height:9px;border:1px solid #023e4c;border-radius:8px;background:linear-gradient(to right,#92e4d6 0%,#92e4d6 var(--range),#033e4d var(--range),#033e4d 100%);box-shadow:inset 0 2px 2px #002f4977,0 1px #d1fff12e;}
+#settingsDialog input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:25px;height:25px;margin-top:-9px;border:2px solid #ffe4b4;border-radius:50%;background:linear-gradient(135deg,#ffdc99,#efac5c);box-shadow:0 2px 4px #00394499;}
+#settingsDialog input[type=range]::-moz-range-track{height:8px;border:1px solid #023e4c;border-radius:8px;background:#033e4d;}
+#settingsDialog input[type=range]::-moz-range-progress{height:8px;border-radius:8px;background:#92e4d6;}
+#settingsDialog input[type=range]::-moz-range-thumb{width:22px;height:22px;border:2px solid #ffe4b4;border-radius:50%;background:#ffc473;box-shadow:0 2px 4px #00394499;}
+#settingsDialog .setting-check{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;border-radius:13px;border:1px solid #b5f7e73d;background:#03505d66;font-size:13px;cursor:pointer;}
+#settingsDialog input[type=checkbox]{flex-shrink:0;width:22px;height:22px;margin:0;accent-color:var(--accent-warm);cursor:pointer;touch-action:manipulation;}
+#settingsDialog .settings-reset{width:auto;height:auto;min-height:44px;padding:10px 18px;border:1px solid #9fddcc88;border-radius:13px;background:#064957;color:#cdf9eb;font-size:12px;font-weight:bold;box-shadow:inset 0 1px #d1fff126;}
+#settingsDialog .camera-advanced{border-top:1px solid #b8fff133;margin:0 0 20px;padding-top:5px;}
+#settingsDialog summary{padding:16px 0;min-height:44px;font-size:13px;font-weight:bold;color:var(--accent);cursor:pointer;touch-action:manipulation;}
+.monitor-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;padding:13px 26px;border-top:1px solid #b8fff12e;background:#03414e55;}
+#settingsDialog .monitor-footer p{margin:0;font-size:11px;line-height:1.5;color:#c1e9de;}.monitor-footer>span{font-size:9px;font-weight:bold;letter-spacing:2px;color:#95d9cd;}
+#settingsDialog :is(button,input,summary):focus-visible{outline:2px solid #fff0bc;outline-offset:3px;}
+#navigation button{touch-action:manipulation}
+@media(hover:hover){#settingsDialog button:hover{filter:brightness(1.08)}#settingsDialog summary:hover{color:#fff0bc}}
+#settingsDialog button:active{transform:translateY(1px)}
+@media(max-width:600px){
+ #settingsDialog{--bezel:10px;--corner:31px;width:calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 20px);max-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 20px);max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 20px);}
+ .monitor-header{padding:16px 14px;gap:9px}.monitor-header img{width:32px;height:32px}#settingsDialog .monitor-eyebrow{font-size:8px;letter-spacing:1px}#settingsDialog h2{font-size:13px;letter-spacing:.6px;}
+ .settings-tabs{padding:14px 16px 0}#settingsDialog .settings-tabs button{flex:1;min-width:0}.monitor-content{padding:20px 16px;}.settings-grid{grid-template-columns:minmax(0,1fr);gap:7px;margin-bottom:16px}#settingsDialog h3{font-size:18px}.monitor-footer{padding:12px 16px}.monitor-footer>span{display:none}
+}
+@media(max-height:480px){.monitor-header{padding-top:12px;padding-bottom:12px}.settings-tabs{padding-top:10px}.monitor-content{padding-top:16px}.monitor-footer{padding-top:8px;padding-bottom:8px}}
+@keyframes monitor-in{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes monitor-out{to{opacity:0;transform:translateY(6px) scale(.985)}}
+@keyframes overlay-in{from{background:#002c4200}to{background:#002c4255}}
+@keyframes overlay-out{to{background:#002c4200}}
+@media(prefers-reduced-motion:reduce){#settingsDialog[open],#settingsDialog.is-closing,#settingsDialog::backdrop,#settingsDialog.is-closing::backdrop{animation:none}}

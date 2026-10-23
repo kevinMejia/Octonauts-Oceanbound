@@ -1,5 +1,6 @@
 import {submarineConfig as config} from '../config/submarineConfig.js';
 import {audioDefaults,loadAudioSettings,saveAudioSettings,volumeKeys} from './AudioSettings.js';
+import {BubbleBursts,bubbleAudioConfig} from './BubbleBursts.js';
 import {MusicController} from './MusicController.js';
 import {bubbleRate} from '../effects/waterMath.js';
 const safeStorage=host=>{try{return host.localStorage;}catch{return undefined;}};
@@ -54,6 +55,7 @@ export class AudioManager{
   try{const response=await this.host.fetch(url);if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.arrayBuffer();
    // Callback form also works on older iPhone Safari versions.
    const buffer=await new Promise((resolve,reject)=>this.context.decodeAudioData(data,resolve,reject));if(this.disposed)return;
+   if(name==='bubbles'){this.bubbles=new BubbleBursts(this.context,this.channelGains.bubbles,buffer);return;}
    const gain=this.context.createGain(),source=this.context.createBufferSource();gain.gain.value=0;gain.connect(this.channelGains[name]);source.buffer=loopBuffer(this.context,buffer);source.loop=true;source.connect(gain);source.start();this.channels[name]={gain,source};
   }catch(error){this.errors[name]=String(error);console.warn(`Oceanbound audio unavailable: ${url}`,error);}
  }));}
@@ -70,9 +72,10 @@ export class AudioManager{
  // Hooks for a future pause/scene system. Opening settings does not pause or restart music.
  setPaused(value){this.paused=!!value;this.applySettings();}
  setSceneMusicEnabled(value){this.sceneMusicEnabled=!!value;this.applySettings();}
- suspend(){this.music?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
+ suspend(){this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
  update(dt,sub,input){const targets=audioTargets(sub,input,this.previousSpeed,dt);this.previousSpeed=targets.speed;if(this.context?.state!=='running')return;
+  this.bubbles?.update(dt,{intensity:this.paused?0:targets.bubbles/.1,moving:!this.paused&&targets.bubbles>0&&Math.abs(sub.speed)>=bubbleAudioConfig.minimumMovementThreshold});
   for(const [name,channel] of Object.entries(this.channels)){this.smooth(channel.gain.gain,this.paused?0:targets[name],name==='ambience'?.8:.2);if(name==='propeller')this.smooth(channel.source.playbackRate,targets.rate,.25);}
  }
- dispose(){this.disposed=true;this.music?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
+ dispose(){this.disposed=true;this.music?.dispose();this.bubbles?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
 }

@@ -20,6 +20,6 @@ export class Input{
   const end=e=>{if(this.drag?.id===e.pointerId){this.drag=null;this.orbit.last=performance.now()/1000;}};canvas.onpointerup=end;canvas.onpointercancel=end;canvas.onlostpointercapture=end;
   addEventListener('blur',()=>this.clear());document.addEventListener('visibilitychange',()=>{if(document.hidden)this.clear();});addEventListener('orientationchange',()=>this.clear());
  }
- clear(){this.keys.clear();this.pointers.clear();this.stick.clear();this.turbo.clear();this.drag=null;document.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed'));}
+ clear(){if(this.drag)this.orbit.last=performance.now()/1000;this.keys.clear();this.pointers.clear();this.stick.clear();this.turbo.clear();this.drag=null;document.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed'));}
  read(){if(document.querySelector('#settingsDialog')?.open)return {thrust:0,turn:0,rise:0,boost:false};const held=(a,...codes)=>[...this.pointers.values()].includes(a)||codes.some(k=>this.keys.has(k));const forward=held('forward','KeyW','ArrowUp'),back=held('back','KeyS','ArrowDown');const turn=+held('left','KeyA','ArrowLeft')-held('right','KeyD','ArrowRight');const rise=+held('up','Space')-held('down','ShiftLeft','ShiftRight');return {thrust:back?-1:+forward,brakeReverse:back,turn:turn||this.stick.axes.turn,rise:rise||this.stick.axes.rise,boost:!back&&this.turbo.held};}
 }

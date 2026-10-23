@@ -7,7 +7,12 @@ export const cameraConfig={
  lookAhead:1.5, framingLift:.5, // Aim above hull to place it below screen centre.
  orbitSensitivity:.005,verticalSensitivity:.004,
  minOrbitElevation:-8,maxOrbitElevation:65,
- returnDelay:2.5,returnRate:1.8,
+ autoRecenterEnabled:true,
+ recenterDelay:1.5, // Seconds after a drag ends; target stays relative to current heading.
+ recenterSmoothTime:.65, // Critically damped return: approximately 1.5–2 seconds to settle.
+ recenterAngleTolerance:.01, // Radians; snap only imperceptible residual offsets.
+ // Preserve the existing saved preference and settings-slider name.
+ get returnDelay(){return this.recenterDelay;},set returnDelay(value){this.recenterDelay=value;},
  portraitDistanceMax:1.32, // Extra horizontal room on narrow screens.
  speedStart:10,speedFull:22,speedDistanceIncrease:.10,speedFovIncrease:3,
  fovSmoothing:4,nearFloorDistance:4,nearFloorLift:1.2,

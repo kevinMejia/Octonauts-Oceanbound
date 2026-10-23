@@ -2,14 +2,14 @@ import * as T from 'three';
 import {cameraConfig as c} from '../config/cameraConfig.js';
 import {worldConfig as w} from '../config/worldConfig.js';
 import {heightAt} from '../environment/terrainMath.js';
-import {smoothFactor,speedFraming,aspectDistance,recenterAngle} from './cameraMath.js';
+import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './cameraMath.js';
 const radians=Math.PI/180;
 export class ChaseCamera{
- constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;
+ constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;this.recenter={active:false,x:0,y:0};
   this.pivot=new T.Vector3();this.desired=new T.Vector3();this.focus=new T.Vector3();this.target=new T.Vector3();this.look=new T.Matrix4();this.rotation=new T.Quaternion();this.up=new T.Vector3(0,1,0);
  }
  update(dt,sub,input){const o=input.orbit,p=sub.position;
-  if(!input.drag&&performance.now()/1000-o.last>c.returnDelay){const decay=Math.exp(-dt*c.returnRate);o.x=recenterAngle(o.x,c.returnRate,dt);o.y*=decay;}
+  updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
   const speed=speedFraming(sub.speed,c),distance=c.distance*aspectDistance(this.camera.aspect,c)*(1+speed*c.speedDistanceIncrease);
   const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
   const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height,distance)+o.y));
