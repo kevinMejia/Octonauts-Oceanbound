@@ -3,8 +3,8 @@ import {hullFrame,sweepHull} from '../collision/collisionMath.js';
 
 // Each cache entry is either piloted or parked: the same group, never a clone.
 export class DiscoveryFleet{
- constructor({registry,fleet,unlocks,surfaces,scene,onDiscover,blocked=()=>false,release=()=>{}}){
-  Object.assign(this,{registry,fleet,unlocks,surfaces,scene,onDiscover,blocked,release});this.records=new Map();this.near=[];this.frame={};this.hit={};this.activeDiscovery=null;this.placement=new FleetPlacement(surfaces.grid);this.loading=false;
+ constructor({registry,fleet,unlocks,surfaces,scene,onDiscover,blocked=()=>false,release=()=>{},prepare=async()=>{}}){
+  Object.assign(this,{registry,fleet,unlocks,surfaces,scene,onDiscover,blocked,release,prepare});this.records=new Map();this.near=[];this.frame={};this.hit={};this.activeDiscovery=null;this.placement=new FleetPlacement(surfaces.grid);this.loading=false;
   for(const definition of registry){
    if(!definition.parking&&!definition.discovery?.enabled)continue;
    const scale=definition.parking?.modelScale??definition.discovery?.modelScale??1,collision=definition.discovery?.collision??definition.collision,parkDefinition={...definition,collision:Object.fromEntries(Object.entries(collision).map(([key,value])=>[key,typeof value==='number'?value*scale:value]))};
@@ -30,23 +30,27 @@ export class DiscoveryFleet{
   if(moveModel&&record.vehicle&&record.parked)this.park(record);
  }
  setSolid(p,enabled){if(p.solid!==enabled){p.solid=enabled;this.surfaces.solidCount+=enabled?1:-1;}}
- park(record){const group=record.vehicle.group,p=record.pose;group.position.set(p.x,p.y,p.z);group.rotation.set(0,p.heading,0,'YXZ');group.scale.copy(record.baseScale).multiplyScalar(record.scale);group.visible=record.distanceVisible??true;this.scene.add(group);}
+ park(record){const group=record.vehicle.group,p=record.pose;group.position.set(p.x,p.y,p.z);group.rotation.set(0,p.heading,0,'YXZ');group.scale.copy(record.baseScale).multiplyScalar(record.scale);group.visible=(record.distanceVisible??true)&&!record.evicted;this.scene.add(group);}
  sync(activeId=this.fleet.activeId){
   for(const r of this.records.values()){
    r.parked=r.id!==activeId;
    const desired=this.poseFor(r);if(desired&&r.anchorUnlocked!==this.unlocks.isUnlocked(r.id)){this.positionRecord(r,false);r.anchorUnlocked=this.unlocks.isUnlocked(r.id);}
-   if(r.vehicle){if(r.parked)this.park(r);else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;}}
+   if(r.vehicle){if(r.parked)this.park(r);else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;r.evicted=false;}}
    for(const p of r.proxies){this.setSolid(p,!!r.vehicle&&r.parked);p.triggerEnabled=!!r.vehicle&&r.parked&&!this.unlocks.isUnlocked(r.id)&&r.definition.discovery?.enabled===true;p.loadCandidate=!r.vehicle&&p===r.proxies[1];}
   }
  }
  async ensure(record){
   if(record.vehicle||record.pending)return;record.pending=true;record.lastAttempt=performance.now();
-  try{record.vehicle=await this.fleet.get(record.id);record.baseScale=record.vehicle.group.scale.clone();this.sync();}
+  try{const vehicle=await this.fleet.get(record.id);await this.prepare(vehicle);record.vehicle=vehicle;record.baseScale=record.vehicle.group.scale.clone();this.sync();}
   catch(error){console.warn('Parked GUP unavailable:',record.id,error);}
   finally{record.pending=false;}
  }
  update(sub){
-  const now=performance.now();if(!this.visibilityAt||now-this.visibilityAt>500){this.visibilityAt=now;for(const r of this.records.values())if(r.vehicle){const visible=!r.parked||Math.hypot(sub.position.x-r.pose.x,sub.position.z-r.pose.z)<160;r.distanceVisible=visible;r.vehicle.group.visible=visible;if(!visible&&!r.evicted){this.release(r.vehicle);r.evicted=true;}else if(visible)r.evicted=false;}}
+  const now=performance.now();if(!this.visibilityAt||now-this.visibilityAt>500){this.visibilityAt=now;for(const r of this.records.values())if(r.vehicle){
+   const visible=!r.parked||Math.hypot(sub.position.x-r.pose.x,sub.position.z-r.pose.z)<160;r.distanceVisible=visible;
+   if(!visible){r.vehicle.group.visible=false;if(!r.evicted){this.release(r.vehicle);r.evicted=true;}}
+   else if(r.evicted){this.restoreVisible(r);}else r.vehicle.group.visible=true;
+  }}
   if(this.blocked()||this.activeDiscovery)return false;
   if(!this.loading&&now>=(this.loadCheckAt??0)){this.loadCheckAt=now+500;this.surfaces.grid.query(sub.position.x,sub.position.z,95,this.near,'fleet-load');
    for(const p of this.near){const r=this.records.get(p.parkedId);if(r&&!r.pending&&now-r.lastAttempt>5000){this.loading=true;this.ensure(r).finally(()=>{this.loading=false;});break;}}
@@ -58,6 +62,10 @@ export class DiscoveryFleet{
     const location={...r.pose};this.activeDiscovery=r.id;this.unlocks.unlock(r.id);this.onDiscover(r.definition,location);return true;
    }
   }return false;
+ }
+ restoreVisible(record){
+  if(record.restoring)return;record.restoring=true;
+  this.prepare(record.vehicle).then(()=>{record.evicted=false;record.vehicle.group.visible=record.distanceVisible||!record.parked;}).catch(error=>console.warn('Parked GUP graphics unavailable:',record.id,error)).finally(()=>{record.restoring=false;});
  }
  safeSwitch(id,sub){
   const definition=this.registry.find(v=>v.id===id),origin={...sub.position,heading:sub.heading};

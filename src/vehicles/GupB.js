@@ -1,9 +1,9 @@
 import * as T from 'three';
-import {GLTFLoader} from '../../vendor/GLTFLoader.js';
+import {vehicleLoader} from './VehicleTextures.js';
 import {collectModelStats,useImportedGup} from './gupAsset.js';
 export class GupB{
  static async load(){
-  const start=performance.now(),loader=new GLTFLoader(),imported=useImportedGup(location);
+  const start=performance.now(),loader=vehicleLoader(),imported=useImportedGup(location);
   const highURL=new URL('../../assets/models/gup-b-high.glb',import.meta.url).href;
   const originalURL=new URL('../../assets/models/gup-b.glb',import.meta.url).href;
   const gltf=await loader.loadAsync(imported?highURL:originalURL);

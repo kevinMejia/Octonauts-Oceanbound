@@ -87,3 +87,8 @@ test('wide GUP hulls retain their measured front clearance while sweeping side i
  const front={x:0,y:0,z:4.3,rx:.2,ry:.2,rz:.2};assert.equal(sweepHull(a,0,0,0,front,frame,3.5,1,0,hit,0,2.4),false);
  const side={x:5,y:0,z:0,rx:.2,ry:2,rz:2};assert.equal(sweepHull(a,10,0,0,side,frame,3.5,1,0,hit,0,2.4),true);assert.ok(hit.t<.2);
 });
+
+test('returning parked models stay hidden through GPU restoration, including an unlock sync',async()=>{
+ const f=await fixture(),r=f.world.records.get('gup-a'),sub=new SubmarineController();sub.collisionProxy=vehicles[1].collision;Object.assign(sub.position,{x:900,y:20,z:900});Object.assign(sub.previousPosition,sub.position);f.world.update(sub);assert.equal(r.evicted,true);assert.equal(r.vehicle.group.visible,false);
+ let finish;f.world.prepare=vehicle=>vehicle===r.vehicle?new Promise(resolve=>finish=resolve):Promise.resolve();Object.assign(sub.position,{x:r.pose.x,y:r.pose.y+20,z:r.pose.z+30});Object.assign(sub.previousPosition,sub.position);f.world.visibilityAt=0;f.world.update(sub);assert.equal(r.restoring,true);f.world.sync();assert.equal(r.vehicle.group.visible,false);finish();await new Promise(resolve=>setTimeout(resolve,0));assert.equal(r.evicted,false);assert.equal(r.vehicle.group.visible,true);
+});

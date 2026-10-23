@@ -1,0 +1,293 @@
+{
+  "samples": [
+    {
+      "images": {
+        "uniqueImages": 47,
+        "encodedBytes": 28989612,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 269,
+        "textures": 59
+      },
+      "active": "gup-b",
+      "unlocked": [
+        "gup-b"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 47,
+        "encodedBytes": 28989612,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 377,
+        "textures": 59
+      },
+      "active": "gup-a",
+      "unlocked": [
+        "gup-b",
+        "gup-a"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 47,
+        "encodedBytes": 28989612,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 377,
+        "textures": 59
+      },
+      "active": "gup-r",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 67,
+        "encodedBytes": 36789512,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 570,
+        "textures": 79
+      },
+      "active": "gup-c",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 89,
+        "encodedBytes": 41747718,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 508,
+        "textures": 84
+      },
+      "active": "gup-d",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 89,
+        "encodedBytes": 41747718,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 276,
+        "textures": 45
+      },
+      "active": "gup-e",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 89,
+        "encodedBytes": 41747718,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 148,
+        "textures": 21
+      },
+      "active": "gup-f",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 119,
+        "encodedBytes": 48466465,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 402,
+        "textures": 46
+      },
+      "active": "gup-q",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f",
+        "gup-q"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 119,
+        "encodedBytes": 48466465,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 562,
+        "textures": 131
+      },
+      "active": "gup-b",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f",
+        "gup-q"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 119,
+        "encodedBytes": 48466465,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 564,
+        "textures": 131
+      },
+      "active": "gup-b",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f",
+        "gup-q"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 119,
+        "encodedBytes": 48466465,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 564,
+        "textures": 131
+      },
+      "active": "gup-b",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f",
+        "gup-q"
+      ],
+      "contextLost": false,
+      "glError": 0
+    },
+    {
+      "images": {
+        "uniqueImages": 119,
+        "encodedBytes": 48466465,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      },
+      "gpu": {
+        "geometries": 519,
+        "textures": 130
+      },
+      "active": "gup-b",
+      "unlocked": [
+        "gup-b",
+        "gup-a",
+        "gup-r",
+        "gup-c",
+        "gup-d",
+        "gup-e",
+        "gup-f",
+        "gup-q"
+      ],
+      "contextLost": false,
+      "glError": 0
+    }
+  ],
+  "navigations": 1,
+  "crashes": 0,
+  "requests": {
+    "gup-b-high": 1,
+    "gup-a": 1,
+    "gup-r": 1,
+    "gup-e": 1,
+    "gup-c": 1,
+    "gup-d": 1,
+    "gup-f": 1,
+    "gup-q": 1
+  },
+  "errors": [],
+  "contextRecovery": true,
+  "contextRecoveryRetry": true,
+  "htmlImageFallback": true,
+  "physicalSafariTested": false
+}
