@@ -8,6 +8,7 @@ paths+=['src/ui/TurboMeter.js']
 paths+=['src/config/visualConfig.js','src/environment/showcaseLayout.js','assets/models/showcase-rocks.glb','assets/models/showcase-rocks.json','src/environment/waterReflections.js']
 paths+=['src/environment/ReefFish.js','src/environment/fishMath.js','src/config/marineLifeConfig.js']
 paths+=['src/environment/MarineVisitors.js','src/environment/marineLayout.js']
+paths+=['src/environment/OctopodCrew.js','src/config/crewConfig.js']+['assets/models/characters/'+n+'.glb' for n in ['barnacles','kwazii','peso']]
 for path in paths:
  with urllib.request.urlopen(base+path) as r:
   assert r.status==200

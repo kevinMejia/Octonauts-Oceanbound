@@ -1,0 +1,39 @@
+Info: Saved as "kwazii.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\AppData\Local\LittleBigDirtTools\blender-4.5.3-windows-x64\4.5\scripts\addons_core\io_scene_gltf2\extern_draco.dll
+07:44:16 | INFO: Starting glTF 2.0 export
+07:44:16 | INFO: Extracting primitive: Sphere
+07:44:16 | INFO: Primitives created: 1
+07:44:16 | INFO: Finished glTF 2.0 export in 0.49866557121276855 s
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Fra:1 Mem:54.79M (Peak 56.16M) | Time:00:00.98 | Rendering 1 / 64 samples
+Fra:1 Mem:54.79M (Peak 56.16M) | Time:00:01.06 | Rendering 25 / 64 samples
+Fra:1 Mem:54.79M (Peak 56.16M) | Time:00:01.14 | Rendering 50 / 64 samples
+Fra:1 Mem:54.79M (Peak 56.16M) | Time:00:01.19 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\kwazii-front.png'
+Time: 00:01.41 (Saving: 00:00.19)
+
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.07 | Rendering 1 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.17 | Rendering 25 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.28 | Rendering 50 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.34 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\kwazii-side.png'
+Time: 00:00.40 (Saving: 00:00.04)
+
+Fra:1 Mem:54.79M (Peak 55.05M) | Time:00:00.07 | Rendering 1 / 64 samples
+Fra:1 Mem:54.79M (Peak 55.05M) | Time:00:00.18 | Rendering 25 / 64 samples
+Fra:1 Mem:54.79M (Peak 55.05M) | Time:00:00.30 | Rendering 50 / 64 samples
+Fra:1 Mem:54.79M (Peak 55.05M) | Time:00:00.36 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\kwazii-rear.png'
+Time: 00:00.42 (Saving: 00:00.03)
+
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.07 | Rendering 1 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.18 | Rendering 25 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.30 | Rendering 50 / 64 samples
+Fra:1 Mem:54.79M (Peak 54.79M) | Time:00:00.36 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\kwazii-three-quarter.png'
+Time: 00:00.43 (Saving: 00:00.04)
+
+
+CREW_COMPLETE kwazii 14528
+
+Blender quit

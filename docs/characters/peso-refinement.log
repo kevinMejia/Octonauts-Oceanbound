@@ -1,0 +1,39 @@
+Info: Saved as "peso.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\AppData\Local\LittleBigDirtTools\blender-4.5.3-windows-x64\4.5\scripts\addons_core\io_scene_gltf2\extern_draco.dll
+07:42:09 | INFO: Starting glTF 2.0 export
+07:42:09 | INFO: Extracting primitive: Sphere
+07:42:09 | INFO: Primitives created: 1
+07:42:09 | INFO: Finished glTF 2.0 export in 0.40990400314331055 s
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Fra:1 Mem:53.51M (Peak 54.47M) | Time:00:00.99 | Rendering 1 / 64 samples
+Fra:1 Mem:53.51M (Peak 54.47M) | Time:00:01.06 | Rendering 25 / 64 samples
+Fra:1 Mem:53.51M (Peak 54.47M) | Time:00:01.12 | Rendering 50 / 64 samples
+Fra:1 Mem:53.51M (Peak 54.47M) | Time:00:01.15 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\peso-front.png'
+Time: 00:01.35 (Saving: 00:00.18)
+
+Fra:1 Mem:53.51M (Peak 53.73M) | Time:00:00.06 | Rendering 1 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.73M) | Time:00:00.14 | Rendering 25 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.73M) | Time:00:00.23 | Rendering 50 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.73M) | Time:00:00.28 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\peso-side.png'
+Time: 00:00.34 (Saving: 00:00.03)
+
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.07 | Rendering 1 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.15 | Rendering 25 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.24 | Rendering 50 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.29 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\peso-rear.png'
+Time: 00:00.34 (Saving: 00:00.03)
+
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.06 | Rendering 1 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.14 | Rendering 25 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.23 | Rendering 50 / 64 samples
+Fra:1 Mem:53.51M (Peak 53.51M) | Time:00:00.28 | Rendering 64 / 64 samples
+Saved: 'E:\Workspace\Gup-G\docs\characters\peso-three-quarter.png'
+Time: 00:00.33 (Saving: 00:00.03)
+
+
+CREW_COMPLETE peso 12422
+
+Blender quit

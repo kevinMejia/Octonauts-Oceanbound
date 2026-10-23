@@ -12,6 +12,7 @@ for name in models:shutil.copy2(ROOT/'assets/models'/name,out/'assets/models'/na
 shutil.copy2(ROOT/'assets/models/octopod-collision.json',out/'assets/models/octopod-collision.json')
 shutil.copy2(ROOT/'assets/models/showcase-rocks.json',out/'assets/models/showcase-rocks.json')
 shutil.copytree(ROOT/'assets/models/reef-formations',out/'assets/models/reef-formations',dirs_exist_ok=True)
+shutil.copytree(ROOT/'assets/models/characters',out/'assets/models/characters',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/textures',out/'assets/textures',dirs_exist_ok=True)
 (out/'.nojekyll').touch()
 for p in (out/'assets/models').rglob('*.glb'):
@@ -25,6 +26,7 @@ hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/textures').glo
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/reef-formations').glob('*')) if p.is_file())
 hash_input+=(ROOT/'assets/models/octopod-collision.json').read_bytes()
 hash_input+=(ROOT/'assets/models/showcase-rocks.json').read_bytes()
+hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/characters').glob('*.glb')))
 version=hashlib.sha256(hash_input).hexdigest()[:12]
 for p in [out/'index.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')

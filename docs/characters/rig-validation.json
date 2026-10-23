@@ -1,0 +1,23 @@
+[
+  {
+    "name": "barnacles",
+    "bones": 13,
+    "breathingVertexDisplacement": 0.07099914011376829,
+    "blinkPoseVertexDisplacement": 0.17427263190530953,
+    "sourceReopened": true
+  },
+  {
+    "name": "kwazii",
+    "bones": 13,
+    "breathingVertexDisplacement": 0.06316534074089183,
+    "blinkPoseVertexDisplacement": 0.15472917609394948,
+    "sourceReopened": true
+  },
+  {
+    "name": "peso",
+    "bones": 13,
+    "breathingVertexDisplacement": 0.054829290915445764,
+    "blinkPoseVertexDisplacement": 0.16764308619333013,
+    "sourceReopened": true
+  }
+]
