@@ -30,7 +30,7 @@ export function installSettings(){
  const intro=(parent,title,text)=>{const h=document.createElement('h3'),p=document.createElement('p');h.textContent=title;p.className='section-description';p.textContent=text;parent.append(h,p);};
  const grid=parent=>{const element=document.createElement('div');element.className='settings-grid';parent.append(element);return element;};
  const resetButton=(parent,title,change)=>{const button=document.createElement('button');button.className='settings-reset';button.type='button';button.textContent=title;button.addEventListener('click',change);parent.append(button);return button;};
- const audioNames={master:'Master Volume',music:'Background Music',propeller:'GUP-B Propeller',bubbles:'Underwater Bubbles',ambience:'Ocean Ambience'};
+ const audioNames={master:'Master Volume',music:'Background Music',propeller:'GUP Propeller',bubbles:'Underwater Bubbles',ambience:'Ocean Ambience'};
  intro(audioPanel,'Sounds of the ocean','Find your balance for the next dive.');
  const audioGrid=grid(audioPanel),audioControls={};
  const syncAudio=()=>{const settings=window.explorer?.audio?.settings??audioDefaults;for(const key of volumeKeys){const {input,output}=audioControls[key];input.value=Math.round(settings[key]*100);output.value=input.value+'%';fill(input);}mute.checked=settings.muted;musicEnabled.checked=settings.musicEnabled;};

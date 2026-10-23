@@ -30,5 +30,5 @@ export class GupB{
   // The imported tail is not a propeller. Never animate unrelated geometry.
   this.propeller=imported?null:model.getObjectByName('Propeller');
  }
- update(dt,s){this.group.position.set(s.position.x,s.position.y,s.position.z);this.group.rotation.set(s.pitch,s.heading,s.bank,'YXZ');if(this.propeller)this.propeller.rotation.z+=dt*(2+Math.abs(s.speed)*5);}
+ update(dt,s){this.group.position.set(s.position.x,s.position.y,s.position.z);this.group.rotation.set(s.pitch,s.heading,s.bank,'YXZ');if(this.propeller)this.propeller.rotation.z+=dt*(2+Math.abs(s.speed)*5);if(this.rotors?.length){const target=Math.abs(s.speed)*5+Math.abs(s.vertical)*2;this.rotorRate=(this.rotorRate??0)+(target-(this.rotorRate??0))*(1-Math.exp(-dt*5));for(const rotor of this.rotors)rotor.node.rotation[rotor.axis]+=dt*this.rotorRate*rotor.direction;}}
 }

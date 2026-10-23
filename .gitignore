@@ -5,3 +5,6 @@ __pycache__/
 # Local preparation scratch space and original download archives.
 /.local-assets/
 /assets/models/Gup-B/
+
+/assets/models/Gup-A/
+/assets/models/Gup-R/

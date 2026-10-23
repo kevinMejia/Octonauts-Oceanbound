@@ -69,11 +69,12 @@ export class AudioManager{
   for(const [name,gain] of Object.entries(this.channelGains))this.smooth(gain.gain,this.settings[name],.08);
   const enabled=this.settings.musicEnabled&&!this.paused&&this.sceneMusicEnabled;if(this.music&&this.music.enabled!==enabled)this.music.setEnabled(enabled);
  }
- // Hooks for a future pause/scene system. Opening settings does not pause or restart music.
- setPaused(value){this.paused=!!value;this.applySettings();}
+ // Pause/scene hooks. Opening settings does not pause or restart music.
+ setPaused(value){this.paused=!!value;if(this.paused&&this.context){for(const [name,channel] of Object.entries(this.channels))if(name!=='ambience')this.smooth(channel.gain.gain,0,.15);}this.applySettings();}
+ setVehicle(profile){this.vehicleAudio=profile;}
  setSceneMusicEnabled(value){this.sceneMusicEnabled=!!value;this.applySettings();}
  suspend(){this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
- update(dt,sub,input){const targets=audioTargets(sub,input,this.previousSpeed,dt);this.previousSpeed=targets.speed;if(this.context?.state!=='running')return;
+ update(dt,sub,input){const targets=audioTargets(sub,input,this.previousSpeed,dt);this.previousSpeed=targets.speed;targets.propeller*=this.vehicleAudio?.propellerGain??1;targets.bubbles*=this.vehicleAudio?.bubbleGain??1;targets.rate*=this.vehicleAudio?.rateMultiplier??1;if(this.context?.state!=='running')return;
   this.bubbles?.update(dt,{intensity:this.paused?0:targets.bubbles/.1,moving:!this.paused&&targets.bubbles>0&&Math.abs(sub.speed)>=bubbleAudioConfig.minimumMovementThreshold});
   for(const [name,channel] of Object.entries(this.channels)){this.smooth(channel.gain.gain,this.paused?0:targets[name],name==='ambience'?.8:.2);if(name==='propeller')this.smooth(channel.source.playbackRate,targets.rate,.25);}
  }
