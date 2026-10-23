@@ -1,3 +1,7 @@
 dist/
 *.blend1
 __pycache__/
+
+# Local preparation scratch space and original download archives.
+/.local-assets/
+/assets/models/Gup-B/

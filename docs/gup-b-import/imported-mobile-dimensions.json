@@ -1,0 +1,295 @@
+{
+  "variant": "imported",
+  "mobileDimensions": true,
+  "moving": false,
+  "device": "Desktop Chromium; mobile dimensions are not an iPhone test",
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1080 Ti (0x00001B06) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "model": {
+    "triangles": 221592,
+    "meshes": 39,
+    "materials": 26,
+    "textures": [
+      {
+        "name": "B_Eye-Base-Color-B_Eye.png",
+        "width": 1440,
+        "height": 1440
+      },
+      {
+        "name": "B_Eye-Emission-Color",
+        "width": 1440,
+        "height": 1440
+      },
+      {
+        "name": "B_Cross-Base-Color-B_Cross.png",
+        "width": 2560,
+        "height": 2560
+      },
+      {
+        "name": "Circle.001-Base Color",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "name": "GupB",
+        "width": 1440,
+        "height": 1440
+      },
+      {
+        "name": "B_Mouth-Base-Color-B_Mouth.png",
+        "width": 2560,
+        "height": 2560
+      },
+      {
+        "name": "OCTOALERT-OctoBlue",
+        "width": 2560,
+        "height": 2560
+      },
+      {
+        "name": "OCTOALERT.002-Emission Color",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "name": "OctoBlue",
+        "width": 2560,
+        "height": 2560
+      },
+      {
+        "name": "Sphere.003-Base Color",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "name": "Sphere.003-Emission Color",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "textureMemoryEstimateMiB": 186.3072916666667,
+    "variant": "imported",
+    "loadMs": 341.70000000018626,
+    "bounds": [
+      2.9831547730803094,
+      1.8382595132982629,
+      5.583907559266067
+    ]
+  },
+  "samples": [
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.7,
+      "gpuMedianMs": 5.08,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 125.48,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.7,
+      "gpuMedianMs": 5.17,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 131.37,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.7,
+      "gpuMedianMs": 5.36,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 138.4,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.7,
+      "gpuMedianMs": 6.18,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 144.19,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 142.8,
+      "cpuSubmitMedianMs": 2.7,
+      "gpuMedianMs": 6.48,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 148.81,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.6,
+      "gpuMedianMs": 6.34,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 152.41,
+      "pixelRatio": 1
+    },
+    {
+      "quality": "low",
+      "viewport": [
+        375,
+        667
+      ],
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.1,
+      "medianFps": 142.9,
+      "meanFps": 143.8,
+      "cpuSubmitMedianMs": 2.6,
+      "gpuMedianMs": 6.39,
+      "gpuTimerSupported": true,
+      "drawCalls": 196,
+      "triangles": 1601360,
+      "activeMeshes": 170,
+      "geometries": 111,
+      "textures": 20,
+      "visibleGeometryBufferMiB": 11.12,
+      "jsHeapMiB": 130.6,
+      "pixelRatio": 1
+    }
+  ],
+  "resources": [
+    {
+      "name": "http://localhost:5173/.local-assets/gup-b-import/gup-b.glb",
+      "durationMs": 47.40000000037253,
+      "transferSize": 300
+    },
+    {
+      "name": "http://localhost:5173/assets/models/turbo-lightning.glb",
+      "durationMs": 8,
+      "transferSize": 300
+    },
+    {
+      "name": "http://localhost:5173/assets/models/octopod.glb",
+      "durationMs": 42.59999999962747,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/underwater-environment.glb",
+      "durationMs": 56.200000000186265,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/reef-formations/large.glb",
+      "durationMs": 7.7999999998137355,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/showcase-rocks.glb",
+      "durationMs": 3.5,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/reef-formations/garden.glb",
+      "durationMs": 3.599999999627471,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/reef-formations/patch.glb",
+      "durationMs": 2.7999999998137355,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/reef-formations/wall.glb",
+      "durationMs": 4.5,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/characters/barnacles.glb",
+      "durationMs": 7.7000000001862645,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/characters/kwazii.glb",
+      "durationMs": 7.400000000372529,
+      "transferSize": 0
+    },
+    {
+      "name": "http://localhost:5173/assets/models/characters/peso.glb",
+      "durationMs": 6.7999999998137355,
+      "transferSize": 0
+    }
+  ]
+}
