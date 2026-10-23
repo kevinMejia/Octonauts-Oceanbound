@@ -1,4 +1,4 @@
-export const discoveryTiming=Object.freeze({entrance:.2,art:.5,sparkles:.7,confetti:1,ambient:2.6,end:3});
+export const discoveryTiming=Object.freeze({entrance:.2,art:.5,sparkles:.7,confetti:1,ambient:4.6,end:5});
 export const discoveryColors=Object.freeze({spark:['#ffd07e','#77f8e5','#8cdeff','#f4ffff'],confetti:['#32c6b5','#4cace1','#ffd372','#ffa65b']});
 const mix=(a,b,t)=>a+(b-a)*t;
 
@@ -10,12 +10,12 @@ export class DiscoveryParticles{
  start(bounds){this.reset();this.bounds=bounds;this.bursts.bubbles++;
   for(let i=0;i<(this.compact?28:40);i++){
    const a=this.random()*Math.PI*2,front=i%3===0,area=front?bounds.image:bounds.modal,edge=Math.min((area.width/2+8)/Math.max(.001,Math.abs(Math.cos(a))),(area.height/2+8)/Math.max(.001,Math.abs(Math.sin(a)))),r=edge*(.93+this.random()*.15),speed=160+this.random()*300;
-   this.add({kind:'bubble',layer:front?'front':'back',x:area.left+area.width/2+Math.cos(a)*r,y:area.top+area.height/2+Math.sin(a)*r,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed*.75-45,r:3+this.random()**1.7*21,life:2.35+this.random()*.55,opacity:.3+this.random()*.45});
+   this.add({kind:'bubble',layer:front?'front':'back',x:area.left+area.width/2+Math.cos(a)*r,y:area.top+area.height/2+Math.sin(a)*r,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed*.75-45,r:3+this.random()**1.7*21,life:4.35+this.random()*.55,opacity:.3+this.random()*.45});
   }
  }
  imageBurst(kind,count){const b=this.bounds.image,colors=discoveryColors[kind==='spark'?'spark':'confetti'];
   for(let i=0;i<count;i++){const a=this.random()*Math.PI*2,speed=(kind==='spark'?75:40)+this.random()*(kind==='spark'?160:80);
-   this.add({kind,layer:'front',x:b.left+b.width/2+Math.cos(a)*b.width*.52,y:b.top+b.height/2+Math.sin(a)*b.height*.53,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed*.6-18,r:kind==='spark'?1.5+this.random()*2.3:2.2+this.random()*1.7,length:6+this.random()*5,life:kind==='spark'?1.05+this.random()*.65:1.5+this.random()*.45,opacity:kind==='spark'?.85:.7,color:Math.floor(this.random()*colors.length),angle:a,spin:(this.random()-.5)*3});
+   this.add({kind,layer:'front',x:b.left+b.width/2+Math.cos(a)*b.width*.52,y:b.top+b.height/2+Math.sin(a)*b.height*.53,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed*.6-18,r:kind==='spark'?1.5+this.random()*2.3:2.2+this.random()*1.7,length:6+this.random()*5,life:kind==='spark'?3.05+this.random()*.65:3.5+this.random()*.45,opacity:kind==='spark'?.85:.7,color:Math.floor(this.random()*colors.length),angle:a,spin:(this.random()-.5)*3});
   }
  }
  ambient(){const b=this.bounds.modal,right=this.random()>.5;

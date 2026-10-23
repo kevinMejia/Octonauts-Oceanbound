@@ -36,14 +36,14 @@ export class DiscoveryCelebration{
  schedule(){if(this.active&&this.model&&!this.doc.hidden&&this.frame===null)this.frame=this.host.requestAnimationFrame(this.tick);}
  cancelFrame(){if(this.frame!==null)this.host.cancelAnimationFrame(this.frame);this.frame=null;}
  animate(now){
-  this.frame=null;if(!this.active||this.doc.hidden)return;if(this.last!==null&&now-this.last<(this.model.time>=3?30:12)){this.schedule();return;}const dt=this.last===null?0:Math.min(.05,(now-this.last)/1000);this.last=now;this.model.update(dt);
+  this.frame=null;if(!this.active||this.doc.hidden)return;if(this.last!==null&&now-this.last<(this.model.time>=discoveryTiming.end?30:12)){this.schedule();return;}const dt=this.last===null?0:Math.min(.05,(now-this.last)/1000);this.last=now;this.model.update(dt);
   if(this.model.time<.95)this.measure();this.draw();this.renderedFrames++;this.schedule();
  }
  draw(){
   const {width,height,close,image}=this.bounds,time=this.model.time;
   for(let layer=0;layer<2;layer++){
    const c=this.contexts[layer];c.setTransform(this.ratio,0,0,this.ratio,0,0);c.clearRect(0,0,width,height);c.save();
-   if(layer===0&&time<discoveryTiming.end){const radius=Math.min(width,height)*.63,g=c.createRadialGradient(width/2,height/2,30,width/2,height/2,radius),fade=Math.min(1,time/.18)*Math.max(0,1-time/3);g.addColorStop(0,'#e7ffea66');g.addColorStop(.45,'#6ff4e840');g.addColorStop(1,'#41cfff00');c.globalAlpha=fade;c.fillStyle=g;c.fillRect(0,0,width,height);}
+   if(layer===0&&time<discoveryTiming.end){const radius=Math.min(width,height)*.63,g=c.createRadialGradient(width/2,height/2,30,width/2,height/2,radius),fade=Math.min(1,time/.18)*Math.max(0,1-time/discoveryTiming.end);g.addColorStop(0,'#e7ffea66');g.addColorStop(.45,'#6ff4e840');g.addColorStop(1,'#41cfff00');c.globalAlpha=fade;c.fillStyle=g;c.fillRect(0,0,width,height);}
    if(layer===1){c.beginPath();c.rect(0,0,width,height);c.rect(close.left-12,close.top-12,close.width+24,close.height+24);c.rect(image.left+12,image.top+12,Math.max(0,image.width-24),Math.max(0,image.height-24));c.clip('evenodd');}
    for(const p of this.model.particles){if(p.layer!==(layer?'front':'back'))continue;c.globalAlpha=p.alpha;
     if(p.kind==='bubble'){const size=p.r*2.4;c.drawImage(this.bubble,p.x-size/2,p.y-size/2,size,size);}
