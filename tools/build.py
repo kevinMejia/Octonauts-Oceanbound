@@ -14,7 +14,7 @@ shutil.copy2(ROOT/'assets/models/showcase-rocks.json',out/'assets/models/showcas
 shutil.copytree(ROOT/'assets/models/reef-formations',out/'assets/models/reef-formations',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/models/characters',out/'assets/models/characters',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/textures',out/'assets/textures',dirs_exist_ok=True)
-shutil.copytree(ROOT/'assets/audio',out/'assets/audio',dirs_exist_ok=True)
+shutil.copytree(ROOT/'assets/audio',out/'assets/audio',dirs_exist_ok=True,ignore=shutil.ignore_patterns('source'))
 shutil.copytree(ROOT/'assets/img',out/'assets/img',dirs_exist_ok=True)
 (out/'.nojekyll').touch()
 for p in (out/'assets/models').rglob('*.glb'):
