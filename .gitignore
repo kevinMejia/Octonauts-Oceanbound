@@ -9,7 +9,5 @@ __pycache__/
 /assets/models/Gup-A/
 /assets/models/Gup-R/
 
-# Fleet authoring downloads remain private. Runtime exports await explicit publication approval.
+# Fleet authoring downloads remain local; approved runtime exports are tracked.
 /assets/models/Gup-*/
-/assets/models/gup-[cdefq].glb
-/assets/img/vehicles/gup-[cdefq].png

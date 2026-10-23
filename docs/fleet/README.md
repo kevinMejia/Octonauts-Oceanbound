@@ -57,3 +57,7 @@ python -m http.server 5173
 node tests/fleet-browser.cjs
 node tests/fleet-production.cjs
 ```
+
+## Publication approval
+
+The user explicitly approved publishing the five runtime GLBs and thumbnails after local validation. These ten assets are now tracked for the GitHub Pages deployment. Original Blender files, texture archives, working copies and preview evidence remain local. This approval supersedes the earlier local-only publication status above.
