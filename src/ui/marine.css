@@ -1,0 +1,11 @@
+body.marine-open #ocean{filter:blur(7px) brightness(.65)}
+#creatureCollection{width:auto;min-height:44px;padding:8px 12px;border:1px solid #a8f5e9;border-radius:14px;background:#07525f;color:#eafff7;font:bold 12px Arial;touch-action:manipulation}
+#navigation{display:flex;align-items:center;gap:8px}
+#marineDialog .marine-close{min-width:44px;min-height:44px;border-radius:14px;background:#064651;color:#a8f5e9;border:1px solid #b8fff199;font-size:24px}
+.marine-content{overflow-y:auto;overscroll-behavior:contain;text-align:center;line-height:1.6;min-height:0}
+.marine-content>img,.marine-card img{display:block;width:100%;height:clamp(120px,30vh,260px);object-fit:contain;border-radius:20px;background:repeating-linear-gradient(0deg,#b4edf4 0 3px,#a8dee9 3px 4px);margin:12px auto}
+.marine-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+#marineDialog .marine-card,#marineDialog .marine-continue{min-height:48px;padding:14px;border:1px solid #a8f5e9;border-radius:16px;background:#064957;color:#eafff7;white-space:normal;font-size:14px}
+.marine-empty{padding:30px 10px;color:#a8f5e9}.marine-card:disabled{opacity:.8}
+@media(max-height:480px){.marine-content>img{height:120px}}
+@media(max-width:500px){#creatureCollection{position:absolute;top:58px;left:0;font-size:11px;max-width:148px}}
