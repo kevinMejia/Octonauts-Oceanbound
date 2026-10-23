@@ -70,3 +70,27 @@ Observed in the actual game:
 31 automated tests pass, covering existing controls/turbo/camera, sand emission/intensity gating, actual terrain contact telemetry, local swept surface lookup, pool exhaustion/recycling, underwater settling and authored type/color metadata. Static HTTP validation checks 26 production resources. Screenshots were used to strengthen the initially faint wake and fix an aliased fog-color uniform that had washed out distant terrain. Final screenshots retain the original turquoise fog.
 
 Deployment `cc4859e` completed successfully. Live Pages validation returned valid content for all 26 resources and confirmed the single-pass cloud material. Forward/down movement produced the visible wake in `live-sand-wake.png`, with no browser warnings or errors.
+
+## Follow-up audit after Octopod integration
+
+The repeated interaction brief was checked against the existing implementation rather than replacing it. Two gaps were corrected: coral and rock had shared sinking behavior, and debris settling queried only surfaces near the submarine. Coral chips now have stronger drag, slower sinking and gentler spin. A separate static rock grid answers ground queries at each particle's own location, so fragments retain collision surfaces after the submarine leaves. Existing scattered rocks now expose rotated ellipsoid bounds for settling as well as the complete formation foundations. Queries remain local; there is no whole-world object scan or detailed mesh raycast.
+
+Additional settings under `debris`: `rockSinkAcceleration:1.6`, `coralSinkAcceleration:0.55`, `rockDrag:1.8`, `coralDrag:2.6`. Accelerations are game m/s²; drag is an exponential rate per second. These are cosmetic water-motion parameters. The 96/40 cloud, 160/64 grain and 48/20 debris budgets, four render batches, opacity behavior, controls, camera and Octopod systems remain unchanged.
+
+Forty tests pass, including a direct coral-versus-rock settling comparison and a regression test that moves the submarine far from a rock while checking that debris still finds its surface. The latter covers both authored reef foundations and scattered rocks. Browser driving also produced four coral emission events with 18 active temporary fragments in an existing scenery cluster; `audit-coral-chips.png` records that pass. `audit-sand-wake.png` shows the real chase-camera sediment trail with the current Octopod build.
+
+Matched high-quality desktop route, 1280×720, DPR 1: four seconds downward from the configured spawn, then 2.2 seconds forward/down. Before/after raw files are `audit-before-high.json` and `audit-after-high.json`.
+
+| Metric | Before audit | After audit |
+|---|---:|---:|
+| Median FPS | 142.9 | 142.9 |
+| Median / p95 frame ms | 7 / 7.1 | 7 / 7.1 |
+| CPU submission median ms | 1.5 | 1.5 |
+| GPU render median ms | 4.08 | 4.11 |
+| Draw calls / active meshes | 136 / 198 | 136 / 198 |
+| Texture count | 9 | 9 |
+| Visible geometry buffer MiB | 11.68 | 11.68 |
+
+Triangle counts varied 1,222,764 → 1,215,128 with small route timing/visibility differences. Heap snapshots varied 99.2 → 110.57 MiB with GC; this is not an asset-memory allocation measurement. The GPU difference is within normal sampling variation. These refresh-limited desktop samples do not establish actual iPhone Safari performance. Earlier baseline and original implementation measurements above remain historical evidence, not measurements at the current spawn.
+
+Deployment `0cd9817` passed GitHub Actions. All 30 current production resources passed HTTP validation, and the live configuration includes the coral-specific settling settings. In a live low-quality browser check, hovering at 5.92 m clearance produced zero particles; the forward/down route produced 25 clouds and 16 grains, within the low budgets. No warnings/errors were reported. `audit-live-low.png` and `audit-live-low.json` record that published check. This verifies the reduced effect budget on desktop, not physical iPhone hardware.
