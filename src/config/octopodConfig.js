@@ -7,7 +7,7 @@ export const octopodConfig={
  sceneryClearance:39, // Includes support feet, pods and decoration footprint margins.
  collisionEnabled:true,
  navigationMarkerEnabled:true,
- spawn:{x:180,y:20,z:180,heading:Math.PI}, // 80 m south of the hub, facing north (-Z).
+ spawn:{x:180,y:20,z:195,heading:Math.PI}, // 95 m south of the hub, facing north (-Z).
 };
 export const compassConfig={
  enabled:true,size:86, // CSS pixels; smaller on short landscape screens.

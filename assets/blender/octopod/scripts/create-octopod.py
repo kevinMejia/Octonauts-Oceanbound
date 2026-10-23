@@ -13,6 +13,8 @@ def material(name,color,rough=.4,alpha=1):
  if alpha<1:m.surface_render_method='DITHERED'
  return m
 orange=material('Octopod orange enamel',(.9,.23,.035));trim=material('Orange panel insets',(.63,.13,.025));dark=material('Graphite seals and flexible arms',(.13,.2,.21));cream=material('Warm grey arm ribs',(.52,.59,.57));cyan=material('Turquoise windows and screens',(.08,.49,.56));glass=material('Observation glazing',(.3,.76,.81),.2,.28);green=material('Garden and room accents',(.17,.47,.16))
+for mat,strength in [(orange,.10),(cyan,.22)]:
+ node=mat.node_tree.nodes.get('Principled BSDF');node.inputs['Emission Color'].default_value=mat.diffuse_color;node.inputs['Emission Strength'].default_value=strength
 collections={name:bpy.data.collections.new(name) for name in ['Central_Hub','Main_Dome','Connecting_Arms','Side_Pods','Supports','Windows','Exterior_Details']}
 for c in collections.values():bpy.context.scene.collection.children.link(c)
 base=[];colliders=[]
@@ -126,6 +128,8 @@ for o in gup:
  for c in list(o.users_collection):c.objects.unlink(o)
  ref.objects.link(o)
  if o.parent not in gup:o.location+=Vector((28,-12,7))
+bpy.context.view_layer.update();gupverts=[o.matrix_world@v.co for o in gup if o.type=='MESH' for v in o.data.vertices];dimensions=[max(v[i] for v in gupverts)-min(v[i] for v in gupverts) for i in range(3)]
+with open(os.path.join(DOC,'scale-check.json'),'w') as f:json.dump({'gupDimensionsBlenderXYZ':dimensions,'octopodSpan':49.4,'spanToGupLength':49.4/max(dimensions)},f,indent=2)
 ref.hide_render=True
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.world.color=(.13,.19,.23);scene.render.resolution_x=1200;scene.render.resolution_y=900;scene.render.resolution_percentage=100
 bpy.ops.mesh.primitive_plane_add(size=250,location=(0,0,-.6));floor=bpy.context.object;floor.name='Preview_Ground_not_exported';floor.data.materials.append(material('Preview sand',(.42,.4,.29)))
@@ -135,4 +139,5 @@ bpy.ops.object.camera_add(location=(54,-68,44));camera=bpy.context.object;camera
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT,'octopod.blend'))
 for name,pos in [('front',(0,-85,25)),('rear',(0,85,25)),('side',(85,0,25)),('top',(0,-.001,100)),('three-quarter',(54,-68,44))]:
  camera.location=pos;camera.rotation_euler=(Vector((0,0,15))-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=os.path.join(DOC,'blender-'+name+'.png');bpy.ops.render.render(write_still=True)
+ref.hide_render=False;camera.location=(54,-68,44);camera.rotation_euler=(Vector((3,0,14))-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=os.path.join(DOC,'blender-scale-comparison.png');bpy.ops.render.render(write_still=True)
 print('Editable Octopod saved;',len(base),'components,',triangles,'runtime triangles;',len(runtime),'runtime meshes')
