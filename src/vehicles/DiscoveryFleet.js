@@ -41,7 +41,7 @@ export class DiscoveryFleet{
  }
  async ensure(record){
   if(record.vehicle||record.pending)return;record.pending=true;record.lastAttempt=performance.now();
-  try{const vehicle=await this.fleet.get(record.id);await this.prepare(vehicle);record.vehicle=vehicle;record.baseScale=record.vehicle.group.scale.clone();this.sync();}
+  try{const vehicle=await this.fleet.get(record.id);await this.prepare(vehicle);if(!record.vehicle){record.vehicle=vehicle;record.baseScale=vehicle.group.scale.clone();}this.sync();}
   catch(error){console.warn('Parked GUP unavailable:',record.id,error);}
   finally{record.pending=false;}
  }
@@ -62,6 +62,11 @@ export class DiscoveryFleet{
     const location={...r.pose};this.activeDiscovery=r.id;this.unlocks.unlock(r.id);this.onDiscover(r.definition,location);return true;
    }
   }return false;
+ }
+ prepared(vehicle){
+  const record=this.records.get(vehicle.definition.id);if(!record)return;
+  if(!record.vehicle){record.vehicle=vehicle;record.baseScale=vehicle.group.scale.clone();record.distanceVisible=false;}
+  record.evicted=false;this.sync();
  }
  restoreVisible(record){
   if(record.restoring)return;record.restoring=true;
