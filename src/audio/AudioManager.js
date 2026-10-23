@@ -1,3 +1,4 @@
+import {DiscoverySound} from './DiscoverySound.js';
 import {TurboSound} from './TurboSound.js';
 import {ImpactSounds} from './ImpactSounds.js';
 import {submarineConfig as config} from '../config/submarineConfig.js';
@@ -63,7 +64,7 @@ export class AudioManager{
    const buffer=await new Promise((resolve,reject)=>this.context.decodeAudioData(data,resolve,reject));if(this.disposed)return;
    if(name==='turbo'){this.turboSound=new TurboSound(this.context,this.channelGains.turbo,buffer);return;}
    if(name==='collision'){this.impacts=new ImpactSounds(this.context,this.master,buffer);return;}
-   if(name==='bubbles'){this.bubbles=new BubbleBursts(this.context,this.channelGains.bubbles,buffer);return;}
+   if(name==='bubbles'){this.bubbles=new BubbleBursts(this.context,this.channelGains.bubbles,buffer);this.discoverySound=new DiscoverySound(this.context,this.channelGains.bubbles,buffer);return;}
    const gain=this.context.createGain(),source=this.context.createBufferSource();gain.gain.value=0;gain.connect(this.channelGains[name]);source.buffer=loopBuffer(this.context,buffer);source.loop=true;source.connect(gain);source.start();this.channels[name]={gain,source};
   }catch(error){this.errors[name]=String(error);console.warn(`Oceanbound audio unavailable: ${url}`,error);}
  }));}
@@ -73,16 +74,18 @@ export class AudioManager{
  setMusicEnabled(value){this.settings.musicEnabled=!!value;this.applySettings();}
  resetSettings(){this.settings={...audioDefaults};this.volume=this.settings.master;this.applySettings();}
  applySettings(){this.saved=saveAudioSettings(safeStorage(this.host),this.settings);if(!this.context)return;
+  if(this.settings.muted||this.settings.master<=0||this.settings.bubbles<=0)this.discoverySound?.suspend();
   this.smooth(this.master.gain,this.settings.muted?0:this.volume,.08);
   for(const [name,gain] of Object.entries(this.channelGains))this.smooth(gain.gain,this.settings[name],.08);
   const enabled=this.settings.musicEnabled&&!this.paused&&this.sceneMusicEnabled;if(this.music&&this.music.enabled!==enabled)this.music.setEnabled(enabled);
  }
  // Pause/scene hooks. Opening settings does not pause or restart music.
  setPaused(value){this.paused=!!value;if(this.paused){this.impacts?.suspend();this.turboSound?.suspend();}if(this.paused&&this.context){for(const [name,channel] of Object.entries(this.channels))if(name!=='ambience')this.smooth(channel.gain.gain,0,.15);}this.applySettings();}
+ playDiscovery(){if(!this.playAuthorized||this.disposed||this.document.hidden||this.settings.muted||this.settings.master<=0||this.settings.bubbles<=0||this.context?.state!=='running')return ()=>{};return this.discoverySound?.play()??(()=>{});}
  playCollision(contact){if(!this.paused&&!this.settings.muted&&this.context?.state==='running')this.impacts?.play(contact);}
  setVehicle(profile){this.vehicleAudio=profile;}
  setSceneMusicEnabled(value){this.sceneMusicEnabled=!!value;this.applySettings();}
- suspend(){this.turboSound?.suspend();this.impacts?.suspend();this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
+ suspend(){this.discoverySound?.suspend();this.turboSound?.suspend();this.impacts?.suspend();this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
  update(dt,sub,input){
   const turboStarted=sub.turbo.active&&!this.turboActive;this.turboActive=sub.turbo.active;
   if(turboStarted&&!this.paused&&!this.settings.muted&&this.settings.turbo>0&&this.context?.state==='running')this.turboSound?.play();
@@ -90,5 +93,5 @@ export class AudioManager{
   this.bubbles?.update(dt,{intensity:this.paused?0:targets.bubbles/.1,moving:!this.paused&&targets.bubbles>0&&Math.abs(sub.speed)>=bubbleAudioConfig.minimumMovementThreshold});
   for(const [name,channel] of Object.entries(this.channels)){this.smooth(channel.gain.gain,this.paused?0:targets[name],name==='ambience'?.8:.2);if(name==='propeller')this.smooth(channel.source.playbackRate,targets.rate,.25);}
  }
- dispose(){this.disposed=true;this.turboSound?.suspend();this.impacts?.suspend();this.music?.dispose();this.bubbles?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
+ dispose(){this.discoverySound?.suspend();this.disposed=true;this.turboSound?.suspend();this.impacts?.suspend();this.music?.dispose();this.bubbles?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
 }

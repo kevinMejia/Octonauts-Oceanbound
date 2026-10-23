@@ -1,0 +1,196 @@
+{
+  "burst": {
+    "time": 1.1609999999999991,
+    "bursts": {
+      "bubbles": 1,
+      "sparkles": 1,
+      "confetti": 1
+    },
+    "counts": {
+      "bubble": 40,
+      "spark": 40,
+      "confetti": 13
+    },
+    "ambient": 0,
+    "starts": 1,
+    "ratio": 1.0825317547305484,
+    "canvases": [
+      {
+        "width": 1386,
+        "height": 866,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "width": 1386,
+        "height": 866,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "imageClear": true,
+    "closeClear": true,
+    "imageClickable": true,
+    "closeClickable": true,
+    "modal": {
+      "x": 300,
+      "y": 88.25,
+      "width": 680,
+      "height": 623.5
+    },
+    "soundPlayed": 1
+  },
+  "ambient": {
+    "time": 3.526499999999995,
+    "bursts": {
+      "bubbles": 1,
+      "sparkles": 1,
+      "confetti": 1
+    },
+    "counts": {
+      "bubble": 1
+    },
+    "ambient": 1,
+    "starts": 1,
+    "ratio": 1.0825317547305484,
+    "canvases": [
+      {
+        "width": 1386,
+        "height": 866,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "width": 1386,
+        "height": 866,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "imageClear": true,
+    "closeClear": true,
+    "imageClickable": true,
+    "closeClickable": true,
+    "modal": {
+      "x": 300,
+      "y": 88.25,
+      "width": 680,
+      "height": 623.5
+    },
+    "soundPlayed": 1
+  },
+  "portrait": {
+    "time": 1.2600999999999996,
+    "bursts": {
+      "bubbles": 1,
+      "sparkles": 1,
+      "confetti": 1
+    },
+    "counts": {
+      "bubble": 28,
+      "spark": 26,
+      "confetti": 9
+    },
+    "ambient": 0,
+    "starts": 2,
+    "ratio": 1.5,
+    "canvases": [
+      {
+        "width": 585,
+        "height": 1266,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "width": 585,
+        "height": 1266,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "imageClear": true,
+    "closeClear": true,
+    "imageClickable": true,
+    "closeClickable": true,
+    "modal": {
+      "x": 12,
+      "y": 144.265625,
+      "width": 366,
+      "height": 555.453125
+    },
+    "soundPlayed": 2
+  },
+  "landscape": {
+    "time": 1.5465000000000007,
+    "bursts": {
+      "bubbles": 1,
+      "sparkles": 1,
+      "confetti": 1
+    },
+    "counts": {
+      "bubble": 28,
+      "spark": 26,
+      "confetti": 9
+    },
+    "ambient": 0,
+    "starts": 2,
+    "ratio": 1.5,
+    "canvases": [
+      {
+        "width": 1266,
+        "height": 585,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "width": 1266,
+        "height": 585,
+        "events": "none",
+        "rect": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "imageClear": true,
+    "closeClear": true,
+    "imageClickable": true,
+    "closeClickable": true,
+    "modal": {
+      "x": 97,
+      "y": 27.75,
+      "width": 650,
+      "height": 334.5
+    },
+    "soundPlayed": 2
+  },
+  "rapidOpenings": 8,
+  "layoutPreserved": true,
+  "reducedMotion": true,
+  "hiddenTab": true,
+  "phoneTouch": true,
+  "audioMute": true,
+  "errors": [],
+  "physicalSafariTested": false
+}
