@@ -10,7 +10,18 @@ html,body,body *{-webkit-user-select:none;user-select:none;-webkit-touch-callout
 @media(max-width:500px){#joystick{width:140px;height:140px}.stick-knob{left:43px;top:43px}.touch-enabled .vertical{flex-direction:column}}
 @media(max-height:500px){#joystick{width:130px;height:130px}.stick-knob{left:38px;top:38px}header p{display:none}}
 
-.vertical button{width:78px;height:70px}.vertical button small{font-size:8px;letter-spacing:.5px}
+/* Octopod driving controls: painted housings, inset faces and tactile rims. */
+#touch .vertical{gap:12px;right:max(24px,calc(env(safe-area-inset-right,0px) + 12px))}
+.vertical button{--control-accent:#ffc56b;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:84px;height:78px;padding:8px 5px 10px;border:2px solid #6dd8e5;border-radius:24px;background:radial-gradient(ellipse at 50% 0%,#318ba4 0%,transparent 65%),linear-gradient(#12627f,#073951);box-shadow:0 5px 0 #032c42,0 7px 12px #002d4550,inset 0 2px 0 #c1ffff65,inset 0 -3px 0 #022b4166;color:#f2ffff;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform .1s ease,box-shadow .1s ease,border-color .1s ease;isolation:isolate}
+.vertical button:before{content:"";position:absolute;inset:5px;border:1px solid #9cecf029;border-radius:17px;pointer-events:none}
+.vertical button:after{content:"";position:absolute;top:7px;left:calc(50% - 9px);width:18px;height:3px;border-radius:3px;background:var(--control-accent);box-shadow:0 0 5px #ffc56b40;pointer-events:none}
+.vertical button[data-action="back"]{--control-accent:#80e9e9}
+.vertical .drive-symbol{display:block;width:32px;height:32px;fill:currentColor;filter:drop-shadow(0 2px 0 #002e4b80);pointer-events:none}
+.vertical button small{font-size:8px;font-weight:700;letter-spacing:.7px;line-height:12px;margin:0;opacity:1;pointer-events:none}
+.vertical button.pressed{transform:translateY(3px);border-color:var(--control-accent);background:radial-gradient(ellipse at 50% 25%,#398e9a,transparent 80%),linear-gradient(#14617b,#06374d);box-shadow:0 2px 0 #032c42,0 0 14px #85eceb44,inset 0 2px 8px #012c4670;color:white}
+.vertical button:focus-visible{outline:3px solid #ffe6a4;outline-offset:5px}
+@media(max-height:500px){.vertical button{width:78px;height:70px;border-radius:22px}.vertical .drive-symbol{width:29px;height:29px}}
+@media(prefers-reduced-motion:reduce){.vertical button{transition:none}}
 
 
 /* The badge opens the native settings dialog directly. */
