@@ -1,6 +1,7 @@
 import {environmentConfig as config} from '../config/environmentConfig.js';
 import {heightAt,noise,random} from './terrainMath.js';
 import {worldConfig} from '../config/worldConfig.js';
+import {insideOctopodClearing} from '../config/octopodConfig.js';
 // Reefs frame the winding sand channels; centers and all local variation are seeded.
 export function reefLayout(){
  const rng=random(worldConfig.seed+403),centers=[[-11,-2],[13,7],[-16,-13],[19,-17],[-18,18],[21,29],[-29,48],[30,66],[-18,85],[39,104],[-45,115]];
@@ -18,5 +19,5 @@ export function reefLayout(){
  }
  // Occasional shells and stones in otherwise open sand, rather than a repeated carpet.
  for(let i=0;i<config.openSandDecorations;i++){const x=(rng()-.5)*1540,z=(rng()-.5)*1540;add(i%3===0?'shell':i%3===1?'grass':'rock',x,z,i%3===2?.12+rng()*.2:.5+rng()*.4,Math.floor(rng()*3));}
- return {records,rocks,centers};
+ return {records:records.filter(r=>!insideOctopodClearing(r.x,r.z,r.scale*4)),rocks:rocks.filter(r=>!insideOctopodClearing(r.x,r.z,r.radius)),centers};
 }

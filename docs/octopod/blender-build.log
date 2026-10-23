@@ -1,0 +1,1083 @@
+20:50:33 | INFO: Starting glTF 2.0 export
+20:50:33 | INFO: Extracting primitive: Central_Hub_Orange_Hull.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Torus.083
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Torus.084
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Cylinder.035
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Torus.165
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Sphere.027
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Main_Dome_Glass.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Garden_Pod_Glazing.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Kwazii_Pod_Glazing.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Barnacles_Pod_Glazing.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Extracting primitive: Peso_Pod_Glazing.001
+20:50:33 | INFO: Primitives created: 1
+20:50:33 | INFO: Finished glTF 2.0 export in 0.13561058044433594 s
+20:50:33 | INFO: Data are loaded, start creating Blender stuff
+20:50:33 | INFO: Blender create Mesh node Sphere
+20:50:33 | INFO: Blender create Mesh node Sphere.001
+20:50:33 | INFO: Blender create Mesh node Sphere.002
+20:50:33 | INFO: Blender create Mesh node Sphere.003
+20:50:33 | INFO: Blender create Mesh node Sphere.004
+20:50:33 | INFO: Blender create Mesh node Sphere.005
+20:50:33 | INFO: Blender create Mesh node Sphere.006
+20:50:33 | INFO: Blender create Mesh node Pectoral fin
+20:50:33 | INFO: Blender create Mesh node Sphere.007
+20:50:33 | INFO: Blender create Mesh node Sphere.008
+20:50:33 | INFO: Blender create Mesh node Pectoral fin.001
+20:50:33 | INFO: Blender create Mesh node Smile seam
+20:50:33 | INFO: Blender create Mesh node Dorsal fin
+20:50:33 | INFO: Blender create Mesh node Tail fin
+20:50:33 | INFO: Blender create Mesh node Sphere.009
+20:50:33 | INFO: Blender create Mesh node Sphere.010
+20:50:33 | INFO: Blender create Mesh node Sphere.011
+20:50:33 | INFO: Blender create Mesh node Sphere.012
+20:50:33 | INFO: Blender create Mesh node Sphere.013
+20:50:33 | INFO: Blender create Mesh node Sphere.014
+20:50:33 | INFO: Blender create Mesh node Sphere.015
+20:50:33 | INFO: Blender create Mesh node Sphere.016
+20:50:33 | INFO: Blender create Mesh node Sphere.017
+20:50:33 | INFO: Blender create Mesh node Sphere.018
+20:50:33 | INFO: Blender create Mesh node Sphere.019
+20:50:33 | INFO: Blender create Mesh node Sphere.020
+20:50:33 | INFO: Blender create Mesh node Sphere.021
+20:50:33 | INFO: Blender create Mesh node Sphere.022
+20:50:33 | INFO: Blender create Mesh node Sphere.023
+20:50:33 | INFO: Blender create Mesh node Sphere.024
+20:50:33 | INFO: Blender create Mesh node Sphere.025
+20:50:33 | INFO: Blender create Mesh node Sphere.026
+20:50:33 | INFO: Blender create Mesh node Sphere.027
+20:50:33 | INFO: Blender create Mesh node Sphere.028
+20:50:33 | INFO: Blender create Mesh node Sphere.029
+20:50:33 | INFO: Blender create Mesh node Sphere.030
+20:50:33 | INFO: Blender create Mesh node Sphere.031
+20:50:33 | INFO: Blender create Mesh node Sphere.032
+20:50:33 | INFO: Blender create Mesh node Sphere.033
+20:50:33 | INFO: Blender create Mesh node Sphere.034
+20:50:33 | INFO: Blender create Mesh node Sphere.035
+20:50:33 | INFO: Blender create Mesh node Sphere.036
+20:50:33 | INFO: Blender create Mesh node Sphere.037
+20:50:33 | INFO: Blender create Mesh node Sphere.038
+20:50:33 | INFO: Blender create Mesh node Sphere.039
+20:50:33 | INFO: Blender create Mesh node Sphere.040
+20:50:33 | INFO: Blender create Mesh node Sphere.041
+20:50:33 | INFO: Blender create Mesh node Sphere.042
+20:50:33 | INFO: Blender create Mesh node Sphere.043
+20:50:33 | INFO: Blender create Mesh node Sphere.044
+20:50:33 | INFO: Blender create Mesh node Sphere.045
+20:50:33 | INFO: Blender create Mesh node Sphere.046
+20:50:33 | INFO: Blender create Mesh node Sphere.047
+20:50:33 | INFO: Blender create Mesh node Sphere.048
+20:50:33 | INFO: Blender create Mesh node Sphere.049
+20:50:33 | INFO: Blender create Mesh node Sphere.050
+20:50:33 | INFO: Blender create Mesh node Sphere.051
+20:50:33 | INFO: Blender create Mesh node Sphere.052
+20:50:33 | INFO: Blender create Mesh node Sphere.053
+20:50:33 | INFO: Blender create Mesh node Sphere.054
+20:50:33 | INFO: glTF import finished in 0.19s
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-15 01:37:33)
+Info: Total files 0 | Changed 0 | Failed 0
+Fra:1 Mem:56.92M (Peak 56.92M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Preview_Ground_not_exported
+Fra:1 Mem:56.93M (Peak 56.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Observation_Seal
+Fra:1 Mem:57.02M (Peak 57.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Glass
+Fra:1 Mem:57.07M (Peak 57.07M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Orange_Roof
+Fra:1 Mem:57.08M (Peak 57.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Room_Floor
+Fra:1 Mem:57.08M (Peak 57.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Deck_Edge
+Fra:1 Mem:57.16M (Peak 57.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_00
+Fra:1 Mem:57.18M (Peak 57.18M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_00
+Fra:1 Mem:57.19M (Peak 57.19M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_01
+Fra:1 Mem:57.21M (Peak 57.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_01
+Fra:1 Mem:57.21M (Peak 57.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_02
+Fra:1 Mem:57.22M (Peak 57.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_02
+Fra:1 Mem:57.23M (Peak 57.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_03
+Fra:1 Mem:57.24M (Peak 57.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_03
+Fra:1 Mem:57.24M (Peak 57.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_04
+Fra:1 Mem:57.25M (Peak 57.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_04
+Fra:1 Mem:57.27M (Peak 57.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_05
+Fra:1 Mem:57.27M (Peak 57.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_06
+Fra:1 Mem:57.29M (Peak 57.29M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_06
+Fra:1 Mem:57.30M (Peak 57.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor_Frame
+Fra:1 Mem:57.30M (Peak 57.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor
+Fra:1 Mem:57.31M (Peak 57.31M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Flexible_Arm
+Fra:1 Mem:57.32M (Peak 57.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_01
+Fra:1 Mem:57.37M (Peak 57.37M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_03
+Fra:1 Mem:57.46M (Peak 57.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_05
+Fra:1 Mem:57.51M (Peak 57.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_07
+Fra:1 Mem:57.57M (Peak 57.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_09
+Fra:1 Mem:57.64M (Peak 57.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_11
+Fra:1 Mem:57.69M (Peak 57.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_13
+Fra:1 Mem:57.75M (Peak 57.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_15
+Fra:1 Mem:57.81M (Peak 57.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_17
+Fra:1 Mem:57.87M (Peak 57.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_19
+Fra:1 Mem:57.94M (Peak 57.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_21
+Fra:1 Mem:57.99M (Peak 57.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_23
+Fra:1 Mem:58.05M (Peak 58.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Flexible_Arm
+Fra:1 Mem:58.11M (Peak 58.11M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_01
+Fra:1 Mem:58.16M (Peak 58.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_03
+Fra:1 Mem:58.21M (Peak 58.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_05
+Fra:1 Mem:58.30M (Peak 58.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_07
+Fra:1 Mem:58.31M (Peak 58.31M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_09
+Fra:1 Mem:58.36M (Peak 58.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_11
+Fra:1 Mem:58.47M (Peak 58.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_13
+Fra:1 Mem:58.52M (Peak 58.52M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_15
+Fra:1 Mem:58.58M (Peak 58.58M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_17
+Fra:1 Mem:58.59M (Peak 58.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.007
+Fra:1 Mem:58.66M (Peak 58.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_19
+Fra:1 Mem:58.73M (Peak 58.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_21
+Fra:1 Mem:58.78M (Peak 58.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.006
+Fra:1 Mem:58.84M (Peak 58.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_23
+Fra:1 Mem:58.85M (Peak 58.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Flexible_Arm
+Fra:1 Mem:58.89M (Peak 58.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_01
+Fra:1 Mem:58.93M (Peak 58.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.005
+Fra:1 Mem:59.04M (Peak 59.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_03
+Fra:1 Mem:59.07M (Peak 59.07M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.004
+Fra:1 Mem:59.12M (Peak 59.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_05
+Fra:1 Mem:59.18M (Peak 59.18M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_07
+Fra:1 Mem:59.24M (Peak 59.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.003
+Fra:1 Mem:59.26M (Peak 59.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_09
+Fra:1 Mem:59.32M (Peak 59.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_11
+Fra:1 Mem:59.41M (Peak 59.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.002
+Fra:1 Mem:59.42M (Peak 59.42M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_13
+Fra:1 Mem:59.47M (Peak 59.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_15
+Fra:1 Mem:59.51M (Peak 59.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_17
+Fra:1 Mem:59.60M (Peak 59.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.001
+Fra:1 Mem:59.67M (Peak 59.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_19
+Fra:1 Mem:59.69M (Peak 59.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_21
+Fra:1 Mem:59.73M (Peak 59.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_23
+Fra:1 Mem:59.77M (Peak 59.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel
+Fra:1 Mem:59.88M (Peak 59.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Flexible_Arm
+Fra:1 Mem:59.89M (Peak 59.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_01
+Fra:1 Mem:59.96M (Peak 59.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Recess
+Fra:1 Mem:60.00M (Peak 60.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_03
+Fra:1 Mem:60.00M (Peak 60.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Rim
+Fra:1 Mem:60.02M (Peak 60.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_05
+Fra:1 Mem:60.09M (Peak 60.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_07
+Fra:1 Mem:60.22M (Peak 60.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.003
+Fra:1 Mem:60.24M (Peak 60.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_09
+Fra:1 Mem:60.25M (Peak 60.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.003
+Fra:1 Mem:60.27M (Peak 60.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_11
+Fra:1 Mem:60.33M (Peak 60.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_13
+Fra:1 Mem:60.46M (Peak 60.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.002
+Fra:1 Mem:60.47M (Peak 60.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_15
+Fra:1 Mem:60.49M (Peak 60.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.002
+Fra:1 Mem:60.55M (Peak 60.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_17
+Fra:1 Mem:60.59M (Peak 60.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_19
+Fra:1 Mem:60.69M (Peak 60.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_21
+Fra:1 Mem:60.73M (Peak 60.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.001
+Fra:1 Mem:60.76M (Peak 60.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.001
+Fra:1 Mem:60.82M (Peak 60.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_23
+Fra:1 Mem:60.84M (Peak 60.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Lower_Hull
+Fra:1 Mem:60.85M (Peak 60.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Window_Seal
+Fra:1 Mem:60.97M (Peak 60.97M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass
+Fra:1 Mem:60.98M (Peak 60.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Glazing
+Fra:1 Mem:60.99M (Peak 60.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal
+Fra:1 Mem:61.03M (Peak 61.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Orange_Cap
+Fra:1 Mem:61.06M (Peak 61.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Floor
+Fra:1 Mem:61.08M (Peak 61.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage
+Fra:1 Mem:61.10M (Peak 61.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.001
+Fra:1 Mem:61.13M (Peak 61.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.002
+Fra:1 Mem:61.17M (Peak 61.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_24
+Fra:1 Mem:61.21M (Peak 61.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_24
+Fra:1 Mem:61.26M (Peak 61.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.003
+Fra:1 Mem:61.27M (Peak 61.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.004
+Fra:1 Mem:61.33M (Peak 61.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.005
+Fra:1 Mem:61.39M (Peak 61.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_20
+Fra:1 Mem:61.40M (Peak 61.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.006
+Fra:1 Mem:61.41M (Peak 61.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_20
+Fra:1 Mem:61.42M (Peak 61.42M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.007
+Fra:1 Mem:61.51M (Peak 61.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.008
+Fra:1 Mem:61.59M (Peak 61.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.009
+Fra:1 Mem:61.59M (Peak 61.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.010
+Fra:1 Mem:61.60M (Peak 61.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_16
+Fra:1 Mem:61.66M (Peak 61.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Lower_Hull
+Fra:1 Mem:61.68M (Peak 61.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_16
+Fra:1 Mem:61.76M (Peak 61.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Window_Seal
+Fra:1 Mem:61.77M (Peak 61.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Orange_Cap
+Fra:1 Mem:61.85M (Peak 61.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Floor
+Fra:1 Mem:61.86M (Peak 61.86M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Bed
+Fra:1 Mem:61.87M (Peak 61.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Pillow
+Fra:1 Mem:61.90M (Peak 61.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_12
+Fra:1 Mem:61.93M (Peak 61.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Cabinet
+Fra:1 Mem:61.94M (Peak 61.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Window_Seal
+Fra:1 Mem:62.02M (Peak 62.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Glazing
+Fra:1 Mem:62.06M (Peak 62.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_8
+Fra:1 Mem:62.07M (Peak 62.07M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Orange_Cap
+Fra:1 Mem:62.08M (Peak 62.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_8
+Fra:1 Mem:62.08M (Peak 62.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Bed
+Fra:1 Mem:62.16M (Peak 62.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Pillow
+Fra:1 Mem:62.16M (Peak 62.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Cabinet
+Fra:1 Mem:62.17M (Peak 62.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Lower_Hull
+Fra:1 Mem:62.20M (Peak 62.20M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Window_Seal
+Fra:1 Mem:62.21M (Peak 62.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Glazing
+Fra:1 Mem:62.23M (Peak 62.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_4
+Fra:1 Mem:62.28M (Peak 62.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Orange_Cap
+Fra:1 Mem:62.29M (Peak 62.29M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_4
+Fra:1 Mem:62.37M (Peak 62.37M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Bed
+Fra:1 Mem:62.39M (Peak 62.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_3
+Fra:1 Mem:62.39M (Peak 62.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_0
+Fra:1 Mem:62.53M (Peak 62.53M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_4
+Fra:1 Mem:62.58M (Peak 62.58M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_4
+Fra:1 Mem:62.60M (Peak 62.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_24
+Fra:1 Mem:62.61M (Peak 62.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_8
+Fra:1 Mem:62.65M (Peak 62.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_24
+Fra:1 Mem:62.66M (Peak 62.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_8
+Fra:1 Mem:62.72M (Peak 62.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_12
+Fra:1 Mem:62.74M (Peak 62.74M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_12
+Fra:1 Mem:62.78M (Peak 62.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_16
+Fra:1 Mem:62.84M (Peak 62.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_20
+Fra:1 Mem:62.85M (Peak 62.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_16
+Fra:1 Mem:62.87M (Peak 62.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_20
+Fra:1 Mem:62.89M (Peak 62.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_20
+Fra:1 Mem:62.98M (Peak 62.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_20
+Fra:1 Mem:62.99M (Peak 62.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_24
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_24
+Fra:1 Mem:63.02M (Peak 63.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_16
+Fra:1 Mem:63.04M (Peak 63.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_1
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_4
+Fra:1 Mem:63.10M (Peak 63.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_16
+Fra:1 Mem:63.28M (Peak 63.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_4
+Fra:1 Mem:63.28M (Peak 63.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_8
+Fra:1 Mem:63.30M (Peak 63.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_8
+Fra:1 Mem:63.30M (Peak 63.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_12
+Fra:1 Mem:63.39M (Peak 63.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_12
+Fra:1 Mem:63.41M (Peak 63.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_12
+Fra:1 Mem:63.45M (Peak 63.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_16
+Fra:1 Mem:63.46M (Peak 63.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_16
+Fra:1 Mem:63.53M (Peak 63.53M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_20
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_20
+Fra:1 Mem:63.60M (Peak 63.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_24
+Fra:1 Mem:63.62M (Peak 63.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_8
+Fra:1 Mem:63.68M (Peak 63.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_24
+Fra:1 Mem:63.68M (Peak 63.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_8
+Fra:1 Mem:63.73M (Peak 63.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_4
+Fra:1 Mem:63.84M (Peak 63.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_4
+Fra:1 Mem:63.90M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:59.00M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:59.58M (Peak 63.90M) | Time:00:00.02 | Mem:0.06M, Peak:0.06M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:3.41M, Peak:3.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:9.66M, Peak:9.66M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.75M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:141.05M (Peak 141.05M) | Time:00:00.62 | Remaining:00:13.61 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:18.63 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:18.63 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\octopod\blender-front.png'
+Time: 00:18.92 (Saving: 00:00.28)
+
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Preview_Ground_not_exported
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Observation_Seal
+Fra:1 Mem:60.25M (Peak 60.25M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Glass
+Fra:1 Mem:60.28M (Peak 60.28M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Orange_Roof
+Fra:1 Mem:60.30M (Peak 60.30M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Room_Floor
+Fra:1 Mem:60.32M (Peak 60.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Deck_Edge
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_01
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_02
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_02
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_03
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_04
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_04
+Fra:1 Mem:60.39M (Peak 60.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_06
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_06
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor
+Fra:1 Mem:60.42M (Peak 60.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Flexible_Arm
+Fra:1 Mem:60.45M (Peak 60.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_01
+Fra:1 Mem:60.45M (Peak 60.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_03
+Fra:1 Mem:60.48M (Peak 60.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_05
+Fra:1 Mem:60.54M (Peak 60.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_07
+Fra:1 Mem:60.54M (Peak 60.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_11
+Fra:1 Mem:60.61M (Peak 60.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_13
+Fra:1 Mem:60.65M (Peak 60.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_15
+Fra:1 Mem:60.69M (Peak 60.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_17
+Fra:1 Mem:60.73M (Peak 60.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_19
+Fra:1 Mem:60.75M (Peak 60.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_23
+Fra:1 Mem:60.76M (Peak 60.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Flexible_Arm
+Fra:1 Mem:60.80M (Peak 60.80M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_01
+Fra:1 Mem:60.85M (Peak 60.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_03
+Fra:1 Mem:60.87M (Peak 60.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_05
+Fra:1 Mem:60.88M (Peak 60.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_07
+Fra:1 Mem:60.94M (Peak 60.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_09
+Fra:1 Mem:60.97M (Peak 60.97M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_13
+Fra:1 Mem:61.03M (Peak 61.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_15
+Fra:1 Mem:61.06M (Peak 61.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_17
+Fra:1 Mem:61.06M (Peak 61.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_19
+Fra:1 Mem:61.13M (Peak 61.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_21
+Fra:1 Mem:61.13M (Peak 61.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_23
+Fra:1 Mem:61.19M (Peak 61.19M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Flexible_Arm
+Fra:1 Mem:61.19M (Peak 61.19M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_01
+Fra:1 Mem:61.24M (Peak 61.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_03
+Fra:1 Mem:61.27M (Peak 61.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_05
+Fra:1 Mem:61.27M (Peak 61.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_07
+Fra:1 Mem:61.33M (Peak 61.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_09
+Fra:1 Mem:61.36M (Peak 61.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_11
+Fra:1 Mem:61.38M (Peak 61.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_13
+Fra:1 Mem:61.43M (Peak 61.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_15
+Fra:1 Mem:61.43M (Peak 61.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_17
+Fra:1 Mem:61.49M (Peak 61.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_19
+Fra:1 Mem:61.49M (Peak 61.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_21
+Fra:1 Mem:61.55M (Peak 61.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_23
+Fra:1 Mem:61.55M (Peak 61.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Flexible_Arm
+Fra:1 Mem:61.60M (Peak 61.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_01
+Fra:1 Mem:61.62M (Peak 61.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_03
+Fra:1 Mem:61.67M (Peak 61.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_05
+Fra:1 Mem:61.70M (Peak 61.70M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_07
+Fra:1 Mem:61.72M (Peak 61.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_09
+Fra:1 Mem:61.76M (Peak 61.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_11
+Fra:1 Mem:61.78M (Peak 61.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_13
+Fra:1 Mem:61.82M (Peak 61.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_15
+Fra:1 Mem:61.85M (Peak 61.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_17
+Fra:1 Mem:61.85M (Peak 61.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_19
+Fra:1 Mem:61.91M (Peak 61.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_21
+Fra:1 Mem:61.93M (Peak 61.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_23
+Fra:1 Mem:61.98M (Peak 61.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Lower_Hull
+Fra:1 Mem:61.97M (Peak 61.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Window_Seal
+Fra:1 Mem:62.02M (Peak 62.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Glazing
+Fra:1 Mem:62.03M (Peak 62.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Orange_Cap
+Fra:1 Mem:62.03M (Peak 62.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Floor
+Fra:1 Mem:62.05M (Peak 62.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage
+Fra:1 Mem:62.05M (Peak 62.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.001
+Fra:1 Mem:62.09M (Peak 62.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.002
+Fra:1 Mem:62.09M (Peak 62.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.003
+Fra:1 Mem:62.13M (Peak 62.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.004
+Fra:1 Mem:62.13M (Peak 62.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.005
+Fra:1 Mem:62.17M (Peak 62.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.006
+Fra:1 Mem:62.17M (Peak 62.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.007
+Fra:1 Mem:62.22M (Peak 62.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.008
+Fra:1 Mem:62.22M (Peak 62.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.009
+Fra:1 Mem:62.26M (Peak 62.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.010
+Fra:1 Mem:62.27M (Peak 62.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Lower_Hull
+Fra:1 Mem:62.33M (Peak 62.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Window_Seal
+Fra:1 Mem:62.35M (Peak 62.35M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.006
+Fra:1 Mem:62.38M (Peak 62.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Orange_Cap
+Fra:1 Mem:62.39M (Peak 62.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Floor
+Fra:1 Mem:62.41M (Peak 62.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.005
+Fra:1 Mem:62.43M (Peak 62.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Pillow
+Fra:1 Mem:62.44M (Peak 62.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.004
+Fra:1 Mem:62.44M (Peak 62.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Cabinet
+Fra:1 Mem:62.47M (Peak 62.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.003
+Fra:1 Mem:62.47M (Peak 62.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Window_Seal
+Fra:1 Mem:62.47M (Peak 62.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Glazing
+Fra:1 Mem:62.51M (Peak 62.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.002
+Fra:1 Mem:62.55M (Peak 62.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Orange_Cap
+Fra:1 Mem:62.55M (Peak 62.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.001
+Fra:1 Mem:62.59M (Peak 62.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Bed
+Fra:1 Mem:62.59M (Peak 62.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Pillow
+Fra:1 Mem:62.62M (Peak 62.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Lower_Hull
+Fra:1 Mem:62.62M (Peak 62.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel
+Fra:1 Mem:62.64M (Peak 62.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Window_Seal
+Fra:1 Mem:62.64M (Peak 62.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Recess
+Fra:1 Mem:62.68M (Peak 62.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Rim
+Fra:1 Mem:62.70M (Peak 62.70M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Orange_Cap
+Fra:1 Mem:62.71M (Peak 62.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Floor
+Fra:1 Mem:62.71M (Peak 62.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Bed
+Fra:1 Mem:62.74M (Peak 62.74M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.003
+Fra:1 Mem:62.76M (Peak 62.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.003
+Fra:1 Mem:62.79M (Peak 62.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Pillow
+Fra:1 Mem:62.79M (Peak 62.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.002
+Fra:1 Mem:62.79M (Peak 62.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.002
+Fra:1 Mem:62.82M (Peak 62.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Cabinet
+Fra:1 Mem:62.83M (Peak 62.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_0
+Fra:1 Mem:62.83M (Peak 62.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_4
+Fra:1 Mem:62.90M (Peak 62.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_4
+Fra:1 Mem:62.91M (Peak 62.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.001
+Fra:1 Mem:62.94M (Peak 62.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_8
+Fra:1 Mem:62.97M (Peak 62.97M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_12
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_16
+Fra:1 Mem:63.04M (Peak 63.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_16
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_20
+Fra:1 Mem:63.08M (Peak 63.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_20
+Fra:1 Mem:63.10M (Peak 63.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_24
+Fra:1 Mem:63.12M (Peak 63.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_24
+Fra:1 Mem:63.14M (Peak 63.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_24
+Fra:1 Mem:63.15M (Peak 63.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_1
+Fra:1 Mem:63.19M (Peak 63.19M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_4
+Fra:1 Mem:63.23M (Peak 63.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_8
+Fra:1 Mem:63.26M (Peak 63.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_12
+Fra:1 Mem:63.29M (Peak 63.29M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_20
+Fra:1 Mem:63.29M (Peak 63.29M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_12
+Fra:1 Mem:63.30M (Peak 63.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_16
+Fra:1 Mem:63.34M (Peak 63.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_20
+Fra:1 Mem:63.36M (Peak 63.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_20
+Fra:1 Mem:63.37M (Peak 63.37M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_20
+Fra:1 Mem:63.41M (Peak 63.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_24
+Fra:1 Mem:63.41M (Peak 63.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_24
+Fra:1 Mem:63.47M (Peak 63.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_2
+Fra:1 Mem:63.50M (Peak 63.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_4
+Fra:1 Mem:63.52M (Peak 63.52M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_4
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_8
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_12
+Fra:1 Mem:63.65M (Peak 63.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_12
+Fra:1 Mem:63.65M (Peak 63.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_12
+Fra:1 Mem:63.68M (Peak 63.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_12
+Fra:1 Mem:63.69M (Peak 63.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_20
+Fra:1 Mem:63.74M (Peak 63.74M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_8
+Fra:1 Mem:63.75M (Peak 63.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_20
+Fra:1 Mem:63.75M (Peak 63.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_8
+Fra:1 Mem:63.79M (Peak 63.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_3
+Fra:1 Mem:63.79M (Peak 63.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_4
+Fra:1 Mem:63.80M (Peak 63.80M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_4
+Fra:1 Mem:63.90M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:59.00M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:59.58M (Peak 63.90M) | Time:00:00.02 | Mem:0.06M, Peak:0.06M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:3.41M, Peak:3.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.66M, Peak:9.66M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.75M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:141.05M (Peak 141.05M) | Time:00:00.58 | Remaining:00:12.88 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:18.19 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:18.19 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\octopod\blender-rear.png'
+Time: 00:18.34 (Saving: 00:00.13)
+
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Preview_Ground_not_exported
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Observation_Seal
+Fra:1 Mem:60.23M (Peak 60.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Glass
+Fra:1 Mem:60.26M (Peak 60.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Orange_Roof
+Fra:1 Mem:60.27M (Peak 60.27M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Room_Floor
+Fra:1 Mem:60.31M (Peak 60.31M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Deck_Edge
+Fra:1 Mem:60.32M (Peak 60.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_01
+Fra:1 Mem:60.36M (Peak 60.36M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_01
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_02
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_03
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_03
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_04
+Fra:1 Mem:60.39M (Peak 60.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_04
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_06
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_06
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor_Frame
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor
+Fra:1 Mem:60.42M (Peak 60.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Flexible_Arm
+Fra:1 Mem:60.45M (Peak 60.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_01
+Fra:1 Mem:60.45M (Peak 60.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_03
+Fra:1 Mem:60.48M (Peak 60.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_05
+Fra:1 Mem:60.51M (Peak 60.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_07
+Fra:1 Mem:60.54M (Peak 60.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_09
+Fra:1 Mem:60.60M (Peak 60.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_11
+Fra:1 Mem:60.61M (Peak 60.61M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_13
+Fra:1 Mem:60.66M (Peak 60.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_15
+Fra:1 Mem:60.68M (Peak 60.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_17
+Fra:1 Mem:60.72M (Peak 60.72M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_19
+Fra:1 Mem:60.73M (Peak 60.73M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_21
+Fra:1 Mem:60.78M (Peak 60.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_23
+Fra:1 Mem:60.81M (Peak 60.81M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Flexible_Arm
+Fra:1 Mem:60.83M (Peak 60.83M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_01
+Fra:1 Mem:60.86M (Peak 60.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_03
+Fra:1 Mem:60.88M (Peak 60.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_05
+Fra:1 Mem:60.92M (Peak 60.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_07
+Fra:1 Mem:60.94M (Peak 60.94M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_09
+Fra:1 Mem:60.96M (Peak 60.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_11
+Fra:1 Mem:61.03M (Peak 61.03M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_13
+Fra:1 Mem:61.05M (Peak 61.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_15
+Fra:1 Mem:61.08M (Peak 61.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_17
+Fra:1 Mem:61.11M (Peak 61.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_19
+Fra:1 Mem:61.14M (Peak 61.14M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_21
+Fra:1 Mem:61.15M (Peak 61.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_23
+Fra:1 Mem:61.20M (Peak 61.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Flexible_Arm
+Fra:1 Mem:61.22M (Peak 61.22M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_01
+Fra:1 Mem:61.23M (Peak 61.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_03
+Fra:1 Mem:61.29M (Peak 61.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_05
+Fra:1 Mem:61.30M (Peak 61.30M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_07
+Fra:1 Mem:61.33M (Peak 61.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_09
+Fra:1 Mem:61.37M (Peak 61.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_11
+Fra:1 Mem:61.41M (Peak 61.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_13
+Fra:1 Mem:61.42M (Peak 61.42M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_15
+Fra:1 Mem:61.45M (Peak 61.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_17
+Fra:1 Mem:61.48M (Peak 61.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_19
+Fra:1 Mem:61.51M (Peak 61.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_21
+Fra:1 Mem:61.56M (Peak 61.56M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_23
+Fra:1 Mem:61.58M (Peak 61.58M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Flexible_Arm
+Fra:1 Mem:61.60M (Peak 61.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_01
+Fra:1 Mem:61.62M (Peak 61.62M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_03
+Fra:1 Mem:61.68M (Peak 61.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_05
+Fra:1 Mem:61.68M (Peak 61.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_07
+Fra:1 Mem:61.73M (Peak 61.73M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_09
+Fra:1 Mem:61.76M (Peak 61.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_11
+Fra:1 Mem:61.78M (Peak 61.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_13
+Fra:1 Mem:61.83M (Peak 61.83M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_15
+Fra:1 Mem:61.85M (Peak 61.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_17
+Fra:1 Mem:61.89M (Peak 61.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_19
+Fra:1 Mem:61.90M (Peak 61.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_23
+Fra:1 Mem:61.96M (Peak 61.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Lower_Hull
+Fra:1 Mem:61.99M (Peak 61.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Window_Seal
+Fra:1 Mem:62.03M (Peak 62.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Glazing
+Fra:1 Mem:62.05M (Peak 62.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Orange_Cap
+Fra:1 Mem:62.05M (Peak 62.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage
+Fra:1 Mem:62.09M (Peak 62.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.001
+Fra:1 Mem:62.09M (Peak 62.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.002
+Fra:1 Mem:62.13M (Peak 62.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.003
+Fra:1 Mem:62.13M (Peak 62.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.004
+Fra:1 Mem:62.18M (Peak 62.18M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.005
+Fra:1 Mem:62.19M (Peak 62.19M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.007
+Fra:1 Mem:62.21M (Peak 62.21M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.008
+Fra:1 Mem:62.26M (Peak 62.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.009
+Fra:1 Mem:62.27M (Peak 62.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Lower_Hull
+Fra:1 Mem:62.29M (Peak 62.29M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Window_Seal
+Fra:1 Mem:62.34M (Peak 62.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Glazing
+Fra:1 Mem:62.38M (Peak 62.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Orange_Cap
+Fra:1 Mem:62.38M (Peak 62.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Bed
+Fra:1 Mem:62.40M (Peak 62.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Pillow
+Fra:1 Mem:62.40M (Peak 62.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Cabinet
+Fra:1 Mem:62.43M (Peak 62.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Lower_Hull
+Fra:1 Mem:62.44M (Peak 62.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Window_Seal
+Fra:1 Mem:62.45M (Peak 62.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Orange_Cap
+Fra:1 Mem:62.46M (Peak 62.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Floor
+Fra:1 Mem:62.48M (Peak 62.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.004
+Fra:1 Mem:62.52M (Peak 62.52M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Bed
+Fra:1 Mem:62.54M (Peak 62.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Pillow
+Fra:1 Mem:62.54M (Peak 62.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Cabinet
+Fra:1 Mem:62.55M (Peak 62.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Lower_Hull
+Fra:1 Mem:62.55M (Peak 62.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Window_Seal
+Fra:1 Mem:62.60M (Peak 62.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Glazing
+Fra:1 Mem:62.63M (Peak 62.63M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Orange_Cap
+Fra:1 Mem:62.64M (Peak 62.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.002
+Fra:1 Mem:62.66M (Peak 62.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Bed
+Fra:1 Mem:62.68M (Peak 62.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Pillow
+Fra:1 Mem:62.69M (Peak 62.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Cabinet
+Fra:1 Mem:62.71M (Peak 62.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_4
+Fra:1 Mem:62.72M (Peak 62.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel
+Fra:1 Mem:62.75M (Peak 62.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_8
+Fra:1 Mem:62.75M (Peak 62.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_8
+Fra:1 Mem:62.80M (Peak 62.80M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Recess
+Fra:1 Mem:62.81M (Peak 62.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_12
+Fra:1 Mem:62.82M (Peak 62.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_12
+Fra:1 Mem:62.85M (Peak 62.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_16
+Fra:1 Mem:62.87M (Peak 62.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_16
+Fra:1 Mem:62.89M (Peak 62.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_20
+Fra:1 Mem:62.94M (Peak 62.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_20
+Fra:1 Mem:62.97M (Peak 62.97M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_24
+Fra:1 Mem:62.99M (Peak 62.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.003
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_1
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.003
+Fra:1 Mem:63.06M (Peak 63.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_8
+Fra:1 Mem:63.09M (Peak 63.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_8
+Fra:1 Mem:63.14M (Peak 63.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.002
+Fra:1 Mem:63.15M (Peak 63.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_12
+Fra:1 Mem:63.16M (Peak 63.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_12
+Fra:1 Mem:63.16M (Peak 63.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_16
+Fra:1 Mem:63.20M (Peak 63.20M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_16
+Fra:1 Mem:63.23M (Peak 63.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_20
+Fra:1 Mem:63.26M (Peak 63.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_20
+Fra:1 Mem:63.26M (Peak 63.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_24
+Fra:1 Mem:63.30M (Peak 63.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_24
+Fra:1 Mem:63.30M (Peak 63.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.001
+Fra:1 Mem:63.36M (Peak 63.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_4
+Fra:1 Mem:63.38M (Peak 63.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass
+Fra:1 Mem:63.40M (Peak 63.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_4
+Fra:1 Mem:63.44M (Peak 63.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_8
+Fra:1 Mem:63.45M (Peak 63.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_12
+Fra:1 Mem:63.53M (Peak 63.53M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_12
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_16
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_20
+Fra:1 Mem:63.55M (Peak 63.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_20
+Fra:1 Mem:63.59M (Peak 63.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_24
+Fra:1 Mem:63.65M (Peak 63.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_24
+Fra:1 Mem:63.65M (Peak 63.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_4
+Fra:1 Mem:63.75M (Peak 63.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_20
+Fra:1 Mem:63.75M (Peak 63.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_4
+Fra:1 Mem:63.76M (Peak 63.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_8
+Fra:1 Mem:63.76M (Peak 63.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_12
+Fra:1 Mem:63.80M (Peak 63.80M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_12
+Fra:1 Mem:63.82M (Peak 63.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_16
+Fra:1 Mem:63.87M (Peak 63.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_16
+Fra:1 Mem:63.90M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:59.00M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:59.58M (Peak 63.90M) | Time:00:00.02 | Mem:0.06M, Peak:0.06M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:3.41M, Peak:3.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.66M, Peak:9.66M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.75M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:141.05M (Peak 141.05M) | Time:00:00.54 | Remaining:00:11.97 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:17.46 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:17.46 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\octopod\blender-side.png'
+Time: 00:17.60 (Saving: 00:00.13)
+
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Preview_Ground_not_exported
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Central_Hub_Orange_Hull
+Fra:1 Mem:60.23M (Peak 60.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Glass
+Fra:1 Mem:60.26M (Peak 60.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Orange_Roof
+Fra:1 Mem:60.28M (Peak 60.28M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Room_Floor
+Fra:1 Mem:60.32M (Peak 60.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Deck_Edge
+Fra:1 Mem:60.32M (Peak 60.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_01
+Fra:1 Mem:60.36M (Peak 60.36M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_02
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_03
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_03
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_04
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_04
+Fra:1 Mem:60.39M (Peak 60.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_06
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor_Frame
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Flexible_Arm
+Fra:1 Mem:60.44M (Peak 60.44M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_01
+Fra:1 Mem:60.47M (Peak 60.47M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_03
+Fra:1 Mem:60.51M (Peak 60.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_05
+Fra:1 Mem:60.53M (Peak 60.53M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_07
+Fra:1 Mem:60.56M (Peak 60.56M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_11
+Fra:1 Mem:60.60M (Peak 60.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_13
+Fra:1 Mem:60.62M (Peak 60.62M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_15
+Fra:1 Mem:60.66M (Peak 60.66M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_17
+Fra:1 Mem:60.69M (Peak 60.69M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_19
+Fra:1 Mem:60.75M (Peak 60.75M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_21
+Fra:1 Mem:60.79M (Peak 60.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_01
+Fra:1 Mem:60.82M (Peak 60.82M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_03
+Fra:1 Mem:60.88M (Peak 60.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_05
+Fra:1 Mem:60.90M (Peak 60.90M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_07
+Fra:1 Mem:60.96M (Peak 60.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_09
+Fra:1 Mem:60.96M (Peak 60.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_11
+Fra:1 Mem:61.02M (Peak 61.02M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_13
+Fra:1 Mem:61.05M (Peak 61.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_15
+Fra:1 Mem:61.08M (Peak 61.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_17
+Fra:1 Mem:61.10M (Peak 61.10M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_21
+Fra:1 Mem:61.15M (Peak 61.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_23
+Fra:1 Mem:61.15M (Peak 61.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Flexible_Arm
+Fra:1 Mem:61.22M (Peak 61.22M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_01
+Fra:1 Mem:61.26M (Peak 61.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_03
+Fra:1 Mem:61.26M (Peak 61.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_05
+Fra:1 Mem:61.31M (Peak 61.31M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_07
+Fra:1 Mem:61.32M (Peak 61.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_09
+Fra:1 Mem:61.38M (Peak 61.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_11
+Fra:1 Mem:61.41M (Peak 61.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_13
+Fra:1 Mem:61.44M (Peak 61.44M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_15
+Fra:1 Mem:61.45M (Peak 61.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_19
+Fra:1 Mem:61.51M (Peak 61.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_21
+Fra:1 Mem:61.54M (Peak 61.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_23
+Fra:1 Mem:61.54M (Peak 61.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Flexible_Arm
+Fra:1 Mem:61.59M (Peak 61.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_01
+Fra:1 Mem:61.65M (Peak 61.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_03
+Fra:1 Mem:61.66M (Peak 61.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_05
+Fra:1 Mem:61.71M (Peak 61.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.006
+Fra:1 Mem:61.73M (Peak 61.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_07
+Fra:1 Mem:61.77M (Peak 61.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_09
+Fra:1 Mem:61.77M (Peak 61.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.005
+Fra:1 Mem:61.82M (Peak 61.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.004
+Fra:1 Mem:61.86M (Peak 61.86M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_13
+Fra:1 Mem:61.87M (Peak 61.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.003
+Fra:1 Mem:61.89M (Peak 61.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_15
+Fra:1 Mem:61.94M (Peak 61.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.002
+Fra:1 Mem:61.97M (Peak 61.97M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_17
+Fra:1 Mem:61.98M (Peak 61.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_19
+Fra:1 Mem:62.00M (Peak 62.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_21
+Fra:1 Mem:62.06M (Peak 62.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.001
+Fra:1 Mem:62.06M (Peak 62.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Lower_Hull
+Fra:1 Mem:62.13M (Peak 62.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Window_Seal
+Fra:1 Mem:62.14M (Peak 62.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Glazing
+Fra:1 Mem:62.17M (Peak 62.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Floor
+Fra:1 Mem:62.20M (Peak 62.20M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage
+Fra:1 Mem:62.23M (Peak 62.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel
+Fra:1 Mem:62.23M (Peak 62.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.002
+Fra:1 Mem:62.28M (Peak 62.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.003
+Fra:1 Mem:62.32M (Peak 62.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Recess
+Fra:1 Mem:62.32M (Peak 62.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.006
+Fra:1 Mem:62.35M (Peak 62.35M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Rim
+Fra:1 Mem:62.39M (Peak 62.39M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.007
+Fra:1 Mem:62.41M (Peak 62.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.008
+Fra:1 Mem:62.43M (Peak 62.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.009
+Fra:1 Mem:62.46M (Peak 62.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.010
+Fra:1 Mem:62.48M (Peak 62.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Lower_Hull
+Fra:1 Mem:62.50M (Peak 62.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Window_Seal
+Fra:1 Mem:62.56M (Peak 62.56M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Orange_Cap
+Fra:1 Mem:62.56M (Peak 62.56M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Floor
+Fra:1 Mem:62.57M (Peak 62.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Bed
+Fra:1 Mem:62.60M (Peak 62.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Pillow
+Fra:1 Mem:62.61M (Peak 62.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.002
+Fra:1 Mem:62.62M (Peak 62.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Lower_Hull
+Fra:1 Mem:62.64M (Peak 62.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.002
+Fra:1 Mem:62.66M (Peak 62.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Window_Seal
+Fra:1 Mem:62.67M (Peak 62.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.001
+Fra:1 Mem:62.68M (Peak 62.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.001
+Fra:1 Mem:62.73M (Peak 62.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Orange_Cap
+Fra:1 Mem:62.75M (Peak 62.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass
+Fra:1 Mem:62.76M (Peak 62.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Floor
+Fra:1 Mem:62.77M (Peak 62.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Pillow
+Fra:1 Mem:62.78M (Peak 62.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal
+Fra:1 Mem:62.78M (Peak 62.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Cabinet
+Fra:1 Mem:62.81M (Peak 62.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Lower_Hull
+Fra:1 Mem:62.81M (Peak 62.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_24
+Fra:1 Mem:62.83M (Peak 62.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Window_Seal
+Fra:1 Mem:62.84M (Peak 62.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Glazing
+Fra:1 Mem:62.87M (Peak 62.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_24
+Fra:1 Mem:62.87M (Peak 62.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Floor
+Fra:1 Mem:62.89M (Peak 62.89M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Bed
+Fra:1 Mem:62.92M (Peak 62.92M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Pillow
+Fra:1 Mem:62.93M (Peak 62.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Cabinet
+Fra:1 Mem:62.93M (Peak 62.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_0
+Fra:1 Mem:62.98M (Peak 62.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_4
+Fra:1 Mem:62.98M (Peak 62.98M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_4
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_8
+Fra:1 Mem:63.03M (Peak 63.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_8
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_12
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_12
+Fra:1 Mem:63.06M (Peak 63.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_16
+Fra:1 Mem:63.09M (Peak 63.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_16
+Fra:1 Mem:63.10M (Peak 63.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_20
+Fra:1 Mem:63.10M (Peak 63.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_24
+Fra:1 Mem:63.18M (Peak 63.18M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_24
+Fra:1 Mem:63.22M (Peak 63.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_16
+Fra:1 Mem:63.23M (Peak 63.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_1
+Fra:1 Mem:63.25M (Peak 63.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_4
+Fra:1 Mem:63.27M (Peak 63.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_8
+Fra:1 Mem:63.36M (Peak 63.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_12
+Fra:1 Mem:63.36M (Peak 63.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_12
+Fra:1 Mem:63.40M (Peak 63.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_12
+Fra:1 Mem:63.40M (Peak 63.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_12
+Fra:1 Mem:63.43M (Peak 63.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_16
+Fra:1 Mem:63.44M (Peak 63.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_8
+Fra:1 Mem:63.48M (Peak 63.48M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_20
+Fra:1 Mem:63.50M (Peak 63.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_8
+Fra:1 Mem:63.54M (Peak 63.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_24
+Fra:1 Mem:63.58M (Peak 63.58M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_4
+Fra:1 Mem:63.58M (Peak 63.58M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_4
+Fra:1 Mem:63.61M (Peak 63.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_4
+Fra:1 Mem:63.63M (Peak 63.63M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_4
+Fra:1 Mem:63.65M (Peak 63.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_8
+Fra:1 Mem:63.67M (Peak 63.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_12
+Fra:1 Mem:63.72M (Peak 63.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_3
+Fra:1 Mem:63.74M (Peak 63.74M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_12
+Fra:1 Mem:63.78M (Peak 63.78M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_16
+Fra:1 Mem:63.81M (Peak 63.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_20
+Fra:1 Mem:63.83M (Peak 63.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_20
+Fra:1 Mem:63.83M (Peak 63.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_24
+Fra:1 Mem:63.90M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:59.00M (Peak 63.90M) | Time:00:00.02 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:59.58M (Peak 63.90M) | Time:00:00.02 | Mem:0.06M, Peak:0.06M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:3.41M, Peak:3.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:9.66M, Peak:9.66M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.67M, Peak:9.75M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.03 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:141.05M (Peak 141.05M) | Time:00:00.90 | Remaining:00:19.93 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:25.65 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:25.65 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\octopod\blender-top.png'
+Time: 00:25.80 (Saving: 00:00.14)
+
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Preview_Ground_not_exported
+Fra:1 Mem:60.20M (Peak 60.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Central_Hub_Orange_Hull
+Fra:1 Mem:60.23M (Peak 60.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Observation_Seal
+Fra:1 Mem:60.25M (Peak 60.25M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Main_Dome_Glass
+Fra:1 Mem:60.29M (Peak 60.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Room_Floor
+Fra:1 Mem:60.29M (Peak 60.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Control_Deck_Edge
+Fra:1 Mem:60.32M (Peak 60.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_00
+Fra:1 Mem:60.35M (Peak 60.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_01
+Fra:1 Mem:60.36M (Peak 60.36M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_01
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_02
+Fra:1 Mem:60.37M (Peak 60.37M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_03
+Fra:1 Mem:60.38M (Peak 60.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_04
+Fra:1 Mem:60.39M (Peak 60.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_04
+Fra:1 Mem:60.39M (Peak 60.39M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_05
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Console_06
+Fra:1 Mem:60.40M (Peak 60.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Display_06
+Fra:1 Mem:60.41M (Peak 60.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bridge_Rear_Monitor
+Fra:1 Mem:60.42M (Peak 60.43M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Flexible_Arm
+Fra:1 Mem:60.45M (Peak 60.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_03
+Fra:1 Mem:60.46M (Peak 60.46M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_05
+Fra:1 Mem:60.51M (Peak 60.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_07
+Fra:1 Mem:60.54M (Peak 60.54M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_09
+Fra:1 Mem:60.60M (Peak 60.60M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_11
+Fra:1 Mem:60.64M (Peak 60.64M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_17
+Fra:1 Mem:60.67M (Peak 60.67M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_19
+Fra:1 Mem:60.75M (Peak 60.75M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_21
+Fra:1 Mem:60.76M (Peak 60.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Arm_Rib_23
+Fra:1 Mem:60.78M (Peak 60.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Flexible_Arm
+Fra:1 Mem:60.84M (Peak 60.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_01
+Fra:1 Mem:60.86M (Peak 60.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_05
+Fra:1 Mem:60.92M (Peak 60.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_07
+Fra:1 Mem:60.96M (Peak 60.96M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_09
+Fra:1 Mem:60.97M (Peak 60.97M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_11
+Fra:1 Mem:61.01M (Peak 61.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_13
+Fra:1 Mem:61.05M (Peak 61.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_15
+Fra:1 Mem:61.06M (Peak 61.06M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_17
+Fra:1 Mem:61.11M (Peak 61.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_19
+Fra:1 Mem:61.15M (Peak 61.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_21
+Fra:1 Mem:61.18M (Peak 61.18M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Arm_Rib_23
+Fra:1 Mem:61.20M (Peak 61.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_01
+Fra:1 Mem:61.23M (Peak 61.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_03
+Fra:1 Mem:61.26M (Peak 61.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_05
+Fra:1 Mem:61.32M (Peak 61.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_07
+Fra:1 Mem:61.33M (Peak 61.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_09
+Fra:1 Mem:61.38M (Peak 61.38M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_11
+Fra:1 Mem:61.41M (Peak 61.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_13
+Fra:1 Mem:61.45M (Peak 61.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_17
+Fra:1 Mem:61.47M (Peak 61.47M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_19
+Fra:1 Mem:61.51M (Peak 61.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_21
+Fra:1 Mem:61.57M (Peak 61.57M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Arm_Rib_23
+Fra:1 Mem:61.58M (Peak 61.58M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Flexible_Arm
+Fra:1 Mem:61.61M (Peak 61.61M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_01
+Fra:1 Mem:61.63M (Peak 61.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_03
+Fra:1 Mem:61.65M (Peak 61.65M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_05
+Fra:1 Mem:61.72M (Peak 61.72M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_09
+Fra:1 Mem:61.72M (Peak 61.72M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_11
+Fra:1 Mem:61.80M (Peak 61.80M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_13
+Fra:1 Mem:61.84M (Peak 61.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_15
+Fra:1 Mem:61.86M (Peak 61.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_19
+Fra:1 Mem:61.90M (Peak 61.90M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_21
+Fra:1 Mem:61.93M (Peak 61.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Arm_Rib_23
+Fra:1 Mem:61.94M (Peak 61.94M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Lower_Hull
+Fra:1 Mem:62.00M (Peak 62.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Window_Seal
+Fra:1 Mem:62.00M (Peak 62.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Glazing
+Fra:1 Mem:62.05M (Peak 62.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Pod_Orange_Cap
+Fra:1 Mem:62.06M (Peak 62.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage
+Fra:1 Mem:62.08M (Peak 62.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.001
+Fra:1 Mem:62.11M (Peak 62.11M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.007
+Fra:1 Mem:62.12M (Peak 62.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.004
+Fra:1 Mem:62.16M (Peak 62.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.006
+Fra:1 Mem:62.18M (Peak 62.18M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.005
+Fra:1 Mem:62.22M (Peak 62.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.006
+Fra:1 Mem:62.24M (Peak 62.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.007
+Fra:1 Mem:62.28M (Peak 62.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.005
+Fra:1 Mem:62.28M (Peak 62.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.009
+Fra:1 Mem:62.32M (Peak 62.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Garden_Foliage.010
+Fra:1 Mem:62.34M (Peak 62.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Lower_Hull
+Fra:1 Mem:62.34M (Peak 62.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Window_Seal
+Fra:1 Mem:62.37M (Peak 62.37M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Glazing
+Fra:1 Mem:62.41M (Peak 62.41M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Orange_Cap
+Fra:1 Mem:62.42M (Peak 62.42M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Floor
+Fra:1 Mem:62.45M (Peak 62.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.003
+Fra:1 Mem:62.45M (Peak 62.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Bed
+Fra:1 Mem:62.46M (Peak 62.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Pillow
+Fra:1 Mem:62.49M (Peak 62.49M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Kwazii_Pod_Cabinet
+Fra:1 Mem:62.50M (Peak 62.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Lower_Hull
+Fra:1 Mem:62.51M (Peak 62.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Glazing
+Fra:1 Mem:62.52M (Peak 62.52M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Orange_Cap
+Fra:1 Mem:62.55M (Peak 62.55M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel.001
+Fra:1 Mem:62.57M (Peak 62.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Bed
+Fra:1 Mem:62.59M (Peak 62.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Pillow
+Fra:1 Mem:62.60M (Peak 62.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Barnacles_Pod_Cabinet
+Fra:1 Mem:62.60M (Peak 62.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Window_Seal
+Fra:1 Mem:62.64M (Peak 62.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Glazing
+Fra:1 Mem:62.65M (Peak 62.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Floor
+Fra:1 Mem:62.68M (Peak 62.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Recessed_Panel
+Fra:1 Mem:62.68M (Peak 62.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Bed
+Fra:1 Mem:62.72M (Peak 62.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Pillow
+Fra:1 Mem:62.72M (Peak 62.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Peso_Pod_Cabinet
+Fra:1 Mem:62.73M (Peak 62.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_0
+Fra:1 Mem:62.75M (Peak 62.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_4
+Fra:1 Mem:62.77M (Peak 62.77M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_4
+Fra:1 Mem:62.81M (Peak 62.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_8
+Fra:1 Mem:62.81M (Peak 62.81M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_12
+Fra:1 Mem:62.83M (Peak 62.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_12
+Fra:1 Mem:62.84M (Peak 62.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_16
+Fra:1 Mem:62.90M (Peak 62.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_16
+Fra:1 Mem:62.91M (Peak 62.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_0_20
+Fra:1 Mem:62.91M (Peak 62.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_0_20
+Fra:1 Mem:62.93M (Peak 62.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Launch_Hatch_Rim
+Fra:1 Mem:63.00M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.003
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_1
+Fra:1 Mem:63.01M (Peak 63.01M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.003
+Fra:1 Mem:63.05M (Peak 63.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_4
+Fra:1 Mem:63.10M (Peak 63.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.002
+Fra:1 Mem:63.12M (Peak 63.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_4
+Fra:1 Mem:63.12M (Peak 63.12M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_8
+Fra:1 Mem:63.13M (Peak 63.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_12
+Fra:1 Mem:63.20M (Peak 63.20M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_1_12
+Fra:1 Mem:63.23M (Peak 63.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass.001
+Fra:1 Mem:63.23M (Peak 63.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_20
+Fra:1 Mem:63.24M (Peak 63.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Seal.001
+Fra:1 Mem:63.32M (Peak 63.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hull_Porthole_Glass
+Fra:1 Mem:63.34M (Peak 63.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_1_24
+Fra:1 Mem:63.36M (Peak 63.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Support_Tentacle_2
+Fra:1 Mem:63.44M (Peak 63.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_4
+Fra:1 Mem:63.44M (Peak 63.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_24
+Fra:1 Mem:63.45M (Peak 63.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_8
+Fra:1 Mem:63.47M (Peak 63.47M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_24
+Fra:1 Mem:63.50M (Peak 63.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_8
+Fra:1 Mem:63.53M (Peak 63.53M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_12
+Fra:1 Mem:63.57M (Peak 63.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_12
+Fra:1 Mem:63.58M (Peak 63.58M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_2_16
+Fra:1 Mem:63.59M (Peak 63.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_20
+Fra:1 Mem:63.59M (Peak 63.59M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_20
+Fra:1 Mem:63.64M (Peak 63.64M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_2_24
+Fra:1 Mem:63.68M (Peak 63.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_16
+Fra:1 Mem:63.69M (Peak 63.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_16
+Fra:1 Mem:63.76M (Peak 63.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_12
+Fra:1 Mem:63.76M (Peak 63.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_4
+Fra:1 Mem:63.79M (Peak 63.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_4
+Fra:1 Mem:63.82M (Peak 63.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Rim_3_12
+Fra:1 Mem:63.83M (Peak 63.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Suction_Pad_3_8
+Fra:1 Mem:63.90M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:57.46M (Peak 63.90M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:57.55M (Peak 63.90M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:57.59M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:59.00M (Peak 63.90M) | Time:00:00.01 | Mem:0.05M, Peak:0.05M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:59.58M (Peak 63.90M) | Time:00:00.01 | Mem:0.06M, Peak:0.06M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:3.41M, Peak:3.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:59.55M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:6.47M, Peak:9.28M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.66M, Peak:9.66M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:62.74M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.67M, Peak:9.75M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:62.75M (Peak 63.90M) | Time:00:00.02 | Mem:9.75M, Peak:9.75M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:141.05M (Peak 141.05M) | Time:00:00.83 | Remaining:00:18.63 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:25.14 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:174.01M (Peak 223.45M) | Time:00:25.14 | Mem:88.03M, Peak:88.03M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\octopod\blender-three-quarter.png'
+Time: 00:25.30 (Saving: 00:00.15)
+
+INFO Draco mesh compression is available, use library at C:\Users\kevin\.cache\little-big-dirt-tools\blender-4.2.3-windows-x64\4.2\python\lib\site-packages\extern_draco.dll
+
+Info: Saved "octopod.blend"
+Editable Octopod saved; 184 components, 92148 runtime triangles; 11 runtime meshes
+
+Blender quit

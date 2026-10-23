@@ -1,0 +1,20 @@
+# Octopod exterior and scale assumptions
+
+Primary references inspected October 22, 2026:
+
+- [Disney Junior official Octopod vehicle card](https://play.games.disney.com/v1/files/00036b70-8713-11e4-8079-062bc8000035/4e2c1234490b8584105a05c5_flash/resources/pdf/gups/gup_5.pdf): full-color front/three-quarter exterior plus line drawing. Main silhouette and proportion guide: large rounded orange central bowl; broad glazed bridge and shallow orange cap; four smaller glazed rooms with orange lower shells/caps; two higher rear rooms and two lower forward rooms; four grey ribbed connecting arms and curled supports; circular lower-hull windows and central hatch.
+- [Brown Bag Films production page](https://www.brownbagfilms.com/our-work/octonauts), particularly [official episode still with killer whales beside the Octopod](https://www.brownbagfilms.com/sites/default/files/styles/uncropped_small/public/2025-09/OCTO_EP003_Still-18.jpg.webp?itok=cAAdCazG): close angle confirms the expansive bridge window, dark window seals, orange roof, room interiors and segmented arm construction. The studio page also shows the Octonauts in a GUP: a small crew craft versus a multi-room headquarters, not exact dimensions.
+- [Fisher-Price/Mattel 2011 assembly sheet](https://service.mattel.com/instruction_sheets/T7016-Eng.pdf): secondary licensed reference for multiple component views and four surrounding rooms. Toy simplifications and open playset geometry were not used as screen-canonical measurements.
+- [Mattel four-room description](https://service.mattel.com/us/productPopup.aspx?prodno=DYT06&siteid=27) corroborates the four room roles: Barnacles, Peso, Kwazii and Garden. Their labels here organize editable components; the exact named-room orientation is an artistic interpretation rather than a verified plan.
+
+No official metric dimensions or reliable measured GUP-B/Octopod ratio were found. This is an estimated game-scale exterior, not a claim of exact canonical geometry or size. One Blender metre equals one existing game world metre. The central hull is about 20 m wide; full pod span about 49.4 m and height about 30.3 m. The unchanged existing GUP-B is included at native scale in `Reference_GUP_B_not_exported` for direct comparison. The base should read as a multi-room headquarters several submarine lengths across; vehicle cards and show imagery support this qualitative relationship, not an exact numerical ratio.
+
+The model preserves the observed four-room layout, bowl/dome silhouette, ribbed arms, curled supports, seals, portholes and palette. Room furniture and small console details are intentionally simplified. No extra towers, docking rings, eight-room ring, characters or invented large structures were added. The exterior hatch is closed; there is no enterable interior gameplay.
+
+## Editing and regeneration
+
+Open `octopod.blend` in Blender 4.2+. Major editable collections: Central_Hub, Main_Dome, Connecting_Arms, Side_Pods, Supports, Windows, Exterior_Details. Individual pieces retain descriptive names and separate meshes. The GUP reference and studio camera/lights/ground are explicitly named non-exported aids.
+
+Run `scripts/create-octopod.py` with Blender to rebuild the project, runtime GLB, collision metadata and multi-angle previews in `docs/octopod`. The generator merges temporary duplicates by material for export only; editable source components remain separate. Five transparent window meshes remain separate so Three.js can sort them. Runtime model: 11 meshes, about 92k triangles, seven shared materials, no external textures or new runtime lights. Preview renders are genuine Blender renders; game captures are separately named.
+
+Runtime settings, terrain clearing, spawn and compass preferences are centralized in `src/config/octopodConfig.js`. The GLB is loaded by `src/environment/Octopod.js`; exported ellipsoid proxies cover hub, pods, arms and supports without detailed mesh physics.
