@@ -7,5 +7,7 @@ export const interactionConfig={
   impactIntensity:1,cloudLifetime:5.5,cloudExpansion:.65,settlingSpeed:.06,
   density:1,maxClouds:96,maxParticles:160,lowClouds:40,lowParticles:64},
  debris:{enabled:true,coralFragmentCount:5,rockFragmentCount:4,fragmentLifetime:6,
-  collisionThreshold:.65,maxFragments:48,lowFragments:20,contactCooldown:.24},
+  collisionThreshold:.65,maxFragments:48,lowFragments:20,contactCooldown:.24,
+  rockSinkAcceleration:1.6,coralSinkAcceleration:.55, // Coral settles more slowly in water.
+  rockDrag:1.8,coralDrag:2.6}, // Exponential velocity drag per second.
 };
