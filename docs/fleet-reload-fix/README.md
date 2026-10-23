@@ -1,4 +1,21 @@
-# Discovery/switch memory investigation
+# iPhone fleet GPU texture budget follow-up
+
+The renewed report is a crash and reset after discovering more than two GUPs in iPhone Chrome. That specific physical-device restart has not been reproduced locally. Inspection found that the earlier fix freed decoded CPU images but left full-resolution GPU textures resident for all nearby parked GUPs. Discovering more vehicles therefore increased graphics memory even when idle decoded-image counters were zero. This is memory pressure, not proof of an unbounded JavaScript leak.
+
+`vehicleTexturePolicy.js` now caps vehicle image uploads at 512 pixels on the longest side for iPhones, iPads, iPods and coarse-pointer devices. Desktop retains original resolution. Aspect ratios, geometry, source GLBs, material mappings, wildlife, parking, collision and unlocks are unchanged. The tradeoff is reduced close-up vehicle texture detail on touch devices. The shared image cache retains compressed original bytes, so upload eviction/restoration and switching still reuse assets without downloads.
+
+ImageBitmap decoding requests the target size directly. The HTMLImageElement path and decoders that ignore resize requests explicitly resize into a canvas before GPU upload; temporary canvases have their backing buffers zeroed after upload, including failures. Older decoders can still briefly decode one full image while resizing; the serialized upload queue prevents multiple such source decodes from competing. The cache's decoded-byte counter measures returned upload images, not that decoder-internal transient or whole browser memory.
+
+With all eight GUPs uploaded in mobile Chromium emulation, measured texture-handle dimensions estimate about 157.3 MiB of vehicle GPU pixels including mipmaps, versus approximately 981 MiB inferred from the deduplicated full-size source textures. These are pixel-allocation estimates, excluding geometry, world textures, driver overhead and browser memory. Managed decoded upload pixels peak at 1 MiB and return to zero after uploads. GPU allocations are now bounded by the mobile image dimensions even when the whole parked fleet is visible.
+
+Validation: 155 Node tests pass; production build and mobile production discovery smoke pass. The fleet stress test covers all seven discoveries, three repeated six-GUP switch cycles, leaving and returning to the complete fleet, forced WebGL context recovery/retry, and legacy HTML image decoding. It asserts one document navigation, zero crashes/page errors/GL errors, one request per vehicle GLB, zero idle managed decoded pixels, and a fleet texture estimate below 192 MiB. Set `FLEET_IPHONE_CHROME=1` for the iPhone Chrome user-agent variant; this selects its HTML image decode path in Chromium and is not a physical iPhone test. Marine proximity popups are disabled only in this fleet-focused test to avoid an unrelated encounter interrupting its automated route; animal visuals remain loaded.
+
+Physical iPhone Chrome still needs confirmation with the deployed build. No browser reset can be recovered after the operating system has terminated its process.
+
+---
+
+## Earlier decoded-image retention investigation (historical)
+
 
 The reported symptom is an unexpected return to the loading/PLAY screen while discovering the second or third GUP. No discovery, vehicle selection, or Fleet code invokes a page navigation or reload. The only explicit reload is the manually pressed startup-failure Retry button.
 

@@ -1,16 +1,26 @@
+import {vehicleTextureLimit} from './vehicleTexturePolicy.js';
 import * as T from 'three';
 import {GLTFLoader} from '../../vendor/GLTFLoader.js';
 import {constantVehicleImages} from '../config/constantVehicleImages.js';
 import {VehicleImageCache} from './VehicleImageCache.js';
 
-async function decode(blob){
+async function decode(blob,size){
  const safari=/^((?!chrome|android).)*safari/i.test(navigator.userAgent),version=Number(navigator.userAgent.match(/Version\/(\d+)/)?.[1]??0);
- if(typeof createImageBitmap==='function'&&(!safari||version>=17))return createImageBitmap(blob,{premultiplyAlpha:'none',colorSpaceConversion:'none'});
- const url=URL.createObjectURL(blob),image=new Image();try{image.src=url;await image.decode();return image;}finally{URL.revokeObjectURL(url);}
+ let image,url;
+ try{
+  if(typeof createImageBitmap==='function'&&(!safari||version>=17))image=await createImageBitmap(blob,{premultiplyAlpha:'none',colorSpaceConversion:'none',resizeWidth:size.width,resizeHeight:size.height,resizeQuality:'high'});
+  else{url=URL.createObjectURL(blob);image=new Image();image.src=url;await image.decode();}
+  if(image.width===size.width&&image.height===size.height)return image;
+  // Older iOS decoders may ignore resize options. Bound the upload explicitly.
+  const canvas=document.createElement('canvas');canvas.width=size.width;canvas.height=size.height;
+  const context=canvas.getContext('2d');if(!context)throw Error('Vehicle image resizing unavailable');context.drawImage(image,0,0,size.width,size.height);
+  if(image.close)image.close();else image.removeAttribute?.('src');image=null;return canvas;
+ }catch(error){image?.close?.();image?.removeAttribute?.('src');throw error;}
+ finally{if(url)URL.revokeObjectURL(url);}
 }
 export const vehicleImages=new VehicleImageCache({
  hash:async bytes=>globalThis.crypto?.subtle?Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join(''):'uncached:'+T.MathUtils.generateUUID(),
- decode,makeSource:image=>new T.Source(image),constants:constantVehicleImages,
+ decode,makeSource:image=>new T.Source(image),constants:constantVehicleImages,maxTextureSize:vehicleTextureLimit({userAgent:navigator.userAgent,coarsePointer:globalThis.matchMedia?.('(any-pointer:coarse)').matches??false}),
 });
 const sourceEntries=new WeakMap();
 
