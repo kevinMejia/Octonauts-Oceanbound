@@ -1,3 +1,4 @@
+import {cameraConfig as camera} from '../config/cameraConfig.js';
 import {AnalogStick} from './AnalogStick.js';
 import {installGameTouchGuards} from './GameTouchGestures.js';
 import {TurboInput} from '../turbo/TurboInput.js';
@@ -15,8 +16,8 @@ export class Input{
    b.onpointerup=release;b.onpointercancel=release;b.onlostpointercapture=release;
   }
   canvas.onpointerdown=e=>{if(this.drag||e.button!==0)return;e.preventDefault();this.drag={id:e.pointerId,x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId);};
-  canvas.onpointermove=e=>{if(this.drag?.id!==e.pointerId)return;e.preventDefault();this.orbit.x-=(e.clientX-this.drag.x)*.005;this.orbit.y=Math.max(-.22,Math.min(.8,this.orbit.y+(e.clientY-this.drag.y)*.004));this.orbit.last=performance.now()/1000;this.drag.x=e.clientX;this.drag.y=e.clientY;};
-  const end=e=>{if(this.drag?.id===e.pointerId)this.drag=null;};canvas.onpointerup=end;canvas.onpointercancel=end;canvas.onlostpointercapture=end;
+  canvas.onpointermove=e=>{if(this.drag?.id!==e.pointerId)return;e.preventDefault();this.orbit.x-=(e.clientX-this.drag.x)*camera.orbitSensitivity;this.orbit.y=Math.max(-1.2,Math.min(1.2,this.orbit.y+(e.clientY-this.drag.y)*camera.verticalSensitivity));this.orbit.last=performance.now()/1000;this.drag.x=e.clientX;this.drag.y=e.clientY;};
+  const end=e=>{if(this.drag?.id===e.pointerId){this.drag=null;this.orbit.last=performance.now()/1000;}};canvas.onpointerup=end;canvas.onpointercancel=end;canvas.onlostpointercapture=end;
   addEventListener('blur',()=>this.clear());document.addEventListener('visibilitychange',()=>{if(document.hidden)this.clear();});addEventListener('orientationchange',()=>this.clear());
  }
  clear(){this.keys.clear();this.pointers.clear();this.stick.clear();this.turbo.clear();this.drag=null;document.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed'));}

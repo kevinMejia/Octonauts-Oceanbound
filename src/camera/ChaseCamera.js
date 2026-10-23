@@ -1,7 +1,33 @@
 import * as T from 'three';
-import {cameraConfig as c,worldConfig as w} from '../config/worldConfig.js';
+import {cameraConfig as c} from '../config/cameraConfig.js';
+import {worldConfig as w} from '../config/worldConfig.js';
 import {heightAt} from '../environment/terrainMath.js';
+import {smoothFactor,speedFraming,aspectDistance} from './cameraMath.js';
+const radians=Math.PI/180;
 export class ChaseCamera{
- constructor(camera){this.camera=camera;this.target=new T.Vector3();this.initial=true;}
- update(dt,sub,input){const o=input.orbit;if(!input.drag&&performance.now()/1000-o.last>c.returnDelay){o.x*=Math.exp(-dt*c.returnRate);o.y*=Math.exp(-dt*c.returnRate);}const p=new T.Vector3(sub.position.x,sub.position.y,sub.position.z),a=sub.heading+o.x;const desired=p.clone().add(new T.Vector3(-Math.sin(a)*c.distance,c.height+o.y*9,-Math.cos(a)*c.distance));desired.y=Math.max(heightAt(desired.x,desired.z)+1.2,Math.min(w.surface-1,desired.y));if(this.initial){this.camera.position.copy(desired);this.target.copy(p);this.initial=false;}this.camera.position.lerp(desired,1-Math.exp(-dt*c.follow));this.camera.position.y=Math.max(this.camera.position.y,heightAt(this.camera.position.x,this.camera.position.z)+1.2);this.target.lerp(p,1-Math.exp(-dt*8));this.camera.lookAt(this.target);}
+ constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;
+  this.pivot=new T.Vector3();this.desired=new T.Vector3();this.focus=new T.Vector3();this.target=new T.Vector3();this.look=new T.Matrix4();this.rotation=new T.Quaternion();this.up=new T.Vector3(0,1,0);
+ }
+ update(dt,sub,input){const o=input.orbit,p=sub.position;
+  if(!input.drag&&performance.now()/1000-o.last>c.returnDelay){const decay=Math.exp(-dt*c.returnRate);o.x*=decay;o.y*=decay;}
+  const speed=speedFraming(sub.speed,c),distance=c.distance*aspectDistance(this.camera.aspect,c)*(1+speed*c.speedDistanceIncrease);
+  const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
+  const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height,distance)+o.y));
+  const angle=sub.heading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
+  this.pivot.set(p.x,p.y+.6,p.z);
+  this.desired.set(p.x-Math.sin(angle)*distance,p.y+height,p.z-Math.cos(angle)*distance);
+  this.desired.y=Math.min(w.surface-1,this.desired.y);
+  this.focus.set(p.x+Math.sin(sub.heading)*c.lookAhead,p.y+c.height-(c.distance+c.lookAhead)*Math.tan(c.downwardAngle*radians)+c.framingLift,p.z+Math.cos(sub.heading)*c.lookAhead);
+  if(this.initial){this.camera.position.copy(this.desired);this.target.copy(this.focus);}
+  else{this.camera.position.lerp(this.desired,smoothFactor(c.positionSmoothing,dt));this.target.lerp(this.focus,smoothFactor(c.rotationSmoothing,dt));}
+  // Check the smoothed path as well: turns must not cut through a reef corner.
+  let limit=1;if(c.collisionEnabled&&this.obstacles){limit=this.obstacles.limit(this.pivot,this.camera.position,c);this.camera.position.lerpVectors(this.pivot,this.camera.position,limit);}
+  this.camera.position.y=Math.max(heightAt(this.camera.position.x,this.camera.position.z)+c.terrainClearance,Math.min(w.surface-1,this.camera.position.y));
+  this.look.lookAt(this.camera.position,this.target,this.up);this.rotation.setFromRotationMatrix(this.look);
+  // World-up horizon ignores hull roll/pitch. Pull inward immediately; restore
+  // distance with normal exponential follow after the obstruction clears.
+  if(this.initial||limit<.98)this.camera.quaternion.copy(this.rotation);else this.camera.quaternion.slerp(this.rotation,smoothFactor(c.rotationSmoothing,dt));
+  this.camera.fov+=(c.fov+speed*c.speedFovIncrease-this.camera.fov)*smoothFactor(c.fovSmoothing,dt);this.camera.updateProjectionMatrix();this.initial=false;
+  if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'cameraMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({position:this.camera.position.toArray(),focus:this.target.toArray(),fov:this.camera.fov,distance:this.camera.position.distanceTo(this.pivot),limit,orbitX:o.x,orbitY:o.y,speed:sub.speed,sub:{...p},heading:sub.heading,candidates:this.obstacles?.near.length??0});}
+ }
 }

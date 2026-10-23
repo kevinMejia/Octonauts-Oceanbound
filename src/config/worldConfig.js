@@ -5,6 +5,6 @@ export const worldConfig = {
   surface: 46, // Water ceiling; terrain is near zero.
   boundaryMargin: 90, // Soft slowdown zone at the map edge.
 };
-export const cameraConfig={distance:14.4,height:4,follow:5,returnDelay:2.5,returnRate:1.3};
+export {cameraConfig} from './cameraConfig.js';
 
 
