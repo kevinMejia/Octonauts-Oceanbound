@@ -1,0 +1,92 @@
+[
+  {
+    "id": "gup-c",
+    "name": "GUP-C",
+    "source": "assets/models/Gup-C/GupC.blend",
+    "targetLength": 7.8,
+    "parking": [
+      -40,
+      0,
+      20
+    ],
+    "discovery": [
+      -112,
+      0,
+      16
+    ],
+    "rotation": 0.8,
+    "speed": 0.65
+  },
+  {
+    "id": "gup-d",
+    "name": "GUP-D",
+    "source": "assets/models/Gup-D/GupD.blend",
+    "targetLength": 4.8,
+    "parking": [
+      40,
+      0,
+      20
+    ],
+    "discovery": [
+      100,
+      0,
+      -65
+    ],
+    "rotation": -0.4,
+    "speed": 0.9
+  },
+  {
+    "id": "gup-e",
+    "name": "GUP-E",
+    "source": "assets/models/Gup-E/GupE.blend",
+    "targetLength": 5.2,
+    "parking": [
+      -44,
+      0,
+      40
+    ],
+    "discovery": [
+      -110,
+      0,
+      -80
+    ],
+    "rotation": 0.4,
+    "speed": 0.85
+  },
+  {
+    "id": "gup-f",
+    "name": "GUP-F",
+    "source": "assets/models/Gup-F/GupF.blend",
+    "targetLength": 4.5,
+    "parking": [
+      44,
+      0,
+      40
+    ],
+    "discovery": [
+      66,
+      0,
+      -125
+    ],
+    "rotation": -0.5,
+    "speed": 0.75
+  },
+  {
+    "id": "gup-q",
+    "name": "GUP-Q",
+    "source": "assets/models/Gup-Q/GupQ.blend",
+    "targetLength": 7.2,
+    "parking": [
+      0,
+      0,
+      54
+    ],
+    "discovery": [
+      -25,
+      0,
+      -165
+    ],
+    "rotation": 0,
+    "speed": 1.1
+  }
+]

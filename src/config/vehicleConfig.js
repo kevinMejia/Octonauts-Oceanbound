@@ -1,12 +1,14 @@
+import {importedVehicles} from './importedVehicles.js';
 export const defaultVehicleId='gup-b';
 // Deploy runtime exports and thumbnails; original authoring downloads stay separate.
 // Existing published GUP-B geometry is reused verbatim, never regenerated here.
 const thumbnail=id=>'../../assets/img/vehicles/'+id+'.png';
 const audio={propellerGain:1,bubbleGain:1,rateMultiplier:1};
 export const vehicles=[
- {id:'gup-a',name:'GUP-A',modelPath:'../../assets/models/gup-a.glb',thumbnailPath:thumbnail('gup-a'),scale:1,orientation:0,collision:{radius:2.5,halfHeight:1.95,halfLength:2.9,centerY:.4,terrainClearance:2.15,surfaceClearance:2.8},propellers:[{name:'Propeller',axis:'z',direction:1}],camera:{distanceMultiplier:1.1},movement:{speedMultiplier:.75},audio},
- {id:'gup-b',name:'GUP-B',modelPath:'../../assets/models/gup-b-high.glb',thumbnailPath:thumbnail('gup-b'),scale:1,orientation:0,collision:{radius:1.65,halfHeight:1,halfLength:2.9,centerY:.25,terrainClearance:1.7,surfaceClearance:2.5},propellers:[],camera:{distanceMultiplier:1},movement:{speedMultiplier:1},audio},
- {id:'gup-r',name:'GUP-R',modelPath:'../../assets/models/gup-r.glb',thumbnailPath:thumbnail('gup-r'),scale:1,orientation:0,collision:{radius:1.8,halfHeight:1.65,halfLength:2.9,centerY:.55,terrainClearance:1.7,surfaceClearance:2.7},propellers:[],camera:{distanceMultiplier:1},movement:{speedMultiplier:1.35},audio},
+ {id:'gup-a',name:'GUP-A',unlockedByDefault:false,preloadAtStart:true,parking:{spawn:{relativeTo:'octopod',offset:[-18,0,34]},rotation:.25,groundClearance:1.6},discovery:{enabled:true,spawn:{relativeTo:'octopod',offset:[24,0,48]},rotation:.35,groundClearance:1.6,triggerPadding:.3,modelScale:1,description:'Ready for a new ocean adventure?',effects:true},modelPath:'../../assets/models/gup-a.glb',thumbnailPath:thumbnail('gup-a'),scale:1,orientation:0,collision:{radius:2.5,halfHeight:1.95,halfLength:2.9,centerY:.4,terrainClearance:2.15,surfaceClearance:2.8},propellers:[{name:'Propeller',axis:'z',direction:1}],camera:{distanceMultiplier:1.1},movement:{speedMultiplier:.75},audio},
+ {id:'gup-b',name:'GUP-B',unlockedByDefault:true,parking:{spawn:{relativeTo:'octopod',offset:[0,0,37]},rotation:0,groundClearance:.76},discovery:{enabled:false},modelPath:'../../assets/models/gup-b-high.glb',thumbnailPath:thumbnail('gup-b'),scale:1,orientation:0,collision:{radius:1.65,halfHeight:1,halfLength:2.9,centerY:.25,terrainClearance:1.7,surfaceClearance:2.5},propellers:[],camera:{distanceMultiplier:1},movement:{speedMultiplier:1},audio},
+ {id:'gup-r',name:'GUP-R',unlockedByDefault:false,preloadAtStart:true,parking:{spawn:{relativeTo:'octopod',offset:[20,0,34]},rotation:-.3,groundClearance:1.16},discovery:{enabled:true,spawn:{relativeTo:'octopod',offset:[-68,0,-38]},rotation:-.8,groundClearance:1.16,triggerPadding:.3,modelScale:1,description:'Your fastest GUP is ready to explore!',effects:true},modelPath:'../../assets/models/gup-r.glb',thumbnailPath:thumbnail('gup-r'),scale:1,orientation:0,collision:{radius:1.8,halfHeight:1.65,halfLength:2.9,centerY:.55,terrainClearance:1.7,surfaceClearance:2.7},propellers:[],camera:{distanceMultiplier:1},movement:{speedMultiplier:1.35},audio},
+ ...importedVehicles.map(v=>({...v,audio})),
 ];
 export function vehicleById(id){const vehicle=vehicles.find(v=>v.id===id);if(!vehicle)throw new Error('Unknown vehicle: '+id);return vehicle;}
 // Resolve from this module, preserving a GitHub Pages project prefix and build version.

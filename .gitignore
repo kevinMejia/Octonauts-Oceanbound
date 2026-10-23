@@ -8,3 +8,8 @@ __pycache__/
 
 /assets/models/Gup-A/
 /assets/models/Gup-R/
+
+# Fleet authoring downloads remain private. Runtime exports await explicit publication approval.
+/assets/models/Gup-*/
+/assets/models/gup-[cdefq].glb
+/assets/img/vehicles/gup-[cdefq].png

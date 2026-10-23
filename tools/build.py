@@ -4,7 +4,7 @@ for name in ['index.html','src','vendor']:
  p=ROOT/name
  if p.is_dir():shutil.copytree(p,out/name,dirs_exist_ok=True)
  else:shutil.copy2(p,out/name)
-models=['gup-a.glb','gup-r.glb','gup-b.glb','gup-b-high.glb','turbo-lightning.glb','underwater-environment.glb','octopod.glb','showcase-rocks.glb']
+models=sorted(set(['gup-b.glb','turbo-lightning.glb','underwater-environment.glb','octopod.glb','showcase-rocks.glb']+re.findall(r'assets/models/([^\"\']+\.glb)', ''.join((ROOT/'src/config'/name).read_text() for name in ['vehicleConfig.js','importedVehicles.js']))))
 (out/'assets/models').mkdir(parents=True,exist_ok=True)
 for p in (out/'assets/models').glob('*.glb'):
  if p.name not in models:p.unlink()

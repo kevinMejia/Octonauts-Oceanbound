@@ -6,7 +6,7 @@ import {hullFloor,hullFrame,sweepHull} from '../src/collision/collisionMath.js';
 import {SurfaceGrid} from '../src/effects/interactionMath.js';
 import {InteractionSurfaces,coralCores} from '../src/effects/InteractionSurfaces.js';
 import {SubmarineController} from '../src/vehicles/SubmarineController.js';
-import {vehicleById} from '../src/config/vehicleConfig.js';
+import {vehicles,vehicleById} from '../src/config/vehicleConfig.js';
 import {heightAt} from '../src/environment/terrainMath.js';
 import {ImpactSounds} from '../src/audio/ImpactSounds.js';
 import {habitatLayout,habitatColliders,passageCenter} from '../src/environment/habitatLayout.js';
@@ -18,7 +18,7 @@ function move(sub,w,a,b,speed=20){Object.assign(sub.previousPosition,a);Object.a
 const obstacle=()=>({x:0,y:10,z:0,rx:6,ry:6,rz:.06});
 
 test('all GUPs sweep turbo travel through thin obstacles rather than tunnel',()=>{
- for(const id of ['gup-a','gup-b','gup-r']){const sub=body(id),w=world([obstacle()]);move(sub,w,{x:0,y:10,z:-20},{x:0,y:10,z:20},400);
+ for(const {id} of vehicles){const sub=body(id),w=world([obstacle()]);move(sub,w,{x:0,y:10,z:-20},{x:0,y:10,z:20},400);
   assert.ok(sub.position.z<-sub.collisionProxy.halfLength);assert.ok(w.contact.impact>300);assert.ok(sub.speed<=0);assert.ok(sub.speed>-20);
  }
 });
@@ -48,7 +48,7 @@ test('hull shape follows heading, pitch and bank without changing the static gri
  s.collisionProxy=vehicleById('gup-r').collision;assert.equal(w.grid.cells,cells);
 });
 test('each GUP survives high downward speed and uneven seabed without sinking',()=>{
- for(const id of ['gup-a','gup-b','gup-r']){const s=body(id),ground=(x,z)=>.15*x+.1*z,w=world([],ground);
+ for(const {id} of vehicles){const s=body(id),ground=(x,z)=>.15*x+.1*z,w=world([],ground);
   s.vertical=-100;move(s,w,{x:0,y:15,z:0},{x:2,y:-5,z:2},0);
   assert.ok(s.position.y>=hullFloor(s,s.position.x,s.position.z,ground)-.01);assert.ok(s.vertical>-5);assert.equal(s.collisionContact.surface,'sand');assert.ok(s.collisionContact.impact>90);
   s.collisionWorld=world([],heightAt);s.position={x:17,y:12,z:23};
@@ -71,7 +71,7 @@ test('cluster coral count is bounded by templates, not branches or instances',()
  assert.equal(decoration.solidCount,0);
 });
 test('compound proxies preserve a navigable gap rather than enclosing empty water',()=>{
- for(const id of ['gup-a','gup-b','gup-r']){const s=body(id),w=world([{x:-5,y:10,z:0,rx:1,ry:5,rz:6},{x:5,y:10,z:0,rx:1,ry:5,rz:6}]);
+ for(const {id} of vehicles){const s=body(id),w=world([{x:-5,y:10,z:0,rx:1,ry:5,rz:6},{x:5,y:10,z:0,rx:1,ry:5,rz:6}]);
   move(s,w,{x:0,y:10,z:-12},{x:0,y:10,z:12},40);assert.equal(s.position.z,12);assert.equal(s.collisionContact,null);
  }
 });
@@ -79,7 +79,7 @@ test('the authored reef channel remains open with the new coral cores for every 
  const manifest=JSON.parse(fs.readFileSync(new URL('../assets/models/reef-formations/manifest.json',import.meta.url))),sources=JSON.parse(fs.readFileSync(new URL('../assets/models/reef-formations/interactions.json',import.meta.url)));
  const layout=habitatLayout(manifest),surfaces=new InteractionSurfaces({layout,colliders:habitatColliders(layout,manifest)},{layout:{records:[]}},sources);
  const w=new CollisionWorld(surfaces);
- for(const id of ['gup-a','gup-b','gup-r'])for(let z=-8;z<134;z+=2)for(const rise of [2.5,8]){
+ for(const {id} of vehicles)for(let z=-8;z<134;z+=2)for(const rise of [2.5,8]){
   const s=body(id),x=passageCenter(z),next=passageCenter(z+.2);s.heading=Math.atan2(next-x,.2);
   move(s,w,{x,y:heightAt(x,z)+rise,z},{x:next,y:heightAt(next,z+.2)+rise,z:z+.2},12);
   assert.ok(!s.collisionContact||s.collisionContact.surface==='sand',`${id} channel blocked at ${z}`);
@@ -92,7 +92,7 @@ test('distant scenery does not increase nearby candidate count',()=>{
 test('actual Octopod hub and supports block all GUPs and allow retreat',()=>{
  const data=JSON.parse(fs.readFileSync(new URL('../assets/models/octopod-collision.json',import.meta.url)));
  const solids=data.colliders.map(c=>({x:180+c.center[0],y:c.center[1],z:100+c.center[2],rx:c.radii[0],ry:c.radii[1],rz:c.radii[2],surface:'octopod'}));
- for(const id of ['gup-a','gup-b','gup-r']){
+ for(const {id} of vehicles){
   const s=body(id),w=world(solids,heightAt);s.heading=Math.PI;
   move(s,w,{x:180,y:17.5,z:140},{x:180,y:17.5,z:60},100);
   assert.ok(s.position.z>110,`${id} crossed hub`);s.collisionWorld=w;

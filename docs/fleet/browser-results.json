@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "id": "gup-a",
+      "rotors": [
+        {
+          "name": "Propeller",
+          "axis": "z"
+        }
+      ]
+    },
+    {
+      "id": "gup-r",
+      "rotors": []
+    },
+    {
+      "id": "gup-c",
+      "rotors": [
+        {
+          "name": "Propeller1",
+          "axis": "y"
+        }
+      ]
+    },
+    {
+      "id": "gup-d",
+      "rotors": []
+    },
+    {
+      "id": "gup-e",
+      "rotors": [
+        {
+          "name": "Propeller1",
+          "axis": "y"
+        },
+        {
+          "name": "Propeller2",
+          "axis": "y"
+        }
+      ]
+    },
+    {
+      "id": "gup-f",
+      "rotors": [
+        {
+          "name": "Propeller1",
+          "axis": "z"
+        },
+        {
+          "name": "Propeller2",
+          "axis": "z"
+        },
+        {
+          "name": "Propeller3",
+          "axis": "y"
+        }
+      ]
+    },
+    {
+      "id": "gup-q",
+      "rotors": [
+        {
+          "name": "Propeller1",
+          "axis": "z"
+        }
+      ]
+    }
+  ],
+  "downloads": {
+    "gup-b-high": 1,
+    "gup-a": 1,
+    "gup-r": 1,
+    "gup-e": 1,
+    "gup-c": 1,
+    "gup-d": 1,
+    "gup-f": 1,
+    "gup-q": 1
+  },
+  "parked": [
+    {
+      "id": "gup-a",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-b",
+      "clear": true,
+      "parked": false,
+      "visible": true
+    },
+    {
+      "id": "gup-r",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-c",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-d",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-e",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-f",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    },
+    {
+      "id": "gup-q",
+      "clear": true,
+      "parked": true,
+      "visible": true
+    }
+  ],
+  "errors": [],
+  "persistence": true,
+  "baseline": {
+    "geometries": 417,
+    "textures": 67
+  },
+  "homeMetrics": {
+    "memory": {
+      "geometries": 1041,
+      "textures": 225
+    },
+    "render": {
+      "frame": 2936,
+      "calls": 1896,
+      "triangles": 7921040,
+      "points": 328,
+      "lines": 0
+    }
+  },
+  "farMetrics": {
+    "geometries": 195,
+    "textures": 23
+  }
+}

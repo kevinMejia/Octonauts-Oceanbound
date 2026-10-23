@@ -55,3 +55,10 @@
 @keyframes vehicle-menu-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes vehicle-menu-out{to{opacity:0;transform:translateY(5px) scale(.98)}}
 @media(prefers-reduced-motion:reduce){#vehicleSelector[open],#vehicleSelector.is-closing{animation:none}#vehicleSelector .vehicle-card,#vehicleToggle{transition:none}}
+
+/* Locked cards remain browsable; only activation is disabled. */
+#vehicleSelector .vehicle-card.is-locked img{filter:brightness(.08) saturate(0);opacity:.55}
+.vehicle-lock{position:absolute;top:26%;left:0;width:100%;display:flex;align-items:center;justify-content:center;gap:7px;color:#d9ffff;font-size:12px;font-weight:800;letter-spacing:1px;text-shadow:0 2px 4px #002941}
+.vehicle-lock[hidden]{display:none}.vehicle-lock svg{width:21px;height:24px;fill:currentColor}
+#vehicleSelector .vehicle-card.is-locked .vehicle-name{background:#b1d4da;color:#1a5364}
+#confirmVehicle:disabled{cursor:default}

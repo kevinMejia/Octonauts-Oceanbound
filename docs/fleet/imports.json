@@ -1,0 +1,151 @@
+[
+  {
+    "id": "gup-c",
+    "status": "ready-local",
+    "source": "assets/models/Gup-C/GupC.blend",
+    "output": "assets/models/gup-c.glb",
+    "thumbnail": "assets/img/vehicles/gup-c.png",
+    "sourceTriangles": 660728,
+    "exportedTriangles": 660728,
+    "exportedMaterials": 59,
+    "embeddedTextures": 21,
+    "glbBytes": 24457756,
+    "runtimeDimensionsXYZ": [
+      4.769141479563176,
+      4.217958523908242,
+      7.8
+    ],
+    "propellers": [
+      {
+        "name": "Propeller1",
+        "axis": "y",
+        "direction": 1
+      }
+    ],
+    "sourceHashes": {
+      "assets\\models\\Gup-C\\GupC.blend": "7aa55cb1c2604bb477e09eac0e55355c6ef37236bfa388d89945ae8ba60d1145",
+      "assets\\models\\Gup-C\\Gup-C Textures.rar": "07789db0756cdc2ace930b703f7f6bc8dfa7cd10bc01943849bd1f574e4cf772"
+    }
+  },
+  {
+    "id": "gup-d",
+    "status": "ready-local",
+    "source": "assets/models/Gup-D/GupD.blend",
+    "output": "assets/models/gup-d.glb",
+    "thumbnail": "assets/img/vehicles/gup-d.png",
+    "sourceTriangles": 176960,
+    "exportedTriangles": 176960,
+    "exportedMaterials": 46,
+    "embeddedTextures": 19,
+    "glbBytes": 13962956,
+    "runtimeDimensionsXYZ": [
+      6.8783400080921115,
+      2.3867422381092416,
+      4.8
+    ],
+    "propellers": [],
+    "sourceHashes": {
+      "assets\\models\\Gup-D\\GupD.blend": "218d12124485504d8c9d52cf884a1c375b065dd63817ccb498e97c1ca56dc52f",
+      "assets\\models\\Gup-D\\Gup-D Textures.rar": "da6daf0af4e7c843b95ed7875a9042ef296aaf25a6337817946b7cd38676ed58"
+    }
+  },
+  {
+    "id": "gup-e",
+    "status": "ready-local",
+    "source": "assets/models/Gup-E/GupE.blend",
+    "output": "assets/models/gup-e.glb",
+    "thumbnail": "assets/img/vehicles/gup-e.png",
+    "sourceTriangles": 150262,
+    "exportedTriangles": 150262,
+    "exportedMaterials": 40,
+    "embeddedTextures": 16,
+    "glbBytes": 12502312,
+    "runtimeDimensionsXYZ": [
+      3.836585588366465,
+      3.8060742260303195,
+      5.2
+    ],
+    "propellers": [
+      {
+        "name": "Propeller1",
+        "axis": "y",
+        "direction": 1
+      },
+      {
+        "name": "Propeller2",
+        "axis": "y",
+        "direction": 1
+      }
+    ],
+    "sourceHashes": {
+      "assets\\models\\Gup-E\\GupE.blend": "06982a5dbcf2beacd4b068d23f5092fdada6470ef224338357bb56495ca6a4d0",
+      "assets\\models\\Gup-E\\Gup-E Textures.rar": "034bd13ec02c57438724e45729fd5c280a4c9a063ebe4fe102ff93d8b9248c45"
+    }
+  },
+  {
+    "id": "gup-f",
+    "status": "ready-local",
+    "source": "assets/models/Gup-F/GupF.blend",
+    "output": "assets/models/gup-f.glb",
+    "thumbnail": "assets/img/vehicles/gup-f.png",
+    "sourceTriangles": 256424,
+    "exportedTriangles": 256424,
+    "exportedMaterials": 18,
+    "embeddedTextures": 9,
+    "glbBytes": 7436940,
+    "runtimeDimensionsXYZ": [
+      4.137753735993398,
+      2.907740587302651,
+      4.5
+    ],
+    "propellers": [
+      {
+        "name": "Propeller1",
+        "axis": "z",
+        "direction": 1
+      },
+      {
+        "name": "Propeller2",
+        "axis": "z",
+        "direction": 1
+      },
+      {
+        "name": "Propeller3",
+        "axis": "y",
+        "direction": 1
+      }
+    ],
+    "sourceHashes": {
+      "assets\\models\\Gup-F\\GupF.blend": "7d7f016f7b82c23b94927281899f430520d6c960584356ad573cd532c74b4bc1"
+    }
+  },
+  {
+    "id": "gup-q",
+    "status": "ready-local",
+    "source": "assets/models/Gup-Q/GupQ.blend",
+    "output": "assets/models/gup-q.glb",
+    "thumbnail": "assets/img/vehicles/gup-q.png",
+    "sourceTriangles": 739772,
+    "exportedTriangles": 739772,
+    "exportedMaterials": 144,
+    "embeddedTextures": 93,
+    "glbBytes": 33109860,
+    "runtimeDimensionsXYZ": [
+      5.553315235266685,
+      2.9267912199236417,
+      7.2
+    ],
+    "propellers": [
+      {
+        "name": "Propeller1",
+        "axis": "z",
+        "direction": 1
+      }
+    ],
+    "sourceHashes": {
+      "assets\\models\\Gup-Q\\GupQ.blend": "852601c1e25a6183cc9f71f80bdeaf3483f376ce7bbec5480479704922f061db",
+      "assets\\models\\Gup-Q\\Gup-C Textures.rar": "07789db0756cdc2ace930b703f7f6bc8dfa7cd10bc01943849bd1f574e4cf772",
+      "assets\\models\\Gup-Q\\Gup-Q Textures.rar": "fd1647c206f0eb6143e4d255da72f969c3206010ba990f9caba4d5b49adbc950"
+    }
+  }
+]

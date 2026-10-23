@@ -10,9 +10,9 @@ test('soft finite bounds hold over sustained travel',()=>{const s=new SubmarineC
 test('seeded scenery and smooth terrain are deterministic',()=>{const a=random(7),b=random(7);for(let i=0;i<100;i++)assert.equal(a(),b());for(let i=-800;i<800;i+=3)assert(Math.abs(heightAt(i,3)-heightAt(i+.1,3))<.05);});
 
 import {turboBoostConfig} from '../src/config/turboConfig.js';
-import {vehicleById} from '../src/config/vehicleConfig.js';
+import {vehicles,vehicleById} from '../src/config/vehicleConfig.js';
 test('GUP speed tiers apply to forward, reverse and turbo while B keeps its original speed',()=>{
- for(const [id,multiplier] of [['gup-a',.75],['gup-b',1],['gup-r',1.35]]){
+ for(const {id,movement:{speedMultiplier:multiplier}} of vehicles){
   for(const [thrust,boost,target] of [[1,false,12],[-1,false,-5],[1,true,12*(1+turboBoostConfig.speedBoostPercent/100)]]){
    const sub=new SubmarineController();sub.movement=vehicleById(id).movement;sub.turbo.charge=100;
    run(sub,{...zero,thrust,boost},5);

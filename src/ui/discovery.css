@@ -1,0 +1,26 @@
+/* The physical bezel and CRT screen are shared with the Octopod Control Panel. */
+#discoveryDialog{width:min(680px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 24px))}
+#discoveryDialog[open]{animation:discovery-in .5s cubic-bezier(.2,.8,.25,1)}
+#discoveryDialog::backdrop{background:#002a4799;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);animation:overlay-in .4s ease-out}
+#discoveryDialog.is-closing{animation:monitor-out .18s ease-in forwards}
+#discoveryDialog .monitor-header{position:relative;z-index:1}
+.discovery-content{position:relative;text-align:center;z-index:1;padding-top:20px;padding-bottom:8px}
+.discovery-status{display:inline-block;color:#ffe2a3;border:1px solid #d3f8df55;border-radius:20px;padding:6px 13px;margin-bottom:16px;font-size:10px;font-weight:800;letter-spacing:2px;background:#06485966}
+#discoveryVehicle{position:relative;display:grid;place-items:center;width:100%;height:clamp(190px,39vh,320px);height:clamp(190px,39dvh,320px);padding:18px;border-radius:24px;border:2px solid #c7fff0;background:radial-gradient(ellipse at 50% 42%,#dbffff,#86d1dc 75%,#66aebf);box-shadow:0 0 22px #8df8e533,inset 0 2px 10px #fff9;overflow:hidden;transition:transform .15s,box-shadow .15s;cursor:pointer}
+#discoveryVehicle img{position:relative;display:block;width:100%;height:100%;min-height:0;object-fit:contain;pointer-events:none;filter:drop-shadow(0 9px 7px #00496333)}
+#discoveryVehicle:after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,#064f6a0c 3px 4px);border-radius:inherit}
+#discoveryVehicle:active{transform:scale(.98)}
+#discoveryVehicle:disabled{cursor:wait;opacity:.7}
+#discoveryDialog #discoveryInstruction{margin:18px 0 0;font-size:clamp(12px,2.6vw,17px);font-weight:800;letter-spacing:1.1px;color:#effff2}
+#discoveryError{min-height:18px;font-size:12px;line-height:1.45;color:#ffe5af;margin:8px 0 0}
+#discoveryDialog button:focus-visible{outline:3px solid #ffe2a3;outline-offset:4px}
+.discovery-bubbles{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.discovery-bubbles i{position:absolute;left:var(--x);bottom:-20px;width:var(--size);height:var(--size);border-radius:50%;border:1px solid #b2fff47a;background:radial-gradient(circle at 30% 25%,#dfffff5c,transparent 50%);animation:discovery-bubble 4.8s linear var(--delay) infinite}
+.tab-hidden .discovery-bubbles i{animation-play-state:paused}
+@media(hover:hover){#discoveryVehicle:hover:not(:disabled){box-shadow:0 0 30px #8dffea77,inset 0 2px 10px #fff9}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){body.discovery-open #ocean{filter:blur(4px)}}
+@media(max-width:600px){#discoveryDialog{--bezel:10px;--corner:31px}.discovery-content{padding:15px 12px 5px}#discoveryDialog .monitor-header h2{font-size:16px;letter-spacing:.2px}#discoveryVehicle{padding:12px;height:clamp(190px,34dvh,300px)}.discovery-status{margin-bottom:12px;font-size:9px}}
+@media(max-height:500px){#discoveryDialog{--bezel:8px;--corner:28px;width:min(650px,calc(100vw - 24px));max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 12px)}#discoveryDialog .monitor-header{padding:10px 16px}#discoveryDialog .monitor-header img{width:30px;height:30px}#discoveryDialog h2{font-size:17px}.discovery-content{padding:8px 18px 0}.discovery-status{padding:3px 10px;margin-bottom:7px;font-size:8px}#discoveryVehicle{height:135px;padding:6px}#discoveryDialog #discoveryInstruction{font-size:12px;margin-top:8px}#discoveryError{font-size:10px;min-height:14px;margin-top:4px}#discoveryDialog .monitor-footer{padding:7px 16px}}
+@keyframes discovery-in{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes discovery-bubble{0%{opacity:0;transform:translateY(0)}15%{opacity:.7}85%{opacity:.45}100%{opacity:0;transform:translate(14px,-620px)}}
+@media(prefers-reduced-motion:reduce){#discoveryDialog[open],#discoveryDialog::backdrop,.discovery-bubbles i{animation:none}#discoveryVehicle{transition:none}}

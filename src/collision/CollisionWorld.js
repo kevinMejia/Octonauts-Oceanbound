@@ -34,8 +34,9 @@ export class CollisionWorld{
   }return false;
  }
  resolve(sub,dt){
+  this.metrics.registered=this.surfaces.count;this.metrics.solids=this.surfaces.solidCount;
   const began=performance.now(),p=sub.position,start=sub.previousPosition,c=sub.collisionProxy,r=c?.radius??2.2,h=c?.halfHeight??1.1;
-  const length=Math.max(0,(c?.halfLength??3)-r),bound=Math.max(r+length,h),m=this.metrics;
+  const depth=Math.min(r,c?.halfLength??3),length=Math.max(0,(c?.halfLength??3)-depth),bound=Math.max(r+length,h),m=this.metrics;
   let dx=p.x-start.x,dy=p.y-start.y,dz=p.z-start.z;
   hullFrame(sub,this.frame);this.contact.active=false;this.contact.impact=0;m.tests=0;m.hits=0;
   this.grid.query((start.x+p.x)/2,(start.z+p.z)/2,Math.hypot(dx,dz)/2+bound+1,this.near,'solid');
@@ -53,7 +54,7 @@ export class CollisionWorld{
    for(const s of this.near){if(!s.solid)continue;
     for(let lobe=-1;lobe<=1;lobe++){
      if(!length&&lobe!==0)continue;m.tests++;
-     if(!sweepHull(p,dx,dy,dz,s,this.frame,r,h,length*lobe,hit,c?.centerY??0))continue;
+     if(!sweepHull(p,dx,dy,dz,s,this.frame,r,h,length*lobe,hit,c?.centerY??0,depth))continue;
      if(hit.t<bestT||hit.t===0&&hit.depth>bestDepth){bestT=hit.t;bestDepth=hit.depth;Object.assign(best,hit);best.offset=length*lobe;obstacle=s;}
     }
    }

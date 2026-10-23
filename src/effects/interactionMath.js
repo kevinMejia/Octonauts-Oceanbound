@@ -8,8 +8,10 @@ export function sandResponse(clearance,speed,contact,impact=0){
 // Fixed cells contain surface proxies, not render objects. Query visits only local cells.
 export class SurfaceGrid{
  constructor(size=8){this.size=size;this.cells=new Map();this.maxRadius=0;}
- add(p){this.maxRadius=Math.max(this.maxRadius,p.radius);const key=Math.floor(p.x/this.size)+','+Math.floor(p.z/this.size);if(!this.cells.has(key))this.cells.set(key,[]);this.cells.get(key).push(p);}
- query(x,z,radius,out,kind){out.length=0;const s=this.size,r=radius+this.maxRadius;for(let i=Math.floor((x-r)/s);i<=Math.floor((x+r)/s);i++)for(let j=Math.floor((z-r)/s);j<=Math.floor((z+r)/s);j++){const cell=this.cells.get(i+','+j);if(cell)for(const p of cell)if((!kind||(kind==='solid'?p.solid:p.surface===kind))&&(x-p.x)**2+(z-p.z)**2<(radius+p.radius)**2)out.push(p);}return out;}
+ add(p){this.maxRadius=Math.max(this.maxRadius,p.radius);const key=Math.floor(p.x/this.size)+','+Math.floor(p.z/this.size);if(!this.cells.has(key))this.cells.set(key,[]);this.cells.get(key).push(p);p.gridKey=key;}
+ remove(p){const cell=this.cells.get(p.gridKey);if(!cell)return;const index=cell.indexOf(p);if(index>=0)cell.splice(index,1);if(!cell.length)this.cells.delete(p.gridKey);}
+ move(p){this.remove(p);this.add(p);}
+ query(x,z,radius,out,kind){out.length=0;const s=this.size,r=radius+this.maxRadius;for(let i=Math.floor((x-r)/s);i<=Math.floor((x+r)/s);i++)for(let j=Math.floor((z-r)/s);j<=Math.floor((z+r)/s);j++){const cell=this.cells.get(i+','+j);if(cell)for(const p of cell)if((!kind||(kind==='solid'?p.solid:kind==='discovery'?p.triggerEnabled:kind==='fleet-load'?p.loadCandidate:p.surface===kind))&&(x-p.x)**2+(z-p.z)**2<(radius+p.radius)**2)out.push(p);}return out;}
 }
 export function sweepSurface(a,b,s,radius=1.35,offsetX=0,offsetZ=0){const dx=b.x-a.x,dy=b.y-a.y,dz=b.z-a.z,l=dx*dx+dy*dy+dz*dz;const t=l?clamp(((s.x-a.x-offsetX)*dx+(s.y-a.y)*dy+(s.z-a.z-offsetZ)*dz)/l):0;const x=a.x+offsetX+dx*t-s.x,y=a.y+dy*t-s.y,z=a.z+offsetZ+dz*t-s.z,d=Math.hypot(x,y,z);return d<s.radius+radius;}
 export class ParticlePool{
