@@ -68,3 +68,5 @@ Observed in the actual game:
 - Camera orbit, forward movement and descent remain functional; browser checks reported no warnings/errors.
 
 31 automated tests pass, covering existing controls/turbo/camera, sand emission/intensity gating, actual terrain contact telemetry, local swept surface lookup, pool exhaustion/recycling, underwater settling and authored type/color metadata. Static HTTP validation checks 26 production resources. Screenshots were used to strengthen the initially faint wake and fix an aliased fog-color uniform that had washed out distant terrain. Final screenshots retain the original turquoise fog.
+
+Deployment `cc4859e` completed successfully. Live Pages validation returned valid content for all 26 resources and confirmed the single-pass cloud material. Forward/down movement produced the visible wake in `live-sand-wake.png`, with no browser warnings or errors.
