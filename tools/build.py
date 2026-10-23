@@ -4,7 +4,12 @@ for name in ['index.html','src','vendor']:
  p=ROOT/name
  if p.is_dir():shutil.copytree(p,out/name,dirs_exist_ok=True)
  else:shutil.copy2(p,out/name)
-shutil.copytree(ROOT/'assets/models',out/'assets/models',dirs_exist_ok=True)
+models=['gup-b.glb','turbo-lightning.glb','underwater-environment.glb']
+(out/'assets/models').mkdir(parents=True,exist_ok=True)
+for p in (out/'assets/models').glob('*.glb'):
+ if p.name not in models:p.unlink()
+for name in models:shutil.copy2(ROOT/'assets/models'/name,out/'assets/models'/name)
+shutil.copytree(ROOT/'assets/textures',out/'assets/textures',dirs_exist_ok=True)
 (out/'.nojekyll').touch()
 for p in (out/'assets/models').glob('*.glb'):
  data=p.read_bytes();assert data[:4]==b'glTF';assert struct.unpack_from('<I',data,8)[0]==len(data)

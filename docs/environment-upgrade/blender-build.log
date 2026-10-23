@@ -1,0 +1,227 @@
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-15 01:37:33)
+Info: Total files 0 | Changed 0 | Failed 0
+19:52:42 | INFO: Starting glTF 2.0 export
+19:52:42 | INFO: Extracting primitive: branch0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell0
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: branch1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell1
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: branch2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere.002
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell2
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: branch0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere.005
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell0.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: branch1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere.006
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell1.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: branch2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: brain2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: tube2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: kelp2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: seaweed2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: grass2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: Icosphere.007
+19:52:42 | INFO: Primitives created: 1
+19:52:42 | INFO: Extracting primitive: shell2.001
+19:52:42 | INFO: Primitives created: 1
+19:52:43 | INFO: Finished glTF 2.0 export in 0.3201174736022949 s
+Fra:1 Mem:31.06M (Peak 31.06M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch0
+Fra:1 Mem:31.06M (Peak 31.06M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | tube0
+Fra:1 Mem:31.26M (Peak 31.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | seaweed0
+Fra:1 Mem:31.26M (Peak 31.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | rock0
+Fra:1 Mem:32.07M (Peak 32.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | shell0
+Fra:1 Mem:32.09M (Peak 32.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch1
+Fra:1 Mem:32.33M (Peak 32.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | brain1
+Fra:1 Mem:32.72M (Peak 32.72M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | tube1
+Fra:1 Mem:33.07M (Peak 33.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Plane
+Fra:1 Mem:33.20M (Peak 33.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | kelp1
+Fra:1 Mem:33.20M (Peak 33.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | seaweed1
+Fra:1 Mem:33.26M (Peak 33.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | shell2
+Fra:1 Mem:33.40M (Peak 33.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | grass1
+Fra:1 Mem:33.41M (Peak 33.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch2
+Fra:1 Mem:33.69M (Peak 33.69M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | rock2
+Fra:1 Mem:33.75M (Peak 33.75M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | brain2
+Fra:1 Mem:34.00M (Peak 34.00M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | grass2
+Fra:1 Mem:34.07M (Peak 34.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | seaweed2
+Fra:1 Mem:35.11M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:34.09M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:34.09M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:34.09M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:34.09M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:34.18M (Peak 35.11M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:35.42M (Peak 35.42M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.00 | Mem:1.20M, Peak:1.20M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.00 | Mem:1.20M, Peak:1.20M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.00 | Mem:3.68M, Peak:3.68M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:36.62M (Peak 36.62M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.29M, Peak:9.37M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:39.53M (Peak 39.53M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:143.95M (Peak 143.95M) | Time:00:00.53 | Remaining:00:11.83 | Mem:113.74M, Peak:113.74M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:187.90M (Peak 253.82M) | Time:00:16.94 | Mem:113.74M, Peak:113.74M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:187.90M (Peak 253.82M) | Time:00:16.94 | Mem:113.74M, Peak:113.74M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\environment-upgrade\blender-library.png'
+Time: 00:17.30 (Saving: 00:00.34)
+
+Fra:1 Mem:31.09M (Peak 31.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch0
+Fra:1 Mem:31.10M (Peak 31.10M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | kelp0
+Fra:1 Mem:31.29M (Peak 31.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | grass0
+Fra:1 Mem:32.23M (Peak 32.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | rock0
+Fra:1 Mem:32.25M (Peak 32.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | shell0
+Fra:1 Mem:32.25M (Peak 32.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch1
+Fra:1 Mem:32.78M (Peak 32.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | brain1
+Fra:1 Mem:32.78M (Peak 32.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | shell1
+Fra:1 Mem:33.25M (Peak 33.25M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | branch2
+Fra:1 Mem:33.41M (Peak 33.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Plane
+Fra:1 Mem:33.64M (Peak 33.64M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | brain2
+Fra:1 Mem:33.65M (Peak 33.65M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | kelp2
+Fra:1 Mem:33.78M (Peak 33.78M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | seaweed2
+Fra:1 Mem:33.88M (Peak 33.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | grass2
+Fra:1 Mem:34.34M (Peak 34.34M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | shell2
+Fra:1 Mem:35.15M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:34.11M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:34.11M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:34.11M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:34.11M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:34.19M (Peak 35.15M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:34.20M (Peak 35.15M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:34.20M (Peak 35.15M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:34.20M (Peak 35.15M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:34.20M (Peak 35.15M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:35.44M (Peak 35.44M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:36.64M (Peak 36.64M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.00 | Mem:1.20M, Peak:1.20M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.00 | Mem:1.20M, Peak:1.20M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.00 | Mem:3.68M, Peak:3.68M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:36.63M (Peak 36.64M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:6.38M, Peak:8.85M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.29M, Peak:9.29M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:39.54M (Peak 39.54M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.29M, Peak:9.37M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:39.55M (Peak 39.55M) | Time:00:00.01 | Mem:9.37M, Peak:9.37M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:117.87M (Peak 117.87M) | Time:00:00.43 | Remaining:00:09.67 | Mem:87.65M, Peak:87.65M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:150.83M (Peak 200.28M) | Time:00:13.98 | Mem:87.65M, Peak:87.65M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:150.83M (Peak 200.28M) | Time:00:13.98 | Mem:87.65M, Peak:87.65M | Scene, ViewLayer | Finished
+Saved: 'E:\Workspace\Gup-G\docs\environment-upgrade\blender-detail.png'
+Time: 00:14.13 (Saving: 00:00.14)
+
+Warning: No mesh data to join
+Warning: No mesh data to join
+Info: Saved "underwater-environment.blend"
+INFO Draco mesh compression is available, use library at C:\Users\kevin\.cache\little-big-dirt-tools\blender-4.2.3-windows-x64\4.2\python\lib\site-packages\extern_draco.dll
+
+Oceanbound reef library: 24 authored variations
+
+Blender quit
