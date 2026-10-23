@@ -39,7 +39,7 @@ export class Game{
   this.input?.clear();this.audio?.setPaused(paused);this.needsPausedRender=true;
   if(this.metrics){this.metrics.previous=null;this.metrics.samples=[];this.metrics.cpu=[];this.metrics.gpu=[];}
  }
- configureVehicle(vehicle,id){const definition=vehicleById(id);vehicle.definition=definition;this.sub.collisionProxy=definition.collision;this.chase.profile=definition.camera;this.audio.setVehicle(definition.audio);}
+ configureVehicle(vehicle,id){const definition=vehicleById(id);vehicle.definition=definition;this.sub.collisionProxy=definition.collision;this.sub.movement=definition.movement;this.chase.profile=definition.camera;this.audio.setVehicle(definition.audio);}
  installVehicle(next,previous,id){
   next.update(0,this.sub);this.scene.remove(previous.group);this.gup=next;this.scene.add(next.group);next.group.add(this.turboEffects.group);this.configureVehicle(next,id);
   releaseVehicleGPU(previous);this.needsPausedRender=true;
