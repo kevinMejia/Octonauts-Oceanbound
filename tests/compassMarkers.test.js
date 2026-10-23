@@ -1,6 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {targetState,layoutMarkers} from '../src/navigation/compassMarkers.js';import {vehicles} from '../src/config/vehicleConfig.js';
+import {targetState} from '../src/navigation/compassMarkers.js';import {vehicles} from '../src/config/vehicleConfig.js';
 test('destination bearings follow north/east and wrap with vehicle heading',()=>{assert.equal(targetState({x:0,y:0,z:0},0,{x:0,y:0,z:-10}).relative,0);assert.equal(targetState({x:0,y:0,z:0},90,{x:0,y:0,z:-10}).relative,-90);assert.equal(targetState({x:0,y:0,z:0},350,{x:0,y:0,z:-10}).relative,10);});
 test('proximity uses 3D position and configured range',()=>{assert.equal(targetState({x:0,y:0,z:0},0,{x:0,y:100,z:0},90).proximity,0);assert.equal(targetState({x:0,y:0,z:0},0,{x:0,y:0,z:45},90).proximity,.5);});
-test('overlapping destinations keep true bearing anchors and readable bounded labels',()=>{const m=layoutMarkers(Array.from({length:8},(_,id)=>({id,relative:0})),46,{left:-310,right:62,top:-59,bottom:59});assert.ok(m.every(p=>p.ax===0&&p.ay===-46));for(let i=0;i<m.length;i++)for(let j=0;j<i;j++)assert.ok(Math.hypot(m[i].x-m[j].x,m[i].y-m[j].y)>=17);assert.ok(m.every(p=>p.x>=-302&&p.x<=54&&p.y>=-51&&p.y<=51));});
 test('all registered GUPs configure artwork-based compass colors',()=>{for(const v of vehicles)assert.match(v.compassColor,/^#[\da-f]{6}$/i);});

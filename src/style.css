@@ -43,6 +43,6 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 @media(max-height:500px){#compass{width:68px;height:68px}.compass-dial span{font-size:9px}.compass-heading{font-size:13px}}
 /* Compass destinations extend the existing dial without intercepting controls. */
 .base-bearing span{width:24px;height:22px;top:-10px;left:calc(50% - 12px)}.base-bearing img{width:24px;height:22px;display:block;filter:drop-shadow(0 1px 2px #002b42)}
-.compass-targets{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.compass-targets text{font:bold 13px Arial,sans-serif;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#013348;stroke-width:3px;stroke-linejoin:round}.compass-targets line{stroke:#a0e7ed99;stroke-width:1}.compass-targets .nearby text{animation:compass-near 1.9s ease-in-out infinite;filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) currentColor)}
+.compass-targets{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.compass-targets text{font:bold 13px Arial,sans-serif;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#013348;stroke-width:3px;stroke-linejoin:round}.compass-targets .nearby text{animation:compass-near 1.9s ease-in-out infinite;filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) currentColor)}
 @keyframes compass-near{50%{stroke:#17576a;stroke-width:4px;opacity:.8}}
 @media(prefers-reduced-motion:reduce){.compass-targets .nearby text{animation:none}}

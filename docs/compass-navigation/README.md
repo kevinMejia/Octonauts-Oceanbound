@@ -5,12 +5,12 @@ The existing circular compass, heading smoothing, cardinal directions, base dist
 ## Files
 
 - `assets/icons/octopod-compass.svg`: dedicated orange dome-and-arms Octopod silhouette, dark outline and small blue window band.
-- `src/navigation/Compass.js`: reusable target DOM, discovery subscription, screen-safe label placement and nearby styling. `dispose()` releases the subscription. Heading still comes from the active vehicle's world quaternion, independently of the camera.
-- `src/navigation/compassMarkers.js`: shared target bearing/proximity calculation and deterministic overlap layout. Leader anchors keep exact bearings when labels move; leaders are masked out of the dial interior.
+- `src/navigation/Compass.js`: reusable target DOM, discovery subscription, true-bearing orbital markers and nearby styling. `dispose()` releases the subscription. Heading still comes from the active vehicle's world quaternion, independently of the camera.
+- `src/navigation/compassMarkers.js`: shared target bearing/proximity calculation. Letters rotate around the compass center and counter-rotate upright exactly like the base icon, without displaced labels or leader lines.
 - `src/config/vehicleConfig.js`, `src/config/importedVehicles.js`: `compassColor` metadata matching the published model thumbnails (A teal, B orange, R blue, C navy blue, D yellow, E green, F silver, Q blue).
 - `src/config/octopodConfig.js`: `compassConfig.discoveryHighlightDistance`, default 90 world metres. A vehicle can override this with `discovery.compassHighlightDistance`.
 - `src/game/Game.js`: connects the initialized discovery fleet and existing unlock persistence to the compass.
-- `src/style.css`: dedicated icon, outlined letters, leaders and gentle proximity highlight, respecting reduced motion.
+- `src/style.css`: dedicated icon, outlined letters and gentle proximity highlight, respecting reduced motion.
 - `tools/fleet-import.json`, `tools/import_fleet.py`: preserve compass color metadata through future fleet imports.
 - `tools/build.py`: publishes/version-hashes SVG icons.
 - `tests/compassMarkers.test.js`, `tests/compass-browser.cjs`: math/configuration and integration coverage.
@@ -21,6 +21,6 @@ Register the vehicle normally with an enabled discovery definition. The compass 
 
 ## Verification
 
-147 Node tests pass. The production build validates successfully. Browser integration passes in desktop Edge with touch/mobile emulation: seven initial indicators, true north bearing, camera independence, heading changes, nearby highlight, immediate unlock removal, GUP switching, persistent removal after reload, portrait/landscape/desktop sizing, no horizontal overflow and no page errors. Screenshots were reviewed at phone portrait and landscape sizes. Discovery modal, celebration, parking, placements, controls and physics were not modified.
+146 Node tests pass. The production build validates successfully. Browser integration passes in desktop Edge with touch/mobile emulation: seven initial indicators, true north bearing, camera independence, heading changes, nearby highlight, immediate unlock removal, GUP switching, persistent removal after reload, portrait/landscape/desktop sizing, no horizontal overflow and no page errors. Screenshots were reviewed at phone portrait and landscape sizes. Discovery modal, celebration, parking, placements, controls and physics were not modified.
 
-Physical iPhone Safari testing is not available. Bearings use the compass's existing horizontal navigation convention; proximity additionally includes vertical separation. Dense groups use displaced labels with leader lines rather than falsifying their bearings.
+Physical iPhone Safari testing is not available. Bearings use the compass's existing horizontal navigation convention; proximity additionally includes vertical separation. Targets at nearly identical bearings can overlap; letters always stay at their true bearings, matching the base marker. A regression check verifies a GUP and the base at the same world location use the same rotation.
