@@ -6,6 +6,7 @@ paths+=['src/environment/AmbientWater.js','src/environment/waterCaustics.js','sr
 paths+=['src/camera/ChaseCamera.js','src/camera/CameraObstacles.js','src/camera/cameraMath.js','src/config/cameraConfig.js']
 paths+=['src/ui/TurboMeter.js']
 paths+=['src/config/visualConfig.js','src/environment/showcaseLayout.js','assets/models/showcase-rocks.glb','assets/models/showcase-rocks.json','src/environment/waterReflections.js']
+paths+=['src/environment/ReefFish.js','src/environment/fishMath.js','src/config/marineLifeConfig.js']
 for path in paths:
  with urllib.request.urlopen(base+path) as r:
   assert r.status==200
