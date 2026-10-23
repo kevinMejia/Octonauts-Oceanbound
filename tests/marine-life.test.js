@@ -11,3 +11,8 @@ test('marine schools cover opening and distant exploration with deterministic an
 
 import {kelpMeadows} from '../src/environment/marineLayout.js';
 test('tall kelp meadows are repeatable, grounded and stay inside world bounds',()=>{const a=kelpMeadows();assert.deepEqual(a,kelpMeadows());assert(a.length>300&&a.length<1500);assert(a.every(r=>Math.abs(r.x)<800&&Math.abs(r.z)<800&&r.scale>=1.5&&Number.isFinite(r.y)));});
+
+import {octopodGrass} from '../src/environment/marineLayout.js';
+import {octopodConfig} from '../src/config/octopodConfig.js';
+test('base grass is deterministic, low and leaves feet and sandy approach clear',()=>{const patches=octopodGrass();assert.deepEqual(patches,octopodGrass());assert(patches.length>200&&patches.length<450);for(const p of patches){const dx=(p.x-octopodConfig.position.x)/octopodConfig.scale,dz=(p.z-octopodConfig.position.z)/octopodConfig.scale;assert(Math.hypot(dx,dz)>=11);assert(!(dz>6&&Math.abs(dx)<7));assert(p.kind.startsWith('grass')&&p.scale<=1.1*octopodConfig.scale);}});
+test('small base schools remain below the pods and outside the support footprint',()=>{const groups=nearbySchools(180,100,100).filter(g=>g.base);assert.equal(groups.length,3);for(const g of groups){const out={};for(let t=0;t<100;t+=.3){schoolPath(t,out,g);assert(Math.hypot(out.x-180,out.z-100)>20);assert(Math.abs(out.x-g.x)<=3&&Math.abs(out.z-g.z)<=2);}}});
