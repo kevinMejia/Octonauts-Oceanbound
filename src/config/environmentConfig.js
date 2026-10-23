@@ -7,7 +7,6 @@ export const environmentConfig={
  openingPocketAttempts:70,
  openSandDecorations:850,
  sandRippleScale:.8,
- causticStrength:.28,
- profiles:{high:{pixelRatio:1.75,terrainSegments:48,drawDistance:260,reefFraction:1,particles:420},low:{pixelRatio:1.25,terrainSegments:32,drawDistance:190,reefFraction:.7,particles:180}},
+ profiles:{high:{pixelRatio:1.75,terrainSegments:48,drawDistance:260,reefFraction:1},low:{pixelRatio:1.25,terrainSegments:32,drawDistance:190,reefFraction:.7}},
 };
 export function renderingProfile(){const requested=new URLSearchParams(location.search).get('quality');return requested==='high'||requested==='low'?requested:matchMedia('(any-pointer:coarse)').matches?'low':'high';}

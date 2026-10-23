@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {bubbleRate,flowRate,stepBubble,wrapWater,depthLight} from '../src/effects/waterMath.js';
+import {waterConfig as config} from '../src/config/waterConfig.js';
+import {ParticlePool} from '../src/effects/interactionMath.js';
+test('propulsion emission is quiet at rest, scales with speed and strengthens on boost',()=>{assert.equal(bubbleRate(0),0);assert.equal(bubbleRate(.2),0);assert.ok(bubbleRate(2)<bubbleRate(12));assert.ok(bubbleRate(12,true)>bubbleRate(12));assert.equal(bubbleRate(-5),bubbleRate(5));});
+test('flow streaks activate only above their speed threshold',()=>{assert.equal(flowRate(0),0);assert.equal(flowRate(12),0);assert.ok(flowRate(21)>0);assert.ok(flowRate(100)<=6);});
+test('bubbles keep world position, lose jet velocity, rise and expire',()=>{const p={x:10,y:8,z:20,vx:0,vy:0,vz:-2,age:0,life:4.5,seed:.5};for(let i=0;i<120;i++)stepBubble(p,1/60,i/60,46);assert.equal(p.x>9.8&&p.x<10.2,true);assert.ok(p.z<20);assert.ok(p.y>9);assert.ok(p.vy>0);assert.ok(Math.abs(p.vz)<.2);stepBubble(p,3,5,46);assert.equal(p.life,0);});
+test('bubbles recycle at the established water surface',()=>{const p={x:0,y:45.9,z:0,vx:0,vy:1,vz:0,age:0,life:5,seed:0};stepBubble(p,.016,1,46);assert.equal(p.life,0);});
+test('camera-relative streaming preserves world positions until the far boundary',()=>{assert.equal(wrapWater(3,0,32),3);assert.equal(wrapWater(3,10,32),3);assert.equal(wrapWater(-5,-10,32),-5);const wrapped=wrapWater(3,36,32);assert.equal(wrapped,67);assert.ok(Math.abs(wrapWater(3,35.001,32)-35.001)>=32*.98);for(let anchor=-150;anchor<150;anchor+=.7)assert.ok(Math.abs(wrapWater(12,anchor,32)-anchor)<=32+1e-9);});
+test('caustic attenuation follows actual surface depth without dimming above water',()=>{assert.equal(depthLight(50,46),1);assert.ok(depthLight(30,46)>depthLight(0,46));assert.ok(depthLight(0,46)>.7);});
+test('quality caps are bounded and low quality disables optional streaks',()=>{assert.ok(config.bubbles.lowParticles<config.bubbles.maxParticles);assert.ok(config.ambient.lowParticles<config.ambient.maxParticles);assert.equal(config.motion.lowStreaks,0);const pool=new ParticlePool(config.bubbles.lowParticles);for(let i=0;i<config.bubbles.lowParticles;i++)pool.spawn().life=1;assert.equal(pool.spawn(),null);});
