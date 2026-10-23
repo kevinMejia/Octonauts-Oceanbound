@@ -43,7 +43,7 @@ export class OceanDecorations{
   for(const s of this.sway)s.uniforms.uReefTime.value=time;
   if(!position||this.lastPosition&&time-this.lastUpdate<.1&&Math.hypot(position.x-this.lastPosition.x,position.z-this.lastPosition.z)<4)return;
   this.lastUpdate=time;this.lastPosition={...position};if(camera){camera.updateMatrixWorld();this.clip.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);this.frustum.setFromProjectionMatrix(this.clip);}
-  for(const b of this.batches){let nearCount=0,farCount=0;const limit=/grass|shell/.test(b.kind)?this.profile.drawDistance*.65:this.profile.drawDistance;
+  for(const b of this.batches){let nearCount=0,farCount=0;const limit=/grass|shell|seaweed|kelp/.test(b.kind)?this.profile.vegetationDistance:/branch|brain|tube/.test(b.kind)?this.profile.coralDistance:this.profile.drawDistance;
    for(const r of b.records){const distance=Math.hypot(r.x-position.x,r.z-position.z);if(distance>limit)continue;if(camera){this.sphere.center.set(r.x,r.y+1,r.z);this.sphere.radius=r.scale*(b.kind.startsWith('rock')?5:3)+2;if(!this.frustum.intersectsSphere(this.sphere))continue;}const detailed=b.high&&distance<50,mesh=detailed?b.high:b.low,index=detailed?nearCount++:farCount++;mesh.setMatrixAt(index,r.matrix);this.color.setRGB(r.tint,r.tint,r.tint);mesh.setColorAt(index,this.color);}
    b.low.count=farCount;b.low.instanceMatrix.needsUpdate=true;if(b.low.instanceColor)b.low.instanceColor.needsUpdate=true;
    if(b.high){b.high.count=nearCount;b.high.instanceMatrix.needsUpdate=true;if(b.high.instanceColor)b.high.instanceColor.needsUpdate=true;}

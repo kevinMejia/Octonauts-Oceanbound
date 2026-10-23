@@ -4,7 +4,7 @@ import * as T from 'three';
 import {worldConfig as world} from '../config/worldConfig.js';
 import {environmentConfig as config} from '../config/environmentConfig.js';
 import {heightAt,noise} from './terrainMath.js';
-function texture(name,color=false){const t=new T.TextureLoader().load(new URL('../../assets/textures/'+name,import.meta.url).href);t.wrapS=t.wrapT=T.RepeatWrapping;t.colorSpace=color?T.SRGBColorSpace:T.NoColorSpace;t.anisotropy=4;return t;}
+function texture(name,color=false){const t=new T.TextureLoader().load(new URL('../../assets/textures/'+name,import.meta.url).href);t.wrapS=t.wrapT=T.RepeatWrapping;t.colorSpace=color?T.SRGBColorSpace:T.NoColorSpace;t.anisotropy=4;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.generateMipmaps=true;return t;}
 export class OceanTerrain{
  constructor(scene,profile=config.profiles.high){
   this.chunks=[];this.profile=profile;

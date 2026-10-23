@@ -5,7 +5,7 @@ paths+=['assets/models/reef-formations/interactions.json','src/effects/Environme
 paths+=['src/environment/AmbientWater.js','src/environment/waterCaustics.js','src/effects/PropulsionWater.js','src/effects/waterMath.js','src/config/waterConfig.js']
 paths+=['src/camera/ChaseCamera.js','src/camera/CameraObstacles.js','src/camera/cameraMath.js','src/config/cameraConfig.js']
 paths+=['src/ui/TurboMeter.js']
-paths+=['src/config/visualConfig.js','src/environment/showcaseLayout.js','assets/models/showcase-rocks.glb','assets/models/showcase-rocks.json']
+paths+=['src/config/visualConfig.js','src/environment/showcaseLayout.js','assets/models/showcase-rocks.glb','assets/models/showcase-rocks.json','src/environment/waterReflections.js']
 for path in paths:
  with urllib.request.urlopen(base+path) as r:
   assert r.status==200

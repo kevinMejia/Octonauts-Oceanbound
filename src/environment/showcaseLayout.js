@@ -3,7 +3,7 @@ import {heightAt,random} from './terrainMath.js';
 import {insideOctopodClearing} from '../config/octopodConfig.js';
 export function inShowcase(x,z){const c=visualConfig.showcase;return Math.hypot(x-c.x,z-c.z)<c.radius;}
 export function showcaseLayout(manifest){const c=visualConfig.showcase,rng=random(c.seed),records=[],rocks=[];
- const modules=[[-20,-4,1,.55,.4],[22,12,1,.52,-.6],[-19,-33,1,.48,.8],[24,-29,1,.5,-.4],[-55,-110,2,1.35,.2],[62,-127,2,1.2,-.4],[-38,4,0,.92,.3],[42,-8,0,1,-.4],[-39,-30,1,1.2,.7],[40,-45,1,1.25,-.8],[-57,-64,2,.9,.2],[66,-76,2,1,-.5],[-73,-8,1,1.1,1],[78,18,0,.85,-.3],[-40,40,1,.8,.7],[38,42,1,.9,-.4],[-36,-63,2,.95,.6],[-54,-96,1,1.2,.3],[82,-108,0,1,-.8]];
+ const modules=[[16,-10,1,.85,-.4],[-16,-7,1,.65,.8],[-20,-4,1,.55,.4],[22,12,1,.52,-.6],[-19,-33,1,.48,.8],[24,-29,1,.5,-.4],[-55,-110,2,1.35,.2],[62,-127,2,1.2,-.4],[-38,4,0,.92,.3],[42,-8,0,1,-.4],[-39,-30,1,1.2,.7],[40,-45,1,1.25,-.8],[-57,-64,2,.9,.2],[66,-76,2,1,-.5],[-73,-8,1,1.1,1],[78,18,0,.85,-.3],[-40,40,1,.8,.7],[38,42,1,.9,-.4],[-36,-63,2,.95,.6],[-54,-96,1,1.2,.3],[82,-108,0,1,-.8]];
  for(const [dx,dz,type,scale,angle] of modules){const x=c.x+dx,z=c.z+dz,form=manifest.formations[type];if(insideOctopodClearing(x,z,9*scale))continue;
   const samples=[heightAt(x,z)];for(let j=0;j<8;j++){const a=j*Math.PI/4;samples.push(heightAt(x+Math.cos(a)*7*scale,z+Math.sin(a)*7*scale));}samples.sort((a,b)=>a-b);const y=samples[2]-1.0;records.push({kind:form.kind,x,y,z,scale,angle,upright:true,module:true});
   const co=Math.cos(angle),si=Math.sin(angle);

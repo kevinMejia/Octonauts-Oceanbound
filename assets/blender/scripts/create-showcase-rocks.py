@@ -47,7 +47,21 @@ for kind,shapes in enumerate(blocks):
  bpy.context.view_layer.update();verts=[];faces=[]
  for o in parts:
   off=len(verts);verts.extend(o.matrix_world@v.co for v in o.data.vertices);faces.extend(tuple(off+i for i in p.vertices) for p in o.data.polygons)
- bvh=BVHTree.FromPolygons(verts,faces);rng=random.Random(44800+kind);anchors=[]
+ bvh=BVHTree.FromPolygons(verts,faces)
+ # Bake low-cost crevice occlusion into editable vertex colours. It survives
+ # GLB export and mobile rendering without an SSAO/postprocessing pass.
+ shade_rng=random.Random(44900+kind)
+ for o in parts:
+  colors=o.data.color_attributes['Color']
+  for vertex,color in zip(o.data.vertices,colors.data):
+   normal=(o.matrix_world.to_3x3()@vertex.normal).normalized();origin=o.matrix_world@vertex.co+normal*.04;blocked=0
+   for ray in range(8):
+    jitter=Vector((shade_rng.uniform(-1,1),shade_rng.uniform(-1,1),shade_rng.uniform(-1,1)))
+    if jitter.dot(normal)<0:jitter=-jitter
+    direction=(normal*.55+jitter).normalized();hit,_,_,_=bvh.ray_cast(origin,direction,2.2)
+    if hit is not None:blocked+=1
+   factor=1-.38*blocked/8;color.color=tuple(c*factor for c in color.color[:3])+(1,)
+ rng=random.Random(44800+kind);anchors=[]
  for i in range(250):
   x=rng.uniform(-6,6);y=rng.uniform(-4.7,4.7);hit,normal,_,_=bvh.ray_cast(Vector((x,y,18)),Vector((0,0,-1)),25)
   if hit and normal.z>.36 and all((x-a[0])**2+(-y-a[2])**2>.45 for a in anchors):anchors.append([round(hit.x,3),round(hit.z-.05,3),round(-hit.y,3)])

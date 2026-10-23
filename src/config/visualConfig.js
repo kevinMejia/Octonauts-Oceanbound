@@ -3,5 +3,5 @@
 export const visualConfig={
  showcase:{x:180,z:205,radius:120,blendStart:82,seed:44712},
  sand:{tileMetres:2.4,normalStrength:.4},
- lighting:{sunIntensity:3.5,hemisphereIntensity:.9},
+ lighting:{sunIntensity:3.5,hemisphereIntensity:.9,reflections:true},
 };

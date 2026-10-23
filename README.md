@@ -68,3 +68,5 @@ Verify the successful Pages run, then load the public URL, check browser console
 See `docs/VERIFICATION.md`. Real iPhone Safari performance and multitouch testing remain outstanding. This is an unofficial fan prototype; source references are linked, not redistributed. Model resembles the classic shark-style GUP-B, but rear details are approximate and it is not an exact production model. No Kwazii character is included.
 
 Camera defaults and validation: [exploration camera report](docs/camera/README.md). Existing saved offsets are retained; use Settings > Reset camera for the new default distance and height.
+
+Visual fidelity recovery, editable showcase source, fixed-view comparisons and performance limitations: [visual review](docs/visual-recovery/README.md).
