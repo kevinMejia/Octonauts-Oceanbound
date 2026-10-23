@@ -136,6 +136,10 @@ bpy.ops.mesh.primitive_plane_add(size=250,location=(0,0,-.6));floor=bpy.context.
 for loc,power,size in [((15,-35,55),11000,30),((-30,10,38),7500,25)]:
  bpy.ops.object.light_add(type='AREA',location=loc);o=bpy.context.object;o.data.energy=power;o.data.shape='DISK';o.data.size=size;o.rotation_euler=(Vector((0,0,15))-o.location).to_track_quat('-Z','Y').to_euler();o.name='Preview_Studio_not_exported'
 bpy.ops.object.camera_add(location=(54,-68,44));camera=bpy.context.object;camera.name='Preview_Camera_not_exported';scene.camera=camera;camera.data.type='ORTHO';camera.data.ortho_scale=65
+for screen in bpy.data.screens:
+ for area in screen.areas:
+  if area.type=='VIEW_3D':
+   region=area.spaces.active.region_3d;region.view_location=(0,0,15);region.view_distance=85;region.view_rotation=camera.rotation_euler.to_quaternion();region.view_perspective='PERSP'
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT,'octopod.blend'))
 for name,pos in [('front',(0,-85,25)),('rear',(0,85,25)),('side',(85,0,25)),('top',(0,-.001,100)),('three-quarter',(54,-68,44))]:
  camera.location=pos;camera.rotation_euler=(Vector((0,0,15))-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=os.path.join(DOC,'blender-'+name+'.png');bpy.ops.render.render(write_still=True)
