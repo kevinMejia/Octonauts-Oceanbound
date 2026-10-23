@@ -1,8 +1,6 @@
 import * as T from 'three';
 import {GLTFLoader} from '../../vendor/GLTFLoader.js';
 import {octopodConfig as config} from '../config/octopodConfig.js';
-import {resolveOctopodCollision} from './octopodCollision.js';
 export class Octopod{
  static async load(scene){if(!config.enabled)return null;const [{scene:model},data]=await Promise.all([new GLTFLoader().loadAsync(new URL('../../assets/models/octopod.glb',import.meta.url).href),fetch(new URL('../../assets/models/octopod-collision.json',import.meta.url).href).then(r=>{if(!r.ok)throw new Error('Octopod collision data unavailable');return r.json();})]);model.name='Octopod headquarters';model.position.set(config.position.x,config.position.y,config.position.z);model.scale.setScalar(config.scale);model.traverse(o=>{if(!o.isMesh)return;o.castShadow=!o.material.transparent;o.receiveShadow=false;if(o.material.transparent){o.material.depthWrite=false;o.material.forceSinglePass=true;o.material.side=T.DoubleSide;}});if(new URLSearchParams(location.search).has('inspect')&&new URLSearchParams(location.search).get('base')==='off')model.visible=false;scene.add(model);const instance=new Octopod();instance.model=model;instance.colliders=data.colliders.map(c=>({x:config.position.x+c.center[0]*config.scale,y:config.position.y+c.center[1]*config.scale,z:config.position.z+c.center[2]*config.scale,rx:c.radii[0]*config.scale,ry:c.radii[1]*config.scale,rz:c.radii[2]*config.scale,angle:0}));return instance;}
- collide(sub){if(config.collisionEnabled&&Math.hypot(sub.position.x-config.position.x,sub.position.z-config.position.z)<36*config.scale)return resolveOctopodCollision(sub.position,this.colliders,sub.heading,sub.collisionProxy);return 0;}
 }

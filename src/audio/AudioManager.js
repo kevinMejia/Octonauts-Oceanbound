@@ -1,3 +1,5 @@
+import {TurboSound} from './TurboSound.js';
+import {ImpactSounds} from './ImpactSounds.js';
 import {submarineConfig as config} from '../config/submarineConfig.js';
 import {audioDefaults,loadAudioSettings,saveAudioSettings,volumeKeys} from './AudioSettings.js';
 import {BubbleBursts,bubbleAudioConfig} from './BubbleBursts.js';
@@ -5,7 +7,7 @@ import {MusicController} from './MusicController.js';
 import {bubbleRate} from '../effects/waterMath.js';
 const safeStorage=host=>{try{return host.localStorage;}catch{return undefined;}};
 const clamp=value=>Math.max(0,Math.min(1,value));
-export const audioAssets={propeller:new URL('../../assets/audio/gup-b-propeller.mp3',import.meta.url).href,bubbles:new URL('../../assets/audio/underwater-bubbles.mp3',import.meta.url).href,ambience:new URL('../../assets/audio/underwater-ambience.mp3',import.meta.url).href};
+export const audioAssets={turbo:new URL('../../assets/audio/turbo.mp3',import.meta.url).href,collision:new URL('../../assets/audio/underwater-collision.mp3',import.meta.url).href,propeller:new URL('../../assets/audio/gup-b-propeller.mp3',import.meta.url).href,bubbles:new URL('../../assets/audio/underwater-bubbles.mp3',import.meta.url).href,ambience:new URL('../../assets/audio/underwater-ambience.mp3',import.meta.url).href};
 export function audioTargets(sub,input,previousSpeed,dt){
  const speed=Math.hypot(sub.speed,sub.vertical),movement=clamp(speed/config.maxForwardSpeed);
  const braking=input.brakeReverse&&sub.speed>.15;
@@ -28,7 +30,9 @@ export function loopBuffer(context,buffer){
 }
 export class AudioManager{
  constructor({host=window,document:doc=document,requirePlay=false}={}){
-  this.playAuthorized=!requirePlay;this.host=host;this.document=doc;this.channels={};this.previousSpeed=0;this.settings=loadAudioSettings(safeStorage(host));this.volume=this.settings.master;this.channelGains={};this.paused=false;this.sceneMusicEnabled=true;this.active=false;this.disposed=false;this.errors={};
+  this.playAuthorized=!requirePlay;this.host=host;this.document=doc;this.channels={};this.previousSpeed=0;this.settings=loadAudioSettings(safeStorage(host));this.volume=this.settings.master;this.channelGains={};this.paused=false;this.sceneMusicEnabled=true;this.active=false;this.disposed=false;this.errors={};this.turboActive=false;
+  // Optional encoded-data prefetch is silent: no context exists before PLAY.
+  this.turboData=this.fetchAudio(audioAssets.turbo).catch(()=>null);
   this.gesture=()=>this.unlock();
   this.visibility=()=>{if(doc.hidden){this.suspend();}else if(this.active)this.unlock();};
   this.hide=()=>this.suspend();this.show=()=>{if(this.active&&!doc.hidden)this.unlock();};
@@ -52,10 +56,13 @@ export class AudioManager{
    Promise.resolve(resumed).then(()=>{if(!this.document.hidden&&!this.disposed)this.smooth(this.master.gain,this.settings.muted?0:this.volume,.1);}).catch(()=>{});
   }catch{/* Unsupported or interrupted audio must never interrupt gameplay. */}
  }
+ async fetchAudio(url){const response=await this.host.fetch(url);if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.arrayBuffer();}
  async load(){await Promise.all(Object.entries(audioAssets).map(async([name,url])=>{
-  try{const response=await this.host.fetch(url);if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.arrayBuffer();
+  try{const data=await (name==='turbo'?this.turboData:null)||await this.fetchAudio(url);
    // Callback form also works on older iPhone Safari versions.
    const buffer=await new Promise((resolve,reject)=>this.context.decodeAudioData(data,resolve,reject));if(this.disposed)return;
+   if(name==='turbo'){this.turboSound=new TurboSound(this.context,this.channelGains.turbo,buffer);return;}
+   if(name==='collision'){this.impacts=new ImpactSounds(this.context,this.master,buffer);return;}
    if(name==='bubbles'){this.bubbles=new BubbleBursts(this.context,this.channelGains.bubbles,buffer);return;}
    const gain=this.context.createGain(),source=this.context.createBufferSource();gain.gain.value=0;gain.connect(this.channelGains[name]);source.buffer=loopBuffer(this.context,buffer);source.loop=true;source.connect(gain);source.start();this.channels[name]={gain,source};
   }catch(error){this.errors[name]=String(error);console.warn(`Oceanbound audio unavailable: ${url}`,error);}
@@ -71,13 +78,17 @@ export class AudioManager{
   const enabled=this.settings.musicEnabled&&!this.paused&&this.sceneMusicEnabled;if(this.music&&this.music.enabled!==enabled)this.music.setEnabled(enabled);
  }
  // Pause/scene hooks. Opening settings does not pause or restart music.
- setPaused(value){this.paused=!!value;if(this.paused&&this.context){for(const [name,channel] of Object.entries(this.channels))if(name!=='ambience')this.smooth(channel.gain.gain,0,.15);}this.applySettings();}
+ setPaused(value){this.paused=!!value;if(this.paused){this.impacts?.suspend();this.turboSound?.suspend();}if(this.paused&&this.context){for(const [name,channel] of Object.entries(this.channels))if(name!=='ambience')this.smooth(channel.gain.gain,0,.15);}this.applySettings();}
+ playCollision(contact){if(!this.paused&&!this.settings.muted&&this.context?.state==='running')this.impacts?.play(contact);}
  setVehicle(profile){this.vehicleAudio=profile;}
  setSceneMusicEnabled(value){this.sceneMusicEnabled=!!value;this.applySettings();}
- suspend(){this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
- update(dt,sub,input){const targets=audioTargets(sub,input,this.previousSpeed,dt);this.previousSpeed=targets.speed;targets.propeller*=this.vehicleAudio?.propellerGain??1;targets.bubbles*=this.vehicleAudio?.bubbleGain??1;targets.rate*=this.vehicleAudio?.rateMultiplier??1;if(this.context?.state!=='running')return;
+ suspend(){this.turboSound?.suspend();this.impacts?.suspend();this.music?.suspend();this.bubbles?.suspend();if(!this.context)return;this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setValueAtTime(0,this.context.currentTime);Promise.resolve(this.context.suspend()).catch(()=>{});}
+ update(dt,sub,input){
+  const turboStarted=sub.turbo.active&&!this.turboActive;this.turboActive=sub.turbo.active;
+  if(turboStarted&&!this.paused&&!this.settings.muted&&this.settings.turbo>0&&this.context?.state==='running')this.turboSound?.play();
+  const targets=audioTargets(sub,input,this.previousSpeed,dt);this.previousSpeed=targets.speed;targets.propeller*=this.vehicleAudio?.propellerGain??1;targets.bubbles*=this.vehicleAudio?.bubbleGain??1;targets.rate*=this.vehicleAudio?.rateMultiplier??1;if(this.context?.state!=='running')return;
   this.bubbles?.update(dt,{intensity:this.paused?0:targets.bubbles/.1,moving:!this.paused&&targets.bubbles>0&&Math.abs(sub.speed)>=bubbleAudioConfig.minimumMovementThreshold});
   for(const [name,channel] of Object.entries(this.channels)){this.smooth(channel.gain.gain,this.paused?0:targets[name],name==='ambience'?.8:.2);if(name==='propeller')this.smooth(channel.source.playbackRate,targets.rate,.25);}
  }
- dispose(){this.disposed=true;this.music?.dispose();this.bubbles?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
+ dispose(){this.disposed=true;this.turboSound?.suspend();this.impacts?.suspend();this.music?.dispose();this.bubbles?.dispose();for(const event of ['pointerdown','touchend','keydown'])this.document.removeEventListener(event,this.gesture,true);this.document.removeEventListener('visibilitychange',this.visibility);this.host.removeEventListener('pagehide',this.hide);this.host.removeEventListener('pageshow',this.show);for(const channel of Object.values(this.channels)){channel.source.stop();channel.source.disconnect();channel.gain.disconnect();}for(const gain of Object.values(this.channelGains))gain.disconnect();this.context?.close().catch(()=>{});}
 }

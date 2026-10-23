@@ -1,7 +1,7 @@
 // User preferences are independent of the gameplay envelopes in AudioManager.
 export const AUDIO_KEY='oceanbound.audio.v1';
-export const audioDefaults=Object.freeze({master:.8,music:.35,propeller:.65,bubbles:.5,ambience:.4,muted:false,musicEnabled:true});
-export const volumeKeys=['master','music','propeller','bubbles','ambience'];
+export const audioDefaults=Object.freeze({master:.8,music:.35,propeller:.65,bubbles:.5,ambience:.4,turbo:.65,muted:false,musicEnabled:true});
+export const volumeKeys=['master','music','propeller','bubbles','ambience','turbo'];
 export function loadAudioSettings(storage){
  const result={...audioDefaults};
  try{

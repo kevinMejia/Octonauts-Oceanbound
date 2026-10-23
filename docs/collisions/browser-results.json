@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "registered": 1155,
+    "solids": 1155,
+    "bySurface": {
+      "coral": 525,
+      "rock": 549,
+      "octopod": 81
+    },
+    "gridShared": true
+  },
+  "probes": [
+    {
+      "type": "rock",
+      "impact": 28.243774384984746,
+      "position": {
+        "x": -22.220676368606306,
+        "y": 14.581376454671943,
+        "z": 40.005803451191206
+      },
+      "candidates": 19
+    },
+    {
+      "type": "coral",
+      "impact": 23.245834526317385,
+      "position": {
+        "x": -16.61506274183753,
+        "y": 17.871455859755965,
+        "z": 48.42267658911163
+      },
+      "candidates": 21
+    },
+    {
+      "type": "octopod",
+      "impact": 38.869521994510244,
+      "position": {
+        "x": 180,
+        "y": 26.18602686822635,
+        "z": 88.20637496874464
+      },
+      "candidates": 13
+    }
+  ],
+  "effects": {
+    "sand": 1,
+    "rock": 1,
+    "coral": 1
+  },
+  "micro": [
+    {
+      "location": "dense reef",
+      "batches": 120,
+      "batchSize": 32,
+      "legacyMs": {
+        "median": 0.003124999988358468,
+        "p95": 0.0062500000349245965
+      },
+      "sweptMs": {
+        "median": 0.037499999976716936,
+        "p95": 0.0531250000349246
+      },
+      "averageCandidates": 7.827604166666666,
+      "maxCandidates": 14
+    },
+    {
+      "location": "scattered rocks",
+      "batches": 120,
+      "batchSize": 32,
+      "legacyMs": {
+        "median": 0.003124999988358468,
+        "p95": 0.0062500000349245965
+      },
+      "sweptMs": {
+        "median": 0.040625000023283064,
+        "p95": 0.04999999998835847
+      },
+      "averageCandidates": 2.19921875,
+      "maxCandidates": 4
+    },
+    {
+      "location": "Octopod",
+      "batches": 120,
+      "batchSize": 32,
+      "legacyMs": {
+        "median": 0.003124999988358468,
+        "p95": 0.0062500000349245965
+      },
+      "sweptMs": {
+        "median": 0.015625,
+        "p95": 0.028125000011641532
+      },
+      "averageCandidates": 0.6567708333333333,
+      "maxCandidates": 1
+    }
+  ],
+  "legacyStaticLists": {
+    "reef": 106,
+    "showcase": 96,
+    "octopod": 81
+  },
+  "turboBufferDuration": 1,
+  "collisionBufferDuration": 1.48,
+  "browserErrors": [],
+  "mobile": "Chromium touch emulation; physical iPhone Safari not tested"
+}

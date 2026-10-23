@@ -1,5 +1,4 @@
 import {kelpMeadows,octopodGrass} from './marineLayout.js';
-import {resolveOctopodCollision} from './octopodCollision.js';
 import {showcaseLayout,inShowcase} from './showcaseLayout.js';
 import {waterConfig} from '../config/waterConfig.js';
 import {applyWaterCaustics} from './waterCaustics.js';
@@ -33,7 +32,6 @@ export class OceanDecorations{
   for(const [kind,records] of byKind){const make=low=>{const src=sources.get(kind+(low?'_low':''));if(!src)throw new Error('Missing reef mesh '+kind);const mesh=new T.InstancedMesh(src.geo,src.mat,records.length);mesh.name='Reef '+kind+(low?' mobile/distant':' close detail');mesh.count=0;mesh.instanceMatrix.setUsage(T.DynamicDrawUsage);mesh.frustumCulled=false;mesh.castShadow=/rock|branch/.test(kind);mesh.receiveShadow=true;scene.add(mesh);return mesh;};const high=profile===config.profiles.high?make(false):null,low=make(true);this.batches.push({kind,records,high,low});}
   sources.forEach(s=>this.assetTriangles+=(s.geo.index?.count??s.geo.attributes.position.count)/3);this.color=new T.Color();this.createOcclusion();
  }
- collide(sub){return resolveOctopodCollision(sub.position,this.showcaseColliders??[],sub.heading,sub.collisionProxy);}
  createOcclusion(){
   this.occlusion?.dispose();
   const size=1024,canvas=document.createElement('canvas');canvas.width=canvas.height=size;const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,size,size);

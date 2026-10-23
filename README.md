@@ -73,7 +73,7 @@ Visual fidelity recovery, editable showcase source, fixed-view comparisons and p
 
 ### Underwater audio and music
 
-`src/audio/AudioManager.js` owns a master bus and independent music, propeller, bubbles, and ambience buses. Gameplay envelopes feed user-volume buses, so propulsion never overwrites preferences. Existing movement and bubble visuals are unchanged. `UnderwaterAudio.js` retains compatibility exports; it does not create a second system.
+`src/audio/AudioManager.js` owns a master bus and independent music, propeller, bubbles, ambience, and turbo buses. Gameplay envelopes feed user-volume buses, so propulsion never overwrites preferences. Existing movement and bubble visuals are unchanged. `UnderwaterAudio.js` retains compatibility exports; it does not create a second system.
 
 Runtime assets (included and versioned by `python tools/build.py`):
 
@@ -81,12 +81,14 @@ Runtime assets (included and versioned by `python tools/build.py`):
 - `assets/audio/gup-b-propeller.mp3`
 - `assets/audio/underwater-bubbles.mp3`
 - `assets/audio/underwater-ambience.mp3`
+- `assets/audio/underwater-collision.mp3`
+- `assets/audio/turbo.mp3`
 
 The supplied `assets/audio/source/background_music.weba` is stereo Opus/WebM, approximately 172.14 seconds. The runtime MP3 is a 160 kb/s conversion of the complete recording for Safari compatibility; the original remains intact. Numerical inspection found a quiet opening (first-second RMS 0.00027) and a different ending (last-second RMS 0.01549), so a direct seamless join is not assumed. This is signal analysis, not a listening assessment.
 
 `MusicController.js` streams two HTMLAudioElements through Web Audio. Playback starts at zero on interaction, fades in over 3 seconds, and overlaps the next complete recording with the outgoing final 4 seconds using equal-power gains. The outgoing track plays through its end. Each handoff follows the current media clock, avoiding accumulating timer deadlines. Two elements reuse one URL and remain bounded in number; full music tracks are not decoded into PCM buffers. Propeller and ambience use persistent decoded loops with 60 ms seam overlaps. Bubbles use short, randomized non-looping bursts from the original recording. Music transition duration, fade-in, fade-out (2 seconds), and conservative mix headroom are configurable in `musicConfig`; `crossfade:0` enables native looping for a future verified seamless recording. Listening is still needed to judge musical phrasing and perceived loudness at this join.
 
-The HUD badge opens the Octopod control monitor directly; its Audio tab provides five percentage sliders, Enable music, Mute all audio, and Reset to Defaults. Defaults live in `AudioSettings.js`: master 80%, music 35%, propeller 65%, bubbles 50%, ambience 40%. Sliders smooth over short intervals; disabling music fades its transport gate over 2 seconds, then pauses it. Re-enabling continues from its position. Opening settings and moving sliders never recreate music elements or seek the music. Existing input guards keep settings controls from driving the submarine.
+The HUD badge opens the Octopod control monitor directly; its Audio tab provides six percentage sliders, Enable music, Mute all audio, and Reset to Defaults. Defaults live in `AudioSettings.js`: master 80%, music 35%, propeller 65%, bubbles 50%, ambience 40%, turbo 65%. Sliders smooth over short intervals; disabling music fades its transport gate over 2 seconds, then pauses it. Re-enabling continues from its position. Opening settings and moving sliders never recreate music elements or seek the music. Existing input guards keep settings controls from driving the submarine.
 
 Preferences use `oceanbound.audio.v1` and validate each field independently. The prior `oceanbound.masterVolume` migrates when no versioned preferences exist. Thus an existing saved master level takes precedence over the new 80% default until Reset to Defaults. Blocked storage falls back to session settings and unrelated preferences remain untouched. Saved bus gains apply before playback becomes audible.
 
@@ -124,3 +126,12 @@ The current GUP thumbnail beneath the existing compass opens a paused, blurred v
 Runtime A/R GLBs are published from `assets/models/gup-a.glb` and `gup-r.glb`; all three Blender-rendered thumbnails are in `assets/img/vehicles/`. The production build includes these assets and versions their URLs together with the module graph. URLs resolve relative to the registry module, preserving the GitHub Pages project prefix. Original Blender downloads and archives remain separate from runtime assets. Local preparation details and browser QA scripts remain under `.local-assets/vehicle-selection/`.
 
 A preserves 270,924 evaluated triangles (including its antenna curve), R 338,572; no decimation was applied. A's actual rear blade has a preserved pivot and speed-dependent rotation. R has no safely identifiable independent propeller, so unrelated fins remain stationary. Blender movie/procedural instrument materials use static baked representations where glTF cannot encode their source shaders. Physical iPhone Safari and subjective audio listening still require device verification.
+
+
+### Collisions and activation sounds
+
+Movement, camera obstruction and particle settling share one static spatial grid. Simplified GUP hull lobes sweep against substantial rock, coral-cluster and Octopod proxies; small decoration stays passable. Direct terrain height queries constrain the lower hull. Collision audio uses fresh normal impacts and a cooldown. Developer wireframes: `?collisionDebug`.
+
+The supplied `assets/audio/turbo.mp3` plays once on successful turbo activation, using the existing AudioManager and the saved Turbo volume slider. It never loops or overlaps itself. Audio remains locked until PLAY, and existing propulsion, bubbles, ambience and music are preserved. Runtime recordings live in `assets/audio`; the original music source is retained under `assets/audio/source` and excluded from deployment. The obsolete duplicate `assets/sounds` folder was removed with user authorization.
+
+Architecture, measured hull dimensions, desktop collision CPU comparisons, test results and device limitations: [collision and audio report](docs/collisions/README.md).

@@ -32,7 +32,7 @@ test('audio unlocks once, keeps looping sources, suspends, resumes and cleans up
  audio.setVolume(9);assert.equal(audio.volume,1);doc.hidden=true;listeners.get('visibilitychange')();assert.equal(suspends,1);doc.hidden=false;listeners.get('visibilitychange')();assert.equal(resumes,2);audio.dispose();assert.equal(listeners.size,0);
 });
 test('missing files leave gameplay audio optional',async()=>{
- const audio=Object.create(UnderwaterAudio.prototype);audio.host={fetch:async()=>({ok:false,status:404})};audio.errors={};const warn=console.warn;console.warn=()=>{};try{await audio.load();assert.equal(Object.keys(audio.errors).length,3);}finally{console.warn=warn;}
+ const audio=Object.create(UnderwaterAudio.prototype);audio.host={fetch:async()=>({ok:false,status:404})};audio.errors={};const warn=console.warn;console.warn=()=>{};try{await audio.load();assert.equal(Object.keys(audio.errors).length,5);}finally{console.warn=warn;}
 });
 
 test('startup gestures cannot create audio until PLAY authorizes it',()=>{

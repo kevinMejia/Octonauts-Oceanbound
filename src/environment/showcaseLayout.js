@@ -10,7 +10,7 @@ export function showcaseLayout(manifest){const c=visualConfig.showcase,rng=rando
   for(const s of form.colliders)rocks.push({x:x+(co*s.x+si*s.z)*scale,y:y+s.y*scale,z:z+(-si*s.x+co*s.z)*scale,rx:s.rx*scale,ry:s.ry*scale,rz:s.rz*scale,angle,radius:Math.max(s.rx,s.rz)*scale});
   for(let i=0;i<form.anchors.length;i++){const a=form.anchors[i],px=x+(co*a[0]+si*a[2])*scale,pz=z+(-si*a[0]+co*a[2])*scale,py=y+a[1]*scale;if(py<heightAt(px,pz)-.1)continue;
    const family=i%11===0?'kelp':i%6===0?'seaweed':i%5===0?'grass':i%4===0?'brain':i%3===0?'tube':'branch';
-   records.push({kind:family+Math.floor(rng()*3),x:px,y:py,z:pz,scale:(.65+rng()*.7)*scale,angle:rng()*Math.PI*2,upright:true});
+   records.push({cluster:'showcase-'+x+','+z,kind:family+Math.floor(rng()*3),x:px,y:py,z:pz,scale:(.65+rng()*.7)*scale,angle:rng()*Math.PI*2,upright:true});
   }
   // Rooted transition vegetation and rubble; the valley centre stays open.
   for(let i=0;i<32;i++){const a=rng()*Math.PI*2,r=(4+rng()*5)*scale,px=x+Math.sin(a)*r,pz=z+Math.cos(a)*r;if(insideOctopodClearing(px,pz,2)||Math.abs(px-c.x)<16)continue;
