@@ -69,3 +69,7 @@ October 23, 2026, Chromium in-app browser, DPR 1. High samples are 1280 x 720; l
 | After low / 844 x 390 | 7 / 7.1 | 1.2 | 4.49 | 164 | 1,900,458 | 16.66 |
 
 FPS is refresh limited near 143 in these samples. GPU query times vary with clock state and scheduling; the high-quality timing decrease is **not** evidence of a GPU speedup. Low-quality GPU cost increased by about 0.66 ms in this sample, with CPU increasing 0.2 ms. More scenery is actually rendered, so triangle counts increase; the extra geometry is shared/instanced rather than many new objects or textures. Texture counts increase by one for the shared generated environment. Reported geometry is visible buffer storage, not total VRAM; heap samples depend on GC. Earlier exploratory windows with multiple previews/resizing had p95 around 14 ms, so the stable results are not a universal frame-time guarantee. Physical iPhone results remain unknown.
+
+## Live deployment
+
+GitHub Pages deployment for `bb26d5a` completed successfully. All 45 public production resources passed HTTP/content checks. `live-opening.png` is the actual deployed Three.js scene at the same comparison spawn and camera, with no browser warnings/errors reported during that check. Local test assets and the baseline reconstruction are not part of the deployed site.
