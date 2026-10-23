@@ -71,9 +71,9 @@ box('Bridge_Rear_Monitor_Frame',(0,6.1,23),(4.4,.22,2.3),dark,'Main_Dome');box('
 collider((0,0,17.5),(9.8,9.8,10))
 # Rounded portholes and central launch/service hatch, matching the face-like exterior.
 for a in [-math.pi/2-.56,-math.pi/2+.56,math.pi/2-.6,math.pi/2+.6]:
- normal=(math.cos(a),math.sin(a),.05);center=(math.cos(a)*9.45,math.sin(a)*9.45,13.8)
+ normal=(math.cos(a),math.sin(a),-.3);center=(math.cos(a)*9.8,math.sin(a)*9.8,13.8)
  ring('Hull_Porthole_Seal',center,1,.16,dark,'Windows',normal);disc('Hull_Porthole_Glass',center,.86,.16,cyan,'Windows',normal)
-ring('Launch_Hatch_Rim',(0,-8.0,10.9),1.55,.28,trim,'Exterior_Details',(0,-.8,-.3));disc('Launch_Hatch_Recess',(0,-8.1,10.9),1.25,.18,dark,'Exterior_Details',(0,-.8,-.3))
+ring('Launch_Hatch_Rim',(0,-9.1,11.5),1.55,.28,trim,'Exterior_Details',(0,-.8,-.5));disc('Launch_Hatch_Recess',(0,-9.2,11.5),1.25,.18,dark,'Exterior_Details',(0,-.8,-.5))
 for i in range(8):
  a=i*math.tau/8;sphere('Hull_Recessed_Panel',(math.cos(a)*9.7,math.sin(a)*9.7,17.4),(.55,.15,.7),trim,'Exterior_Details').rotation_euler.z=a-math.pi/2
 # Four satellite rooms: higher rear pair, lower forward pair, not an invented eight-pod ring.
