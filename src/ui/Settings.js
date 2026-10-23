@@ -53,7 +53,24 @@ export function installSettings(){
  }
  resetButton(cameraPanel,'Reset camera defaults',()=>{Object.assign(cameraConfig,cameraDefaults);syncCamera();status.textContent=saveCameraSettings(storage,cameraConfig)?'Default camera restored and saved.':'Default camera restored for this session.';}).id='resetCamera';
 
- const tabs=[...dialog.querySelectorAll('[role=tab]')];
+ // Keep reset scoped to fleet progress; never clear browser or preference storage.
+ const gameplayTab=document.createElement('button'),gameplayPanel=document.createElement('section');
+ gameplayTab.id='gameplayTab';gameplayTab.type='button';gameplayTab.role='tab';gameplayTab.setAttribute('aria-selected','false');gameplayTab.setAttribute('aria-controls','gameplayPanel');gameplayTab.tabIndex=-1;gameplayTab.textContent='Gameplay';
+ gameplayPanel.id='gameplayPanel';gameplayPanel.role='tabpanel';gameplayPanel.setAttribute('aria-labelledby','gameplayTab');gameplayPanel.hidden=true;
+ dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
+ intro(gameplayPanel,'Start a fresh adventure','Reset GUP discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');
+ const confirmation=document.createElement('div');confirmation.hidden=true;confirmation.setAttribute('role','group');confirmation.setAttribute('aria-label','Confirm gameplay reset');
+ const warning=document.createElement('p');warning.textContent='Reset all GUP discoveries? Your unlocked fleet will be cleared and the game will restart. This cannot be undone.';confirmation.append(warning);
+ const reset=resetButton(gameplayPanel,'Reset gameplay progress',()=>{confirmation.hidden=false;reset.hidden=true;confirm.focus();});reset.id='resetGameplay';
+ const cancel=resetButton(confirmation,'Keep my progress',()=>{confirmation.hidden=true;reset.hidden=false;reset.focus();});cancel.id='cancelGameplayReset';
+ const confirm=resetButton(confirmation,'Yes, reset and restart',()=>{
+  const game=window.explorer;if(!game?.ready)return;
+  confirm.disabled=cancel.disabled=true;game.input.clear();
+  try{game.unlocks.reset();if(!game.unlocks.saved)throw Error('Save unavailable');location.reload();}
+  catch{status.textContent='Progress could not be saved. Please allow site storage and try again.';confirm.disabled=cancel.disabled=false;}
+ });confirm.id='confirmGameplayReset';gameplayPanel.append(confirmation);
+ dialog.addEventListener('close',()=>{confirmation.hidden=true;reset.hidden=false;});
+ const tabs=[...dialog.querySelectorAll('[role=tab]')];for(const tab of tabs){tab.style.minWidth='0';tab.style.flex='1';tab.style.padding='0 8px';}
  const selectTab=tab=>{for(const button of tabs){const selected=button===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!selected;}dialog.querySelector('.monitor-content').scrollTop=0;};
  for(const tab of tabs){tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?tabs[0]:e.key==='End'?tabs.at(-1):tabs[(tabs.indexOf(tab)+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selectTab(next);next.focus();});}
  const close=()=>{if(!dialog.open||dialog.classList.contains('is-closing'))return;dialog.classList.add('is-closing');clear();closeTimer=setTimeout(()=>dialog.close(),200);};
