@@ -34,3 +34,12 @@ test('audio unlocks once, keeps looping sources, suspends, resumes and cleans up
 test('missing files leave gameplay audio optional',async()=>{
  const audio=Object.create(UnderwaterAudio.prototype);audio.host={fetch:async()=>({ok:false,status:404})};audio.errors={};const warn=console.warn;console.warn=()=>{};try{await audio.load();assert.equal(Object.keys(audio.errors).length,3);}finally{console.warn=warn;}
 });
+
+test('startup gestures cannot create audio until PLAY authorizes it',()=>{
+ let contexts=0;const listeners={};
+ const doc={hidden:false,addEventListener:(name,fn)=>listeners[name]=fn,removeEventListener(){}};
+ const host={AudioContext:class{constructor(){contexts++;throw new Error('Audio unavailable');}},localStorage:{getItem:()=>null},addEventListener(){},removeEventListener(){}};
+ const audio=new UnderwaterAudio({host,document:doc,requirePlay:true});
+ listeners.pointerdown();listeners.touchend();listeners.keydown();listeners.visibilitychange();audio.unlock();
+ assert.equal(contexts,0);audio.beginGameplay();assert.equal(contexts,1);assert.equal(audio.playAuthorized,true);
+});

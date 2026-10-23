@@ -27,17 +27,18 @@ export function loopBuffer(context,buffer){
  return result;
 }
 export class AudioManager{
- constructor({host=window,document:doc=document}={}){
-  this.host=host;this.document=doc;this.channels={};this.previousSpeed=0;this.settings=loadAudioSettings(safeStorage(host));this.volume=this.settings.master;this.channelGains={};this.paused=false;this.sceneMusicEnabled=true;this.active=false;this.disposed=false;this.errors={};
+ constructor({host=window,document:doc=document,requirePlay=false}={}){
+  this.playAuthorized=!requirePlay;this.host=host;this.document=doc;this.channels={};this.previousSpeed=0;this.settings=loadAudioSettings(safeStorage(host));this.volume=this.settings.master;this.channelGains={};this.paused=false;this.sceneMusicEnabled=true;this.active=false;this.disposed=false;this.errors={};
   this.gesture=()=>this.unlock();
   this.visibility=()=>{if(doc.hidden){this.suspend();}else if(this.active)this.unlock();};
   this.hide=()=>this.suspend();this.show=()=>{if(this.active&&!doc.hidden)this.unlock();};
   for(const event of ['pointerdown','touchend','keydown'])doc.addEventListener(event,this.gesture,{capture:true,passive:true});
   doc.addEventListener('visibilitychange',this.visibility);host.addEventListener('pagehide',this.hide);host.addEventListener('pageshow',this.show);
  }
+ beginGameplay(){this.playAuthorized=true;this.unlock();}
  smooth(param,value,seconds=.18){const now=this.context.currentTime;if(param.cancelAndHoldAtTime)param.cancelAndHoldAtTime(now);else{param.cancelScheduledValues(now);param.setValueAtTime(param.value,now);}param.setTargetAtTime(value,now,seconds);}
  unlock(){
-  if(this.disposed||this.document.hidden)return;
+  if(!this.playAuthorized||this.disposed||this.document.hidden)return;
   try{
    if(!this.context){const AudioContext=this.host.AudioContext||this.host.webkitAudioContext;if(!AudioContext)return;
     this.context=new AudioContext();this.master=this.context.createGain();this.master.gain.value=0;this.master.connect(this.context.destination);

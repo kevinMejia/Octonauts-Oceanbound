@@ -1,0 +1,47 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+(async()=>{
+ const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||'msedge'});
+ const page=await browser.newPage({viewport:{width:1280,height:800}});const errors=[];
+ page.on('pageerror',e=>errors.push(String(e)));
+ let release;const slow=new Promise(resolve=>release=resolve);
+ await page.route('**/gup-b-high.glb',async route=>{await slow;await route.continue();});
+ await page.goto('http://localhost:5173');
+ await page.waitForTimeout(800);
+ assert.equal(await page.locator('#startup-play').isVisible(),false);
+ await page.mouse.click(100,100);await page.keyboard.press('w');
+ assert.equal(await page.evaluate(()=>!!explorer.audio.context),false);
+ assert.equal(await page.locator('#menuToggle').isVisible(),false);
+ assert.ok(Number(await page.locator('#startup-progress').getAttribute('aria-valuenow'))<100);
+ fs.mkdirSync('docs/startup',{recursive:true});await page.screenshot({path:'docs/startup/loading.png'});
+ release();await page.waitForSelector('#startup-play:not([hidden])',{timeout:180000});
+ assert.equal(await page.evaluate(()=>explorer.pause.paused),true);
+ assert.equal(await page.evaluate(()=>!!explorer.audio.context),false);
+ assert.equal(await page.locator('#startup-progress').getAttribute('aria-valuenow'),'100');
+ const position=await page.evaluate(()=>({...explorer.sub.position}));await page.waitForTimeout(400);
+ assert.deepEqual(await page.evaluate(()=>({...explorer.sub.position})),position);
+ for(const [name,width,height] of [['desktop',1280,800],['portrait',390,844],['landscape',844,390]]){
+  await page.setViewportSize({width,height});await page.waitForTimeout(600);
+  const box=await page.locator('#startup-play').boundingBox();assert.ok(box.x>=0&&box.y>=0&&box.x+box.width<=width&&box.y+box.height<=height);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.screenshot({path:`docs/startup/${name}.png`});
+ }
+ await page.evaluate(()=>{const audio=explorer.audio;const begin=audio.beginGameplay.bind(audio);audio.playCalls=0;audio.beginGameplay=()=>{audio.playCalls++;begin();};});
+ await page.locator('#startup-play').evaluate(button=>{button.click();button.click();});await page.waitForTimeout(1100);
+ assert.equal(await page.evaluate(()=>explorer.audio.playCalls),1);
+ assert.equal(await page.locator('#startup').count(),0);assert.equal(await page.evaluate(()=>explorer.pause.paused),false);
+ assert.equal(await page.locator('#menuToggle').isVisible(),true);
+ assert.equal(await page.evaluate(()=>explorer.audio.context.state),'running');assert.deepEqual(errors,[]);
+ const failure=await browser.newPage({reducedMotion:'reduce'});
+ await failure.route('**/gup-b-high.glb',route=>route.abort());await failure.goto('http://localhost:5173');await failure.waitForSelector('#startup-retry:not([hidden])');
+ assert.equal(await failure.locator('#startup-play').isVisible(),false);
+ assert.equal(await failure.locator('#menuToggle').isVisible(),false);
+ assert.equal(await failure.locator('.startup-rays').evaluate(node=>getComputedStyle(node).animationName),'none');
+ await failure.unroute('**/gup-b-high.glb');await failure.locator('#startup-retry').click();
+ await failure.waitForSelector('#startup-play:not([hidden])',{timeout:180000});
+ await failure.evaluate(()=>{explorer.audio.beginGameplay=()=>{throw new Error('Audio unavailable');};});
+ await failure.locator('#startup-play').click();await failure.waitForTimeout(900);
+ assert.equal(await failure.locator('#startup').count(),0);assert.equal(await failure.evaluate(()=>explorer.pause.paused),false);
+ await browser.close();console.log('Startup browser checks passed: slow progress, silent wait, mobile layout, PLAY once, audio unlock, failure/retry, reduced motion, silent fallback.');
+})().catch(error=>{console.error(error);process.exit(1);});

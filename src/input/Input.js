@@ -8,7 +8,7 @@ export class Input{
   this.removeGuards=installGameTouchGuards();
   this.stick=new AnalogStick(document.querySelector('#joystick'));
   const codes=['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','ShiftLeft','ShiftRight'];
-  addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||e.target.closest?.('input,textarea,select,dialog')||(e.code==='Space'&&e.target.closest?.('button'))||!codes.includes(e.code))return;e.preventDefault();if(!this.keys.has(e.code)&&['KeyW','ArrowUp'].includes(e.code))this.turbo.press(e.code);this.keys.add(e.code);});
+  addEventListener('keydown',e=>{if(document.body.classList.contains('starting')||document.querySelector('dialog[open]')||e.target.closest?.('input,textarea,select,dialog')||(e.code==='Space'&&e.target.closest?.('button'))||!codes.includes(e.code))return;e.preventDefault();if(!this.keys.has(e.code)&&['KeyW','ArrowUp'].includes(e.code))this.turbo.press(e.code);this.keys.add(e.code);});
   addEventListener('keyup',e=>{this.keys.delete(e.code);this.turbo.release(e.code);});
   for(const b of document.querySelectorAll('[data-action]')){
    b.onpointerdown=e=>{if(e.button!==0)return;e.preventDefault();b.setPointerCapture(e.pointerId);const alreadyHeld=[...this.pointers.values()].includes(b.dataset.action);this.pointers.set(e.pointerId,b.dataset.action);if(b.dataset.action==='forward'&&!alreadyHeld)this.turbo.press('touch-forward');b.classList.add('pressed');};
