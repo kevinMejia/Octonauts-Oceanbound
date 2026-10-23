@@ -5,6 +5,13 @@ export function installSettings(){
  let storage;try{storage=window.localStorage;}catch{}
  Object.assign(cameraConfig,loadCameraSettings(storage));
  const toggle=document.querySelector('#menuToggle'),menu=document.querySelector('#gameMenu'),dialog=document.querySelector('#settingsDialog');
+ // Keep the badge's focus ring exclusive to keyboard navigation, including
+ // programmatic focus restoration after closing the settings dialog.
+ let keyboardFocus=false;
+ document.addEventListener('keydown',e=>{if(['Tab','Enter','Space','Escape'].includes(e.code)){keyboardFocus=true;if(document.activeElement===toggle)toggle.dataset.keyboardFocus='';}},true);
+ document.addEventListener('pointerdown',()=>{keyboardFocus=false;delete toggle.dataset.keyboardFocus;},true);
+ toggle.addEventListener('focus',()=>{if(keyboardFocus)toggle.dataset.keyboardFocus='';});
+ toggle.addEventListener('blur',()=>{delete toggle.dataset.keyboardFocus;});
  const clear=()=>window.explorer?.input?.clear();
  const closeMenu=()=>{menu.hidden=true;toggle.setAttribute('aria-expanded','false');};
  toggle.onclick=()=>{clear();menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));};
