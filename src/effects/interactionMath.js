@@ -11,7 +11,7 @@ export class SurfaceGrid{
  add(p){this.maxRadius=Math.max(this.maxRadius,p.radius);const key=Math.floor(p.x/this.size)+','+Math.floor(p.z/this.size);if(!this.cells.has(key))this.cells.set(key,[]);this.cells.get(key).push(p);}
  query(x,z,radius,out){out.length=0;const s=this.size,r=radius+this.maxRadius;for(let i=Math.floor((x-r)/s);i<=Math.floor((x+r)/s);i++)for(let j=Math.floor((z-r)/s);j<=Math.floor((z+r)/s);j++){const cell=this.cells.get(i+','+j);if(cell)for(const p of cell)if((x-p.x)**2+(z-p.z)**2<(radius+p.radius)**2)out.push(p);}return out;}
 }
-export function sweepSurface(a,b,s,radius=1.35){const dx=b.x-a.x,dy=b.y-a.y,dz=b.z-a.z,l=dx*dx+dy*dy+dz*dz;const t=l?clamp(((s.x-a.x)*dx+(s.y-a.y)*dy+(s.z-a.z)*dz)/l):0;const x=a.x+dx*t-s.x,y=a.y+dy*t-s.y,z=a.z+dz*t-s.z,d=Math.hypot(x,y,z);return d<s.radius+radius;}
+export function sweepSurface(a,b,s,radius=1.35,offsetX=0,offsetZ=0){const dx=b.x-a.x,dy=b.y-a.y,dz=b.z-a.z,l=dx*dx+dy*dy+dz*dz;const t=l?clamp(((s.x-a.x-offsetX)*dx+(s.y-a.y)*dy+(s.z-a.z-offsetZ)*dz)/l):0;const x=a.x+offsetX+dx*t-s.x,y=a.y+dy*t-s.y,z=a.z+offsetZ+dz*t-s.z,d=Math.hypot(x,y,z);return d<s.radius+radius;}
 export class ParticlePool{
  constructor(capacity){this.items=Array.from({length:capacity},()=>({life:0,age:0,x:0,y:0,z:0,vx:0,vy:0,vz:0,size:0,angle:0,spin:0,r:1,g:1,b:1,alpha:0,floor:0,seed:0,branch:false,settled:false}));this.cursor=0;}
  spawn(){for(let n=0;n<this.items.length;n++){const i=(this.cursor+n)%this.items.length;if(this.items[i].life<=0){this.cursor=(i+1)%this.items.length;return this.items[i];}}return null;}
