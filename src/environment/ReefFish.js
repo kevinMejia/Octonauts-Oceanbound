@@ -1,3 +1,4 @@
+import {SeaTurtle} from './SeaTurtle.js';
 import {nearbySchools} from './marineLayout.js';
 import {MarineVisitors} from './MarineVisitors.js';
 import * as T from 'three';
@@ -23,7 +24,7 @@ function fishGeometry(){const vertices=[],colors=[],indices=[];
  const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(vertices,3));geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.setIndex(indices);geometry.computeVertexNormals();geometry.computeBoundingSphere();return geometry;
 }
 export class ReefFish{
- constructor(scene,low,surfaces){this.inspect=new URLSearchParams(location.search).has('inspect');this.surfaces=surfaces;this.near=[];this.path={};this.forward=new T.Vector3();this.goal={};this.dummy=new T.Object3D();this.color=new T.Color();this.range=low?c.lowRenderDistance:c.renderDistance;this.capacity=low?c.lowMaxFish:c.maxFish;this.groupSize=low?c.lowCount:c.count;this.slots=low?c.lowSchoolSlots:c.schoolSlots;this.cache=new Map();this.groups=[];this.nextRefresh=-1;this.visitors=new MarineVisitors(scene,low);const count=this.capacity;
+ constructor(scene,low,surfaces){this.inspect=new URLSearchParams(location.search).has('inspect');this.surfaces=surfaces;this.near=[];this.path={};this.forward=new T.Vector3();this.goal={};this.dummy=new T.Object3D();this.color=new T.Color();this.range=low?c.lowRenderDistance:c.renderDistance;this.capacity=low?c.lowMaxFish:c.maxFish;this.groupSize=low?c.lowCount:c.count;this.slots=low?c.lowSchoolSlots:c.schoolSlots;this.cache=new Map();this.groups=[];this.nextRefresh=-1;this.visitors=new MarineVisitors(scene,low);this.turtle=new SeaTurtle(scene);const count=this.capacity;
   const geometry=fishGeometry();geometry.setAttribute('swimPhase',new T.InstancedBufferAttribute(new Float32Array(count),1));
   const material=new T.MeshStandardMaterial({vertexColors:true,roughness:.65,metalness:0,side:T.DoubleSide,envMapIntensity:.3});
   this.time={value:0};material.onBeforeCompile=s=>{s.uniforms.uFishTime=this.time;s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nuniform float uFishTime;attribute float swimPhase;').replace('#include <begin_vertex>',`#include <begin_vertex>
@@ -42,7 +43,7 @@ export class ReefFish{
    if(time>=g.nextFloor){g.floor=this.floor(px,pz);g.nextFloor=time+.35;}g.swimX=px;g.swimZ=pz;activeSchools++;const angle=this.path.heading,co=Math.cos(angle),si=Math.sin(angle),slender=g.seed%3===0;
    for(let i=0;i<g.records.length&&n<this.capacity;i++){const r=g.records[i],x=px+co*r.side+si*r.fore,z=pz-si*r.side+co*r.fore,desired=Math.min(worldConfig.surface-2,g.floor+c.heightAboveSand+r.vertical+(g.seed%4)+Math.sin(time*.8+r.phase)*.45);if(r.y===null)r.y=desired;r.y=Math.max(g.floor+1,Math.min(worldConfig.surface-2,r.y+(desired-r.y)*(1-Math.exp(-dt*3))));this.dummy.position.set(x,r.y,z);this.dummy.rotation.set(0,angle+Math.sin(time*.65+r.phase)*.1,Math.sin(time*.8+r.phase)*.045);this.dummy.scale.set(r.scale*(slender?.7:1),r.scale*(slender?.7:1),r.scale*(slender?1.45:1));this.dummy.updateMatrix();this.mesh.setMatrixAt(n,this.dummy.matrix);this.mesh.geometry.attributes.swimPhase.setX(n,r.phase);this.color.set(palette[(g.seed+i%3)%palette.length]);this.mesh.setColorAt(n,this.color);n++;}
   }
-  this.mesh.count=n;this.mesh.visible=n>0;this.mesh.instanceMatrix.needsUpdate=true;this.mesh.geometry.attributes.swimPhase.needsUpdate=true;if(this.mesh.instanceColor)this.mesh.instanceColor.needsUpdate=true;this.visitors.update(time,this.groups,camera);
+  this.mesh.count=n;this.mesh.visible=n>0;this.mesh.instanceMatrix.needsUpdate=true;this.mesh.geometry.attributes.swimPhase.needsUpdate=true;if(this.mesh.instanceColor)this.mesh.instanceColor.needsUpdate=true;this.visitors.update(time,this.groups,camera);this.turtle.update(dt,time,this.groups,camera);
   if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'fishMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({count:n,schools:activeSchools,budget:this.capacity,visitors:this.visitors.active,trianglesPerFish:this.mesh.geometry.index.count/3});}
  }
 }

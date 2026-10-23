@@ -14,3 +14,4 @@ for path in paths:
   data=r.read();assert len(data)>0
   if path.endswith('.glb'):assert data[:4]==b'glTF'
 print(f'HTTP 200 and valid content: {len(paths)} production files at {base}')
+with urllib.request.urlopen(base+'src/environment/SeaTurtle.js') as r: assert r.status==200 and len(r.read())>0
