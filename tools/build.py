@@ -4,7 +4,7 @@ for name in ['index.html','src','vendor']:
  p=ROOT/name
  if p.is_dir():shutil.copytree(p,out/name,dirs_exist_ok=True)
  else:shutil.copy2(p,out/name)
-models=['gup-b.glb','gup-b-high.glb','turbo-lightning.glb','underwater-environment.glb','octopod.glb','showcase-rocks.glb']
+models=['gup-a.glb','gup-r.glb','gup-b.glb','gup-b-high.glb','turbo-lightning.glb','underwater-environment.glb','octopod.glb','showcase-rocks.glb']
 (out/'assets/models').mkdir(parents=True,exist_ok=True)
 for p in (out/'assets/models').glob('*.glb'):
  if p.name not in models:p.unlink()
@@ -30,7 +30,7 @@ hash_input+=(ROOT/'assets/models/octopod-collision.json').read_bytes()
 hash_input+=(ROOT/'assets/models/showcase-rocks.json').read_bytes()
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/characters').glob('*.glb')))
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/audio').glob('*.mp3')))
-hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/img').glob('*')) if p.is_file())
+hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/img').rglob('*')) if p.is_file())
 version=hashlib.sha256(hash_input).hexdigest()[:12]
 for p in [out/'index.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')
