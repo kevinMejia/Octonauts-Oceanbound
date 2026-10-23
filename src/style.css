@@ -10,17 +10,17 @@ html,body,body *{-webkit-user-select:none;user-select:none;-webkit-touch-callout
 @media(max-width:500px){#joystick{width:140px;height:140px}.stick-knob{left:43px;top:43px}.touch-enabled .vertical{flex-direction:column}}
 @media(max-height:500px){#joystick{width:130px;height:130px}.stick-knob{left:38px;top:38px}header p{display:none}}
 
-/* Octopod driving controls: painted housings, inset faces and tactile rims. */
+/* Rounded, painted Octopod console keys: orange shell, ivory collar, blue face. */
 #touch .vertical{gap:12px;right:max(24px,calc(env(safe-area-inset-right,0px) + 12px))}
-.vertical button{--control-accent:#ffc56b;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:84px;height:78px;padding:8px 5px 10px;border:2px solid #6dd8e5;border-radius:24px;background:radial-gradient(ellipse at 50% 0%,#318ba4 0%,transparent 65%),linear-gradient(#12627f,#073951);box-shadow:0 5px 0 #032c42,0 7px 12px #002d4550,inset 0 2px 0 #c1ffff65,inset 0 -3px 0 #022b4166;color:#f2ffff;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform .1s ease,box-shadow .1s ease,border-color .1s ease;isolation:isolate}
-.vertical button:before{content:"";position:absolute;inset:5px;border:1px solid #9cecf029;border-radius:17px;pointer-events:none}
-.vertical button:after{content:"";position:absolute;top:7px;left:calc(50% - 9px);width:18px;height:3px;border-radius:3px;background:var(--control-accent);box-shadow:0 0 5px #ffc56b40;pointer-events:none}
-.vertical button[data-action="back"]{--control-accent:#80e9e9}
-.vertical .drive-symbol{display:block;width:32px;height:32px;fill:currentColor;filter:drop-shadow(0 2px 0 #002e4b80);pointer-events:none}
-.vertical button small{font-size:8px;font-weight:700;letter-spacing:.7px;line-height:12px;margin:0;opacity:1;pointer-events:none}
-.vertical button.pressed{transform:translateY(3px);border-color:var(--control-accent);background:radial-gradient(ellipse at 50% 25%,#398e9a,transparent 80%),linear-gradient(#14617b,#06374d);box-shadow:0 2px 0 #032c42,0 0 14px #85eceb44,inset 0 2px 8px #012c4670;color:white}
-.vertical button:focus-visible{outline:3px solid #ffe6a4;outline-offset:5px}
-@media(max-height:500px){.vertical button{width:78px;height:70px;border-radius:22px}.vertical .drive-symbol{width:29px;height:29px}}
+.vertical button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:84px;height:84px;padding:7px 4px 9px;border:3px solid #fff0c9;border-radius:27px;background:linear-gradient(#ffc15a,#f49b32 65%,#e78827);box-shadow:0 4px 0 #b46625,0 6px 0 #073d5370,0 8px 12px #00364b30,inset 0 2px 0 #ffdc92;color:#133e58;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform .1s ease,box-shadow .1s ease;isolation:isolate}
+.vertical button:before{content:"";position:absolute;top:7px;left:calc(50% - 23px);width:46px;height:46px;border:2px solid #fff2ce;border-radius:50%;background:linear-gradient(#277f9c,#15516e);box-shadow:0 2px 0 #bd722b,inset 0 2px 1px #0b4965;pointer-events:none}
+.vertical button:after{content:"";position:absolute;top:13px;left:6px;right:6px;height:4px;background:radial-gradient(circle at 2px 2px,#c67c30 1.5px,transparent 2px),radial-gradient(circle at calc(100% - 2px) 2px,#c67c30 1.5px,transparent 2px);pointer-events:none}
+.vertical .drive-symbol{position:relative;display:block;width:40px;height:40px;flex-shrink:0;fill:#fff8e5;pointer-events:none}
+.vertical button small{position:relative;font-size:8px;font-weight:800;letter-spacing:.5px;line-height:12px;margin:0;opacity:1;pointer-events:none}
+.vertical button.pressed{transform:translateY(3px);background:linear-gradient(#f4a43b,#ec8d27);box-shadow:0 1px 0 #b46625,0 3px 0 #073d5370,inset 0 2px 4px #ad581e55}
+.vertical button.pressed:before{background:linear-gradient(#13536e,#236d85);box-shadow:inset 0 2px 4px #07394f;}
+.vertical button:focus-visible{outline:3px solid #0b5272;outline-offset:5px}
+@media(max-height:500px){.vertical button{width:80px;height:78px;border-radius:25px;padding-top:5px;padding-bottom:7px;gap:3px}.vertical button:before{top:5px;width:44px;height:44px;left:calc(50% - 22px)}.vertical .drive-symbol{width:38px;height:38px}}
 @media(prefers-reduced-motion:reduce){.vertical button{transition:none}}
 
 
