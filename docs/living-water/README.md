@@ -41,3 +41,7 @@ The standalone game reported no warnings/errors. As in prior work, the embedded 
 | Textures | 9 | 9 |
 
 The two additional idle draws are the school and the now-visible existing bubble renderer. While already cruising, propulsion already used that draw. The extra geometry is exactly one 26-fish school. CPU/GPU timing varies with clock state, scheduling and sampling; the CPU decrease is not a claimed speedup. Median FPS was refresh limited near 145. The long-open baseline had a background/pause gap, so its mean FPS is invalid and is deliberately excluded. These samples show practical desktop cost, not a controlled phone benchmark. Physical iPhone Safari FPS, thermals and multitouch remain unverified.
+
+## Live verification
+
+GitHub Pages deployment for `170da20` succeeded. All 48 public production-resource checks passed. The standalone deployed game reported no warnings/errors; telemetry confirmed 26 visible fish and eight active reef bubbles while propulsion was stationary. `live.png` is the actual deployed game capture. Controls, the top-right compass and the turbo display remain functional.
