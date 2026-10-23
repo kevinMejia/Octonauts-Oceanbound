@@ -75,3 +75,7 @@ node --test tests/*.test.js
 ```
 
 The Blender generator saves the editable origin-centered mesh library and GLB before arranging a separate temporary preview studio. The `.blend` is the editable asset source; the GLB is the runtime asset. Studio renders are explicitly labeled `blender-*` and are not substituted for game screenshots.
+
+## Public deployment verification
+
+Published to https://kevinmejia.github.io/Octonauts-Oceanbound/ and inspected in the actual browser on October 22. High and low public scenes loaded without console warnings/errors; all 15 production HTTP checks passed, including runtime models and textures. The deployed build uses versioned module and asset URLs. [Actual live chase screenshot](live-chase.png). Target-device iPhone benchmarking remains outstanding as described above.
