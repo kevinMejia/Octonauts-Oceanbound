@@ -14,6 +14,7 @@ shutil.copy2(ROOT/'assets/models/showcase-rocks.json',out/'assets/models/showcas
 shutil.copytree(ROOT/'assets/models/reef-formations',out/'assets/models/reef-formations',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/models/characters',out/'assets/models/characters',dirs_exist_ok=True)
 shutil.copytree(ROOT/'assets/textures',out/'assets/textures',dirs_exist_ok=True)
+shutil.copytree(ROOT/'assets/audio',out/'assets/audio',dirs_exist_ok=True)
 (out/'.nojekyll').touch()
 for p in (out/'assets/models').rglob('*.glb'):
  data=p.read_bytes();assert data[:4]==b'glTF';assert struct.unpack_from('<I',data,8)[0]==len(data)
@@ -27,6 +28,7 @@ hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/reef-fo
 hash_input+=(ROOT/'assets/models/octopod-collision.json').read_bytes()
 hash_input+=(ROOT/'assets/models/showcase-rocks.json').read_bytes()
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/characters').glob('*.glb')))
+hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/audio').glob('*.mp3')))
 version=hashlib.sha256(hash_input).hexdigest()[:12]
 for p in [out/'index.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')

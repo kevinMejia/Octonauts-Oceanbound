@@ -70,3 +70,19 @@ See `docs/VERIFICATION.md`. Real iPhone Safari performance and multitouch testin
 Camera defaults and validation: [exploration camera report](docs/camera/README.md). Existing saved offsets are retained; use Settings > Reset camera for the new default distance and height.
 
 Visual fidelity recovery, editable showcase source, fixed-view comparisons and performance limitations: [visual review](docs/visual-recovery/README.md).
+
+### Underwater audio
+
+The supplied recordings from `assets/sounds/` have been copied to the runtime paths:
+
+- `assets/audio/gup-b-propeller.mp3`
+- `assets/audio/underwater-bubbles.mp3`
+- `assets/audio/underwater-ambience.mp3`
+
+Replace the copies in `assets/audio/` when updating sounds. The build ships and versions these files. No music or synthesized effects are generated. `src/audio/UnderwaterAudio.js` owns three persistent looping Web Audio sources with separate gain controls and a saved Settings > Sound volume slider (zero mutes). Missing or undecodable files disable only the affected layer and log a diagnostic; gameplay continues.
+
+Propeller gain follows actual propulsion input, including reverse and depth thrust, with speed and turbo affecting pitch and level. Braking forward motion does not count as reverse propulsion. Bubbles use the same `bubbleRate` signal as visual propulsion bubbles, with a bounded acceleration accent. Ambience remains quiet at rest. Gains and pitch use exponential transitions; decoded recordings receive a 60 ms tail/head overlap for softer loop seams. Conservative layer gains reserve mix headroom.
+
+AudioContext creation/resume happens on pointer, touch-end or keyboard interaction, including a silent buffer unlock for Safari. Sources stay alive across input changes. Hidden pages suspend audio; visibility/pageshow attempts resume, and the next gesture retries if Safari requires it. `dispose()` removes listeners and closes audio resources.
+
+Validation: all 73 Node tests pass, including response curves, reverse/braking, bubble acceleration, headroom, loop overlap, mocked autoplay/visibility lifecycle and missing files. Production build passes. These checks do not verify audible balance, recording-specific loop quality, real browser decoding, or physical iPhone Safari playback. Manually check those with the supplied recordings: tap to unlock, cruise/accelerate/reverse/brake, stop and listen for ambience, mute/adjust volume, switch tabs and return, and lock/unlock an iPhone. Movement/controller code is unchanged.
