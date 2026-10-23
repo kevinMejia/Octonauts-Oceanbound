@@ -12,6 +12,7 @@ export const octopodConfig={
 export const compassConfig={
  enabled:true,size:86, // CSS pixels; smaller on short landscape screens.
  showCardinalDirections:true,showOctopodMarker:true,showDistance:true,
+ discoveryHighlightDistance:90, // World metres; individual discovery.compassHighlightDistance may override.
  smoothing:18, // Exponential response per second, shortest angular path.
 };
 export function insideOctopodClearing(x,z,margin=0){return octopodConfig.enabled&&Math.hypot(x-octopodConfig.position.x,z-octopodConfig.position.z)<octopodConfig.sceneryClearance*octopodConfig.scale+margin;}

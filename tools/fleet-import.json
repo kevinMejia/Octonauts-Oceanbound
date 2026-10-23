@@ -15,7 +15,8 @@
       16
     ],
     "rotation": 0.8,
-    "speed": 0.65
+    "speed": 0.65,
+    "compassColor": "#4e9dbd"
   },
   {
     "id": "gup-d",
@@ -33,7 +34,8 @@
       -65
     ],
     "rotation": -0.4,
-    "speed": 0.9
+    "speed": 0.9,
+    "compassColor": "#ffd16b"
   },
   {
     "id": "gup-e",
@@ -51,7 +53,8 @@
       -80
     ],
     "rotation": 0.4,
-    "speed": 0.85
+    "speed": 0.85,
+    "compassColor": "#a4ce70"
   },
   {
     "id": "gup-f",
@@ -69,7 +72,8 @@
       -125
     ],
     "rotation": -0.5,
-    "speed": 0.75
+    "speed": 0.75,
+    "compassColor": "#c0d6de"
   },
   {
     "id": "gup-q",
@@ -87,6 +91,7 @@
       -165
     ],
     "rotation": 0,
-    "speed": 1.1
+    "speed": 1.1,
+    "compassColor": "#3bace0"
   }
 ]

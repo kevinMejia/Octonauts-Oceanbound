@@ -55,7 +55,7 @@ def main():
             report_file.write_text(json.dumps(report,indent=2))
             width,height,length=report['runtimeDimensionsXYZ'];radius=round(width*.5+.06,3);half_height=round(height*.5+.06,3);half_length=round(length*.5+.04,3)
             ground=round(height*.5+.14,3)
-            registered.append({'id':identity,'name':config['name'],'unlockedByDefault':False,'preloadAtStart':False,'modelPath':f'../../assets/models/{identity}.glb','thumbnailPath':f'../../assets/img/vehicles/{identity}.png','scale':1,'orientation':0,
+            registered.append({'id':identity,'name':config['name'],'compassColor':config.get('compassColor','#e8ffff'),'unlockedByDefault':False,'preloadAtStart':False,'modelPath':f'../../assets/models/{identity}.glb','thumbnailPath':f'../../assets/img/vehicles/{identity}.png','scale':1,'orientation':0,
                 'collision':{'radius':radius,'halfHeight':half_height,'halfLength':half_length,'centerY':0,'terrainClearance':ground,'surfaceClearance':ground+.3},
                 'movement':{'speedMultiplier':config['speed']},'camera':{'distanceMultiplier':round(max(1,length/5.597),2)},'propellers':report['propellers'],
                 'parking':{'spawn':{'relativeTo':'octopod','offset':config['parking']},'rotation':config['rotation'],'groundClearance':ground},

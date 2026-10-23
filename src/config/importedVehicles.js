@@ -3,6 +3,7 @@ export const importedVehicles=[
   {
     "id": "gup-c",
     "name": "GUP-C",
+    "compassColor": "#4e9dbd",
     "unlockedByDefault": false,
     "preloadAtStart": false,
     "modelPath": "../../assets/models/gup-c.glb",
@@ -62,6 +63,7 @@ export const importedVehicles=[
   {
     "id": "gup-d",
     "name": "GUP-D",
+    "compassColor": "#ffd16b",
     "unlockedByDefault": false,
     "preloadAtStart": false,
     "modelPath": "../../assets/models/gup-d.glb",
@@ -115,6 +117,7 @@ export const importedVehicles=[
   {
     "id": "gup-e",
     "name": "GUP-E",
+    "compassColor": "#a4ce70",
     "unlockedByDefault": false,
     "preloadAtStart": false,
     "modelPath": "../../assets/models/gup-e.glb",
@@ -179,6 +182,7 @@ export const importedVehicles=[
   {
     "id": "gup-f",
     "name": "GUP-F",
+    "compassColor": "#c0d6de",
     "unlockedByDefault": false,
     "preloadAtStart": false,
     "modelPath": "../../assets/models/gup-f.glb",
@@ -248,6 +252,7 @@ export const importedVehicles=[
   {
     "id": "gup-q",
     "name": "GUP-Q",
+    "compassColor": "#3bace0",
     "unlockedByDefault": false,
     "preloadAtStart": false,
     "modelPath": "../../assets/models/gup-q.glb",
