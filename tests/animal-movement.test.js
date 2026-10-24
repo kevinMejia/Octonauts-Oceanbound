@@ -20,7 +20,7 @@ test('all patterns remain finite and contained for ten simulated minutes',()=>{
  }
 });
 test('manta cruises above A, escapes above B, and remains slower than R',()=>{
- const m=manta();m.update(10,far);assert(m.speed>8.64&&m.speed<11.2);m.update(.5,{...m.position,x:m.position.x-18});assert(m.escapeLeft>0);assert(m.speed>10.2);assert(m.config.escapeSpeed>12.72&&m.config.escapeSpeed<16.8);
+ const m=manta();m.update(10,far);assert(m.speed>8.64&&m.speed<11.2);m.update(.5,{...m.position,x:m.position.x-15});assert(m.escapeLeft>0);assert(m.speed>10.2);assert(m.config.escapeSpeed>12.72&&m.config.escapeSpeed<16.8);
  for(let i=0;i<100;i++)m.update(.05,{...m.position,x:m.position.x-18});assert.equal(m.escapeLeft,0);assert(m.cooldown>0);
 });
 test('a waiting slow GUP intercepts manta inside the discovery radius without repeated notifications',()=>{
@@ -47,4 +47,18 @@ test('R reaches a fleeing manta sooner than A using the same pursuit controls',(
  for(const id of ['gup-a','gup-r']){const m=manta();m.update(20,far);const s=new SubmarineController(),v=vehicles.find(v=>v.id===id);s.selectVehicle(id,v.movement);s.position={x:m.position.x-Math.sin(m.heading)*40,y:m.position.y,z:m.position.z-Math.cos(m.heading)*40};s.heading=m.heading;let found=Infinity;
   for(let i=0;i<2400;i++){m.update(1/60,s.position);const desired=Math.atan2(m.position.x-s.position.x,m.position.z-s.position.z),error=Math.atan2(Math.sin(desired-s.heading),Math.cos(desired-s.heading));s.update(1/60,{thrust:1,turn:Math.max(-1,Math.min(1,error*3)),rise:0});if(Math.hypot(s.position.x-m.position.x,s.position.y-m.position.y,s.position.z-m.position.z)<=13){found=i/60;break;}}times.push(found);
  }assert(times[1]<10);assert(times[0]>times[1]+10);
+});
+
+test('manta accelerates on its outer reef route instead of habitat safety cancelling evasion',()=>{
+ const m=manta(),c=m.config;m.speed=c.cruisingSpeed;const before={...m.position};m.update(.5,{x:m.position.x-15,y:m.position.y,z:m.position.z});assert(m.escapeLeft>0);assert(m.speed>c.cruisingSpeed+2);assert(Math.hypot(m.position.x-before.x,m.position.z-before.z)>5.5);
+ const speed=m.speed;m.update(.25,far);assert(m.escapeLeft>0);assert(m.speed>=speed,'Leaving detection range must not cancel an active escape');m.update(6,far);assert.equal(m.escapeLeft,0);assert(m.speed<=c.maxSpeed);
+});
+test('a head-on GUP approach triggers early, increases clearance and avoids automatic discovery',()=>{
+ const results=[];
+ for(const enabled of [false,true]){const m=manta();m.config={...m.config,evasionEnabled:enabled};m.speed=m.config.cruisingSpeed;const player={x:m.config.center.x+45,y:m.config.center.y,z:m.config.center.z+85};let min=Infinity,triggerDistance=null,peak=0;
+ for(let i=0;i<240;i++){player.x-=12.72/60;m.update(1/60,player);const d=Math.hypot(player.x-m.position.x,player.z-m.position.z);min=Math.min(min,d);peak=Math.max(peak,m.speed);if(m.escapeLeft&&triggerDistance===null)triggerDistance=d;}results.push({min,triggerDistance,peak});}
+ assert(results[0].min<13);assert(results[1].triggerDistance>30);assert(results[1].min>17);assert(results[1].peak>13);
+});
+test('stationary observers can wait along a route without triggering distant evasion',()=>{
+ const m=manta(),player={x:m.position.x+28,y:m.position.y,z:m.position.z};m.update(.05,player);m.update(.05,player);assert.equal(m.escapeLeft,0);assert.equal(m.approachSpeed,0);
 });

@@ -30,7 +30,7 @@ Turbo remains 1.8x, draining 6.667 percentage points/second, recharging 3 points
 | Bottlenose dolphin | Roaming | 7.8 | 10 | 11 | Curious, enabled; short close-range departures |
 | Whale shark | Broad waypoint migration | 3 | 3.5 | 3.5 (unused) | Passive, disabled |
 
-Manta escape lasts 2.4 s followed by 9 s cooldown. Its normal speed challenges A (8.64 m/s), escape exceeds B (12.72 m/s), and R (16.8 m/s) has a pursuit advantage without turbo. The existing 13 m discovery radius is unchanged. The cooldown allows interception even when the animal detects a waiting player first.
+Manta escape lasts 3.2 s followed by 9 s cooldown. Its normal speed challenges A (8.64 m/s), escape exceeds B (12.72 m/s), and R (16.8 m/s) has a pursuit advantage without turbo. The existing 13 m discovery radius is unchanged. The cooldown allows interception even when the animal detects a waiting player first.
 
 Other existing species retain their current movement and models, without evasion. They have no separately authored cruising/maximum/escape speeds; their original elliptical paths determine speed. For reference, horizontal leader speeds on the unchanged ellipses are approximately:
 
@@ -62,7 +62,7 @@ Movement uses delta time, bounded 50 ms integration steps and cached obstacle se
 
 - Node suite: all 179 tests pass. Includes all GUP normal/reverse/turbo speeds, acceleration and cruising input, normal-speed restoration after boost, first selection and repeat-selection charge, pickups, recharge, controls, collisions, discovery and persistence.
 - New motion simulations exercise every pattern for ten simulated minutes, habitat containment, passive proximity, speed variation, finite escape/cooldown, obstacle safety and detour progress.
-- Same pursuit controls, 40 m behind manta, no turbo: R reaches discovery range in roughly 5 seconds; A does not within 40 seconds in the deterministic fixture.
+- Same pursuit controls, 40 m behind manta, no turbo: R reaches discovery range in under 10 seconds; A does not within 40 seconds in the deterministic fixture.
 - Waiting interception simulation discovers manta once and preserves its state afterward.
 - `tests/movement-browser.cjs`: headless Edge, actual loaded low-quality scene; all eight GUP displacement speeds differ from their targets by less than 0.001 m/s; initial turbo and HUD both 100. Four configured species each ran 120 simulated seconds in the actual obstacle grid without stalls, with live discovery points and habitat containment. Manta/shark reactions activated; whale shark remained passive. A waiting player discovered manta exactly once in the scene. No browser runtime errors.
 - `tests/marine-animals-browser.cjs`: discovers all four original species through the existing UI, checks collection layout at desktop and mobile viewport sizes, reloads persistence, and verifies models remain in the scene and moving. No runtime errors.
@@ -72,3 +72,15 @@ Movement uses delta time, bounded 50 ms integration steps and cached obstacle se
 ## Limits and follow-up balancing
 
 Automated checks do not establish subjective swimming feel, hardware performance or real touch input quality. The browser run uses desktop Edge at low graphics quality; it is not a mobile device benchmark. Obstacle avoidance is conservative proxy steering, not global pathfinding: tightly enclosed or poorly authored future habitats can still trap animals, so author safe routes and check them in the scene. Formation members keep their existing offsets rather than independent evasion. Legacy species intentionally retain their original movement implementation and speeds. Configured height centers currently reuse existing route clearance estimates; manta therefore swims above some reef tops. Wider speed separation and full initial turbo should receive a human balancing pass, especially for medium vehicles and repeated switching among first-time deployments.
+
+## Evasion correction
+
+A boundary check previously treated the manta's authored 85 m reef route as too close to the habitat edge. It replaced the escape target with the habitat center, cancelled the escape-speed flag, and capped the animal at cruising speed even while its evasion timer remained active. The previous close trigger also left little turning time before entering the 13 m discovery radius.
+
+The shared swimmer now redirects an outward course along the habitat boundary without cancelling the speed burst. Steering clearance uses turn radius and preserves the hard habitat limit. Manta and shark reactions start earlier for an approaching GUP: manta detection/trigger radii are 46/36 m and shark radii 42/32 m. Manta escape acceleration is 5.5 m/s² with 1.4 rad/s escape turns; sharks use 5 m/s² and 1.3 rad/s. Their existing 13.8/13.2 m/s escape speeds are unchanged. A latched escape heading prevents rapid side switching, and the burst completes even after the GUP leaves detection range. Escape overrides optional idle pauses and then returns to normal route/speed with the existing cooldown.
+
+The controller measures the GUP's own approach speed rather than mistaking a swimming animal passing a stationary observer for pursuit. Above the configurable `approachSpeedThreshold` (default 0.6 m/s), evasive animals react within their trigger/detection radii. Within `emergencyDistance` (16 m), they can react even to a stationary player. Curious and cautious reactions retain their proximity behavior; passive species remain passive. `evasionTurningSpeed` is separately configurable. Large teleport-like position jumps are ignored for approach-speed estimation.
+
+This preserves interception: a waiting GUP does not provoke distant repeated escape bursts, while a pursuing vehicle gets a visible early response. Discovery radii, progression, models and controls are unchanged.
+
+Validation: all 196 Node tests pass. `tests/evasion-browser.cjs` uses the actual loaded scene, its obstacles and a real GUP-B controller. With evasion disabled, a head-on pass discovers manta at a minimum separation of 3.66 m; enabled, the response starts around 35.76 m, reaches 13.8 m/s, and keeps 18.17 m clearance without discovering it on that straight pass. At the outer reef route, manta accelerates to 12.95 m/s and moves 5.81 m in 0.5 seconds. Each shark shows a 2.5 m/s speed increase in a half-second close-response check. Stationary interception discovers manta exactly once. The existing deterministic pursuit check still gives GUP-R an advantage over GUP-A. The five-minute group scene simulation passes separation, habitat, obstacle and continued-motion checks. Physical mobile gameplay balancing remains unverified.
