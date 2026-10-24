@@ -1,7 +1,7 @@
 /* Nautical metallic rim and inset screen, matching the turbo/fleet HUD palette. */
 #wordHuntNotice{position:fixed;z-index:7;left:50%;top:calc(env(safe-area-inset-top,0px) + 46px);width:min(350px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 28px));padding:10px 17px 9px;border:2px solid transparent;border-radius:20px;outline:1px solid #91a29a;outline-offset:-1px;background:linear-gradient(135deg,#073e51ed,#06283eea) padding-box,linear-gradient(145deg,#a4b5ac,#364548 65%,#81928c) border-box;box-shadow:0 5px 14px #001b374d,inset 0 1px 2px #d2dad030,inset 0 -2px 7px #001c3980;color:#d0e3e8;pointer-events:none;font:12px Arial,sans-serif;transform:translateX(-50%);isolation:isolate}
 #wordHuntNotice[hidden]{display:none!important}
-#wordHuntNotice::before{content:'';position:absolute;inset:3px;border-radius:15px;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b401a 3px,#003b401a 4px),linear-gradient(120deg,#d1fff308,transparent 40%);z-index:-1}
+#wordHuntNotice::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b4020 3px,#003b4020 4px),linear-gradient(120deg,#d1fff30a,transparent 35%);z-index:0}
 .hunt-heading{display:flex;align-items:center;gap:6px;font-size:10px;line-height:15px;font-weight:800;letter-spacing:.9px}
 .hunt-icon{color:#ffd98b;font-size:14px}.hunt-counter{margin-left:auto;white-space:nowrap;color:#afc6cf;font-size:11px;letter-spacing:.5px;font-variant-numeric:tabular-nums}
 .hunt-word{display:flex;justify-content:space-between;align-items:center;margin:7px 0 6px;gap:3px;line-height:1.2}
@@ -14,3 +14,5 @@
 #wordHuntNotice[data-complete=true] .hunt-title{color:#ffe2a2}#wordHuntNotice[data-complete=true] .hunt-hint{color:#ffdc86;font-weight:800;font-size:11px;letter-spacing:.3px}
 @media(max-width:380px){#wordHuntNotice{padding:9px 12px}.hunt-heading{font-size:9px;letter-spacing:.6px}.hunt-word{gap:1px}.hunt-footer{font-size:9px}}
 @media(max-height:500px){#wordHuntNotice{width:min(320px,calc(100vw - 28px));padding:7px 14px;border-radius:16px}.hunt-word{margin:4px 0}.hunt-letter{font-size:25px}.hunt-heading{font-size:9px}.hunt-footer{font-size:9px}}
+
+#wordHuntNotice>.hunt-heading,#wordHuntNotice>.hunt-word,#wordHuntNotice>.hunt-footer{position:relative;z-index:1}
