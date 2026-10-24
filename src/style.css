@@ -46,3 +46,11 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 .compass-targets{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.compass-targets text{font:bold 13px Arial,sans-serif;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#013348;stroke-width:3px;stroke-linejoin:round}.compass-targets .nearby text{animation:compass-near 1.9s ease-in-out infinite;filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) currentColor)}
 @keyframes compass-near{50%{stroke:#17576a;stroke-width:4px;opacity:.8}}
 @media(prefers-reduced-motion:reduce){.compass-targets .nearby text{animation:none}}
+
+/* Rescue status reuses the compact teal monitor palette and never captures touches. */
+#rescueHud,#rescueNotice{position:absolute;z-index:6;top:calc(env(safe-area-inset-top,0px) + 126px);left:max(16px,env(safe-area-inset-left));max-width:min(240px,calc(100vw - 80px));padding:8px 12px;border:1px solid #a8f5e999;border-radius:13px;background:linear-gradient(#086c78e8,#044653e8);box-shadow:0 3px 10px #00374755;pointer-events:none;color:#effff8;font:11px/1.5 Arial,sans-serif}
+#rescueHud strong{display:block;color:#ffe09b;font-size:10px;letter-spacing:1px}#rescueHud span{display:block}#rescueNotice{border-color:#ffe09b;color:#ffe8b8;font-weight:bold}
+#compass.rescue-active .base-bearing span{border-radius:50%;outline:2px solid #ffe29b;background:#086575;box-shadow:0 0 12px #ffe09baa}
+#compass.rescue-active .base-bearing img{filter:drop-shadow(0 0 4px #ffe29b)}
+@media(min-width:700px){#rescueHud,#rescueNotice{top:100px}}
+@media(max-height:500px){#rescueHud,#rescueNotice{top:94px;padding:5px 9px;font-size:10px;max-width:215px}}

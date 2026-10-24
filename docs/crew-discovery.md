@@ -1,19 +1,21 @@
 # Octonaut crew discovery
 
+The current rescue-escort upgrade is documented in [rescue escort](rescue-escort.md). Finding a crew member now starts towing after the panel; home placement requires delivery. The notes below also describe the earlier discovery-only implementation and asset-replacement contract.
+
 The eight core crew members now start at fixed discovery locations on a fresh adventure. The original three models are preserved; Shellington, Dashi, Tweak, Professor Inkling and Tunip use distinct, replaceable animated placeholders. Each character instance moves between its discovery point and its own bridge slot. Finding them shows a portrait panel; dismissing it returns that same instance to the Octopod. There is no escort or passenger mechanic.
 
 ## Initial locations
 
 | Character | World anchor (X, Z) | Discovery radius | Bridge slot (local X, Y, Z) |
 |---|---|---:|---|
-| Captain Barnacles | (112, 260), south of the Octopod reef area | 16 m | (0, 20.10, 5.3) |
-| Kwazii | (-90, 90), west of the reef habitat | 16 m | (-3.2, 20.10, 4.6) |
-| Peso | (275, 10), northeast of the Octopod | 16 m | (3.2, 20.10, 4.6) |
-| Shellington | (-185, -130) | 16 m | (-4.4, 20.10, 1.3) |
-| Dashi | (330, 235) | 16 m | (0, 20.10, 1.8) |
-| Tweak | (35, 315) | 16 m | (4.4, 20.10, 1.3) |
-| Professor Inkling | (-235, 180) | 16 m | (-2.8, 20.10, -2.6) |
-| Tunip | (320, -165) | 16 m | (2.8, 20.10, -2.6) |
+| Captain Barnacles | (112, 260), south of the Octopod reef area | 2.5 m hull gap | (0, 20.10, 5.3) |
+| Kwazii | (-90, 90), west of the reef habitat | 2.5 m hull gap | (-3.2, 20.10, 4.6) |
+| Peso | (275, 10), northeast of the Octopod | 2.5 m hull gap | (3.2, 20.10, 4.6) |
+| Shellington | (-185, -130) | 2.5 m hull gap | (-4.4, 20.10, 1.3) |
+| Dashi | (330, 235) | 2.5 m hull gap | (0, 20.10, 1.8) |
+| Tweak | (35, 315) | 2.5 m hull gap | (4.4, 20.10, 1.3) |
+| Professor Inkling | (-235, 180) | 2.5 m hull gap | (-2.8, 20.10, -2.6) |
+| Tunip | (320, -165) | 2.5 m hull gap | (2.8, 20.10, -2.6) |
 
 Feet heights are resolved from the terrain and surrounding solids at initialization. The existing FleetPlacement helper searches deterministically within 16 m of each anchor if necessary. Crew bounding dimensions are measured from their existing models, and placement checks include parked vehicles. Discovery centers are at mid-body height. All eight current GUPs have a verified safe approach within each discovery radius.
 

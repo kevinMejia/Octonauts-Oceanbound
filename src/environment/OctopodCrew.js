@@ -28,7 +28,7 @@ export class OctopodCrew{
    // Reuse the existing model-thumbnail renderer; restore the same instance below.
    record.portrait=d.portraitPath;
    if(!record.portrait){const time=record.mixer.time;try{record.mixer.setTime(d.visual?.portraitTime??0);record.portrait=game.marineAnimals.thumbnail(model,true);}finally{record.mixer.setTime(time);}}
-   const size=new T.Box3().setFromObject(model).getSize(new T.Vector3());record.height=size.y;
+   const size=new T.Box3().setFromObject(model).getSize(new T.Vector3());record.height=size.y;record.radius=Math.max(size.x,size.z)/2;
    const proxy={collision:{radius:Math.max(size.x,size.z)/2+.15,halfLength:Math.max(size.x,size.z)/2+.15,halfHeight:size.y/2,centerY:size.y/2,terrainClearance:.08,surfaceClearance:size.y+.3}};
    record.spawn=placement.find({...d.discovery.position,heading:d.discovery.heading??0,groundClearance:.08,heightOffset:0},proxy,{parking:true,returningId:'*',maxRadius:d.discovery.maxPlacementRadius??16});
    if(!record.spawn)throw Error('No safe Octonaut discovery location: '+d.id);
@@ -38,7 +38,7 @@ export class OctopodCrew{
  }
  sync(){
   for(const r of this.records.values()){
-   const d=r.definition;r.home=this.discovery.isDiscovered(d.id)&&this.discovery.pending!==d.id;
+   const d=r.definition;r.home=this.discovery.isRescued(d.id);if(this.discovery.active===d.id)continue;
    const p=r.home?{x:d.x,y:d.y,z:d.z,heading:d.heading}:r.spawn;
    (r.home?this.group:this.world).add(r.model);r.model.position.set(p.x,p.y,p.z);r.model.rotation.set(0,p.heading??0,0);r.model.visible=true;r.model.updateMatrixWorld(true);
   }
