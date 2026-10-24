@@ -1,0 +1,14 @@
+{
+  "id": "../../",
+  "name": "Octonauts: Oceanbound",
+  "short_name": "Oceanbound",
+  "start_url": "../../",
+  "scope": "../../",
+  "display": "standalone",
+  "background_color": "#036b91",
+  "theme_color": "#075b70",
+  "icons": [
+    {"src": "oceanbound-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "oceanbound-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
