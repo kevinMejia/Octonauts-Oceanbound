@@ -53,7 +53,7 @@ export function updateAnimalGroup(r,time,dt,player,force=false,motion=null){
  const d=r.definition,b=d.behavior,group=r.visual.group,dx=group.position.x-player.x,dz=group.position.z-player.z;r.elapsed+=dt;
  const distance=dx*dx+dz*dz;group.visible=force||distance<240**2;
  if(!force&&distance>110**2&&r.elapsed<.25)return;
- const step=r.elapsed;r.elapsed=0;if(r.independent){updateIndependentGroup(r,time,step,player);return;}const phase=time*b.speed,x=d.position.x+Math.sin(phase)*b.radius,z=d.position.z+Math.cos(phase)*b.radius*.65;
+ const step=r.elapsed;r.elapsed=0;if(r.independent){updateIndependentGroup(r,time,step,player);return;}const phase=time*b.speed*r.groupConfig.routeSpeedMultiplier,x=d.position.x+Math.sin(phase)*b.radius,z=d.position.z+Math.cos(phase)*b.radius*.65;
  group.position.set(x,r.centerY+Math.sin(phase*2.1)*b.vertical,z);
  const hovering=['hover','drift','peek'].includes(b.style);
  group.rotation.y=hovering?.4+Math.sin(phase)*.3:Math.atan2(Math.cos(phase),-.65*Math.sin(phase));

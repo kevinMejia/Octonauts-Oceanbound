@@ -8,7 +8,7 @@ Implemented October 24, 2026. Existing species, models, counts, habitat centers,
 |---|---:|---|---:|
 | Jellyfish | 6 | Loose irregular cluster, different depths, facing, gentle drift, idle pauses and pulse clocks | 4 m |
 | Hammerhead sharks | 3 | Independent waypoint patrols, staggered starts, opposite directions, different route scales, speeds, handling and reaction clocks | 8 m |
-| Pufferfish | 3 | Compact irregular cluster, gentle bounded drift, individual pauses, facing and animation timing | 3.3 m |
+| Pufferfish | 3 | Compact irregular cluster, continuous bounded swimming, individual facing and animation timing | 3.3 m |
 | Seahorses | 4 | Loosely clustered hover, varied depths, calm drift and independent idle timing | 2.6 m |
 | Spotted eagle rays | 2 | Irregular spacing, depth and speed variation within the existing glide route | 8 m |
 
@@ -20,7 +20,7 @@ Single-member moray and humpback groups retain their existing paths. The four in
 
 - `seed`, `spawnRadius`, `spawnMinSeparation`, `spawnHeightVariation`, `initialHeadingVariation`.
 - `speedVariation`, `accelerationVariation`, `turnSpeedVariation`, `routePhaseOffset`, `patrolRadiusVariation`, `pauseTimeVariation`.
-- `driftRadius`, `driftSpeed`, `pauseSeconds`, `pauseInterval`.
+- `driftRadius`, `driftSpeed`, `routeSpeedMultiplier`, `pauseSeconds`, `pauseInterval`. Pufferfish use a 3x route pace and .9 drift timing with no idle pauses so their movement is clearly visible, while retaining their existing path radius, clustered anchors and spacing.
 - `groupCohesion`, `groupSeparation`, `preferredSpacing`, optional `schooling` and `leader` flags.
 - `independent` to reuse the existing `AnimalMovement` controller for each member of a group with configured waypoints.
 
@@ -28,7 +28,7 @@ All seeds and member traits are generated at initialization. Rejection sampling 
 
 `AnimalGroups` remains responsible for shared visuals, member transforms, animations and stable world-space discovery points. Independent sharks reuse `AnimalMovement`, with optional neighbor steering added to its normal target. There is no second pathfinding or schooling engine. Pairwise separation is limited to the small species groups; the current largest group contains six members. A strong near-neighbor bias avoids sharks yielding indefinitely at route crossings. The existing distant-update cadence is retained.
 
-Loose groups retain their existing leader habitat route. Each member drifts around its own seeded anchor with independent timing, direction, pause phase and depth, rather than orbiting at equal phase intervals. Their anchor margin guarantees separation without per-frame flocking. The pufferfish-only equal-phase orbit helper was retired in favor of this shared member behavior. Schooling and leader following are opt-in and disabled for all initial groups.
+Loose groups retain their existing leader habitat route. Pufferfish retain that route shape with a faster pace. Each member drifts around its own seeded anchor with independent timing, direction, pause phase and depth, rather than orbiting at equal phase intervals. Their anchor margin guarantees separation without per-frame flocking. The pufferfish-only equal-phase orbit helper was retired in favor of this shared member behavior. Schooling and leader following are opt-in and disabled for all initial groups.
 
 Existing terrain clearance sampling now covers randomized cluster extents. Conservative world-space swept checks protect moving loose members against solid proxies, including the Octopod. Independent sharks use the same obstacle avoidance, habitat bounds and finite evasion logic as the existing swimmer. Discovery continues to use every member's actual world position, so any member can unlock its existing species once.
 
@@ -44,3 +44,7 @@ Existing terrain clearance sampling now covers randomized cluster extents. Conse
 ## Limits
 
 Physical iPhone/iPad testing and subjective gameplay balancing still require a device playtest. Browser device emulation exercises viewport, touch and low-quality code paths on desktop hardware. Environmental safety uses existing collision proxies rather than mesh-triangle collision. Future tightly packed habitats or extreme configuration values should be validated with the supplied scene test. Independent shark separation can briefly slow a shark while it turns out of another shark's path; they resume patrol afterward.
+
+## Pufferfish visible-motion regression
+
+`tests/pufferfish-motion-browser.cjs` checks displacement through the actual running render loop and forty consecutive three-second simulation windows. It checks each fish individually rather than accepting group travel accumulated over five minutes, and verifies separation, habitat bounds and current discovery positions. The previous pufferfish settings moved only about 0.4-1.0 m per three-second window and were easy to perceive as stationary. Their route multiplier and faster individual drift now make swimming visible without increasing their habitat size or changing models.
