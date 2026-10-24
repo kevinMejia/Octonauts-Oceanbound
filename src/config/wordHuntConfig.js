@@ -1,5 +1,6 @@
 export const wordHuntConfig={
  word:'OCTONAUTS',collectionRadius:7,floatAmplitude:.45,floatSpeed:1.2,rotationSpeed:.45,
+ visuals:{height:3.8,emissiveIntensity:.65,haloSize:6.5,sparkleCount:12,sparkleSize:.45},
  // Stable IDs correspond to word positions, including repeated letters.
  letters:[
   {id:'o-1',letter:'O',x:120,y:22,z:185},
