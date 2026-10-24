@@ -24,3 +24,16 @@ test('four stable species define isolated visuals, facts and bounded habitat rou
  assert.throws(()=>new MarineDiscovery({registry:[{...animal,visual:{source:'unknown'}}]}));
  assert.doesNotThrow(()=>new MarineDiscovery({registry:[{...marineAnimals[0],visual:{source:'glb',modelPath:'/future.glb'}}]}));
 });
+
+test('reset clears saved animal discoveries including retired IDs while retaining live animals',()=>{
+ const values=new Map([[MARINE_SAVE_KEY,JSON.stringify({version:1,ids:[animal.id,'retired']})],['preferences','keep']]);
+ const storage={getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)};let calls=0;
+ const d=new MarineDiscovery({registry:[animal],storage,onDiscover:()=>calls++}),position={x:100,y:20,z:0};d.setGroupPositions(animal.id,[position]);
+ assert.equal(d.count,1);assert.equal(d.reset(),true);assert.equal(d.ids.size,0);assert.equal(d.records.size,1);assert.equal(d.groupPositions.get(animal.id)[0],position);assert.equal(calls,0);
+ assert.equal(new MarineDiscovery({registry:[animal],storage}).count,0);assert.equal(values.get('preferences'),'keep');
+ assert.equal(d.update(position),true);assert.equal(calls,1);assert.equal(d.count,1);
+});
+test('reset reports storage failure and can be retried',()=>{
+ let blocked=true;const storage={getItem:()=>JSON.stringify({version:1,ids:[animal.id]}),setItem(){if(blocked)throw Error('blocked');}};
+ const d=new MarineDiscovery({registry:[animal],storage});assert.equal(d.reset(),false);assert.equal(d.saved,false);assert.equal(d.count,0);blocked=false;assert.equal(d.reset(),true);
+});

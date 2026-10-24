@@ -55,20 +55,20 @@ export function installSettings(){
  }
  resetButton(cameraPanel,'Reset camera defaults',()=>{Object.assign(cameraConfig,cameraDefaults);syncCamera();status.textContent=saveCameraSettings(storage,cameraConfig)?'Default camera restored and saved.':'Default camera restored for this session.';}).id='resetCamera';
 
- // Keep reset scoped to fleet progress; never clear browser or preference storage.
+ // Reset gameplay discoveries; preserve browser and preference storage.
  const gameplayTab=document.createElement('button'),gameplayPanel=document.createElement('section');
  gameplayTab.id='gameplayTab';gameplayTab.type='button';gameplayTab.role='tab';gameplayTab.setAttribute('aria-selected','false');gameplayTab.setAttribute('aria-controls','gameplayPanel');gameplayTab.tabIndex=-1;gameplayTab.textContent='Gameplay';
  gameplayPanel.id='gameplayPanel';gameplayPanel.role='tabpanel';gameplayPanel.setAttribute('aria-labelledby','gameplayTab');gameplayPanel.hidden=true;
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
- intro(gameplayPanel,'Start a fresh adventure','Reset GUP discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');
+ intro(gameplayPanel,'Start a fresh adventure','Reset GUP and animal discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');
  const confirmation=document.createElement('div');confirmation.hidden=true;confirmation.setAttribute('role','group');confirmation.setAttribute('aria-label','Confirm gameplay reset');
- const warning=document.createElement('p');warning.textContent='Reset all GUP discoveries? Your unlocked fleet will be cleared and the game will restart. This cannot be undone.';confirmation.append(warning);
+ const warning=document.createElement('p');warning.textContent='Reset all GUP and animal discoveries? Your unlocked fleet and Creature Collection progress will be cleared and the game will restart. This cannot be undone.';confirmation.append(warning);
  const reset=resetButton(gameplayPanel,'Reset gameplay progress',()=>{confirmation.hidden=false;reset.hidden=true;confirm.focus();});reset.id='resetGameplay';
  const cancel=resetButton(confirmation,'Keep my progress',()=>{confirmation.hidden=true;reset.hidden=false;reset.focus();});cancel.id='cancelGameplayReset';
  const confirm=resetButton(confirmation,'Yes, reset and restart',()=>{
   const game=window.explorer;if(!game?.ready)return;
   confirm.disabled=cancel.disabled=true;game.input.clear();
-  try{game.unlocks.reset();if(!game.unlocks.saved)throw Error('Save unavailable');location.reload();}
+  try{game.unlocks.reset();game.marineDiscovery.reset();game.marineCollection.updateCounter();if(!game.unlocks.saved||!game.marineDiscovery.saved)throw Error('Save unavailable');location.reload();}
   catch{status.textContent='Progress could not be saved. Please allow site storage and try again.';confirm.disabled=cancel.disabled=false;}
  });confirm.id='confirmGameplayReset';gameplayPanel.append(confirmation);
  dialog.addEventListener('close',()=>{confirmation.hidden=true;reset.hidden=false;});

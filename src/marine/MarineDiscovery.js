@@ -32,6 +32,8 @@ export class MarineDiscovery {
 
  save(){try{if(!this.storage)throw Error('Storage unavailable');this.storage.setItem(MARINE_SAVE_KEY,JSON.stringify({version:1,ids:[...this.ids]}));this.saved=true;}catch{this.saved=false;}}
 
+ reset(){this.ids.clear();this.save();return this.saved;}
+
  update(position){
 
   if(!this.records.size||this.blocked()||!point(position))return false;
