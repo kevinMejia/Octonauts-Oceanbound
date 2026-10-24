@@ -84,9 +84,9 @@ export function installSettings(){
  const selectTab=tab=>{for(const button of tabs){const selected=button===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!selected;}dialog.querySelector('.monitor-content').scrollTop=0;};
  for(const tab of tabs){tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?tabs[0]:e.key==='End'?tabs.at(-1):tabs[(tabs.indexOf(tab)+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selectTab(next);next.focus();});}
  const close=()=>{if(!dialog.open||dialog.classList.contains('is-closing'))return;dialog.classList.add('is-closing');clear();closeTimer=setTimeout(()=>dialog.close(),200);};
- toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();title.focus({preventScroll:true});};
+ toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();window.explorer?.audio?.playWindow?.(true);title.focus({preventScroll:true});};
  document.querySelector('#closeSettings').onclick=close;
  dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
- dialog.addEventListener('close',()=>{clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();toggle.focus();});
+ dialog.addEventListener('close',()=>{window.explorer?.audio?.playWindow?.(false);clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();toggle.focus();});
  syncCamera();syncAudio();
 }

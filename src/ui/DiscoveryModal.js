@@ -15,7 +15,8 @@ export class DiscoveryModal{
   this.dialog.querySelector('.discovery-status').textContent=this.game.unlocks.saved?'NEW GUP UNLOCKED':'UNLOCKED FOR THIS DIVE';
   this.releasePause=this.game.pause.acquire('discovery');this.game.input.clear();
   try{this.dialog.showModal();document.body.classList.add('discovery-open');this.imageButton.focus({preventScroll:true});
-   if(definition.discovery.effects!==false){this.celebration.start();try{this.stopDiscoverySound=this.game.audio?.playDiscovery?.();}catch{ /* Optional audio never blocks discovery. */ }}
+   try{this.stopDiscoverySound=this.game.audio?.playFound?.('gup');}catch{ /* Optional audio never blocks discovery. */ }
+   if(definition.discovery.effects!==false){this.celebration.start();}
    this.game.needsPausedRender=true;
   }catch(error){this.didClose();console.warn('Discovery screen unavailable',error);}
  }

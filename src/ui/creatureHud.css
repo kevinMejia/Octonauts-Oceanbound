@@ -17,7 +17,8 @@
 .creature-counter{font:800 22px Arial,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.5px;text-shadow:0 0 5px #b2fff055;background:none;border:0;padding:0;height:auto}
 #creatureCollection[aria-expanded=true]{filter:brightness(1.12)}
 #creatureCollection:active{transform:translateY(2px)}
-#creatureCollection:focus-visible{outline:3px solid #fff3bf;outline-offset:4px}
+#creatureCollection:focus,#creatureCollection:focus-visible{outline:none}
+#creatureCollection[data-keyboard-focus]:focus{outline:3px solid #fff3bf;outline-offset:4px}
 #vehicleToggle{padding:6px 9px}
 #vehicleToggle img{position:relative;z-index:1}
 @media(hover:hover){:is(#creatureCollection,#vehicleToggle):hover{filter:brightness(1.12);background:linear-gradient(145deg,#b0bdb5 0%,#687c7a 15%,#364548 65%,#94a6a0)}}

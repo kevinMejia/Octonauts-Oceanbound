@@ -27,12 +27,12 @@ test('audio unlocks once, keeps looping sources, suspends, resumes and cleans up
  const doc={hidden:false,addEventListener:(e,fn)=>listeners.set(e,fn),removeEventListener:e=>listeners.delete(e)};
  class Context{constructor(){this.currentTime=0;this.sampleRate=100;this.state='suspended';}createGain(){return {gain:param(),connect(){},disconnect(){}};}createBufferSource(){return {playbackRate:param(),connect(){},disconnect(){},start(){starts++;},stop(){}};}createBuffer(channels,length){return {length,duration:length/100,sampleRate:100,numberOfChannels:channels,getChannelData:()=>new Float32Array(length)};}decodeAudioData(data,resolve){resolve(this.createBuffer(1,100));}resume(){resumes++;this.state='running';return Promise.resolve();}suspend(){suspends++;this.state='suspended';return Promise.resolve();}close(){return Promise.resolve();}}
  const host={AudioContext:Context,addEventListener(){},removeEventListener(){},localStorage:{getItem:()=>null,setItem(){}},fetch:async()=>({ok:true,arrayBuffer:async()=>new ArrayBuffer(1)})};
- const audio=new UnderwaterAudio({host,document:doc});assert.equal(starts,0);audio.unlock();await audio.loading;assert.equal(Object.keys(audio.channels).length,2);assert.ok(audio.bubbles);
+ const audio=new UnderwaterAudio({host,document:doc});assert.equal(starts,0);audio.unlock();await audio.loading;assert.equal(Object.keys(audio.channels).length,2);assert.ok(audio.bubbles);assert.ok(audio.foundBuffers.animal);assert.ok(audio.foundBuffers.gup);
  const sources=Object.values(audio.channels).map(c=>c.source);audio.update(.016,sub(5),input(1));audio.update(.016,sub(-5),input(-1));assert.deepEqual(Object.values(audio.channels).map(c=>c.source),sources);
  audio.setVolume(9);assert.equal(audio.volume,1);doc.hidden=true;listeners.get('visibilitychange')();assert.equal(suspends,1);doc.hidden=false;listeners.get('visibilitychange')();assert.equal(resumes,2);audio.dispose();assert.equal(listeners.size,0);
 });
 test('missing files leave gameplay audio optional',async()=>{
- const audio=Object.create(UnderwaterAudio.prototype);audio.host={fetch:async()=>({ok:false,status:404})};audio.errors={};const warn=console.warn;console.warn=()=>{};try{await audio.load();assert.equal(Object.keys(audio.errors).length,5);}finally{console.warn=warn;}
+ const audio=Object.create(UnderwaterAudio.prototype);audio.host={fetch:async()=>({ok:false,status:404})};audio.errors={};const warn=console.warn;console.warn=()=>{};try{await audio.load();assert.equal(Object.keys(audio.errors).length,11);}finally{console.warn=warn;}
 });
 
 test('startup gestures cannot create audio until PLAY authorizes it',()=>{
