@@ -54,13 +54,15 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 @keyframes compass-near{50%{stroke:#17576a;stroke-width:4px;opacity:.8}}
 @media(prefers-reduced-motion:reduce){.compass-targets .nearby text{animation:none}}
 
-/* Rescue status reuses the compact teal monitor palette and never captures touches. */
-#rescueNotice{position:absolute;z-index:6;top:calc(env(safe-area-inset-top,0px) + 126px);left:max(16px,env(safe-area-inset-left));max-width:min(240px,calc(100vw - 80px));padding:8px 12px;border:1px solid #a8f5e999;border-radius:13px;background:linear-gradient(#086c78e8,#044653e8);box-shadow:0 3px 10px #00374755;pointer-events:none;color:#effff8;font:11px/1.5 Arial,sans-serif}
-#rescueNotice{border-color:#ffe09b;color:#ffe8b8;font-weight:bold}
+/* Centered rescue completion uses the same metallic screen and scanlines as menus. */
+#rescueNotice{position:fixed;z-index:7;top:50%;left:50%;transform:translate(-50%,-50%);width:min(340px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 32px));padding:22px 20px;border:2px solid transparent;border-radius:22px;outline:1px solid #91a29a;outline-offset:-1px;background:linear-gradient(135deg,#073e51ed,#06283eea) padding-box,linear-gradient(145deg,#a4b5ac,#364548 65%,#81928c) border-box;box-shadow:0 8px 24px #001a354d,inset 0 1px 2px #d2dad04d,inset 0 -2px 5px #002c4b66;pointer-events:none;color:#ffe2a2;text-align:center;font:800 clamp(16px,4.5vw,20px)/1.4 Arial,sans-serif;letter-spacing:.3px;isolation:isolate}
+#rescueNotice::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b4020 3px,#003b4020 4px),linear-gradient(120deg,#d1fff30a,transparent 35%)}
+#rescueNotice[hidden]{display:none}
+#rescueNotice:not([hidden]){animation:rescue-notice-in .25s ease-out}
+@keyframes rescue-notice-in{from{opacity:0;transform:translate(-50%,calc(-50% - 8px))}to{opacity:1;transform:translate(-50%,-50%)}}
+@media(prefers-reduced-motion:reduce){#rescueNotice:not([hidden]){animation:none}}
 #compass.rescue-active .base-bearing span{border-radius:50%;outline:2px solid #ffe29b;background:#086575;box-shadow:0 0 12px #ffe09baa}
 #compass.rescue-active .base-bearing img{filter:drop-shadow(0 0 4px #ffe29b)}
-@media(min-width:700px){#rescueNotice{top:100px}}
-@media(max-height:500px){#rescueNotice{top:94px;padding:5px 9px;font-size:10px;max-width:215px}}
 
 /* The mission display belongs to Turbo, not a separate floating panel. */
 #turboHud{z-index:6}
