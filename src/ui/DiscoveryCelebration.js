@@ -2,8 +2,8 @@ import {DiscoveryParticles,discoveryColors,discoveryTiming} from './discoveryCel
 
 const MAX_PIXELS=1200000;
 export class DiscoveryCelebration{
- constructor(dialog,image,{host=window,doc=document}={}){
-  Object.assign(this,{dialog,image,host,doc});this.active=false;this.frame=null;this.starts=0;this.renderedFrames=0;
+ constructor(dialog,image,{host=window,doc=document,closeSelector='#closeDiscovery'}={}){
+  Object.assign(this,{dialog,image,host,doc,closeSelector});this.active=false;this.frame=null;this.starts=0;this.renderedFrames=0;
   this.tick=now=>this.animate(now);this.resize=()=>this.measure(true);this.scroll=()=>this.measure();
   this.visibility=()=>{this.dialog.classList.toggle('tab-hidden',this.doc.hidden);if(this.doc.hidden){this.cancelFrame();this.last=null;}else this.schedule();};this.motionChanged=()=>this.stop();
  }
@@ -21,7 +21,7 @@ export class DiscoveryCelebration{
   }catch(error){this.stop();console.warn('Discovery decoration unavailable',error);return false;}
  }
  measure(resize=false){
-  if(!this.canvases)return;const modal=this.dialog.getBoundingClientRect(),image=this.image.getBoundingClientRect(),close=this.dialog.querySelector('#closeDiscovery').getBoundingClientRect(),width=this.host.innerWidth,height=this.host.innerHeight;
+  if(!this.canvases)return;const modal=this.dialog.getBoundingClientRect(),image=this.image.getBoundingClientRect(),close=this.dialog.querySelector(this.closeSelector).getBoundingClientRect(),width=this.host.innerWidth,height=this.host.innerHeight;
   this.bounds={width,height,modal,image,close};if(this.model?.bounds)this.model.resize(this.bounds);
   if(resize){this.ratio=Math.min(this.host.devicePixelRatio||1,1.5,Math.sqrt(MAX_PIXELS/(width*height)));for(const c of this.canvases){c.width=Math.max(1,Math.round(width*this.ratio));c.height=Math.max(1,Math.round(height*this.ratio));c.style.width=width+'px';c.style.height=height+'px';}}
   // The front layer escapes the bezel clip without altering the approved frame.
