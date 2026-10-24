@@ -69,3 +69,6 @@
 .graphics-current{display:inline-block;margin:0 0 18px;padding:8px 12px;border:1px solid #b5f7e73d;border-radius:12px;background:#03505d66;color:#a8f5e9;font-size:12px}
 #applyGraphics:disabled{opacity:.5;cursor:default}
 @media(max-width:500px){#settingsDialog .settings-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#settingsDialog .settings-tabs button{width:100%}}
+
+/* Dialog titles receive initial focus; close buttons highlight only when navigated to. */
+:is(#settingsTitle,#marineTitle):focus{outline:none}

@@ -10,7 +10,7 @@ export class MarineCollection {
 
   this.dialog.innerHTML=`<div class="monitor-screen"><div class="monitor-header"><div><p class="monitor-eyebrow">OCTOPOD MARINE LIFE SCANNER</p><h2 id="marineTitle">CREATURE COLLECTION</h2></div><button type="button" class="marine-close" aria-label="Close creature scanner">×</button></div><div class="monitor-content marine-content"></div><div class="monitor-footer"><p class="marine-save"></p><span>EXPLORE · RESCUE · PROTECT</span></div></div>`;
 
-  document.body.append(this.dialog);this.content=this.dialog.querySelector('.marine-content');this.button.onclick=()=>this.open();this.dialog.querySelector('.marine-close').onclick=()=>this.dialog.close();
+  this.dialog.querySelector('#marineTitle').tabIndex=-1;document.body.append(this.dialog);this.content=this.dialog.querySelector('.marine-content');this.button.onclick=()=>this.open();this.dialog.querySelector('.marine-close').onclick=()=>this.dialog.close();
 
   this.dialog.addEventListener('close',()=>{document.body.classList.remove('marine-open');this.game.input.clear();this.release?.();this.release=null;this.button.setAttribute('aria-expanded','false');this.returnFocus?.focus({preventScroll:true});});
 
@@ -23,7 +23,7 @@ export class MarineCollection {
 
   if(this.dialog.open)return;this.returnFocus=document.activeElement;this.render(animal);this.release=this.game.pause.acquire('marine-scanner');this.game.input.clear();
 
-  try{this.dialog.showModal();document.body.classList.add('marine-open');this.button.setAttribute('aria-expanded','true');this.dialog.querySelector('button').focus({preventScroll:true});if(location){this.game.atmosphere.propulsion.discoveryBurst(location.x,location.y,location.z);this.game.needsPausedRender=true;}}
+  try{this.dialog.showModal();document.body.classList.add('marine-open');this.button.setAttribute('aria-expanded','true');this.dialog.querySelector('#marineTitle').focus({preventScroll:true});if(location){this.game.atmosphere.propulsion.discoveryBurst(location.x,location.y,location.z);this.game.needsPausedRender=true;}}
 
   catch(error){this.release?.();this.release=null;document.body.classList.remove('marine-open');throw error;}
 

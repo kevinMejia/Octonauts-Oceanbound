@@ -9,6 +9,7 @@ export function installSettings(){
  const toggle=document.querySelector('#menuToggle'),dialog=document.querySelector('#settingsDialog');
  const audioPanel=document.querySelector('#audioPanel'),cameraPanel=document.querySelector('#cameraPanel');
  const status=document.querySelector('#settingsSaved');
+ const title=document.querySelector('#settingsTitle');title.tabIndex=-1;
  const clear=()=>window.explorer?.input?.clear();
  let keyboardFocus=false,closeTimer;
  document.addEventListener('keydown',e=>{if(['Tab','Enter','Space','Escape'].includes(e.code)){keyboardFocus=true;if(document.activeElement===toggle)toggle.dataset.keyboardFocus='';}},true);
@@ -76,7 +77,7 @@ export function installSettings(){
  const selectTab=tab=>{for(const button of tabs){const selected=button===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!selected;}dialog.querySelector('.monitor-content').scrollTop=0;};
  for(const tab of tabs){tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?tabs[0]:e.key==='End'?tabs.at(-1):tabs[(tabs.indexOf(tab)+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selectTab(next);next.focus();});}
  const close=()=>{if(!dialog.open||dialog.classList.contains('is-closing'))return;dialog.classList.add('is-closing');clear();closeTimer=setTimeout(()=>dialog.close(),200);};
- toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();};
+ toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();title.focus({preventScroll:true});};
  document.querySelector('#closeSettings').onclick=close;
  dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
  dialog.addEventListener('close',()=>{clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();toggle.focus();});
