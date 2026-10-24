@@ -1,0 +1,208 @@
+{
+  "arrival": {
+    "ids": [
+      "barnacles",
+      "kwazii",
+      "peso",
+      "shellington",
+      "dashi",
+      "tweak",
+      "inkling",
+      "tunip"
+    ],
+    "radii": [
+      {
+        "id": "barnacles",
+        "radius": 1.0543643597884635,
+        "walkClip": false
+      },
+      {
+        "id": "kwazii",
+        "radius": 0.9956565628036552,
+        "walkClip": false
+      },
+      {
+        "id": "peso",
+        "radius": 0.994924955204586,
+        "walkClip": false
+      },
+      {
+        "id": "shellington",
+        "radius": 0.8095007439118617,
+        "walkClip": false
+      },
+      {
+        "id": "dashi",
+        "radius": 0.9325638043483351,
+        "walkClip": false
+      },
+      {
+        "id": "tweak",
+        "radius": 0.9221487135453572,
+        "walkClip": false
+      },
+      {
+        "id": "inkling",
+        "radius": 1.118137947107343,
+        "walkClip": false
+      },
+      {
+        "id": "tunip",
+        "radius": 0.6204267797161922,
+        "walkClip": false
+      }
+    ],
+    "home": 8,
+    "world": 0
+  },
+  "simulation": {
+    "traveled": {
+      "barnacles": 27.69799747687398,
+      "kwazii": 21.680164666400206,
+      "peso": 24.66517803650396,
+      "shellington": 33.19336596500205,
+      "dashi": 21.273559498515464,
+      "tweak": 28.128310979569424,
+      "inkling": 16.20167511412381,
+      "tunip": 17.600578201085277
+    },
+    "maxStep": 0.03500000000000044,
+    "minGap": 0.13161429799626823,
+    "movingPeak": 1,
+    "initial": {
+      "barnacles": {
+        "x": 0,
+        "y": 20.1,
+        "z": 5.3
+      },
+      "kwazii": {
+        "x": -3.2,
+        "y": 20.1,
+        "z": 4.6
+      },
+      "peso": {
+        "x": 3.2,
+        "y": 20.1,
+        "z": 4.6
+      },
+      "shellington": {
+        "x": -2.4,
+        "y": 20.1,
+        "z": 2.4
+      },
+      "dashi": {
+        "x": 0,
+        "y": 20.1,
+        "z": 1.8
+      },
+      "tweak": {
+        "x": 4.4,
+        "y": 20.1,
+        "z": 1.3
+      },
+      "inkling": {
+        "x": -2.8,
+        "y": 20.1,
+        "z": -2.6
+      },
+      "tunip": {
+        "x": 2.8,
+        "y": 20.1,
+        "z": -2.6
+      }
+    },
+    "final": {
+      "barnacles": {
+        "position": {
+          "x": 4.578132255516199,
+          "y": 20.1,
+          "z": 2.635750333726626
+        },
+        "state": "WORKING",
+        "station": "engineering"
+      },
+      "kwazii": {
+        "position": {
+          "x": -4.585293986323637,
+          "y": 20.1,
+          "z": 2.617018868110425
+        },
+        "state": "IDLE",
+        "station": "navigation"
+      },
+      "peso": {
+        "position": {
+          "x": 2.646644656372625,
+          "y": 20.1,
+          "z": 4.578892563993264
+        },
+        "state": "IDLE",
+        "station": "communications"
+      },
+      "shellington": {
+        "position": {
+          "x": -4.377906537008141,
+          "y": 20.1,
+          "z": -3.397485109222446
+        },
+        "state": "IDLE",
+        "station": "quiet-window"
+      },
+      "dashi": {
+        "position": {
+          "x": 5.282345784626377,
+          "y": 20.1,
+          "z": -0.005658893607283588
+        },
+        "state": "IDLE",
+        "station": "starboard-control"
+      },
+      "tweak": {
+        "position": {
+          "x": 0.010650996337765416,
+          "y": 20.1,
+          "z": 1.8019080074614457
+        },
+        "state": "WORKING",
+        "station": "idle-dashi"
+      },
+      "inkling": {
+        "position": {
+          "x": -2.6267401108256023,
+          "y": 20.1,
+          "z": 4.596167277535655
+        },
+        "state": "WORKING",
+        "station": "research"
+      },
+      "tunip": {
+        "position": {
+          "x": 0.33573405741502554,
+          "y": 20.1,
+          "z": -1.9622125707718885
+        },
+        "state": "WALKING",
+        "target": "port-control"
+      }
+    }
+  },
+  "culling": true,
+  "vehicleSwitch": true,
+  "performanceSample": {
+    "disabled": {
+      "medianCrewUpdateMs": 0.05599999999627471,
+      "maxBatchAverageMs": 0.05649999998509884,
+      "drawCalls": 298,
+      "geometries": 706,
+      "meshes": 225
+    },
+    "activities": {
+      "medianCrewUpdateMs": 0.06099999999627471,
+      "maxBatchAverageMs": 0.0625,
+      "drawCalls": 298,
+      "geometries": 706,
+      "meshes": 225
+    }
+  },
+  "errors": []
+}

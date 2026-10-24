@@ -1,5 +1,7 @@
 # Bridge crew: source, references and integration
 
+Rescued members now use [ambient bridge activities](../crew-activities.md): reserved console stations, calm walking, configurable preferences and visibility-based updates. Existing models and rescue progression are retained.
+
 The supplied replacement models are now integrated for all eight crew members. See the [replacement audit](replacement-audit.md) for current source/runtime counts, transforms, validation and performance limits. The original authoring notes below describe the retained fallback assets.
 
 These are the original three model-authoring notes. The expanded eight-member roster and replacement-asset contract are documented in [crew discovery](../crew-discovery.md); see the expanded placeholder section below.
