@@ -72,3 +72,8 @@
 
 /* Dialog titles receive initial focus; close buttons highlight only when navigated to. */
 :is(#settingsTitle,#marineTitle):focus{outline:none}
+/* Audio defines the Settings window's footprint; other tabs scroll within it. */
+#settingsDialog .monitor-content{position:relative;display:grid;grid-template-columns:minmax(0,1fr);align-content:start}
+#settingsDialog .monitor-content>[role=tabpanel]{grid-area:1/1/2/2;min-width:0}
+#settingsDialog .monitor-content>[role=tabpanel]:not(#audioPanel){position:absolute;inset:0 0 auto}
+#settingsDialog #audioPanel[hidden]{display:block!important;visibility:hidden;pointer-events:none}
