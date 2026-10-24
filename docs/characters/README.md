@@ -1,5 +1,7 @@
 # Bridge crew: source, references and integration
 
+These are the original three model-authoring notes. The expanded eight-member roster and replacement-asset contract are documented in [crew discovery](../crew-discovery.md); see the expanded placeholder section below.
+
 The existing Octopod already contains `Control_Room_Floor` (deck top y=20.09), bridge consoles, a rear monitor, and transparent observation glazing. It is visible from the submarine outside, but has no boarding/enterable interior gameplay. All three characters stand on that existing floor within the glazed bridge. No Octopod exterior or collision geometry was changed. Approach the main observation window at bridge height to see them; distant normal-chase views cannot show facial detail at this scale.
 
 ## Reference research
@@ -27,3 +29,9 @@ Actual browser captures: `game-bridge.png` and `game-mobile.png`. The 844x390 mo
 Short comparison at the same bridge scenario, low quality, 1265x630, DPR 1: with crew versus the inspection-only `crew=off` switch. Median/p95 frame times were 7/7.1 ms in both, CPU submission 1.6 ms in both. GPU medians were 3.17/3.32 ms (noise, not evidence of a speedup). Scene triangles were 1,351,261/1,270,893; draw calls 150/148. Characters themselves add exactly three primitives; ambient visitor visibility changes account for the net two-call snapshot difference. Geometry buffers rose from 16.8 to 20.14 MiB. Raw metrics are saved alongside screenshots. This does not establish an iPhone performance guarantee; physical Safari remains untested.
 
 Deployment verification: commit 9669ce3 published successfully; production resource checks passed including all three GLBs. An initial browser load hit a transient reef-manifest fetch failure immediately after deployment; retry succeeded. The standalone live game was driven from spawn to the observation window, where all three animated characters were visibly present (live-bridge.png). No further browser errors were recorded during that approach.
+
+## Expanded placeholder crew
+
+The core roster now also includes Shellington, Dashi, Tweak, Professor Inkling and Tunip. These low-detail, palette-colored proxies each have a separate editable Blender source, GLB and articulated idle. `assets/blender/characters/scripts/create-placeholder-crew.py` reuses the original builder's rig/export helpers at lower mesh resolution and rebuilds only these five. Run it with optional IDs after `--` to regenerate one proxy. The original three GLBs and .blend files are unchanged.
+
+Gameplay identity, locations and saves are independent of the visual assets. See [crew discovery and model replacement](../crew-discovery.md#replacing-placeholder-models) for the asset path, scale, orientation, offset and idle-clip configuration. New models should replace these proxies rather than introducing new character IDs.

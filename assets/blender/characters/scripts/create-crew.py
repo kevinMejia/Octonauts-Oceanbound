@@ -179,4 +179,5 @@ def create(name):
   camera.location=loc;camera.rotation_euler=(Vector((0,0,1.5))-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=DOC+'/'+name+'-'+view+'.png';bpy.ops.render.render(write_still=True)
  print('CREW_COMPLETE',name,len(mesh.data.polygons))
 import sys
-for name in (sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else ['barnacles','kwazii','peso']):create(name)
+if __name__=='__main__':
+ for name in (sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else ['barnacles','kwazii','peso']):create(name)
