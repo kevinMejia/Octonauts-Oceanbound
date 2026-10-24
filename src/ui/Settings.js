@@ -67,7 +67,7 @@ export function installSettings(){
  const syncCompassSize=()=>{compassSize.input.value=gameplaySettings.compassSize;compassSize.output.value=gameplaySettings.compassSize+'%';fill(compassSize.input);};
  compassSize.input.addEventListener('input',()=>{gameplaySettings.compassSize=Number(compassSize.input.value);syncCompassSize();window.explorer?.compass?.setSize(gameplaySettings.compassSize);status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});syncCompassSize();
  const markerSwitches=grid(gameplayPanel);
- for(const [key,label] of [['showGupLetters','Show GUP Letters on Compass'],['showOctonautLetters','Show Octonaut Letters on Compass']]){
+ for(const [key,label] of [['showGupLetters','Show GUP Letters on Compass'],['showOctonautLetters','Show Octonaut Letters on Compass'],['showAnimalIcons','Show Animal Icons on Compass']]){
   const input=check(markerSwitches,key,label,value=>{gameplaySettings[key]=value;window.explorer?.compass?.syncTargets();status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});input.checked=gameplaySettings[key];
  }
  intro(gameplayPanel,'Start a fresh adventure','Reset GUP, marine animal, and Octonaut discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');

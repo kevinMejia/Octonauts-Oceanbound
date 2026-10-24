@@ -79,3 +79,6 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 
 /* The canvas receives gameplay focus when a vehicle dialog closes. */
 #ocean:focus{outline:none}
+
+.compass-targets image{filter:drop-shadow(0 1px 1px #013348)}
+.compass-targets .nearby image{filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) #b4f5ef)}

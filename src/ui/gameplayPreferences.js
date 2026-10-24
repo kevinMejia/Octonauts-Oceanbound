@@ -1,4 +1,4 @@
-export const gameplayDefaults=Object.freeze({showGupLetters:true,showOctonautLetters:true,compassSize:100});
+export const gameplayDefaults=Object.freeze({showGupLetters:true,showOctonautLetters:true,showAnimalIcons:false,compassSize:100});
 export const compassSizeLimits=Object.freeze({min:75,max:150,step:5});
 export function compassSizeValue(value){return typeof value==='number'&&Number.isFinite(value)?Math.max(compassSizeLimits.min,Math.min(compassSizeLimits.max,Math.round(value/compassSizeLimits.step)*compassSizeLimits.step)):gameplayDefaults.compassSize;}
 export const gameplaySettings={...gameplayDefaults};

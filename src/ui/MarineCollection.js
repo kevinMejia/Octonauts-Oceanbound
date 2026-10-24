@@ -30,7 +30,7 @@ export class MarineCollection {
 
   if(this.dialog.open)return;this.returnFocus=document.activeElement;this.render(animal);this.release=this.game.pause.acquire('marine-scanner');this.game.input.clear();
 
-  try{this.dialog.showModal();this.game.audio?.playWindow?.(true);if(animal&&location){try{this.game.audio?.playFound?.('animal');}catch{}}document.body.classList.add('marine-open');this.button.setAttribute('aria-expanded','true');this.dialog.querySelector('#marineTitle').focus({preventScroll:true});if(location){this.game.atmosphere.propulsion.discoveryBurst(location.x,location.y,location.z);this.game.needsPausedRender=true;}}
+  try{this.dialog.showModal();if(animal&&location){try{this.game.audio?.playFound?.('animal');}catch{}}else{this.game.audio?.playWindow?.(true);}document.body.classList.add('marine-open');this.button.setAttribute('aria-expanded','true');this.dialog.querySelector('#marineTitle').focus({preventScroll:true});if(location){this.game.atmosphere.propulsion.discoveryBurst(location.x,location.y,location.z);this.game.needsPausedRender=true;}}
 
   catch(error){this.release?.();this.release=null;document.body.classList.remove('marine-open');throw error;}
 

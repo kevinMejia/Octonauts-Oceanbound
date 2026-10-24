@@ -23,19 +23,19 @@ import {MarineDiscovery} from '../src/marine/MarineDiscovery.js';
 import {DiscoveryModal} from '../src/ui/DiscoveryModal.js';
 import {vehicles} from '../src/config/vehicleConfig.js';
 
-test('animal first discovery plays with notification; reopening collection and saved animals stays silent',()=>{
+test('animal discovery plays only animal found; normal collection opening uses window sound',()=>{
  const previous=globalThis.document,events=[];
  globalThis.document={activeElement:null,body:{classList:{add(){},remove(){}}}};
  try{
   const panel=Object.create(MarineCollection.prototype);
   panel.updateCounter=()=>{};panel.render=()=>{};panel.button={setAttribute(){}};
   panel.dialog={open:false,showModal(){this.open=true;events.push('shown');},querySelector:()=>({focus(){}})};
-  panel.game={pause:{acquire:()=>()=>{}},input:{clear(){}},audio:{playFound:kind=>events.push(kind)},atmosphere:{propulsion:{discoveryBurst(){}}}};
+  panel.game={pause:{acquire:()=>()=>{}},input:{clear(){}},audio:{playFound:kind=>events.push(kind),playWindow:open=>events.push(open?'window-open':'window-close')},atmosphere:{propulsion:{discoveryBurst(){}}}};
   const animal={id:'test',commonName:'Test',scientificName:'Test animal',fact:'Fact',habitat:'reef',modelPath:'/test.glb',thumbnailPath:'/test.png',position:{x:0,y:0,z:0},discoveryRadius:5};
   const values=new Map(),storage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v)};
   const discovery=new MarineDiscovery({registry:[animal],storage,onDiscover:(a,p)=>panel.open(a,p)});
   discovery.update(animal.position);discovery.update(animal.position);assert.deepEqual(events,['shown','animal']);
-  panel.dialog.open=false;panel.open();assert.deepEqual(events,['shown','animal','shown']);
+  panel.dialog.open=false;panel.open();assert.deepEqual(events,['shown','animal','shown','window-open']);
   const reloaded=new MarineDiscovery({registry:[animal],storage,onDiscover:()=>assert.fail('saved animal rediscovered')});assert.equal(reloaded.update(animal.position),false);
  }finally{globalThis.document=previous;}
 });

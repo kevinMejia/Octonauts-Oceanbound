@@ -27,8 +27,20 @@ export class Compass{
   for(const [i,d] of registry.entries())this.addTarget('crew',{definition:d,get pose(){return discovery.positions.get(d.id);}},crewMarkerLabel(d,registry),d.compassColor??crewMarkerColors[i%crewMarkerColors.length],()=>!discovery.isDiscovered(d.id));
   this.syncTargets();
  }
+ connectAnimals(discovery,animals){
+  this.clearTargets('animal');
+  for(const d of discovery.records.values()){
+   const record={definition:{...d,name:d.commonName},get pose(){return discovery.positions?.get(d.id)??d.position;}};
+   this.addTarget('animal',record,'','#b4f5ef',()=>!discovery.isDiscovered(d.id));
+   const target=this.targets[this.targets.length-1],icon=document.createElementNS(this.markerLayer.namespaceURI,'image');
+   icon.setAttribute('href',animals.thumbnails.get(d.id)??d.thumbnailPath??d.visual?.thumbnailPath??'');
+   icon.setAttribute('x','-11');icon.setAttribute('y','-11');icon.setAttribute('width','22');icon.setAttribute('height','22');
+   target.text.replaceWith(icon);target.text=icon;
+  }
+  this.syncTargets();
+ }
  syncTargets(){
-  for(const t of this.targets){const enabled=gameplaySettings[t.kind==='crew'?'showOctonautLetters':'showGupLetters'];t.visible=enabled&&t.undiscovered()&&!!t.record.pose&&['x','y','z'].every(k=>Number.isFinite(t.record.pose[k]));t.node.style.display=t.visible?'':'none';if(!t.visible)t.node.classList.remove('nearby');}
+  for(const t of this.targets){const enabled=gameplaySettings[t.kind==='animal'?'showAnimalIcons':t.kind==='crew'?'showOctonautLetters':'showGupLetters'];t.visible=enabled&&t.undiscovered()&&!!t.record.pose&&['x','y','z'].every(k=>Number.isFinite(t.record.pose[k]));t.node.style.display=t.visible?'':'none';if(!t.visible)t.node.classList.remove('nearby');}
  }
 
  updateTargets(position){
@@ -40,7 +52,7 @@ export class Compass{
    // Match the base: rotate the bearing around the center and counter-rotate
    // the artwork, keeping every letter upright on the compass rim.
    const write=(node,key,value)=>{if(node.getAttribute(key)!==value)node.setAttribute(key,value);};
-   write(t.node,'transform',`rotate(${relative})`);write(t.text,'x','0');write(t.text,'y',String(-radius));write(t.text,'transform',`rotate(${-relative} 0 ${-radius})`);
+   write(t.node,'transform',`rotate(${relative})`);if(t.kind==='animal')write(t.text,'transform',`translate(0 ${-radius}) rotate(${-relative})`);else{write(t.text,'x','0');write(t.text,'y',String(-radius));write(t.text,'transform',`rotate(${-relative} 0 ${-radius})`);}
    t.node.classList.toggle('nearby',state.proximity>0);const proximity=state.proximity.toFixed(1);if(t.proximity!==proximity){t.proximity=proximity;t.node.style.setProperty('--proximity',proximity);}t.node.dataset.bearing=state.bearing.toFixed(2);t.node.dataset.relative=relative;t.node.dataset.target=t.id;
   }
  }
