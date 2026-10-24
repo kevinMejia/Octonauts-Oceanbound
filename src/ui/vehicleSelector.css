@@ -62,3 +62,9 @@
 .vehicle-lock[hidden]{display:none}.vehicle-lock svg{width:21px;height:24px;fill:currentColor}
 #vehicleSelector .vehicle-card.is-locked .vehicle-name{background:#b1d4da;color:#1a5364}
 #confirmVehicle:disabled{cursor:default}
+
+/* Match the settings monitor bezel and scan lines without moving selector content. */
+#vehicleSelector{--selector-frame:17px;--selector-corner:42px;padding:9px 11px 2px;border:var(--selector-frame) solid transparent;border-radius:var(--selector-corner);outline:2px solid #91a29a;outline-offset:-2px;background:radial-gradient(ellipse at 52% 15%,#087da08c,transparent 66%) padding-box,linear-gradient(145deg,#075674,#023553 65%,#074e67) padding-box,linear-gradient(145deg,#84948b 0%,#526361 12%,#364548 68%,#657875) border-box;box-shadow:0 22px 70px #001a3566,inset 0 3px 2px #d2dad05c,inset 0 -5px 3px #182d3680}
+#vehicleSelector::after{content:'';position:absolute;inset:0;border:3px solid #273f43;border-radius:calc(var(--selector-corner) - var(--selector-frame));pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b4012 3px,#003b4012 4px),linear-gradient(120deg,#d1fff30a,transparent 35%);box-shadow:0 0 0 2px #81928c,inset 0 0 24px #002c4b88,inset 0 2px 5px #8dfff333}
+@media(max-width:600px){#vehicleSelector{--selector-frame:12px;--selector-corner:31px;padding:12px 4px 4px}}
+@media(max-height:500px){#vehicleSelector{--selector-frame:10px;padding:4px 15px 2px}}
