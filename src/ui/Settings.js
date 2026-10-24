@@ -78,7 +78,7 @@ export function installSettings(){
  const confirm=resetButton(confirmation,'Yes, reset and restart',()=>{
   const game=window.explorer;if(!game?.ready)return;
   confirm.disabled=cancel.disabled=true;game.input.clear();
-  try{game.unlocks.reset();game.marineDiscovery.reset();game.crewDiscovery.reset();game.marineCollection.updateCounter();if(!game.unlocks.saved||!game.marineDiscovery.saved||!game.crewDiscovery.saved)throw Error('Save unavailable');location.reload();}
+  try{game.wordHunt.reset();game.unlocks.reset();game.marineDiscovery.reset();game.crewDiscovery.reset();game.marineCollection.updateCounter();if(!game.wordHunt.progress.saved||!game.unlocks.saved||!game.marineDiscovery.saved||!game.crewDiscovery.saved)throw Error('Save unavailable');location.reload();}
   catch{status.textContent='Progress could not be saved. Please allow site storage and try again.';confirm.disabled=cancel.disabled=false;}
  });confirm.id='confirmGameplayReset';gameplayPanel.append(confirmation);
  dialog.addEventListener('close',()=>{confirmation.hidden=true;reset.hidden=false;});

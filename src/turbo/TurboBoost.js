@@ -7,10 +7,12 @@ export class TurboBoost {
  get remaining(){return this.active?this.charge/Math.max(.001,this.config.drainPerSecond):0;}
  collect(){if(!this.config.enabled)return false;this.charge=Math.min(100,this.charge+this.config.pickupCharge);return true;}
  request(held){this.requested=!!held;if(!held){this.active=false;this.exhausted=false;}}
+ setInfinite(unlocked){this.infinite=!!unlocked;if(this.infinite){this.charge=100;this.exhausted=false;}}
  step(dt,accelerating=false){
   dt=Math.max(0,Number.isFinite(dt)?dt:0);
   this.active=!!(this.config.enabled&&this.requested&&!this.exhausted&&accelerating&&this.charge>0);
-  if(this.active){this.charge=Math.max(0,this.charge-this.config.drainPerSecond*dt);if(!this.charge){this.active=false;this.exhausted=true;}}
+  if(this.infinite){this.charge=100;this.exhausted=false;}
+  else if(this.active){this.charge=Math.max(0,this.charge-this.config.drainPerSecond*dt);if(!this.charge){this.active=false;this.exhausted=true;}}
   else if(this.config.enabled)this.charge=Math.min(100,this.charge+this.config.rechargePerSecond*dt);
  }
  stop(){this.request(false);}
