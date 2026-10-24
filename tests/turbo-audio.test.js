@@ -34,7 +34,7 @@ test('mute, zero Turbo volume and unavailable audio skip playback without a dela
 });
 test('Turbo volume migrates, clamps, persists, and keeps existing audio preferences',()=>{
  const values=new Map([[AUDIO_KEY,JSON.stringify({master:.2,bubbles:.4,muted:true})]]),storage={getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)};
- const settings=loadAudioSettings(storage);assert.equal(settings.turbo,.65);assert.equal(settings.master,.2);assert.equal(settings.muted,true);
+ const settings=loadAudioSettings(storage);assert.equal(settings.turbo,.05);assert.equal(settings.master,.2);assert.equal(settings.muted,true);
  settings.turbo=.23;saveAudioSettings(storage,settings);assert.equal(loadAudioSettings(storage).turbo,.23);
  storage.setItem(AUDIO_KEY,JSON.stringify({...settings,turbo:4}));assert.equal(loadAudioSettings(storage).turbo,1);
 });

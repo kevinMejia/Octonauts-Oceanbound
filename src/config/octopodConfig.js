@@ -10,7 +10,7 @@ export const octopodConfig={
  spawn:{x:180,y:20,z:195,heading:Math.PI}, // 95 m south of the hub, facing north (-Z).
 };
 export const compassConfig={
- enabled:true,size:90.3, // CSS pixels; smaller on short landscape screens.
+ enabled:true,size:90.3,landscapeSize:71.4, // CSS pixels; smaller on short landscape screens.
  showCardinalDirections:true,showOctopodMarker:true,showDistance:true,
  discoveryHighlightDistance:90, // World metres; individual discovery.compassHighlightDistance may override.
  smoothing:18, // Exponential response per second, shortest angular path.

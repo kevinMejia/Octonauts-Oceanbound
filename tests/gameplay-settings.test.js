@@ -1,16 +1,23 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {gameplayDefaults,gameplayValues,loadGameplaySettings,saveGameplaySettings} from '../src/ui/gameplayPreferences.js';
+import {gameplayDefaults,gameplayValues,loadGameplaySettings,saveGameplaySettings,compassSizeValue} from '../src/ui/gameplayPreferences.js';
 import {crewMarkerLabel} from '../src/navigation/compassMarkers.js';
 import {crewConfig} from '../src/config/crewConfig.js';
 test('compass preferences default on and validate each boolean independently',()=>{
- assert.deepEqual(loadGameplaySettings(),{showGupLetters:true,showOctonautLetters:true});
- assert.deepEqual(gameplayValues({showGupLetters:false,showOctonautLetters:'false'}),{showGupLetters:false,showOctonautLetters:true});
+ assert.deepEqual(loadGameplaySettings(),{showGupLetters:true,showOctonautLetters:true,compassSize:100});
+ assert.deepEqual(gameplayValues({showGupLetters:false,showOctonautLetters:'false'}),{showGupLetters:false,showOctonautLetters:true,compassSize:100});
  assert.deepEqual(loadGameplaySettings({getItem:()=>'{broken'}),gameplayDefaults);
 });
 test('compass preferences round trip without touching discovery saves and tolerate denied storage',()=>{
  const data=new Map([['oceanbound.fleet.v1','fleet'],['oceanbound.crew-discoveries.v1','crew']]),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)};
- const value={showGupLetters:false,showOctonautLetters:true};assert(saveGameplaySettings(storage,value));assert.deepEqual(loadGameplaySettings(storage),value);assert.equal(data.get('oceanbound.fleet.v1'),'fleet');assert.equal(data.get('oceanbound.crew-discoveries.v1'),'crew');assert(!saveGameplaySettings({setItem(){throw Error();}},value));
+ const value={showGupLetters:false,showOctonautLetters:true,compassSize:100};assert(saveGameplaySettings(storage,value));assert.deepEqual(loadGameplaySettings(storage),value);assert.equal(data.get('oceanbound.fleet.v1'),'fleet');assert.equal(data.get('oceanbound.crew-discoveries.v1'),'crew');assert(!saveGameplaySettings({setItem(){throw Error();}},value));
 });
 test('crew compass labels use character initials and distinguish repeated initials',()=>{
  const roster=crewConfig.characters,labels=roster.map(d=>crewMarkerLabel(d,roster));assert.equal(new Set(labels).size,roster.length);assert.equal(crewMarkerLabel(roster.find(d=>d.id==='barnacles'),roster),'B');assert.equal(crewMarkerLabel(roster.find(d=>d.id==='inkling'),roster),'I');assert.equal(crewMarkerLabel(roster.find(d=>d.id==='tweak'),roster),'Tw');assert.equal(crewMarkerLabel(roster.find(d=>d.id==='tunip'),roster),'Tu');
+});
+
+test('compass size migrates older preferences and clamps invalid or oversized values',()=>{
+ assert.equal(loadGameplaySettings({getItem:()=>'{"showGupLetters":false}'}).compassSize,100);
+ for(const v of [undefined,null,'150',NaN,Infinity])assert.equal(compassSizeValue(v),100);
+ assert.equal(compassSizeValue(0),75);assert.equal(compassSizeValue(500),150);assert.equal(compassSizeValue(127),125);
+ const storage={value:null,setItem(k,v){this.value=v;},getItem(){return this.value;}};saveGameplaySettings(storage,{...gameplayDefaults,compassSize:140});assert.equal(loadGameplaySettings(storage).compassSize,140);
 });

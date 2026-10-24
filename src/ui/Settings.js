@@ -1,4 +1,4 @@
-import {gameplaySettings,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
+import {gameplaySettings,compassSizeLimits,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
 import {installGraphicsSettings} from './GraphicsSettings.js';
 import {audioDefaults,volumeKeys} from '../audio/AudioSettings.js';
 import {cameraConfig} from '../config/worldConfig.js';
@@ -62,7 +62,10 @@ export function installSettings(){
  gameplayTab.id='gameplayTab';gameplayTab.type='button';gameplayTab.role='tab';gameplayTab.setAttribute('aria-selected','false');gameplayTab.setAttribute('aria-controls','gameplayPanel');gameplayTab.tabIndex=-1;gameplayTab.textContent='Gameplay';
  gameplayPanel.id='gameplayPanel';gameplayPanel.role='tabpanel';gameplayPanel.setAttribute('aria-labelledby','gameplayTab');gameplayPanel.hidden=true;
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
- intro(gameplayPanel,'Compass markers','Choose which undiscovered destinations appear on your compass.');
+ intro(gameplayPanel,'Compass','Adjust its size and choose which undiscovered destinations appear.');
+ const compassSize=range(grid(gameplayPanel),'compassSize','Compass size',compassSizeLimits.min,compassSizeLimits.max,compassSizeLimits.step);
+ const syncCompassSize=()=>{compassSize.input.value=gameplaySettings.compassSize;compassSize.output.value=gameplaySettings.compassSize+'%';fill(compassSize.input);};
+ compassSize.input.addEventListener('input',()=>{gameplaySettings.compassSize=Number(compassSize.input.value);syncCompassSize();window.explorer?.compass?.setSize(gameplaySettings.compassSize);status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});syncCompassSize();
  const markerSwitches=grid(gameplayPanel);
  for(const [key,label] of [['showGupLetters','Show GUP Letters on Compass'],['showOctonautLetters','Show Octonaut Letters on Compass']]){
   const input=check(markerSwitches,key,label,value=>{gameplaySettings[key]=value;window.explorer?.compass?.syncTargets();status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});input.checked=gameplaySettings[key];
