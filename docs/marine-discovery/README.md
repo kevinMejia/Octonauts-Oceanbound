@@ -26,7 +26,7 @@ The original four entries, procedural models, sizes, animation, movement path, a
 | Jellyfish | 6 | -85, 190 | Quiet water, pulsing translucent bells and swaying tentacles |
 | Spotted Eagle Ray | 2 | 90, 50 | Reef shallows, pointed spotted wings and banking glide |
 | Moray Eel | 1 | -49, 102 | Rocky reef edge, short peeking route with jaw/head motion |
-| Pufferfish | 3 | 44, 145 | Coral garden, fin flutter and brief subtle puff every 16 seconds |
+| Pufferfish | 3 | 44, 145 | Coral garden, individual circling paths, fin flutter and brief subtle puff every 16 seconds |
 | Humpback Whale | 1 | 350, -180 | Spacious ocean, wide 40m turns and slow horizontal tail strokes |
 
 `AnimalGroups.js` adds formation offsets, modest size variation, phase offsets, smooth motion, and a conservative terrain/scenery clearance envelope for these new encounters only. All group members remain close without overlapping. The shared discovery controller accepts their current world-space centers; proximity to **any** member saves one stable species ID and uses the existing modal and bubble celebration. Previously discovered members never replay the unlock. Original single-animal proximity follows its unchanged path.
@@ -52,3 +52,5 @@ Progress uses localStorage key `oceanbound.marine-discoveries.v1` with `{version
 ## Creature HUD
 
 The existing collection button is a compact orange-trimmed teal **CREATURES** capsule beside the original settings badge. Its fish icon is inline SVG and its counter reads current discovery count / registered species. The collection UI refreshes the counter on construction and when an encounter or collection opens, so the existing discovery callback updates it immediately without changes to persistence or proximity rules. Branding reflows separately at desktop and narrow portrait sizes, with safe-area offsets, focus/keyboard support and 44px touch targets. `tests/creature-hud-browser.cjs` verifies five viewport layouts, logo/settings behavior, keyboard and touch activation, counter changes, saved reload and full 11/11 sizing at 320px.
+
+Pufferfish have separate, phase-offset elliptical orbits inside their existing group envelope. Each faces its swimming direction, with small depth and radius variations; the shared group still drifts in its original coral habitat. `behavior.memberMotion`, `orbitRadius` and `orbitSpeed` configure this motion. Discovery centers follow every fish as before. The math-only motion helper reuses member state and adds no geometry or physics.

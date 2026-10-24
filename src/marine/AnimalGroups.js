@@ -1,3 +1,4 @@
+import {pufferfishPose} from './pufferfishMotion.js';
 import * as T from 'three';
 import {heightAt} from '../environment/terrainMath.js';
 import {createAnimalVisual} from './AnimalVisual.js';
@@ -12,7 +13,7 @@ export async function createAnimalGroup(d,game){
   const columns=Math.min(3,d.group.count),row=Math.floor(i/columns),rows=Math.ceil(d.group.count/columns),inRow=Math.min(columns,d.group.count-row*columns);
   const offset=new T.Vector3((i%columns-(inRow-1)/2)*d.group.spacing, d.id==='jellyfish'?(i%3-1)*1.2:0,(row-(rows-1)/2)*d.group.spacing);
   if(d.id==='hammerhead-shark')offset.z+=(i%2)*5;
-  members.push({visual,offset,phase:i*1.17});points.push(new T.Vector3());
+  members.push({visual,offset,phase:i*1.17,motion:{}});points.push(new T.Vector3());
  }
  const extent=members.reduce((n,m)=>Math.max(n,Math.hypot(m.offset.x,m.offset.z)),0)+d.behavior.footprint;
  let floor=-Infinity;const nearby=[];
@@ -38,8 +39,12 @@ export function updateAnimalGroup(r,time,dt,player,force=false){
  group.rotation.y=hovering?.4+Math.sin(phase)*.3:Math.atan2(Math.cos(phase),-.65*Math.sin(phase));
  group.rotation.z=b.style==='glide'?Math.sin(phase)*.1:0;
  for(let i=0;i<r.members.length;i++){const m=r.members[i],p=m.visual.group,t=time+m.phase;
-  p.position.set(m.offset.x+Math.sin(t*.45)*.2,m.offset.y+Math.sin(t*.7)*.2,m.offset.z+Math.cos(t*.37)*.2);
-  p.rotation.y=Math.sin(t*.35)*.06;p.rotation.z=hovering?Math.sin(t*.6)*.035:0;m.visual.animate(t,step);
+  if(b.memberMotion==='orbit'){
+   const pose=pufferfishPose(time,i,r.members.length,b,m.motion);p.position.set(pose.x,pose.y,pose.z);p.rotation.y=pose.heading;p.rotation.z=pose.bank;
+  }else{
+   p.position.set(m.offset.x+Math.sin(t*.45)*.2,m.offset.y+Math.sin(t*.7)*.2,m.offset.z+Math.cos(t*.37)*.2);
+   p.rotation.y=Math.sin(t*.35)*.06;p.rotation.z=hovering?Math.sin(t*.6)*.035:0;
+  }m.visual.animate(t,step);
  }
  group.updateMatrixWorld(true);for(let i=0;i<r.members.length;i++)r.members[i].visual.group.getWorldPosition(r.points[i]);
 }
