@@ -12,8 +12,8 @@ export class AnimalMovement{
   const radius=c.pattern==='roaming'?Math.min(c.roamingRadius,c.routeRadius)*( .86+.12*Math.sin(this.time*.09)):c.routeRadius;
   return {x:c.center.x+Math.sin(this.routePhase)*radius,z:c.center.z+Math.cos(this.routePhase)*radius};
  }
- update(dt,player,{grid,ground=()=>0}={}){let left=Math.max(0,dt);while(left>1e-8){const step=Math.min(left,.05);this.step(step,player,grid,ground);left-=step;}return this;}
- step(dt,player,grid,ground){const c=this.config,p=this.position;this.time+=dt;this.escapeLeft=Math.max(0,this.escapeLeft-dt);this.cooldown=Math.max(0,this.cooldown-dt);
+ update(dt,player,{grid,ground=()=>0,steering}={}){let left=Math.max(0,dt);while(left>1e-8){const step=Math.min(left,.05);this.step(step,player,grid,ground,steering);left-=step;}return this;}
+ step(dt,player,grid,ground,steering){const c=this.config,p=this.position;this.time+=dt;this.escapeLeft=Math.max(0,this.escapeLeft-dt);this.cooldown=Math.max(0,this.cooldown-dt);
   const distance=Math.hypot(p.x-player.x,p.y-player.y,p.z-player.z),active=c.evasionEnabled&&c.reaction!=='passive';
   if(active&&!this.escapeLeft&&!this.cooldown&&distance<c.triggerDistance){this.reacted=true;this.escapeLeft=c.evasionDuration;this.cooldown=c.evasionDuration+c.evasionCooldown;}
   let target=this.target(),desired=c.cruisingSpeed*(1+c.speedVariation*(Math.sin(this.time*.37)*.65+Math.sin(this.time*.17+1)*.35)),escaping=this.escapeLeft>0;
@@ -26,7 +26,7 @@ export class AnimalMovement{
   const limit=Math.max(1,Math.min(c.habitatRadius,c.maxHabitatDistance)-c.footprint),radial=Math.hypot(p.x-c.center.x,p.z-c.center.z);
   if(radial>limit-Math.max(8,this.speed*2)){target=c.center;escaping=false;desired=Math.min(desired,c.cruisingSpeed);}
   this.senseLeft-=dt;if(this.senseLeft<=0){this.senseLeft=.2;this.avoidX=this.avoidZ=0;if(grid)for(const s of grid.query(p.x,p.z,c.footprint+this.speed*2+8,this.near)){if(!s.solid||Math.abs(p.y-s.y)>(s.ry??s.radius)+c.bodyHeight)continue;const dx=p.x-s.x,dz=p.z-s.z,n=Math.hypot(dx,dz)||1,r=Math.max(s.rx??s.radius,s.rz??s.radius)+c.footprint+this.speed*1.5;if(n<r){this.avoidX+=(dx*3-dz*2)/n*(r-n);this.avoidZ+=(dz*3+dx*2)/n*(r-n);}}}
-  let heading=Math.atan2(target.x-p.x+this.avoidX,target.z-p.z+this.avoidZ),turn=clamp(angle(heading-this.heading),-c.turningSpeed*dt,c.turningSpeed*dt);this.heading=angle(this.heading+turn);this.bank+=(clamp(-turn/dt*.18,-.24,.24)-this.bank)*(1-Math.exp(-3*dt));
+  let heading=Math.atan2(target.x-p.x+this.avoidX+(steering?.x??0),target.z-p.z+this.avoidZ+(steering?.z??0)),turn=clamp(angle(heading-this.heading),-c.turningSpeed*dt,c.turningSpeed*dt);this.heading=angle(this.heading+turn);this.bank+=(clamp(-turn/dt*.18,-.24,.24)-this.bank)*(1-Math.exp(-3*dt));
   if(c.pattern==='stationary')desired=Math.min(desired,Math.hypot(target.x-p.x,target.z-p.z)*.4);
   this.pauseLeft=Math.max(0,this.pauseLeft-dt);if(c.pauseSeconds>0&&this.time>=this.nextPause){this.pauseLeft=c.pauseSeconds;this.nextPause=this.time+c.pauseInterval;}
   desired=this.pauseLeft?0:clamp(desired,c.pattern==='stationary'?0:c.minSpeed,escaping?c.escapeSpeed:c.maxSpeed);this.speed=approach(this.speed,desired,(desired>this.speed?(escaping?c.escapeAcceleration:c.acceleration):c.deceleration)*dt);

@@ -20,7 +20,7 @@ export class MarineAnimals{
   try{animals.thumbnails.set(d.id,d.thumbnailPath??d.visual?.thumbnailPath??animals.thumbnail(visual.group));}catch(error){console.warn('Marine thumbnail unavailable',d.id,error);}
   game.scene.add(visual.group);
  }
- for(const r of animals.records){const config=movementForAnimal(r.definition);if(config){
+ for(const r of animals.records){if(r.independent)continue;const config=movementForAnimal(r.definition);if(config){
   config.center.y=Math.min(config.maxY,Math.max(config.center.y,(r.centerY??r.floor+r.definition.behavior.clearance)));
   r.movement=new AnimalMovement(config);
  }}animals.update(0,game.sub.position,true);return animals;}
@@ -39,7 +39,7 @@ export class MarineAnimals{
   }finally{renderer.setRenderTarget(previous);renderer.setClearColor(color,alpha);target.dispose();scene.remove(group);}
  }
  update(dt,player,force=false){this.time+=dt;
-  for(const r of this.records){if(r.movement){
+  for(const r of this.records){if(r.independent){updateAnimalGroup(r,this.time,dt,player,force);continue;}if(r.movement){
    const g=r.visual.group,distance=Math.hypot(g.position.x-player.x,g.position.z-player.z);r.elapsed+=dt;g.visible=force||distance<240;
    if(!force&&distance>110&&r.elapsed<.25)continue;
    const step=r.elapsed;r.elapsed=0;const motion=r.movement,c=motion.config;

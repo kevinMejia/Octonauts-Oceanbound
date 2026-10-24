@@ -1,5 +1,7 @@
 # GUP speed, turbo and marine movement implementation
 
+For the subsequent independent shark patrols and loose member drift, see [natural animal groups](natural-animal-groups.md); that change supersedes formation offsets and pufferfish orbit details below.
+
 Implemented October 24, 2026. Speeds below are world metres/second. No UI, animal geometry, discovery IDs or storage keys were replaced.
 
 ## GUP tuning
