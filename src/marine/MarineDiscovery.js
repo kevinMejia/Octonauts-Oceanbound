@@ -1,3 +1,4 @@
+import {expandedVisualTypes} from './ExpandedRegistry.js';
 // This registry never reads ambient wildlife or fleet definitions.
 
 import {marineAnimals} from './AnimalRegistry.js';
@@ -15,7 +16,7 @@ export class MarineDiscovery {
 
   for(const animal of registry){
 
-   if(!animal.id || this.records.has(animal.id) || !['commonName','scientificName','fact','habitat'].every(k=>typeof animal[k]==='string'&&animal[k].trim()) || (animal.visual ? !(['procedural','glb'].includes(animal.visual.source)) || (animal.visual.source==='procedural'&&!['octopus','dolphin','whale-shark','manta'].includes(animal.visual.type)) || (animal.visual.source==='glb'&&!(animal.visual.modelPath??animal.modelPath)) : (!animal.modelPath || !animal.thumbnailPath)) || !point(animal.position) || !(animal.discoveryRadius>0) || !Number.isFinite(animal.discoveryRadius))throw new Error('Invalid marine animal configuration: '+animal.id);
+   if(!animal.id || this.records.has(animal.id) || !['commonName','scientificName','fact','habitat'].every(k=>typeof animal[k]==='string'&&animal[k].trim()) || (animal.visual ? !(['procedural','glb'].includes(animal.visual.source)) || (animal.visual.source==='procedural'&&!['octopus','dolphin','whale-shark','manta',...expandedVisualTypes].includes(animal.visual.type)) || (animal.visual.source==='glb'&&!(animal.visual.modelPath??animal.modelPath)) : (!animal.modelPath || !animal.thumbnailPath)) || !point(animal.position) || !(animal.discoveryRadius>0) || !Number.isFinite(animal.discoveryRadius))throw new Error('Invalid marine animal configuration: '+animal.id);
 
    this.records.set(animal.id,Object.freeze({...animal,position:Object.freeze({...animal.position})}));
 
@@ -39,6 +40,8 @@ export class MarineDiscovery {
 
    if(this.ids.has(animal.id))continue;
 
+   const members=this.groupPositions?.get(animal.id);
+   if(members){let found=false;for(const p of members)if((position.x-p.x)**2+(position.y-p.y)**2+(position.z-p.z)**2<=animal.discoveryRadius**2){this.ids.add(animal.id);this.save();this.onDiscover(animal,{x:p.x,y:p.y,z:p.z});found=true;break;}if(found)return true;continue;}
    const p=this.positions?.get(animal.id)??animal.position;
 
    if((position.x-p.x)**2+(position.y-p.y)**2+(position.z-p.z)**2<=animal.discoveryRadius**2){this.ids.add(animal.id);this.save();this.onDiscover(animal,{...p});return true;}
@@ -46,6 +49,9 @@ export class MarineDiscovery {
   }return false;
 
  }
+
+ // Groups expose stable world-space point objects updated by their controller.
+ setGroupPositions(id,positions){if(!this.records.has(id)||!Array.isArray(positions)||!positions.length||!positions.every(point))return false;this.groupPositions??=new Map();this.groupPositions.set(id,positions);return true;}
 
  // Moving models can supply their world-space center; no physics collider needed.
 

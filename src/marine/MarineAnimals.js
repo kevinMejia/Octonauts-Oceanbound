@@ -1,9 +1,14 @@
+import {createAnimalGroup,updateAnimalGroup} from './AnimalGroups.js';
 import * as T from 'three';
 import {heightAt} from '../environment/terrainMath.js';
 import {createAnimalVisual} from './AnimalVisual.js';
 
 export class MarineAnimals{
  static async create(game){const animals=new MarineAnimals(game);for(const d of game.marineDiscovery.records.values()){
+  if(d.group){const record=await createAnimalGroup(d,game);animals.records.push(record);
+   const specimen=record.members[0].visual.group;try{animals.thumbnails.set(d.id,d.thumbnailPath??d.visual?.thumbnailPath??animals.thumbnail(specimen,true));}finally{record.visual.group.add(specimen);}
+   game.scene.add(record.visual.group);continue;
+  }
   const visual=await createAnimalVisual(d);const record={definition:d,visual,elapsed:0,floor:-Infinity};
   // Sample the entire small route once, so clearance never causes sudden jumps.
   const nearby=[];for(let i=0;i<64;i++){const a=i*Math.PI/32,x=d.position.x+Math.sin(a)*d.behavior.radius,z=d.position.z+Math.cos(a)*d.behavior.radius*.65;record.floor=Math.max(record.floor,heightAt(x,z));
@@ -14,11 +19,12 @@ export class MarineAnimals{
   game.scene.add(visual.group);
  }animals.update(0,game.sub.position,true);return animals;}
  constructor(game){this.game=game;this.records=[];this.thumbnails=new Map();this.time=0;}
- thumbnail(group){
+ thumbnail(group,fit=false){
   const renderer=this.game.renderer,scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,200);
   scene.add(group,new T.HemisphereLight(0xd5faff,0x51677a,2));const key=new T.DirectionalLight(0xffffff,2.5);key.position.set(5,8,10);scene.add(key);
   const box=new T.Box3().setFromObject(group),size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3()),distance=size.length()*1.05;
   camera.position.copy(center).add(new T.Vector3(distance*.8,distance*.4,distance));camera.lookAt(center);
+  if(fit){for(let pass=0;pass<5;pass++){camera.updateMatrixWorld(true);let edge=0;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const p=new T.Vector3(x,y,z).project(camera);edge=Math.max(edge,Math.abs(p.x),Math.abs(p.y));}if(edge<=.86)break;camera.position.sub(center).multiplyScalar(edge/.84).add(center);}}
   const target=new T.WebGLRenderTarget(256,256),previous=renderer.getRenderTarget(),alpha=renderer.getClearAlpha(),color=renderer.getClearColor(new T.Color());
   try{renderer.setRenderTarget(target);renderer.setClearColor(0x000000,0);renderer.render(scene,camera);
    const pixels=new Uint8Array(256*256*4);renderer.readRenderTargetPixels(target,0,0,256,256,pixels);
@@ -27,7 +33,7 @@ export class MarineAnimals{
   }finally{renderer.setRenderTarget(previous);renderer.setClearColor(color,alpha);target.dispose();scene.remove(group);}
  }
  update(dt,player,force=false){this.time+=dt;
-  for(const r of this.records){const g=r.visual.group,d=r.definition,b=d.behavior;r.elapsed+=dt;
+  for(const r of this.records){if(r.members){updateAnimalGroup(r,this.time,dt,player,force);continue;}const g=r.visual.group,d=r.definition,b=d.behavior;r.elapsed+=dt;
    const distance=(g.position.x-player.x)**2+(g.position.z-player.z)**2;g.visible=force||distance<240**2;
    if(!force&&distance>110**2&&r.elapsed<.25)continue;
    const step=r.elapsed;r.elapsed=0;const t=this.time*b.speed,phase=d.id==='octopus'?t+Math.sin(t*2)*.45:t;

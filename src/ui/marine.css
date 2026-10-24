@@ -1,8 +1,6 @@
 body.marine-open #ocean{filter:blur(7px) brightness(.65)}
 
-#creatureCollection{width:auto;min-height:44px;padding:8px 12px;border:1px solid #a8f5e9;border-radius:14px;background:#07525f;color:#eafff7;font:bold 12px Arial;touch-action:manipulation}
 
-#navigation{display:flex;align-items:center;gap:8px}
 
 #marineDialog .marine-close{min-width:44px;min-height:44px;border-radius:14px;background:#064651;color:#a8f5e9;border:1px solid #b8fff199;font-size:24px}
 
@@ -18,7 +16,6 @@ body.marine-open #ocean{filter:blur(7px) brightness(.65)}
 
 @media(max-height:480px){.marine-content>img{height:120px}}
 
-@media(max-width:500px){#creatureCollection{position:absolute;top:58px;left:0;font-size:11px;max-width:148px}}
 
 .marine-locked img{filter:brightness(0);opacity:.55}
 

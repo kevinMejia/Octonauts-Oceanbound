@@ -1,7 +1,9 @@
+import {createExpandedVisual} from './ExpandedVisuals.js';
+import {expandedVisualTypes} from './ExpandedRegistry.js';
 import * as T from 'three';
 
 // All procedural meshes face +Z. Gameplay only sees group/animate/dispose.
-export async function createAnimalVisual(definition){
+export async function createAnimalVisual(definition,options){
  if(definition.visual?.source==='glb'){
   const {vehicleLoader}=await import('../vehicles/VehicleTextures.js');
   const gltf=await vehicleLoader().loadAsync(definition.visual.modelPath??definition.modelPath);
@@ -11,6 +13,7 @@ export async function createAnimalVisual(definition){
   if(clip)mixer.clipAction(clip).setEffectiveTimeScale(definition.animation?.speed??1).play();
   return {group,animate:(time,dt)=>mixer.update(dt),dispose(){mixer.stopAllAction();mixer.uncacheRoot(gltf.scene);dispose(group);}};
  }
+ if(expandedVisualTypes.includes(definition.visual.type))return createExpandedVisual(definition,options);
  const kind=definition.visual.type,group=new T.Group(),moving=[];
  const sphere=new T.SphereGeometry(1,16,10);
  const material=color=>new T.MeshStandardMaterial({color,roughness:.72,flatShading:true,side:T.DoubleSide});

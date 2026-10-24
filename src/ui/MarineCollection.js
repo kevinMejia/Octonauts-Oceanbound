@@ -4,7 +4,7 @@ export class MarineCollection {
 
   this.game=game;this.discovery=discovery;
 
-  this.button=document.createElement('button');this.button.id='creatureCollection';this.button.textContent='Creature Collection';this.button.setAttribute('aria-haspopup','dialog');this.button.setAttribute('aria-controls','marineDialog');this.button.setAttribute('aria-expanded','false');document.querySelector('#navigation').append(this.button);
+  this.button=document.createElement('button');this.button.id='creatureCollection';this.button.type='button';this.button.innerHTML=`<svg class="creature-fish" viewBox="0 0 44 32" aria-hidden="true" focusable="false"><path d="M12 11 3 6 5 16 3 26 13 21C23 31 36 25 41 16 35 5 22 2 12 11Z" fill="#ffc25a" stroke="#e99829" stroke-width="1.5" stroke-linejoin="round"/><path d="m20 7 4-5 7 3M21 25l5 5 5-4" fill="#ffb340" stroke="#e99829" stroke-linejoin="round"/><path d="M27 8q-6 8 0 17" fill="none" stroke="#e9a23c" stroke-width="1.2"/><ellipse cx="33" cy="12" rx="4" ry="5" fill="#fff4d2"/><ellipse cx="34" cy="12" rx="2.1" ry="3" fill="#194759"/></svg><span class="creature-label">CREATURES</span><span class="creature-counter" aria-hidden="true"></span>`;this.counter=this.button.querySelector('.creature-counter');this.updateCounter();this.button.title='Open Creature Collection';for(const type of ['pointerdown','pointerup'])this.button.addEventListener(type,event=>event.stopPropagation());this.button.setAttribute('aria-haspopup','dialog');this.button.setAttribute('aria-controls','marineDialog');this.button.setAttribute('aria-expanded','false');document.querySelector('#navigation').append(this.button);
 
   this.dialog=document.createElement('dialog');this.dialog.id='marineDialog';this.dialog.setAttribute('aria-labelledby','marineTitle');
 
@@ -16,7 +16,10 @@ export class MarineCollection {
 
  }
 
+ updateCounter(){const found=this.discovery.count,total=this.discovery.records.size;this.counter.textContent=`${found}/${total}`;this.button.setAttribute('aria-label',`Creature Collection, ${found} of ${total} creatures discovered`);}
+
  open(animal,location){
+  this.updateCounter();
 
   if(this.dialog.open)return;this.returnFocus=document.activeElement;this.render(animal);this.release=this.game.pause.acquire('marine-scanner');this.game.input.clear();
 
@@ -27,6 +30,7 @@ export class MarineCollection {
  }
 
  render(animal){
+  this.updateCounter();
 
   this.content.replaceChildren();this.dialog.querySelector('#marineTitle').textContent=animal?'CREATURE DISCOVERED!':'CREATURE COLLECTION';
 

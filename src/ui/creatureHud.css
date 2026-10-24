@@ -1,0 +1,28 @@
+/* Compact Octopod navigation. The existing logo and dialog remain in place. */
+#navigation{display:flex;align-items:center;gap:10px;isolation:isolate}
+#menuToggle{flex-shrink:0}
+#creatureCollection{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;width:auto;height:48px;min-height:44px;margin:0;padding:5px 10px;border:3px solid #ffac38;border-radius:999px;background:linear-gradient(180deg,#168b97 0%,#076476 40%,#034453 100%);box-shadow:0 2px 0 #a85b20,0 5px 9px #003a4b66,inset 0 2px 0 #a5fff0aa,inset 0 -2px 0 #013441;color:#f2fffa;font:800 14px Arial,sans-serif;letter-spacing:.65px;line-height:1;white-space:nowrap;cursor:pointer;touch-action:manipulation;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
+#creatureCollection::before{content:'';position:absolute;top:4px;left:15px;right:15px;height:8px;border-top:1px solid #befff166;border-radius:50%;pointer-events:none}
+#creatureCollection>*{pointer-events:none}
+.creature-fish{display:block;width:28px;height:25px;flex-shrink:0;filter:drop-shadow(0 1px 0 #003e51)}
+.creature-label{text-shadow:0 2px 0 #003d50}
+.creature-counter{display:flex;align-items:center;justify-content:center;min-width:43px;height:32px;padding:0 7px;border:2px solid #ffd46b;border-radius:18px;background:linear-gradient(#ffc440,#ff9d08);box-shadow:0 2px 0 #b96713,inset 0 1px 0 #ffe39a;color:#163c45;font-size:15px;font-weight:900;letter-spacing:0;font-variant-numeric:tabular-nums}
+#creatureCollection[aria-expanded=true]{background:linear-gradient(#096675,#033d4c);box-shadow:0 1px 0 #a85b20,inset 0 2px 5px #002f4666}
+@media(hover:hover){#creatureCollection:hover{background:linear-gradient(#229eaa,#087286 45%,#045262)}}
+#creatureCollection:active{transform:translateY(2px);box-shadow:0 1px 0 #a85b20,inset 0 2px 4px #00314566}
+#creatureCollection:focus-visible{outline:3px solid #fff3bf;outline-offset:4px}
+/* Branding gets its own space, below the navigation on smaller screens. */
+body>header{top:calc(env(safe-area-inset-top,0px) + 88px);left:calc(env(safe-area-inset-left,0px) + 24px);max-width:280px;gap:0}
+body>header h1{font-size:24px;letter-spacing:-.7px}
+body>header h1 span{font-size:10px;letter-spacing:1.4px}
+body>header p{font-size:8px;letter-spacing:1.8px}
+@media(min-width:900px){body>header{top:calc(env(safe-area-inset-top,0px) + 34px);left:calc(env(safe-area-inset-left,0px) + 324px)}}
+@media(max-width:500px){
+ #navigation{top:calc(env(safe-area-inset-top,0px) + 28px);left:calc(env(safe-area-inset-left,0px) + 12px);gap:6px}
+ #creatureCollection{height:44px;gap:5px;padding:4px 6px;font-size:12px;letter-spacing:.3px}
+ .creature-fish{width:22px;height:22px}.creature-counter{height:28px;min-width:37px;padding:0 5px;font-size:13px}
+ body>header{top:calc(env(safe-area-inset-top,0px) + 92px);left:calc(env(safe-area-inset-left,0px) + 20px);max-width:220px}
+ body>header h1{font-size:17px}body>header h1 span{font-size:8px;letter-spacing:1px}
+}
+@media(max-width:360px){#navigation{left:calc(env(safe-area-inset-left,0px) + 8px);gap:4px}#creatureCollection{gap:3px;padding:4px 3px;border-width:2px;font-size:10px;letter-spacing:0}.creature-fish{width:14px}.creature-counter{min-width:30px;padding:0 2px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){#creatureCollection{transition:none}}
