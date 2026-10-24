@@ -1,3 +1,4 @@
+import {SunRays} from './SunRays.js';
 import {visualConfig} from '../config/visualConfig.js';
 import {waterReflections} from './waterReflections.js';
 import * as T from 'three';
@@ -17,11 +18,13 @@ export function atmosphere(scene,profile=environmentConfig.profiles.high,rendere
  const dome=new T.Mesh(new T.SphereGeometry(440,24,12),new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{time:{value:0},shaftIntensity:{value:config.atmosphere.lightShaftIntensity*(low?.6:1)},depthBlend:{value:0}},vertexShader:'varying vec3 vDirection;void main(){vDirection=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDirection;uniform float time,shaftIntensity,depthBlend;void main(){vec3 d=normalize(vDirection);float up=smoothstep(-.25,.9,d.y);vec3 color=mix(vec3(.015,.18,.30),vec3(.06,.58,.69),up);float sun=pow(max(0.,dot(d,normalize(vec3(-.4,.9,-.25)))),25.);color+=vec3(.32,.48,.43)*sun;if(shaftIntensity>.001){float bands=pow(max(0.,sin(atan(d.x,d.z)*13.+sin(d.y*7.+time*.09)*.2)),18.)*smoothstep(.1,.8,d.y);color+=vec3(.45,.78,.8)*bands*shaftIntensity;} color=mix(color,color*vec3(.9,.97,1.02),depthBlend);gl_FragColor=vec4(color,1.);#include <tonemapping_fragment>\n#include <colorspace_fragment>}`.replace(';#include',';\n#include')}));dome.renderOrder=-10;scene.add(dome);
  const caustic=causticTexture();
  const surface=new T.Mesh(new T.PlaneGeometry(worldConfig.size,worldConfig.size),new T.ShaderMaterial({side:T.DoubleSide,transparent:true,depthWrite:false,uniforms:{time:{value:0},pattern:{value:caustic}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec2 vUv;uniform float time;uniform sampler2D pattern;void main(){vec2 uv=vUv*55.;uv+=vec2(sin(uv.y*.6+time*.13),cos(uv.x*.5-time*.1))*.13;float a=texture2D(pattern,uv+vec2(time*.009,-time*.007)).r;gl_FragColor=vec4(vec3(.3,.8,.9),a*.22);}` }));surface.rotation.x=-Math.PI/2;surface.position.y=worldConfig.surface+.2;scene.add(surface);
+ const sunRays=new SunRays(scene,low);
  const ambient=new AmbientWater(scene,low),propulsion=new PropulsionWater(scene,low);const inspect=new URLSearchParams(location.search).has('inspect');let output;
- return {ambient,propulsion,reflection,update(time,dt,sub,vehicle,camera,pixelRatio){
+ return {ambient,propulsion,reflection,sunRays,update(time,dt,sub,vehicle,camera,pixelRatio){
   const position=sub.position,depth=Math.max(0,Math.min(1,(worldConfig.surface-position.y)/config.atmosphere.depthRange));
   scene.fog.color.copy(baseFog).lerp(depthTint,depth*config.atmosphere.depthTintStrength);scene.fog.density=config.atmosphere.fogDensity*(1+depth*.08);scene.background.copy(scene.fog.color);sun.intensity=visualConfig.lighting.sunIntensity*(1-depth*.06);
   dome.position.set(position.x,12,position.z);dome.material.uniforms.time.value=time;dome.material.uniforms.depthBlend.value=depth;surface.material.uniforms.time.value=time;sun.position.set(position.x-42,78,position.z+40);sun.target.position.set(position.x,0,position.z);sun.target.updateMatrixWorld();causticTime.value=time;
+  sunRays.update(time,position,scene.fog.density);
   ambient.update(time,camera,pixelRatio);propulsion.update(dt,time,sub,vehicle,camera,pixelRatio);
   if(inspect){output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'waterMetrics',hidden:true}));output.dataset.metrics=JSON.stringify({bubbles:propulsion.activeBubbles,reefBubbles:propulsion.activeReefBubbles,flow:propulsion.activeStreaks,ambient:ambient.count,bubbleBudget:propulsion.bubbles.items.length,flowBudget:propulsion.streaks.items.length,quality:low?'low':'high',speed:sub.speed,boost:sub.turbo.active,depth:worldConfig.surface-position.y});}
  }};

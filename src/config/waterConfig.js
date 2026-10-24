@@ -1,5 +1,6 @@
 // Rendering and cosmetic motion only. Distances are game metres, rates are per second.
 export const waterConfig={
+ sunRays:{enabled:true,count:6,lowCount:3,intensity:.14,lowIntensity:.1},
  bubbles:{enabled:true,emissionRate:14,minSize:.07,maxSize:.24,buoyancy:1.1,
   lifetime:6,speedMultiplier:1,boostMultiplier:1.5,maxParticles:240,lowParticles:128,
   renderDistance:65},
