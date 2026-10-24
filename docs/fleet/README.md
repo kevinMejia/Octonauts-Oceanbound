@@ -61,3 +61,11 @@ node tests/fleet-production.cjs
 ## Publication approval
 
 The user explicitly approved publishing the five runtime GLBs and thumbnails after local validation. These ten assets are now tracked for the GitHub Pages deployment. Original Blender files, texture archives, working copies and preview evidence remain local. This approval supersedes the earlier local-only publication status above.
+
+## Collected fleet around the Octopod
+
+`src/config/fleetParkingConfig.js` assigns the eight existing GUPs stable, outward-facing berths on a 24m arc around the central base, on its cleared level sand. Opposite left/right slots spread the fleet evenly and leave an open front approach. The current piloted GUP stays with the player; switching parks it in its own berth. Locked GUPs retain their original discovery locations. Unlocking moves the collected model home through the existing parking/proxy synchronization, and saved collections use the same berths on refresh without changing saved IDs.
+
+The central runtime mapping in `vehicleConfig.js` overrides only parking spawn/heading, preserving each GUP's own ground clearance and all model, discovery, movement and audio configuration. Generated imports can be regenerated without overwriting the layout, and unknown future IDs keep their authored custom parking until assigned a berth. No additional models, clones or rendering loops are added. Existing collision-aware placement and GPU resource handling remain in use.
+
+Validation includes all eight hulls against real Octopod collision data and one another, at least 14m between centers, relative-base positioning, unchanged discovery anchors, live saved-fleet loading, and repeated switches returning inactive models to their berths. The full Node suite has 171 passing tests; the live eight-model check reports no WebGL or page errors.

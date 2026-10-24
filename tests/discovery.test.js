@@ -57,7 +57,7 @@ test('contact unlocks once, modal blocking prevents simultaneous triggers, and c
  approach();f.block(true);assert.equal(f.world.update(sub),false);assert.equal(f.discoveries,0);f.block(false);
  assert.equal(f.world.update(sub),true);assert.equal(f.discoveries,1);assert.equal(f.unlocks.isUnlocked('gup-a'),true);assert.equal(f.world.activeDiscovery,'gup-a');
  assert.equal(f.world.update(sub),false);f.world.finishDiscovery();approach();assert.equal(f.world.update(sub),false);assert.equal(f.discoveries,1);assert.equal(f.fleet.activeId,'gup-b');assert.equal(r.proxies.some(p=>p.triggerEnabled),false);
- assert.equal(r.pose.x,162);assert.equal(r.pose.z,134);
+ const home=fleetAnchor(vehicles[0],true);assert.equal(r.pose.x,home.x);assert.equal(r.pose.z,home.z);
 });
 test('relative anchors follow the Octopod and safe placement respects solids and a returning vehicle slot',()=>{
  const a=fleetAnchor(vehicles[0],false,{x:300,y:0,z:200});assert.equal(a.x,324);assert.equal(a.z,248);
