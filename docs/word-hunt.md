@@ -1,12 +1,12 @@
 # Octonauts Word Hunt
 
-Nine beveled 3D letters traced from the supplied Octonauts wordmark float and turn gently throughout the ocean. Shared extruded vector geometry preserves the tall slab-serif silhouettes and counters. Cyan emissive faces, colored edges, pulsing additive halos and twelve orbiting star sparkles per letter attract attention without a bloom pass or extra lights. Collection uses the existing swept-sphere proximity helper, with stable IDs mapped to individual word positions. No added libraries, physics, sound, or permanent HUD.
+Nine beveled 3D letters traced from the supplied Octonauts wordmark float and turn gently throughout the ocean. Shared extruded vector geometry preserves the tall slab-serif silhouettes and counters. Nine assigned saturated warm/violet/lime face colors, darker glossy sides, a thin purple silhouette, pulsing additive halos and twelve warm-white/color-matched sparkles per letter (five slowly orbiting) attract attention without a bloom pass or extra lights. Collection uses the existing swept-sphere proximity helper, with stable IDs mapped to individual word positions. No added libraries, physics, sound, or permanent HUD.
 
 The centered discovery notice fades in over 0.15 seconds, stays until 3 seconds after collection, then fades out completely over 0.4 seconds. Another collection restarts the single elapsed-time clock. It continues expiring while gameplay is paused. Restoring saved progress never opens the notice.
 
 ## Placement and tuning
 
-Edit `src/config/wordHuntConfig.js`: `letters` controls coordinates and stable IDs; `collectionRadius` defaults to 7 metres. Animation amplitude and speeds are configurable there too. The `visuals` section controls letter height, emissive intensity, halo size, sparkle count and sparkle size. Keep IDs stable to preserve existing saves. Word order follows the array order.
+Edit `src/config/wordHuntConfig.js`: `letters` controls coordinates and stable IDs; `collectionRadius` defaults to 7 metres. The existing `visuals` section controls letter height, halo size, sparkle count/size, rotation duration (2.5 seconds per continuous Y revolution), floating duration (2 seconds) and amplitude (0.2 metres), extrusion/bevel, emissive/glow intensity, dark outline, particle toggles/orbit count and the nine face colors. `floatAmplitude` remains the original placement clearance pad so assigned safe base locations do not move. Keep IDs stable to preserve existing saves. Word order follows the array order.
 
 Assigned locations (x, y, z), followed by terrain-adjusted base y observed in browser QA:
 
@@ -46,3 +46,6 @@ Modified: `src/game/Game.js` (lifecycle, update, fleet reward), `src/turbo/Turbo
 Browser collection tests position the GUP at each letter; they do not manually pilot complete ocean routes or exercise every GUP model and physical mobile device. Safety checks use existing registered collision surfaces and terrain, not every cosmetic plant mesh.
 
 The trace authoring tool accepts the supplied 755x180 wordmark JPG, isolates its word region, extracts silhouettes and holes, and simplifies contours using Pillow. Pillow is authoring-only; the generated outline module and runtime use Three.js alone. Letter geometry is cached per unique character. Browser checks also verify shared repeated-letter geometry, extrusion, O counters and sparkle counts.
+
+
+Visual upgrade validation: browser assertions check all nine material colors, centered pivots, depth, 30/120 Hz rotation equivalence, bounded bobbing, repeated-letter geometry sharing and GPU cleanup after collection. Front, side and back screenshots were inspected against the underwater environment, alongside a nine-letter preview on dark water. Geometry is retained only while another active letter shares it; collected letters detach and dispose their own materials/particle buffers. Reset recreates visuals without changing progression semantics. No physical iPhone Safari performance measurement was available; desktop Edge/WebGL and a narrow viewport were tested.

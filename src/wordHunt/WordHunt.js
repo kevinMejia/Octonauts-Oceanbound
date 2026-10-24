@@ -16,13 +16,13 @@ export function safeLetterPoint(point,surfaces,config=wordHuntConfig){
  throw Error(`No reachable Word Hunt location for ${point.id}`);
 }
 export class WordHunt{
- constructor(scene,surfaces,storage,config=wordHuntConfig){this.config=config;this.progress=new WordHuntProgress(config,storage);this.display=new WordHuntDisplay(config);this.time=0;this.visuals=new LetterVisuals(config.visuals);
+ constructor(scene,surfaces,storage,config=wordHuntConfig){this.scene=scene;this.config=config;this.progress=new WordHuntProgress(config,storage);this.display=new WordHuntDisplay(config);this.time=0;this.visuals=new LetterVisuals(config.visuals);
   this.records=config.letters.map((letter,i)=>{const point=safeLetterPoint(letter,surfaces,config),root=this.visuals.create(letter.letter,i);
-   root.position.copy(point);root.visible=!this.progress.ids.has(letter.id);scene.add(root);return {id:letter.id,point,root,phase:i*2.4};});
+   root.position.copy(point);root.rotation.y=i*2.4;root.visible=!this.progress.ids.has(letter.id);if(root.visible)scene.add(root);else this.visuals.release(root);return {id:letter.id,point,root,phase:i*2.4};});
  }
- update(dt,sub){this.time+=dt;const c=this.config;for(const r of this.records){if(this.progress.ids.has(r.id))continue;r.root.position.y=r.point.y+Math.sin(this.time*c.floatSpeed+r.phase)*c.floatAmplitude;r.root.rotation.y=Math.sin(this.time*c.rotationSpeed+r.phase)*.55;this.visuals.animate(r.root,this.time,r.phase);
-   if(crossesPickup(sub.previousPosition,sub.position,r.root.position,c.collectionRadius)&&this.progress.collect(r.id)){r.root.visible=false;this.display.show(this.progress,r.id);}
+ update(dt,sub){this.time+=dt;const c=this.config;for(const r of this.records){if(this.progress.ids.has(r.id))continue;const v=c.visuals;r.root.position.y=r.point.y+(v.floating.enabled?Math.sin(this.time*Math.PI*2/v.floating.duration+r.phase)*v.floating.amplitude:0);if(v.rotation.enabled)r.root.rotation.y=(r.root.rotation.y+dt*Math.PI*2/v.rotation.duration)%(Math.PI*2);this.visuals.animate(r.root,this.time,r.phase);
+   if(crossesPickup(sub.previousPosition,sub.position,r.root.position,c.collectionRadius)&&this.progress.collect(r.id)){this.visuals.release(r.root);this.display.show(this.progress,r.id);}
   }sub.turbo.setInfinite(this.progress.infiniteTurbo);
  }
- reset(){this.progress.reset();for(const r of this.records)r.root.visible=true;this.display.reset();}
+ reset(){this.progress.reset();for(let i=0;i<this.records.length;i++){const r=this.records[i];if(r.root.userData.letterVisual.disposed){r.root=this.visuals.create(this.config.letters[i].letter,i);r.root.position.copy(r.point);r.root.rotation.y=r.phase;this.scene.add(r.root);}r.root.visible=true;}this.display.reset();}
 }

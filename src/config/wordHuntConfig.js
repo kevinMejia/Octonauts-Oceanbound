@@ -1,6 +1,13 @@
 export const wordHuntConfig={
- word:'OCTONAUTS',collectionRadius:7,floatAmplitude:.45,floatSpeed:1.2,rotationSpeed:.45,
- visuals:{height:3.8,emissiveIntensity:.65,haloSize:6.5,sparkleCount:12,sparkleSize:.45},
+ word:'OCTONAUTS',collectionRadius:7,floatAmplitude:.45, // Retain authored placement clearance; animation is configured below.
+ visuals:{
+  height:3.8,haloSize:5.2,sparkleCount:12,sparkleSize:.4,
+  rotation:{enabled:true,duration:2.5},
+  floating:{enabled:true,amplitude:.2,duration:2},
+  appearance:{extrusionDepth:.12,bevelEnabled:true,bevelSize:.025,glowEnabled:true,glowIntensity:.3,emissiveIntensity:.16,darkOutline:'#43234F'},
+  particles:{enabled:true,orbitEnabled:true,orbitCount:5},
+  colors:['#FF8C28','#FF4D6D','#FFD43B','#B86AFF','#A5ED43','#FFAD33','#FF659E','#E6F24C','#F47C4A'],
+ },
  // Stable IDs correspond to word positions, including repeated letters.
  letters:[
   {id:'o-1',letter:'O',x:120,y:22,z:185},
