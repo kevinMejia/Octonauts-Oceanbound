@@ -4,12 +4,12 @@ import {worldConfig} from '../config/worldConfig.js';
 
 // Camera-facing light ribbons: one draw call, no shadow map or render target.
 export class SunRays{
- constructor(scene,low=false){
+ constructor(scene,low=false,profile={}){
   const config=waterConfig.sunRays,count=config.enabled?(low?config.lowCount:config.count):0;
   const plane=new T.PlaneGeometry(1,1,1,8),geometry=new T.InstancedBufferGeometry();geometry.setIndex(plane.index);geometry.setAttribute('position',plane.attributes.position);geometry.setAttribute('uv',plane.attributes.uv);plane.dispose();
   const anchors=[[-55,-55,4.5,.2],[5,-40,6.5,1.4],[55,-15,4,2.8],[-25,25,5,3.7],[40,55,7,4.5],[-60,70,4.5,5.8]];
   geometry.setAttribute('ray',new T.InstancedBufferAttribute(new Float32Array(anchors.slice(0,count).flat()),4));geometry.instanceCount=count;
-  this.material=new T.ShaderMaterial({transparent:true,depthWrite:false,depthTest:true,side:T.DoubleSide,forceSinglePass:true,blending:T.AdditiveBlending,uniforms:{time:{value:0},origin:{value:new T.Vector2()},surface:{value:worldConfig.surface},intensity:{value:low?config.lowIntensity:config.intensity},fogDensity:{value:scene.fog?.density??.0054}},
+  this.material=new T.ShaderMaterial({transparent:true,depthWrite:false,depthTest:true,side:T.DoubleSide,forceSinglePass:true,blending:T.AdditiveBlending,uniforms:{time:{value:0},origin:{value:new T.Vector2()},surface:{value:worldConfig.surface},intensity:{value:profile.rayIntensity??(low?config.lowIntensity:config.intensity)},fogDensity:{value:scene.fog?.density??.0054}},
    vertexShader:`attribute vec4 ray;uniform float time,surface;uniform vec2 origin;varying vec2 vUv;varying float vDepth,vDistance,vPhase;
    void main(){vUv=uv;vPhase=ray.w;vec2 anchor=mod(ray.xy-origin+100.,200.)-100.+origin;
     vec3 direction=normalize(vec3(42.,-78.,-40.)),top=vec3(anchor.x,surface,anchor.y),center=top+direction*24.;

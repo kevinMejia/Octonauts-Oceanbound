@@ -1,3 +1,4 @@
+import {renderingProfile} from '../config/environmentConfig.js';
 import {vehicleTextureLimit} from './vehicleTexturePolicy.js';
 import * as T from 'three';
 import {GLTFLoader} from '../../vendor/GLTFLoader.js';
@@ -20,7 +21,7 @@ async function decode(blob,size){
 }
 export const vehicleImages=new VehicleImageCache({
  hash:async bytes=>globalThis.crypto?.subtle?Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join(''):'uncached:'+T.MathUtils.generateUUID(),
- decode,makeSource:image=>new T.Source(image),constants:constantVehicleImages,maxTextureSize:vehicleTextureLimit({userAgent:navigator.userAgent,coarsePointer:globalThis.matchMedia?.('(any-pointer:coarse)').matches??false}),
+ decode,makeSource:image=>new T.Source(image),constants:constantVehicleImages,maxTextureSize:vehicleTextureLimit({performanceMode:renderingProfile()==='low',userAgent:navigator.userAgent,coarsePointer:globalThis.matchMedia?.('(any-pointer:coarse)').matches??false}),
 });
 const sourceEntries=new WeakMap();
 

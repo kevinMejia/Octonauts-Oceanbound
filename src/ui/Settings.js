@@ -1,3 +1,4 @@
+import {installGraphicsSettings} from './GraphicsSettings.js';
 import {audioDefaults,volumeKeys} from '../audio/AudioSettings.js';
 import {cameraConfig} from '../config/worldConfig.js';
 import {cameraFields,cameraDefaults,loadCameraSettings,saveCameraSettings} from './cameraPreferences.js';
@@ -70,11 +71,12 @@ export function installSettings(){
   catch{status.textContent='Progress could not be saved. Please allow site storage and try again.';confirm.disabled=cancel.disabled=false;}
  });confirm.id='confirmGameplayReset';gameplayPanel.append(confirmation);
  dialog.addEventListener('close',()=>{confirmation.hidden=true;reset.hidden=false;});
+ const syncGraphics=installGraphicsSettings(dialog,storage,status);
  const tabs=[...dialog.querySelectorAll('[role=tab]')];for(const tab of tabs){tab.style.minWidth='0';tab.style.flex='1';tab.style.padding='0 8px';}
  const selectTab=tab=>{for(const button of tabs){const selected=button===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!selected;}dialog.querySelector('.monitor-content').scrollTop=0;};
  for(const tab of tabs){tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?tabs[0]:e.key==='End'?tabs.at(-1):tabs[(tabs.indexOf(tab)+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selectTab(next);next.focus();});}
  const close=()=>{if(!dialog.open||dialog.classList.contains('is-closing'))return;dialog.classList.add('is-closing');clear();closeTimer=setTimeout(()=>dialog.close(),200);};
- toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();toggle.setAttribute('aria-expanded','true');dialog.showModal();};
+ toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();};
  document.querySelector('#closeSettings').onclick=close;
  dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
  dialog.addEventListener('close',()=>{clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();toggle.focus();});
