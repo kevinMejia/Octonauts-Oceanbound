@@ -76,3 +76,6 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 @media(max-width:500px){body.rescue-navigation-active #navigation{top:calc(env(safe-area-inset-top,0px) + 164px)}}
 @media(max-width:360px){#turboHud.has-rescue{width:104px}}
 @media(prefers-reduced-motion:reduce){#rescueHud{transition:none}}
+
+/* The canvas receives gameplay focus when a vehicle dialog closes. */
+#ocean:focus{outline:none}

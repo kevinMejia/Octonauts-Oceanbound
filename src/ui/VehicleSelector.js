@@ -39,6 +39,9 @@ export class VehicleSelector{
   finally{if(operation===this.operation){this.busy=false;this.render();}}
  }
  close(){if(!this.dialog.open||this.dialog.classList.contains('is-closing'))return;this.operation++;this.game.vehicles.cancel();this.dialog.classList.add('is-closing');this.closeTimer=setTimeout(()=>this.dialog.close(),180);}
- didClose(){clearTimeout(this.closeTimer);this.operation++;this.game.vehicles.cancel();this.busy=false;this.swipe=null;this.outsidePointer=null;this.dialog.classList.remove('is-closing');document.body.classList.remove('vehicle-selector-open');this.hud.setAttribute('aria-expanded','false');this.game.input.clear();this.releasePause?.();this.releasePause=null;this.updateHUD();this.hud.focus({preventScroll:true});}
+ didClose(){clearTimeout(this.closeTimer);this.operation++;this.game.vehicles.cancel();this.busy=false;this.swipe=null;this.outsidePointer=null;this.dialog.classList.remove('is-closing');document.body.classList.remove('vehicle-selector-open');this.hud.setAttribute('aria-expanded','false');this.game.input.clear();this.releasePause?.();this.releasePause=null;this.updateHUD();
+  // Resume the game's Space control instead of leaving a button ready to activate.
+  const canvas=this.game.renderer?.domElement??document.querySelector('#ocean');
+  if(canvas){if(!canvas.hasAttribute('tabindex'))canvas.tabIndex=-1;canvas.focus({preventScroll:true});}else this.hud.blur();}
  dispose(){this.unsubscribe?.();if(this.dialog.open)this.dialog.close();this.didClose();this.dialog.remove();this.hud.remove();}
 }
