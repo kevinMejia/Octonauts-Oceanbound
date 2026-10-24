@@ -4,14 +4,14 @@ import {bubbleRate,flowRate,stepBubble} from './waterMath.js';
 import {waterConfig as config} from '../config/waterConfig.js';
 import {worldConfig} from '../config/worldConfig.js';
 import {random} from '../environment/terrainMath.js';
-const vertex=`attribute vec4 bubble;attribute vec3 flowDirection;uniform float pointScale;varying vec4 vBubble;varying float vAngle;
+export const waterParticleVertexShader=`attribute vec4 bubble;attribute vec3 flowDirection;uniform float pointScale;varying vec4 vBubble;varying float vAngle;
 #include <fog_pars_vertex>
 void main(){vBubble=bubble;vec4 mvPosition=modelViewMatrix*vec4(position,1.);vec4 clip=projectionMatrix*mvPosition;
 gl_Position=clip;gl_PointSize=clamp(bubble.x*2.*pointScale/max(.1,-mvPosition.z),1.,bubble.w>.5?48.:40.);
 vec4 endpoint=projectionMatrix*(mvPosition+viewMatrix*vec4(flowDirection*.5,0.));vec2 d=endpoint.xy/max(.01,endpoint.w)-clip.xy/max(.01,clip.w);vAngle=atan(d.y,d.x);
 #include <fog_vertex>
 }`;
-const fragment=`varying vec4 vBubble;varying float vAngle;
+export const waterParticleFragmentShader=`varying vec4 vBubble;varying float vAngle;
 #include <fog_pars_fragment>
 void main(){vec2 p=gl_PointCoord*2.-1.;float alpha;vec3 color;
 if(vBubble.w>.5){vec2 axis=vec2(cos(vAngle),-sin(vAngle));vec2 q=vec2(dot(p,axis),dot(p,vec2(-axis.y,axis.x))*8.);alpha=(1.-smoothstep(.1,1.,length(q)))*vBubble.y;color=vec3(.43,.78,.85);}
@@ -23,7 +23,7 @@ if(alpha<.002)discard;gl_FragColor=vec4(color,alpha);
 }`;
 export class PropulsionWater{
  constructor(scene,low=false){this.rng=random(5327);this.bubbles=new ParticlePool(low?config.bubbles.lowParticles:config.bubbles.maxParticles);this.streaks=new ParticlePool(low?config.motion.lowStreaks:config.motion.maxStreaks);const capacity=this.bubbles.items.length+this.streaks.items.length;this.geometry=new T.BufferGeometry();this.geometry.setAttribute('position',new T.BufferAttribute(new Float32Array(capacity*3),3).setUsage(T.DynamicDrawUsage));this.geometry.setAttribute('bubble',new T.BufferAttribute(new Float32Array(capacity*4),4).setUsage(T.DynamicDrawUsage));this.geometry.setAttribute('flowDirection',new T.BufferAttribute(new Float32Array(capacity*3),3).setUsage(T.DynamicDrawUsage));this.geometry.setDrawRange(0,0);this.geometry.boundingSphere=new T.Sphere(new T.Vector3(),config.bubbles.renderDistance);
- this.material=new T.ShaderMaterial({vertexShader:vertex,fragmentShader:fragment,uniforms:{pointScale:{value:500},fogColor:{value:scene.fog.color.clone()},fogDensity:{value:scene.fog.density}},fog:true,transparent:true,depthWrite:false});this.points=new T.Points(this.geometry,this.material);this.points.name='Pooled propulsion bubbles and local flow';this.points.frustumCulled=false;this.points.visible=false;scene.add(this.points);this.point=new T.Vector3();this.emission=0;this.flowEmission=0;this.activeBubbles=0;this.activeStreaks=0;this.activeReefBubbles=0;this.vents=[];this.nearVents=[];this.nextVentCheck=-1;this.low=low;
+ this.material=new T.ShaderMaterial({vertexShader:waterParticleVertexShader,fragmentShader:waterParticleFragmentShader,uniforms:{pointScale:{value:500},fogColor:{value:scene.fog.color.clone()},fogDensity:{value:scene.fog.density}},fog:true,transparent:true,depthWrite:false});this.points=new T.Points(this.geometry,this.material);this.points.name='Pooled propulsion bubbles and local flow';this.points.frustumCulled=false;this.points.visible=false;scene.add(this.points);this.point=new T.Vector3();this.emission=0;this.flowEmission=0;this.activeBubbles=0;this.activeStreaks=0;this.activeReefBubbles=0;this.vents=[];this.nearVents=[];this.nextVentCheck=-1;this.low=low;
  }
  setVents(surfaces,decor){const rng=random(62211),points=[...config.vents.positions];for(const r of decor.layout.records){if(!r.kind.startsWith('rock')||(!r.module&&r.scale<.7)||rng()>.55)continue;if(points.some(v=>Math.hypot(v.x-r.x,v.z-r.z)<15))continue;points.push({x:r.x+2,z:r.z+1});}this.vents=config.vents.enabled?points.map((v,i)=>({...v,phase:i*1.7,y:surfaces.ground(v.x,v.z,worldConfig.surface)+.2,emission:0})).filter(v=>v.y<worldConfig.surface-3):[];}
 

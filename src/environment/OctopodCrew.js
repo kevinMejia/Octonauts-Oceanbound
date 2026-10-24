@@ -1,3 +1,5 @@
+import {TowPose} from '../crew/TowPose.js';
+import {towVisualConfig} from '../config/towVisualConfig.js';
 import {CrewActivities} from '../crew/CrewActivities.js';
 import {crewActivityConfig as activityConfig} from '../config/crewActivityConfig.js';
 import * as T from 'three';
@@ -23,12 +25,12 @@ export class OctopodCrew{
    scene.traverse(o=>{if(!o.isMesh)return;o.castShadow=false;o.receiveShadow=false;if(o.isSkinnedMesh)o.frustumCulled=false;});
    instance.group.add(model);const mixer=new T.AnimationMixer(scene),idle=animations.find(clip=>clip.name===visual.idleClip)??animations.find(clip=>/idle/i.test(clip.name))??animations[0];
    const idleAction=idle&&!visual.static?mixer.clipAction(idle).play():null,walk=animations.find(clip=>/walk|locomotion/i.test(clip.name)&&clip.duration>.1),walkAction=walk?mixer.clipAction(walk):null;mixer.setTime(c.phase);instance.mixers.push(mixer);
-   instance.records.set(c.id,{definition:c,model,content:scene,visualRoot,motionRoot,mixer,idleAction,walkAction,walking:false,home:true,worldPosition:new T.Vector3()});
+   instance.records.set(c.id,{definition:c,model,content:scene,visualRoot,motionRoot,mixer,idleAction,walkAction,towPose:new TowPose(c.id,scene,motionRoot,towVisualConfig.pose),walking:false,home:true,worldPosition:new T.Vector3()});
   }
   octopod.model.add(instance.group);octopod.model.parent.add(instance.world);return instance;
  }
  initialize(game,discovery){
-  this.discovery=discovery;this.activities=new CrewActivities(activityConfig);this.activitySphere=new T.Sphere(new T.Vector3(),activityConfig.walkableRadius+2);this.activityFrustum=new T.Frustum();this.activityMatrix=new T.Matrix4();this.activityCenter=new T.Vector3();const placement=new FleetPlacement(game.interactions.surfaces.grid);
+  this.game=game;this.discovery=discovery;this.activities=new CrewActivities(activityConfig);this.activitySphere=new T.Sphere(new T.Vector3(),activityConfig.walkableRadius+2);this.activityFrustum=new T.Frustum();this.activityMatrix=new T.Matrix4();this.activityCenter=new T.Vector3();const placement=new FleetPlacement(game.interactions.surfaces.grid);
   for(const record of this.records.values()){
    const d=record.definition,model=record.model;model.position.set(0,0,0);model.rotation.set(0,0,0);
    // Reuse the existing model-thumbnail renderer; restore the same instance below.
@@ -45,7 +47,7 @@ export class OctopodCrew{
  sync(){
   const home=[];
   for(const r of this.records.values()){
-   const d=r.definition;r.home=this.discovery.isRescued(d.id);if(this.discovery.active===d.id)continue;
+   r.towPose.restore();const d=r.definition;r.home=this.discovery.isRescued(d.id);if(this.discovery.active===d.id)continue;
    if(r.home){
     if(r.model.parent!==this.group||!this.activities.actors.has(d.id)){this.group.add(r.model);r.model.position.set(d.x,d.y,d.z);r.model.rotation.set(0,d.heading,0);}
     home.push({id:d.id,position:r.model.position,heading:r.model.rotation.y,radius:r.activityRadius});
@@ -64,7 +66,7 @@ export class OctopodCrew{
  update(dt,camera){
   const active=this.activityVisible(camera);this.activities.update(dt,active);
   for(const r of this.records.values()){
-   const actor=r.home?this.activities.actors.get(r.definition.id):null;
+   r.towPose.restore();const actor=r.home?this.activities.actors.get(r.definition.id):null;
    if(actor){
     r.model.position.set(actor.position.x,actor.position.y,actor.position.z);r.model.rotation.y=actor.heading;
     const walking=activityConfig.enabled&&actor.state==='WALKING';if(r.walkAction&&walking!==r.walking){if(walking){r.idleAction?.fadeOut(.2);r.walkAction.reset().fadeIn(.2).play();}else{r.walkAction.fadeOut(.2);r.idleAction?.reset().fadeIn(.2).play();}}r.walking=walking;
@@ -74,7 +76,8 @@ export class OctopodCrew{
     }else{r.motionRoot.position.set(0,0,0);r.motionRoot.rotation.set(0,0,0);}
    }
    r.model.getWorldPosition(r.worldPosition);r.worldPosition.y+=r.height/2||1.5;r.model.visible=camera.position.distanceTo(r.worldPosition)<config.renderDistance;if(r.model.visible&&(!r.home||active))r.mixer.update(dt);
+   const towing=this.game.rescue.active?.id===r.definition.id;r.towPose.update(dt,towing,this.game.rescue.water?.speed??0);
   }
  }
- dispose(){this.activities?.dispose();for(const r of this.records.values()){r.mixer.stopAllAction();r.mixer.uncacheRoot(r.content);}this.group.removeFromParent();this.world.removeFromParent();this.group.clear();this.world.clear();this.records.clear();this.mixers.length=0;}
+ dispose(){this.activities?.dispose();for(const r of this.records.values()){r.towPose.dispose();r.mixer.stopAllAction();r.mixer.uncacheRoot(r.content);}this.group.removeFromParent();this.world.removeFromParent();this.group.clear();this.world.clear();this.records.clear();this.mixers.length=0;}
 }

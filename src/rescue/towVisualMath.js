@@ -1,0 +1,5 @@
+const clamp=x=>Math.max(0,Math.min(1,x));
+export function towVisualBlend(current,attached,dt,config){const target=attached&&config.enabled?1:0,rate=target?config.blendSpeed:config.releaseSpeed;const value=current+(target-current)*(1-Math.exp(-rate*Math.max(0,dt)));return Math.abs(value-target)<.001?target:value;}
+// Sampling ignores exceptional rescue recovery jumps; it never changes the motion itself.
+export function towVisualMotion(position,previous,dt,out={},maxJump=3){const x=position.x-previous.x,y=position.y-previous.y,z=position.z-previous.z,length=Math.hypot(x,y,z),valid=dt>0&&Number.isFinite(length)&&length<=maxJump;out.speed=valid?length/dt:0;out.x=valid&&length?x/length:0;out.y=valid&&length?y/length:0;out.z=valid&&length?z/length:0;return out;}
+export function towWaterRate(speed,config,low=false){return config.enabled&&speed>config.speedThreshold?(low?config.lowEmissionRate:config.emissionRate)*clamp((speed-config.speedThreshold)/(config.fullSpeed-config.speedThreshold)):0;}

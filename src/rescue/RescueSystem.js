@@ -1,3 +1,5 @@
+import {TowWater} from '../effects/TowWater.js';
+import {towVisualConfig} from '../config/towVisualConfig.js';
 import {rescueConfig} from '../config/rescueConfig.js';
 import {octopodConfig} from '../config/octopodConfig.js';
 import {worldConfig} from '../config/worldConfig.js';
@@ -9,7 +11,7 @@ import {TowMotion,hullGap,towAnchor,delivered} from './towMath.js';
 import {TowRope} from './TowRope.js';
 export class RescueSystem{
  constructor(game,{config=rescueConfig,onDelivered=()=>{}}={}){
-  this.game=game;this.config=config;this.onDelivered=onDelivered;this.active=null;this.time=0;this.noticeLeft=0;this.near=[];this.rope=new TowRope(game.scene,config.towing);this.collisions=new CollisionWorld(game.interactions.surfaces);this.placement=new FleetPlacement(game.interactions.surfaces.grid);
+  this.game=game;this.config=config;this.onDelivered=onDelivered;this.active=null;this.time=0;this.noticeLeft=0;this.near=[];this.rope=new TowRope(game.scene,config.towing);this.water=new TowWater(game.scene,towVisualConfig.water,game.quality==='low');this.collisions=new CollisionWorld(game.interactions.surfaces);this.placement=new FleetPlacement(game.interactions.surfaces.grid);
   const p=octopodConfig.position,o=config.deliveryOffset;this.centre={x:p.x+o[0],y:p.y+o[1],z:p.z+o[2]};
   this.hud=game.rescueNavigation.section;
   this.notice=document.createElement('div');this.notice.id='rescueNotice';this.notice.hidden=true;this.notice.setAttribute('role','status');this.notice.setAttribute('aria-live','polite');document.body.append(this.notice);
@@ -51,13 +53,15 @@ export class RescueSystem{
   if(!this.active)return;const m=this.active.motion;towAnchor(this.game.sub,m.anchor,m.frame);
   if(Math.hypot(m.position.x-m.anchor.x,m.position.y-m.anchor.y,m.position.z-m.anchor.z)>this.config.towing.maxStretch||hullGap(this.game.sub,m.position,m.frame)<m.radius)this.recover();this.update(0,false);
  }
- stop(){this.active=null;this.rope.hide();this.game.rescueNavigation.setMission(null);this.game.sub.towingSpeedMultiplier=1;this.game.compass.setRescue(false);}
+ stop(){this.active=null;this.rope.hide();this.water?.clear();this.game.rescueNavigation.setMission(null);this.game.sub.towingSpeedMultiplier=1;this.game.compass.setRescue(false);}
+ dispose(){this.stop();this.water?.dispose();this.rope.dispose();this.notice.remove();}
  reset(){this.stop();this.notice.hidden=true;this.noticeLeft=0;}
  update(dt,allowDelivery=true){
   this.time+=dt;if(this.noticeLeft>0){this.noticeLeft-=dt;if(this.noticeLeft<=0)this.notice.hidden=true;}
   const a=this.active;if(!a)return;a.recoveryGrace=Math.max(0,a.recoveryGrace-dt);const m=a.motion;m.update(dt,this.game.sub,this.constrain,this.adjustTarget);const p=m.position;
   a.model.position.set(p.x,p.y-m.chest,p.z);a.model.rotation.set(0,m.heading,Math.sin(this.time*1.1)*.025);a.model.visible=true;
   this.rope.update(m.anchor,p,this.time,this.game.sub.speed,this.ground);
+  this.water?.update(dt,m,a.radius,this.game.camera,this.game.renderer.getPixelRatio(),this.time);
   this.game.rescueNavigation.update(dt,this.config.hud.enabled?a:null,this.game.sub,this.centre);
   if(allowDelivery&&a.recoveryGrace<=0&&delivered(this.game.sub.position,p,this.centre,this.config.deliveryRadius)){
    const id=a.id,name=a.name;this.stop();this.onDelivered(id);try{this.game.audio?.playRescue?.();}catch{}
