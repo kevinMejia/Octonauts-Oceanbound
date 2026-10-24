@@ -41,6 +41,6 @@ Modified: `src/game/Game.js` (lifecycle, update, fleet reward), `src/turbo/Turbo
 - `node --test tests/*.test.js`: 233 tests passed, including progression, repeated letters, storage failure, notification timing and reward gating.
 - `python tools/build.py`: production site built and GLB validation passed.
 - `tests/word-hunt-browser.cjs`: automated Edge/WebGL checks cover spawn, obstacle clearance, proximity collection, faint repeated placeholders, timer restart and complete hiding, completion reward, active/released turbo, GUP-A switch, reload persistence, reset and narrow viewport layout.
-- No new dependency. Little Big Dirt was not available in the accessible workspace.
+- No new dependency. Reviewed the Desktop reference at `C:/Users/kevin/Desktop/little-big-dirt-poc`: `FloatingLetters.js`, `WordHuntSystem.js`, and `WordHuntLayout.js`. Compatible concepts include per-position collection state, delta-time floating/rotation, swept proximity and obstacle clearance. Oceanbound uses lightweight instanced block glyphs instead of adding font assets and text-geometry loaders, and full 3D swept collection instead of the driving game's horizontal sweep/depth tolerance. Its permanent HUD, timed records, audio, particles and rotating word queue are outside this MVP.
 
 Browser collection tests position the GUP at each letter; they do not manually pilot complete ocean routes or exercise every GUP model and physical mobile device. Safety checks use existing registered collision surfaces and terrain, not every cosmetic plant mesh.
