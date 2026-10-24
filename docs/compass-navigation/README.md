@@ -24,3 +24,11 @@ Register the vehicle normally with an enabled discovery definition. The compass 
 146 Node tests pass. The production build validates successfully. Browser integration passes in desktop Edge with touch/mobile emulation: seven initial indicators, true north bearing, camera independence, heading changes, nearby highlight, immediate unlock removal, GUP switching, persistent removal after reload, portrait/landscape/desktop sizing, no horizontal overflow and no page errors. Screenshots were reviewed at phone portrait and landscape sizes. Discovery modal, celebration, parking, placements, controls and physics were not modified.
 
 Physical iPhone Safari testing is not available. Bearings use the compass's existing horizontal navigation convention; proximity additionally includes vertical separation. Targets at nearly identical bearings can overlap; letters always stay at their true bearings, matching the base marker. A regression check verifies a GUP and the base at the same world location use the same rotation.
+
+## Crew markers and saved gameplay preferences
+
+The same target layer now includes undiscovered Octonauts at their existing resolved discovery positions. Captain Barnacles uses B and Professor Inkling uses I; Tweak and Tunip use Tw and Tu with different colors. Markers disappear on discovery, including while the discovery panel pauses gameplay. The Octopod icon and GUP bearing behavior remain unchanged.
+
+Gameplay Settings provides **Show GUP Letters on Compass** and **Show Octonaut Letters on Compass**, both enabled by default. Boolean preferences use the existing localStorage settings pattern under `oceanbound.gameplay.v1`, independently of fleet, crew and animal progression. Storage failures apply preferences for the current session.
+
+Validation: `tests/gameplay-settings.test.js`, `tests/compass-settings-browser.cjs`, and the existing compass browser regression cover defaults, independent visibility, reload persistence, discovery removal, repeated initials, heading alignment and the retained Octopod marker.

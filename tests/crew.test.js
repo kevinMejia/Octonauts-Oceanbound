@@ -5,7 +5,21 @@ test('eight reusable crew exports contain a palette skin, limb rig and an eight-
 test('bridge crew stand on the existing deck inside the glazed footprint',()=>{assert.equal(c.characters.length,8);for(const p of c.characters){assert(p.y>=20.09&&p.y<20.2);assert(Math.hypot(p.x,p.z)<7);assert.equal(c.scale,1);}});
 
 test('visual assets are configured independently of crew identity and resolve under project hosting',()=>{
- for(const d of c.characters){assert(d.visual.modelPath.endsWith(d.id+'.glb'));assert.equal(d.visual.idleClip,d.id+'_Idle');assert.equal(d.visual.scale,1);assert.deepEqual(d.visual.offset,[0,0,0]);}
- assert(c.characters.slice(3).every(d=>d.visual.placeholder));
+ for(const d of c.characters){assert(d.visual.modelPath.endsWith(d.id+'.glb'));assert(d.visual.scale>0);assert.equal(d.visual.orientation,Math.PI);assert.equal(d.visual.offset.length,3);assert(d.gameplaySize.height>0);assert(d.gameplaySize.radius>0);assert(existsSync(new URL(d.visual.modelPath,new URL('../src/config/crewConfig.js',import.meta.url))));}
+ assert(c.characters.every(d=>!d.visual.placeholder));
  const url=crewModelURL({...c.characters[0],visual:{modelPath:'../../assets/models/characters/replacement.glb'}},'https://example.com/Octonauts-Oceanbound/src/config/crewConfig.js?v=42');assert.equal(url,'https://example.com/Octonauts-Oceanbound/assets/models/characters/replacement.glb?v=42');
+});
+
+test('imported crew retain rigs and every nonempty source action in self-contained GLBs',()=>{
+ const audit=JSON.parse(readFileSync(new URL('../docs/characters/source-audit.json',import.meta.url)));
+ for(const d of c.characters){
+  const b=readFileSync(new URL(d.visual.modelPath,new URL('../src/config/crewConfig.js',import.meta.url)));
+  const g=JSON.parse(b.toString('utf8',20,20+b.readUInt32LE(12)));
+  assert(g.skins?.length>0,d.id+' rig');
+  const source=audit.find(r=>r.folder.toLowerCase()===d.id),names=new Set(g.animations?.map(a=>a.name));
+  for(const [name,keys] of Object.entries(source.animationKeys))if(keys)assert(names.has(name),d.id+' '+name);
+  for(const image of g.images??[])assert(image.bufferView!==undefined&&!image.uri,d.id+' embedded image');
+  const triangles=g.meshes.flatMap(m=>m.primitives).reduce((n,p)=>n+g.accessors[p.indices].count/3,0);
+  assert(triangles<50000,d.id+' runtime triangle budget');
+ }
 });

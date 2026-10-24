@@ -1,0 +1,18 @@
+{
+  "original": {
+    "drawCalls": 8,
+    "triangles": 121324,
+    "geometries": 8,
+    "textures": 8,
+    "cpuSubmissionMedianMs": 0.19999999925494194,
+    "cpuSubmissionP95Ms": 0.30000000074505806
+  },
+  "replacement": {
+    "drawCalls": 227,
+    "triangles": 266794,
+    "geometries": 225,
+    "textures": 21,
+    "cpuSubmissionMedianMs": 3.800000000745058,
+    "cpuSubmissionP95Ms": 4.799999997019768
+  }
+}

@@ -1,28 +1,33 @@
-/* Compact Octopod navigation. The existing logo and dialog remain in place. */
-#navigation{display:flex;align-items:center;gap:10px;isolation:isolate}
-#menuToggle{flex-shrink:0}
-#creatureCollection{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;width:auto;height:48px;min-height:44px;margin:0;padding:5px 10px;border:3px solid #ffac38;border-radius:999px;background:linear-gradient(180deg,#168b97 0%,#076476 40%,#034453 100%);box-shadow:0 2px 0 #a85b20,0 5px 9px #003a4b66,inset 0 2px 0 #a5fff0aa,inset 0 -2px 0 #013441;color:#f2fffa;font:800 14px Arial,sans-serif;letter-spacing:.65px;line-height:1;white-space:nowrap;cursor:pointer;touch-action:manipulation;backdrop-filter:none;-webkit-backdrop-filter:none;transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
-#creatureCollection::before{content:'';position:absolute;top:4px;left:15px;right:15px;height:8px;border-top:1px solid #befff166;border-radius:50%;pointer-events:none}
+/* Header, collection and vehicle display share the Forward key's monitor finish. */
+#navigation{display:grid;grid-template-columns:76px auto;gap:10px 12px;align-items:center;isolation:isolate;top:calc(env(safe-area-inset-top,0px) + 26px);left:calc(env(safe-area-inset-left,0px) + 24px)}
+#navigation>header{position:static;max-width:none;display:block;pointer-events:none}
+#navigation header p{font-size:9px;letter-spacing:2px;margin:0 0 7px}
+#navigation header h1{font-size:28px;letter-spacing:-.7px;margin:0}
+#navigation header h1 span{font-size:12px;letter-spacing:1px;margin-top:5px}
+#navigation #menuToggle{position:relative;grid-column:1;grid-row:1;width:76px;height:92px;padding:0 0 16px;border-radius:50%;background:none;box-shadow:none}
+#navigation #menuToggle img{width:74px;height:74px}
+.settings-arc{position:absolute;inset:0;width:100%;height:100%;transform:translateY(9px);pointer-events:none;overflow:visible}
+.settings-arc text{fill:#fff;font:800 13px Arial,sans-serif;letter-spacing:1px;paint-order:stroke;stroke:#06465b;stroke-width:.5px}
+:is(#creatureCollection,#vehicleToggle){isolation:isolate;border:2px solid #91a29a;border-radius:20px;background:linear-gradient(145deg,#b0bdb5 0%,#687c7a 15%,#364548 65%,#94a6a0);box-shadow:0 3px 0 #182d36,0 6px 10px #00364b55,inset 0 2px 1px #e4f9e29c;backdrop-filter:none;-webkit-backdrop-filter:none}
+:is(#creatureCollection,#vehicleToggle)::before{content:'';position:absolute;inset:4px;height:auto;border:1px solid #263e43;border-radius:14px;background:radial-gradient(ellipse at 90% 0%,#4bd2b547,transparent 65%),linear-gradient(135deg,#168e90,#07525f);box-shadow:0 0 0 1px #81928c,inset 0 0 14px #002c4b88,inset 0 2px 3px #8dfff333;pointer-events:none;z-index:-2}
+:is(#creatureCollection,#vehicleToggle)::after{content:'';position:absolute;inset:6px;border-radius:12px;background:repeating-linear-gradient(0deg,transparent 0px,transparent 2px,#002f4540 2px,#002f4540 3px),linear-gradient(120deg,#d1fff31a,transparent 40%);pointer-events:none;z-index:-1}
+#creatureCollection{position:relative;grid-column:1 / -1;justify-self:start;display:flex;align-items:center;justify-content:center;gap:14px;width:144px;height:48px;min-height:44px;margin:0;padding:7px 14px;color:white;cursor:pointer;touch-action:manipulation;transition:filter .12s,transform .12s}
 #creatureCollection>*{pointer-events:none}
-.creature-fish{display:block;width:28px;height:25px;flex-shrink:0;filter:drop-shadow(0 1px 0 #003e51)}
-.creature-label{text-shadow:0 2px 0 #003d50}
-.creature-counter{display:flex;align-items:center;justify-content:center;min-width:43px;height:32px;padding:0 7px;border:2px solid #ffd46b;border-radius:18px;background:linear-gradient(#ffc440,#ff9d08);box-shadow:0 2px 0 #b96713,inset 0 1px 0 #ffe39a;color:#163c45;font-size:15px;font-weight:900;letter-spacing:0;font-variant-numeric:tabular-nums}
-#creatureCollection[aria-expanded=true]{background:linear-gradient(#096675,#033d4c);box-shadow:0 1px 0 #a85b20,inset 0 2px 5px #002f4666}
-@media(hover:hover){#creatureCollection:hover{background:linear-gradient(#229eaa,#087286 45%,#045262)}}
-#creatureCollection:active{transform:translateY(2px);box-shadow:0 1px 0 #a85b20,inset 0 2px 4px #00314566}
+.creature-fish{display:block;width:35px;height:28px;flex-shrink:0;filter:drop-shadow(0 1px 2px #97ffed55)}
+.creature-counter{font:800 22px Arial,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.5px;text-shadow:0 0 5px #b2fff055;background:none;border:0;padding:0;height:auto}
+#creatureCollection[aria-expanded=true]{filter:brightness(1.12)}
+#creatureCollection:active{transform:translateY(2px)}
 #creatureCollection:focus-visible{outline:3px solid #fff3bf;outline-offset:4px}
-/* Branding gets its own space, below the navigation on smaller screens. */
-body>header{top:calc(env(safe-area-inset-top,0px) + 88px);left:calc(env(safe-area-inset-left,0px) + 24px);max-width:280px;gap:0}
-body>header h1{font-size:24px;letter-spacing:-.7px}
-body>header h1 span{font-size:10px;letter-spacing:1.4px}
-body>header p{font-size:8px;letter-spacing:1.8px}
-@media(min-width:900px){body>header{top:calc(env(safe-area-inset-top,0px) + 34px);left:calc(env(safe-area-inset-left,0px) + 324px)}}
-@media(max-width:500px){
- #navigation{top:calc(env(safe-area-inset-top,0px) + 28px);left:calc(env(safe-area-inset-left,0px) + 12px);gap:6px}
- #creatureCollection{height:44px;gap:5px;padding:4px 6px;font-size:12px;letter-spacing:.3px}
- .creature-fish{width:22px;height:22px}.creature-counter{height:28px;min-width:37px;padding:0 5px;font-size:13px}
- body>header{top:calc(env(safe-area-inset-top,0px) + 92px);left:calc(env(safe-area-inset-left,0px) + 20px);max-width:220px}
- body>header h1{font-size:17px}body>header h1 span{font-size:8px;letter-spacing:1px}
+#vehicleToggle{padding:6px 9px}
+#vehicleToggle img{position:relative;z-index:1}
+@media(hover:hover){:is(#creatureCollection,#vehicleToggle):hover{filter:brightness(1.12);background:linear-gradient(145deg,#b0bdb5 0%,#687c7a 15%,#364548 65%,#94a6a0)}}
+@media(max-width:600px){
+ #navigation{grid-template-columns:58px auto;gap:6px 8px;top:calc(env(safe-area-inset-top,0px) + 28px);left:calc(env(safe-area-inset-left,0px) + 12px);max-width:calc(100vw - 136px)}
+ #navigation #menuToggle{width:58px;height:74px;padding-bottom:13px}
+ #navigation #menuToggle img{width:57px;height:57px}
+ #navigation header h1{font-size:18px;letter-spacing:-.5px}
+ #navigation header h1 span{font-size:8px;letter-spacing:.2px;white-space:nowrap}
+ #navigation header p{display:block;font-size:6px;letter-spacing:.5px;line-height:1.4;max-width:120px;margin-bottom:5px}
+ #creatureCollection{width:130px;height:44px;gap:12px}.creature-counter{font-size:20px}.creature-fish{width:30px;height:24px}
 }
-@media(max-width:360px){#navigation{left:calc(env(safe-area-inset-left,0px) + 8px);gap:4px}#creatureCollection{gap:3px;padding:4px 3px;border-width:2px;font-size:10px;letter-spacing:0}.creature-fish{width:14px}.creature-counter{min-width:30px;padding:0 2px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){#creatureCollection{transition:none}}

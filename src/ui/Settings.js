@@ -1,3 +1,4 @@
+import {gameplaySettings,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
 import {installGraphicsSettings} from './GraphicsSettings.js';
 import {audioDefaults,volumeKeys} from '../audio/AudioSettings.js';
 import {cameraConfig} from '../config/worldConfig.js';
@@ -6,6 +7,7 @@ import {cameraFields,cameraDefaults,loadCameraSettings,saveCameraSettings} from 
 export function installSettings(){
  let storage;try{storage=window.localStorage;}catch{}
  Object.assign(cameraConfig,loadCameraSettings(storage));
+ Object.assign(gameplaySettings,loadGameplaySettings(storage));
  const toggle=document.querySelector('#menuToggle'),dialog=document.querySelector('#settingsDialog');
  const audioPanel=document.querySelector('#audioPanel'),cameraPanel=document.querySelector('#cameraPanel');
  const status=document.querySelector('#settingsSaved');
@@ -60,6 +62,11 @@ export function installSettings(){
  gameplayTab.id='gameplayTab';gameplayTab.type='button';gameplayTab.role='tab';gameplayTab.setAttribute('aria-selected','false');gameplayTab.setAttribute('aria-controls','gameplayPanel');gameplayTab.tabIndex=-1;gameplayTab.textContent='Gameplay';
  gameplayPanel.id='gameplayPanel';gameplayPanel.role='tabpanel';gameplayPanel.setAttribute('aria-labelledby','gameplayTab');gameplayPanel.hidden=true;
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
+ intro(gameplayPanel,'Compass markers','Choose which undiscovered destinations appear on your compass.');
+ const markerSwitches=grid(gameplayPanel);
+ for(const [key,label] of [['showGupLetters','Show GUP Letters on Compass'],['showOctonautLetters','Show Octonaut Letters on Compass']]){
+  const input=check(markerSwitches,key,label,value=>{gameplaySettings[key]=value;window.explorer?.compass?.syncTargets();status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});input.checked=gameplaySettings[key];
+ }
  intro(gameplayPanel,'Start a fresh adventure','Reset GUP, marine animal, and Octonaut discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');
  const confirmation=document.createElement('div');confirmation.hidden=true;confirmation.setAttribute('role','group');confirmation.setAttribute('aria-label','Confirm gameplay reset');
  const warning=document.createElement('p');warning.textContent='Reset all GUP, marine animal, and Octonaut discoveries? Your fleet and collection progress will be cleared, the Octonauts will return to their discovery locations, and the game will restart. This cannot be undone.';confirmation.append(warning);

@@ -70,7 +70,7 @@ visual: {
 }
 ```
 
-Paths resolve from crewConfig.js and retain the production build version. Scale/orientation/offset apply to a separate asset-transform group, so animation tracks cannot overwrite discovery positions or home slots. Original authored materials are retained. The configured idle clip is preferred, with an idle-named or first-clip fallback if absent. Self-contained GLBs with reasonable geometry/texture budgets are recommended. Portraits and collision dimensions regenerate from the loaded visual; a separate `portraitPath` remains optional.
+Paths resolve from crewConfig.js and retain the production build version. Scale/orientation/offset apply to a separate asset-transform group, so animation tracks cannot overwrite discovery positions or home slots. Original authored materials are retained. The configured idle clip is preferred, with an idle-named or first-clip fallback if absent. Self-contained GLBs with reasonable geometry/texture budgets are recommended. Portraits regenerate from the loaded visual; a separate `portraitPath` remains optional. Imported visual corrections and fixed legacy gameplay envelopes are configured in `src/config/crewVisuals.js`; visual replacements must not change collision or placement dimensions. See [the replacement audit](characters/replacement-audit.md) for the integrated supplied models.
 
 No save migration or discovery code changes are required when replacing a model. The production build already hashes character GLB contents, and crew model URLs include that build version, so replacing a file at the same path invalidates its cached asset after the next build/deployment and app reload. Verify home clearances and mobile rendering after a replacement.
 

@@ -1,0 +1,408 @@
+[
+  {
+    "id": "barnacles",
+    "path": "assets/models/characters/imported/barnacles.glb",
+    "bytes": 2628552,
+    "triangles": 37606,
+    "vertices": 23192,
+    "meshes": 21,
+    "primitives": 34,
+    "materials": 14,
+    "textures": 4,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "Compass",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 590157,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Barnicals_Hap",
+        "duration": 0
+      },
+      {
+        "name": "Barnicals_Idle",
+        "duration": 0
+      },
+      {
+        "name": "Hear hands",
+        "duration": 0.03333333333333333
+      }
+    ]
+  },
+  {
+    "id": "dashi",
+    "path": "assets/models/characters/imported/dashi.glb",
+    "bytes": 2318192,
+    "triangles": 46940,
+    "vertices": 28097,
+    "meshes": 30,
+    "primitives": 49,
+    "materials": 26,
+    "textures": 3,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 2,
+    "animations": [
+      {
+        "name": "Dashi_Idle",
+        "duration": 0
+      },
+      {
+        "name": "Dashi_Wave",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "frown-fish",
+    "path": "assets/models/characters/imported/frown-fish.glb",
+    "bytes": 1445064,
+    "triangles": 20176,
+    "vertices": 11935,
+    "meshes": 14,
+    "primitives": 27,
+    "materials": 18,
+    "textures": 1,
+    "images": [
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Barnicals_Hap",
+        "duration": 0
+      },
+      {
+        "name": "FrownHappy",
+        "duration": 0.03333333333333333
+      }
+    ]
+  },
+  {
+    "id": "inkling",
+    "path": "assets/models/characters/imported/inkling.glb",
+    "bytes": 791244,
+    "triangles": 20768,
+    "vertices": 11592,
+    "meshes": 11,
+    "primitives": 18,
+    "materials": 14,
+    "textures": 1,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Barnicals_Pose1",
+        "duration": 0
+      },
+      {
+        "name": "Inkling_Gesture",
+        "duration": 0
+      },
+      {
+        "name": "Inkling_Lay",
+        "duration": 0
+      },
+      {
+        "name": "Inkling_Pose2",
+        "duration": 0
+      },
+      {
+        "name": "Inkling_Think",
+        "duration": 0
+      },
+      {
+        "name": "Inkling_Tired",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "kwazii",
+    "path": "assets/models/characters/imported/kwazii.glb",
+    "bytes": 2188844,
+    "triangles": 39950,
+    "vertices": 23629,
+    "meshes": 23,
+    "primitives": 30,
+    "materials": 12,
+    "textures": 2,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Kwazii_Idle",
+        "duration": 0
+      },
+      {
+        "name": "Kwazii_Punchup",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "peso",
+    "path": "assets/models/characters/imported/peso.glb",
+    "bytes": 2463300,
+    "triangles": 28116,
+    "vertices": 17315,
+    "meshes": 20,
+    "primitives": 23,
+    "materials": 12,
+    "textures": 3,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      },
+      {
+        "name": "OctoPlaster",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 794951,
+        "embedded": true
+      }
+    ],
+    "skins": 2,
+    "animations": [
+      {
+        "name": "Peso_Happy",
+        "duration": 0
+      },
+      {
+        "name": "Peso_Idle",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "shellington",
+    "path": "assets/models/characters/imported/shellington.glb",
+    "bytes": 2065364,
+    "triangles": 40406,
+    "vertices": 22778,
+    "meshes": 23,
+    "primitives": 28,
+    "materials": 14,
+    "textures": 3,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 2,
+    "animations": [
+      {
+        "name": "Shellington_apose",
+        "duration": 0
+      },
+      {
+        "name": "Shellington_Idle",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "tunip",
+    "path": "assets/models/characters/imported/tunip.glb",
+    "bytes": 440160,
+    "triangles": 9228,
+    "vertices": 6414,
+    "meshes": 10,
+    "primitives": 13,
+    "materials": 9,
+    "textures": 1,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Tunip_Idle",
+        "duration": 0
+      },
+      {
+        "name": "Tunip_Wave",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "tweak",
+    "path": "assets/models/characters/imported/tweak.glb",
+    "bytes": 2215440,
+    "triangles": 42628,
+    "vertices": 25017,
+    "meshes": 23,
+    "primitives": 30,
+    "materials": 15,
+    "textures": 3,
+    "images": [
+      {
+        "name": "Image",
+        "mimeType": "image/png",
+        "size": [
+          1,
+          1
+        ],
+        "bytes": 177,
+        "embedded": true
+      },
+      {
+        "name": "OctoBlue",
+        "mimeType": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "bytes": 737111,
+        "embedded": true
+      }
+    ],
+    "skins": 1,
+    "animations": [
+      {
+        "name": "Tweak_Idle",
+        "duration": 0
+      },
+      {
+        "name": "Tweak_Poser",
+        "duration": 0
+      }
+    ]
+  }
+]

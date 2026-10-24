@@ -1,3 +1,4 @@
+import {crewVisuals} from './crewVisuals.js';
 // Positions are local to the existing Octopod; the bridge deck top is y=20.09.
 export const crewConfig={enabled:true,renderDistance:110,scale:1,
  characters:[{id:'barnacles',name:'Captain Barnacles',x:0,z:5.3,y:20.10,heading:0,phase:0,
@@ -16,7 +17,7 @@ export const crewConfig={enabled:true,renderDistance:110,scale:1,
   discovery:{position:{x:-235,y:0,z:180},heading:1,maxPlacementRadius:16},message:'Splendid work! I will return to the Octopod to study our discoveries.'},
  {id:'tunip',name:'Tunip',x:2.8,z:-2.6,y:20.10,heading:-.15,phase:6.1,
   discovery:{position:{x:320,y:0,z:-165},heading:-.5,maxPlacementRadius:16},message:'Cheepa cheepa! Tunip is ready to head home and help in the Octopod kitchen.'}
- ].map(c=>({...c,visual:{modelPath:'../../assets/models/characters/'+c.id+'.glb',scale:1,orientation:0,offset:[0,0,0],idleClip:c.id+'_Idle',placeholder:!['barnacles','kwazii','peso'].includes(c.id),...c.visual}}))};
+ ].map(c=>({...c,gameplaySize:crewVisuals[c.id],visual:{modelPath:'../../assets/models/characters/'+c.id+'.glb',scale:1,orientation:0,offset:[0,0,0],idleClip:c.id+'_Idle',placeholder:!['barnacles','kwazii','peso'].includes(c.id),...crewVisuals[c.id].visual,...c.visual}}))};
 
 // Visual replacement never changes a character ID, save key, discovery location or home slot.
 export function crewModelURL(definition,moduleURL=import.meta.url){const url=new URL(definition.visual?.modelPath??('../../assets/models/characters/'+definition.id+'.glb'),moduleURL);url.search=new URL(moduleURL).search;return url.href;}

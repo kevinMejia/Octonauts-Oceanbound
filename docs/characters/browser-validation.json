@@ -1,0 +1,92 @@
+{
+  "records": [
+    {
+      "id": "barnacles",
+      "height": 3.0999998911736797,
+      "radius": 0.8799999058246613,
+      "meshes": 34,
+      "clips": [
+        "Barnicals_Idle"
+      ]
+    },
+    {
+      "id": "kwazii",
+      "height": 2.7499999865411113,
+      "radius": 0.8255623579025269,
+      "meshes": 30,
+      "clips": [
+        "Kwazii_Idle"
+      ]
+    },
+    {
+      "id": "peso",
+      "height": 2.6750001280405797,
+      "radius": 0.7349998361294208,
+      "meshes": 23,
+      "clips": [
+        "Peso_Idle"
+      ]
+    },
+    {
+      "id": "shellington",
+      "height": 2.880000102185912,
+      "radius": 0.7454870045185089,
+      "meshes": 28,
+      "clips": [
+        "Shellington_Idle"
+      ]
+    },
+    {
+      "id": "dashi",
+      "height": 2.720000143313097,
+      "radius": 0.8349855542182922,
+      "meshes": 49,
+      "clips": [
+        "Dashi_Idle"
+      ]
+    },
+    {
+      "id": "tweak",
+      "height": 3.499999987744994,
+      "radius": 0.7561138298386991,
+      "meshes": 30,
+      "clips": [
+        "Tweak_Idle"
+      ]
+    },
+    {
+      "id": "inkling",
+      "height": 2.3799976077061005,
+      "radius": 1.118137947107343,
+      "meshes": 18,
+      "clips": []
+    },
+    {
+      "id": "tunip",
+      "height": 2.2200000145494,
+      "radius": 0.5167117416858673,
+      "meshes": 13,
+      "clips": [
+        "Tunip_Idle"
+      ]
+    }
+  ],
+  "render": {
+    "frame": 36,
+    "calls": 386,
+    "triangles": 519263,
+    "points": 320,
+    "lines": 0
+  },
+  "requests": {
+    "http://localhost:5173/assets/models/characters/imported/barnacles.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/kwazii.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/peso.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/shellington.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/dashi.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/tweak.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/inkling.glb": 1,
+    "http://localhost:5173/assets/models/characters/imported/tunip.glb": 1
+  },
+  "errors": []
+}

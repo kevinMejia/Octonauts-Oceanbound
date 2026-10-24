@@ -1,5 +1,7 @@
 # Bridge crew: source, references and integration
 
+The supplied replacement models are now integrated for all eight crew members. See the [replacement audit](replacement-audit.md) for current source/runtime counts, transforms, validation and performance limits. The original authoring notes below describe the retained fallback assets.
+
 These are the original three model-authoring notes. The expanded eight-member roster and replacement-asset contract are documented in [crew discovery](../crew-discovery.md); see the expanded placeholder section below.
 
 The existing Octopod already contains `Control_Room_Floor` (deck top y=20.09), bridge consoles, a rear monitor, and transparent observation glazing. It is visible from the submarine outside, but has no boarding/enterable interior gameplay. All three characters stand on that existing floor within the glazed bridge. No Octopod exterior or collision geometry was changed. Approach the main observation window at bridge height to see them; distant normal-chase views cannot show facial detail at this scale.

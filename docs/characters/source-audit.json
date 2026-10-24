@@ -1,0 +1,4485 @@
+[
+  {
+    "actionFrameRanges": {
+      "Barnicals_Hap": [
+        0.0,
+        0.0
+      ],
+      "Barnicals_Idle": [
+        0.0,
+        0.0
+      ],
+      "Hear hands": [
+        0.0,
+        1.0
+      ]
+    },
+    "sha256": "8e4f9d458d5d4897efbd7b5d746a0ab11b017d44eb2e2a7cf6b71ce88a86e490",
+    "usedMaterials": [
+      "A_Dent",
+      "A_Yellow",
+      "Barnicals_Fur",
+      "Barnicals_Fur2",
+      "Barnicals_Nose",
+      "Eye",
+      "Eye.001",
+      "Mouth inside",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Radar2",
+      "Zip 1",
+      "Zip 2"
+    ],
+    "materialImages": [
+      "Compass.png",
+      "Fabric_Burlap_004_Normal.jpg.001",
+      "OctoBlue.png.001"
+    ],
+    "animationKeys": {
+      "Barnicals_Hap": 1203,
+      "Barnicals_Idle": 1200,
+      "Hear hands": 1817
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Barnacles",
+    "file": "Barnacles.blend",
+    "bytes": 14490260,
+    "triangles": 87406,
+    "vertices": 44135,
+    "meshes": 32,
+    "materials": [
+      "A_Dent",
+      "A_Yellow",
+      "Barnicals_Fur",
+      "Barnicals_Fur2",
+      "Barnicals_Nose",
+      "Console",
+      "Dots Stroke",
+      "Eye",
+      "Eye.001",
+      "Glass2",
+      "Mouth inside",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Radar2",
+      "Tank",
+      "Zip 1",
+      "Zip 2"
+    ],
+    "textures": [
+      {
+        "name": "Compass.png",
+        "path": "//..\\..\\..\\Textures\\Octo\\Compass.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      },
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.001",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Barnicals_Hap",
+      "Barnicals_Idle",
+      "Hear hands"
+    ],
+    "rigs": [
+      "Barnicals_Armature"
+    ],
+    "bounds": [
+      [
+        -0.21203137934207916,
+        -0.16700059175491333,
+        -0.2836555242538452
+      ],
+      [
+        0.24634185433387756,
+        0.20531125366687775,
+        0.4511946141719818
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.018",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.003",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.011",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.004",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.006",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.007",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.183",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 3
+          }
+        ]
+      },
+      {
+        "name": "Cube.011",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.012",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.017",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.009",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.016",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.013",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.003",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.012",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "CAST",
+            "name": "Cast",
+            "levels": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Dashi_Idle": [
+        0.0,
+        0.0
+      ],
+      "Dashi_Wave": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "a663f9e91266cc91939818684265f202e747736c0ab350e69efa233d9449a28e",
+    "usedMaterials": [
+      "A_Dent",
+      "Camera",
+      "CameraTexture",
+      "Carrot",
+      "Clip",
+      "Console",
+      "Dashi_Fur",
+      "Dashi_Fur2",
+      "Dashi_Fur3",
+      "Dashi_Hair",
+      "Dashi_Nose",
+      "Drill.001",
+      "Eye",
+      "Eye.001",
+      "Goggles2",
+      "Lense",
+      "Lense.001",
+      "Mouth inside",
+      "OctoBlue",
+      "OctoBlue.004",
+      "Octoclothes_Darkblue.003",
+      "Octoclothes_Lightblue",
+      "Octoclothes_Lightblue.004",
+      "Skirt",
+      "Skirt1",
+      "Skirt2"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001",
+      "OctoBlue.png.001",
+      "OctoBlue.png.005"
+    ],
+    "animationKeys": {
+      "Dashi_Idle": 1632,
+      "Dashi_Wave": 1635
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Dashi",
+    "file": "Dashi.blend",
+    "bytes": 13857104,
+    "triangles": 90844,
+    "vertices": 46151,
+    "meshes": 44,
+    "materials": [
+      "A_Dent",
+      "Camera",
+      "CameraTexture",
+      "Carrot",
+      "Clip",
+      "Console",
+      "Dashi_Fur",
+      "Dashi_Fur2",
+      "Dashi_Fur3",
+      "Dashi_Hair",
+      "Dashi_Nose",
+      "Dots Stroke",
+      "Drill.001",
+      "Eye",
+      "Eye.001",
+      "Glass2",
+      "Goggles2",
+      "Lense",
+      "Lense.001",
+      "Mouth inside",
+      "OctoBlue",
+      "OctoBlue.004",
+      "Octoclothes_Darkblue.003",
+      "Octoclothes_Lightblue",
+      "Octoclothes_Lightblue.004",
+      "Skirt",
+      "Skirt1",
+      "Skirt2",
+      "Tank"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.001",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      },
+      {
+        "name": "OctoBlue.png.005",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Dashi_Idle",
+      "Dashi_Wave"
+    ],
+    "rigs": [
+      "Armature",
+      "Dashi_Armature"
+    ],
+    "bounds": [
+      [
+        -0.2610081732273102,
+        -0.1839180588722229,
+        -0.2799202799797058
+      ],
+      [
+        0.2684915363788605,
+        0.19498269259929657,
+        0.4651679992675781
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.009",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.017",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.007",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.013",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.014",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.015",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.018",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.019",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cylinder",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cylinder.002",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cylinder.003",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cylinder.004",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.006",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.016",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cylinder.001",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.003",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.011",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.011",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.012",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.003",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.012",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Hat",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.004",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.012",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.024",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.005",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Barnicals_Hap": [
+        0.0,
+        0.0
+      ],
+      "Circle.012Action": null,
+      "Circle.015Action": null,
+      "FrownHappy": [
+        1.0,
+        1.0
+      ]
+    },
+    "sha256": "4bc451fdd0e0191f1cf24de569f36828e50323cfef2eb8a66697cf529b22f23e",
+    "usedMaterials": [
+      "Console",
+      "Console1",
+      "Face",
+      "Fish_Scales",
+      "Fish_Scales2",
+      "Fish_Scales3",
+      "Fish_Scales4",
+      "Fish_Scales5",
+      "Glass2",
+      "GridButton1",
+      "GridButton2",
+      "GridButton3",
+      "GridButton4",
+      "GridButton5",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Pipes"
+    ],
+    "materialImages": [
+      "OctoBlue.png.001"
+    ],
+    "animationKeys": {
+      "Barnicals_Hap": 1203,
+      "Circle.012Action": 0,
+      "Circle.015Action": 0,
+      "FrownHappy": 1080
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Frown Fish",
+    "file": "Frowningfish.blend",
+    "bytes": 8351963,
+    "triangles": 41056,
+    "vertices": 21449,
+    "meshes": 24,
+    "materials": [
+      "Console",
+      "Console1",
+      "Dots Stroke",
+      "Face",
+      "Fish_Scales",
+      "Fish_Scales2",
+      "Fish_Scales3",
+      "Fish_Scales4",
+      "Fish_Scales5",
+      "Glass2",
+      "GridButton1",
+      "GridButton2",
+      "GridButton3",
+      "GridButton4",
+      "GridButton5",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Pipes"
+    ],
+    "textures": [
+      {
+        "name": "OctoBlue.png.001",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Barnicals_Hap",
+      "Circle.012Action",
+      "Circle.015Action",
+      "FrownHappy"
+    ],
+    "rigs": [
+      "FrownFish_Armature"
+    ],
+    "bounds": [
+      [
+        -0.3066895008087158,
+        -0.299949049949646,
+        -0.5831117033958435
+      ],
+      [
+        0.29556265473365784,
+        0.30237072706222534,
+        0.22753112018108368
+      ]
+    ],
+    "objects": [
+      {
+        "name": "ButtonsL2.021",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.010",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.022",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.018",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Sphere",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Torus.001",
+        "modifiers": []
+      },
+      {
+        "name": "Circle.017",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.018",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.020",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.007",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.008",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.021",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.023",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.015",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.019",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.009",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.015",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.016",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.004",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.006",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision.001",
+            "levels": 1
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Barnicals_Pose1": [
+        0.0,
+        0.0
+      ],
+      "Inkling_Gesture": [
+        0.0,
+        0.0
+      ],
+      "Inkling_Lay": [
+        0.0,
+        0.0
+      ],
+      "Inkling_Pose2": [
+        0.0,
+        0.0
+      ],
+      "Inkling_Think": [
+        0.0,
+        0.0
+      ],
+      "Inkling_Tired": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "34e3976e01c494de56559c8fef3317a240cad8aa84ad578b78b8edbef6ade231",
+    "usedMaterials": [
+      "Eye",
+      "Eye.001",
+      "Glass2",
+      "GlassOcto",
+      "Grey",
+      "Inkling_Chair",
+      "Inkling_Chair1",
+      "Inkling_Nose",
+      "Inkling_Skin",
+      "Inkling_Skin2",
+      "Metal1",
+      "Mouth inside",
+      "Octoclothes_Lightblue",
+      "Octoclothes_White"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001"
+    ],
+    "animationKeys": {
+      "Barnicals_Pose1": 1224,
+      "Inkling_Gesture": 1226,
+      "Inkling_Lay": 1224,
+      "Inkling_Pose2": 1248,
+      "Inkling_Think": 1225,
+      "Inkling_Tired": 1248
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Inkling",
+    "file": "Inkling.blend",
+    "bytes": 5578452,
+    "triangles": 62304,
+    "vertices": 31485,
+    "meshes": 18,
+    "materials": [
+      "Dots Stroke",
+      "Eye",
+      "Eye.001",
+      "Glass2",
+      "GlassOcto",
+      "Grey",
+      "Inkling_Chair",
+      "Inkling_Chair1",
+      "Inkling_Nose",
+      "Inkling_Skin",
+      "Inkling_Skin2",
+      "Metal1",
+      "Mouth inside",
+      "Octoclothes_Lightblue",
+      "Octoclothes_White"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      }
+    ],
+    "actions": [
+      "Barnicals_Pose1",
+      "Inkling_Gesture",
+      "Inkling_Lay",
+      "Inkling_Pose2",
+      "Inkling_Think",
+      "Inkling_Tired"
+    ],
+    "rigs": [
+      "Inkling_Armature"
+    ],
+    "bounds": [
+      [
+        -0.3505766689777374,
+        -0.3102004826068878,
+        -0.3938831090927124
+      ],
+      [
+        0.35057350993156433,
+        0.3613525629043579,
+        0.47779580950737
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 3
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.002",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Kwazii_Idle": [
+        0.0,
+        0.0
+      ],
+      "Kwazii_Punchup": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "c0dbcc16e5ac2f361ac95e59f01328fb3e8049f1f6ee7a3476e04522e414912c",
+    "usedMaterials": [
+      "A_Dent",
+      "Eye",
+      "Eye.001",
+      "EyePatch",
+      "Mouth inside",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Wiskers",
+      "kwazii_Fur",
+      "kwazii_Fur2",
+      "kwazii_Nose"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001",
+      "OctoBlue.png.001"
+    ],
+    "animationKeys": {
+      "Kwazii_Idle": 1368,
+      "Kwazii_Punchup": 1373
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Kwazii",
+    "file": "kwazii.blend",
+    "bytes": 8541980,
+    "triangles": 89150,
+    "vertices": 45234,
+    "meshes": 29,
+    "materials": [
+      "A_Dent",
+      "Console",
+      "Dots Stroke",
+      "Eye",
+      "Eye.001",
+      "EyePatch",
+      "Glass2",
+      "kwazii_Fur",
+      "kwazii_Fur2",
+      "kwazii_Nose",
+      "Mouth inside",
+      "OctoBlue",
+      "Octoclothes_Darkblue",
+      "Octoclothes_Lightblue",
+      "Tank",
+      "Wiskers"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.001",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Kwazii_Idle",
+      "Kwazii_Punchup"
+    ],
+    "rigs": [
+      "Kwazii_Armature"
+    ],
+    "bounds": [
+      [
+        -0.21681472659111023,
+        -0.22798052430152893,
+        -0.283547967672348
+      ],
+      [
+        0.2281944304704666,
+        0.19230027496814728,
+        0.46124881505966187
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.004",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.006",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "EyePatch",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Hat",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.004",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.005",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.006",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.003",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.011",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.011",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.012",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.016",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.003",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.012",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Peso_Happy": [
+        0.0,
+        0.0
+      ],
+      "Peso_Idle": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "fdced449b5e1b0a669a16a0fb991a2645f63bb362c4c0f2d886937b09a10c0bf",
+    "usedMaterials": [
+      "A_Dent",
+      "A_Yellow",
+      "Eye",
+      "Eye.001",
+      "Mouth inside",
+      "OctoBlue.001",
+      "OctoPlaster",
+      "Octoclothes_Lightblue",
+      "Peso_Bag",
+      "Peso_Fur",
+      "Peso_Fur2",
+      "Peso_Hat"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001",
+      "OctoBlue.png.002",
+      "OctoPlaster.png"
+    ],
+    "animationKeys": {
+      "Peso_Happy": 941,
+      "Peso_Idle": 912
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "peso",
+    "file": "Peso.blend",
+    "bytes": 12778532,
+    "triangles": 54980,
+    "vertices": 27720,
+    "meshes": 23,
+    "materials": [
+      "A_Dent",
+      "A_Yellow",
+      "Console",
+      "Dots Stroke",
+      "Eye",
+      "Eye.001",
+      "Glass2",
+      "Mouth inside",
+      "OctoBlue.001",
+      "Octoclothes_Lightblue",
+      "OctoPlaster",
+      "Peso_Bag",
+      "Peso_Fur",
+      "Peso_Fur2",
+      "Peso_Hat",
+      "Tank"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.002",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      },
+      {
+        "name": "OctoPlaster.png",
+        "path": "//..\\..\\..\\Textures\\Octo\\OctoPlaster.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Peso_Happy",
+      "Peso_Idle"
+    ],
+    "rigs": [
+      "Armature",
+      "Peso_Armature"
+    ],
+    "bounds": [
+      [
+        -0.21438488364219666,
+        -0.16281121969223022,
+        -0.2979711592197418
+      ],
+      [
+        0.18730953335762024,
+        0.20743902027606964,
+        0.3213467597961426
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.007",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.006",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cylinder",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "OctoPlaster",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.009",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.011",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.012",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Hat",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.016",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Shellington_apose": [
+        0.0,
+        0.0
+      ],
+      "Shellington_Idle": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "609f32f5c27e36e5401a9f4253d0d276c123eb83a6f09cdbef6ced3dce5a7e16",
+    "usedMaterials": [
+      "A_Dent.003",
+      "A_Yellow.001",
+      "Console.002",
+      "Drill.003",
+      "Eye.006",
+      "Eye.007",
+      "Mouth inside.003",
+      "OctoBlue.003",
+      "OctoBlue.004",
+      "Octoclothes_Darkblue.003",
+      "Octoclothes_Lightblue.002",
+      "Octoclothes_Lightblue.003",
+      "Octoclothes_Lightblue.004",
+      "Shellington_Fur",
+      "Shellington_Fur3"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.004",
+      "OctoBlue.png.004",
+      "OctoBlue.png.005"
+    ],
+    "animationKeys": {
+      "Shellington_apose": 1392,
+      "Shellington_Idle": 1392
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Shellington",
+    "file": "Shellington.blend",
+    "bytes": 13592852,
+    "triangles": 89886,
+    "vertices": 45348,
+    "meshes": 30,
+    "materials": [
+      "A_Dent.003",
+      "A_Yellow.001",
+      "Console.002",
+      "Console.003",
+      "Dots Stroke",
+      "Drill.003",
+      "Eye.006",
+      "Eye.007",
+      "Glass2",
+      "GlassMag",
+      "Maggrey1",
+      "Maggrey2",
+      "Maggrey3",
+      "Mouth inside.003",
+      "OctoBlue.003",
+      "OctoBlue.004",
+      "Octoclothes_Darkblue.003",
+      "Octoclothes_Lightblue.002",
+      "Octoclothes_Lightblue.003",
+      "Octoclothes_Lightblue.004",
+      "Shellington_Fur",
+      "Shellington_Fur3",
+      "Tank.003"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.004",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.004",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      },
+      {
+        "name": "OctoBlue.png.005",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Shellington_apose",
+      "Shellington_Idle"
+    ],
+    "rigs": [
+      "Bag_Armature",
+      "Mag_Glass_Armature",
+      "Shellington_Armature"
+    ],
+    "bounds": [
+      [
+        -0.2197217047214508,
+        -0.17550715804100037,
+        -0.2916821241378784
+      ],
+      [
+        0.20149023830890656,
+        0.2007291615009308,
+        0.4618615508079529
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Plane.012",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Hat",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.017",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision.001",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.015",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.017",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.018",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.019",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.009",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.004",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.015",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.007",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "CURVE",
+            "name": "Curve",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.015",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.018",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Plane.183",
+        "modifiers": [
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.020",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.021",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.021",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.023",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.024",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.005",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.006",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.022",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.023",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.024",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.025",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.025",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Tunip_Idle": [
+        0.0,
+        0.0
+      ],
+      "Tunip_Wave": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "65d00b297baadaec70093bf427f33b5971d2100fdf01fe207f560ba8bf359399",
+    "usedMaterials": [
+      "Eye",
+      "Eye.001",
+      "Inkling_Skin2",
+      "Mouth inside",
+      "Tunip_Plant",
+      "Tunip_Secondary",
+      "Tunip_Skin",
+      "Tunip_Skin.001",
+      "Tunip_Thurd"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001"
+    ],
+    "animationKeys": {
+      "Tunip_Idle": 1154,
+      "Tunip_Wave": 1176
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "Tunip",
+    "file": "Tunip.blend",
+    "bytes": 3181161,
+    "triangles": 23952,
+    "vertices": 12489,
+    "meshes": 12,
+    "materials": [
+      "Dots Stroke",
+      "Eye",
+      "Eye.001",
+      "Inkling_Skin2",
+      "Mouth inside",
+      "Tunip_Plant",
+      "Tunip_Secondary",
+      "Tunip_Skin",
+      "Tunip_Skin.001",
+      "Tunip_Thurd"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      }
+    ],
+    "actions": [
+      "Tunip_Idle",
+      "Tunip_Wave"
+    ],
+    "rigs": [
+      "Tunip_Armature"
+    ],
+    "bounds": [
+      [
+        -0.13789841532707214,
+        -0.11127524822950363,
+        -0.07537335902452469
+      ],
+      [
+        0.15680360794067383,
+        0.11747725307941437,
+        0.44247573614120483
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "LATTICE",
+            "name": "Lattice",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actionFrameRanges": {
+      "Tweak_Idle": [
+        0.0,
+        0.0
+      ],
+      "Tweak_Poser": [
+        0.0,
+        0.0
+      ]
+    },
+    "sha256": "bafc82c10f938901aa4d58523a41d910c088facfe65fb170d52c8186978dccfd",
+    "usedMaterials": [
+      "A_Dent",
+      "Band",
+      "Eye",
+      "Eye.001",
+      "Mouth inside",
+      "OctoBeltTweak",
+      "OctoBlue",
+      "Octoclothes_Lightblue",
+      "Spanner",
+      "Spanner.001",
+      "Tweaj_Fur3",
+      "Tweak_Fur",
+      "Tweak_Fur2",
+      "Tweak_Nose",
+      "Tweak_Octo"
+    ],
+    "materialImages": [
+      "Fabric_Burlap_004_Normal.jpg.001",
+      "OctoBlue.png.001"
+    ],
+    "animationKeys": {
+      "Tweak_Idle": 1992,
+      "Tweak_Poser": 1995
+    },
+    "orientation": "Blender Z-up, +Y front; glTF Y-up, -Z front",
+    "folder": "tweak",
+    "file": "Tweak.blend",
+    "bytes": 9867938,
+    "triangles": 114892,
+    "vertices": 57857,
+    "meshes": 31,
+    "materials": [
+      "A_Dent",
+      "Band",
+      "Carrot",
+      "Carrot.001",
+      "Console",
+      "Dots Stroke",
+      "Drill",
+      "Drill.001",
+      "Drill.002",
+      "Drill.003",
+      "Eye",
+      "Eye.001",
+      "Game_Controller",
+      "Game_Controller.001",
+      "Game_Controller.002",
+      "Glass",
+      "Glass2",
+      "Goggles",
+      "Goggles2",
+      "Mouth inside",
+      "OctoBeltTweak",
+      "OctoBlue",
+      "Octoclothes_Lightblue",
+      "Spanner",
+      "Spanner.001",
+      "Tank",
+      "Tweaj_Fur3",
+      "Tweak_Fur",
+      "Tweak_Fur2",
+      "Tweak_Nose",
+      "Tweak_Octo"
+    ],
+    "textures": [
+      {
+        "name": "Fabric_Burlap_004_Normal.jpg.001",
+        "path": "C:\\Users\\BioStar\\Downloads\\Fabric_Burlap_004_Normal.jpg",
+        "size": [
+          0,
+          0
+        ],
+        "packed": false
+      },
+      {
+        "name": "OctoBlue.png.001",
+        "path": "//..\\..\\Textures\\Octo\\OctoBlue.png",
+        "size": [
+          2560,
+          2560
+        ],
+        "packed": true
+      }
+    ],
+    "actions": [
+      "Tweak_Idle",
+      "Tweak_Poser"
+    ],
+    "rigs": [
+      "Armature",
+      "Armature.001",
+      "Goggles",
+      "Tweak_Armature"
+    ],
+    "bounds": [
+      [
+        -0.21755154430866241,
+        -0.17701230943202972,
+        -0.28351134061813354
+      ],
+      [
+        0.2045065462589264,
+        0.19942040741443634,
+        0.5701320171356201
+      ]
+    ],
+    "objects": [
+      {
+        "name": "Plane",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.002",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.007",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.008",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.016",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Cube.009",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.010",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Plane.019",
+        "modifiers": []
+      },
+      {
+        "name": "Cube.007",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "NODES",
+            "name": "Smooth by Angle",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.013",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "NODES",
+            "name": "Smooth by Angle",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.014",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "NODES",
+            "name": "Smooth by Angle",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.015",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.003",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.011",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          },
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.011",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.012",
+        "modifiers": [
+          {
+            "type": "ARRAY",
+            "name": "Array",
+            "levels": null
+          },
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          },
+          {
+            "type": "SOLIDIFY",
+            "name": "Solidify",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.001",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Plane.003",
+        "modifiers": [
+          {
+            "type": "SHRINKWRAP",
+            "name": "Shrinkwrap",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.002",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.012",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          }
+        ]
+      },
+      {
+        "name": "Circle.001",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.024",
+        "modifiers": [
+          {
+            "type": "ARMATURE",
+            "name": "Armature",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "modifiers": [
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          },
+          {
+            "type": "CAST",
+            "name": "Cast",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Circle.004",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      },
+      {
+        "name": "Circle.005",
+        "modifiers": [
+          {
+            "type": "MIRROR",
+            "name": "Mirror",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 2
+          },
+          {
+            "type": "NODES",
+            "name": "Smooth by Angle",
+            "levels": null
+          }
+        ]
+      },
+      {
+        "name": "Cylinder",
+        "modifiers": [
+          {
+            "type": "BEVEL",
+            "name": "Bevel",
+            "levels": null
+          },
+          {
+            "type": "SUBSURF",
+            "name": "Subdivision",
+            "levels": 1
+          }
+        ]
+      }
+    ]
+  }
+]

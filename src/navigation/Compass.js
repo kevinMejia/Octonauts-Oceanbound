@@ -1,27 +1,41 @@
 import * as T from 'three';
 import {compassConfig as config,octopodConfig as base} from '../config/octopodConfig.js';
 import {navigationState,shortestAngle,wrapDegrees} from './navigationMath.js';
-import {targetState} from './compassMarkers.js';
+import {gameplaySettings} from '../ui/gameplayPreferences.js';
+import {crewMarkerLabel,crewMarkerColors,targetState} from './compassMarkers.js';
 export class Compass{
  constructor(){this.element=document.createElement('aside');this.element.id='compass';this.element.setAttribute('aria-label','World navigation compass');this.element.innerHTML=`<div class="compass-pointer" aria-hidden="true">▾</div><div class="compass-dial"><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span></div><div class="base-bearing"><span title="Octopod"><img alt="Octopod" src="${new URL('../../assets/icons/octopod-compass.svg',import.meta.url).href}"></span></div><b class="compass-heading"></b><small class="base-distance"></small>`;document.body.append(this.element);this.element.hidden=!config.enabled;this.element.style.setProperty('--compass-size',config.size+'px');this.dial=this.element.querySelector('.compass-dial');this.marker=this.element.querySelector('.base-bearing');this.cardinals=[...this.dial.querySelectorAll('span')];this.label=this.element.querySelector('.compass-heading');this.distance=this.element.querySelector('.base-distance');this.dial.hidden=!config.showCardinalDirections;this.marker.hidden=!(base.enabled&&base.navigationMarkerEnabled&&config.showOctopodMarker);this.distance.hidden=!(base.enabled&&config.showDistance);this.targets=[];this.markerLayer=document.createElementNS('http://www.w3.org/2000/svg','svg');this.markerLayer.classList.add('compass-targets');this.markerLayer.setAttribute('aria-hidden','true');this.element.prepend(this.markerLayer);this.forward=new T.Vector3();this.orientation=new T.Quaternion();
  }
  setRescue(active){this.element.classList.toggle('rescue-active',!!active);this.marker.hidden=!(base.enabled&&base.navigationMarkerEnabled&&(active||config.showOctopodMarker));}
  connectDiscovery(discovery,unlocks){
   this.unsubscribe?.();this.discovery=discovery;this.unlocks=unlocks;
-  for(const t of this.targets)t.node.remove();this.targets=[];
+  this.clearTargets('gup');
   for(const record of discovery.records.values()){
    const d=record.definition;if(!d.discovery?.enabled)continue;
-   const node=document.createElementNS('http://www.w3.org/2000/svg','g'),text=document.createElementNS(node.namespaceURI,'text');
-   text.textContent=d.compassLabel??d.name.replace(/^GUP[- ]?/i,'');text.setAttribute('fill',d.compassColor??'#e8ffff');text.style.color=d.compassColor??'#e8ffff';node.append(text);this.markerLayer.append(node);this.targets.push({id:d.id,record,node,text});
+   this.addTarget('gup',record,d.compassLabel??d.name.replace(/^GUP[- ]?/i,''),d.compassColor??'#e8ffff',()=>!unlocks.isUnlocked(d.id));
   }
-  const sync=()=>{for(const t of this.targets){t.visible=!unlocks.isUnlocked(t.id)&&!!t.record.pose&&['x','y','z'].every(k=>Number.isFinite(t.record.pose[k]));t.node.style.display=t.visible?'':'none';if(!t.visible)t.node.classList.remove('nearby');}};
-  this.unsubscribe=unlocks.subscribe(sync);sync();
+  this.unsubscribe=unlocks.subscribe(()=>this.syncTargets());this.syncTargets();
  }
+ clearTargets(kind){for(const t of this.targets)if(t.kind===kind)t.node.remove();this.targets=this.targets.filter(t=>t.kind!==kind);}
+ addTarget(kind,record,label,color,undiscovered){
+  const node=document.createElementNS('http://www.w3.org/2000/svg','g'),text=document.createElementNS(node.namespaceURI,'text'),title=document.createElementNS(node.namespaceURI,'title');
+  text.textContent=label;text.setAttribute('fill',color);text.style.color=color;title.textContent=record.definition.name;node.dataset.kind=kind;node.dataset.target=record.definition.id;node.append(title,text);this.markerLayer.append(node);this.targets.push({id:record.definition.id,kind,record,node,text,undiscovered});
+ }
+ connectCrew(discovery){
+  this.clearTargets('crew');const registry=[...discovery.records.values()];
+  for(const [i,d] of registry.entries())this.addTarget('crew',{definition:d,get pose(){return discovery.positions.get(d.id);}},crewMarkerLabel(d,registry),d.compassColor??crewMarkerColors[i%crewMarkerColors.length],()=>!discovery.isDiscovered(d.id));
+  this.syncTargets();
+ }
+ syncTargets(){
+  for(const t of this.targets){const enabled=gameplaySettings[t.kind==='crew'?'showOctonautLetters':'showGupLetters'];t.visible=enabled&&t.undiscovered()&&!!t.record.pose&&['x','y','z'].every(k=>Number.isFinite(t.record.pose[k]));t.node.style.display=t.visible?'':'none';if(!t.visible)t.node.classList.remove('nearby');}
+ }
+
  updateTargets(position){
+  this.syncTargets();
   if(this.viewportWidth!==innerWidth||this.viewportHeight!==innerHeight){this.viewportWidth=innerWidth;this.viewportHeight=innerHeight;this.compassRect=this.element.getBoundingClientRect();this.markerLayer.setAttribute('viewBox',`${-this.compassRect.width/2} ${-this.compassRect.height/2} ${this.compassRect.width} ${this.compassRect.height}`);}
   const radius=this.compassRect.width/2-1;
   for(const t of this.targets)if(t.visible){
-   const state=targetState(position,wrapDegrees(this.angle),t.record.pose,t.record.definition.discovery.compassHighlightDistance??config.discoveryHighlightDistance),relative=state.relative.toFixed(2);
+   const state=targetState(position,wrapDegrees(this.angle),t.record.pose,t.record.definition.discovery?.compassHighlightDistance??config.discoveryHighlightDistance),relative=state.relative.toFixed(2);
    // Match the base: rotate the bearing around the center and counter-rotate
    // the artwork, keeping every letter upright on the compass rim.
    const write=(node,key,value)=>{if(node.getAttribute(key)!==value)node.setAttribute(key,value);};
