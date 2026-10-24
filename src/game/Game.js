@@ -60,7 +60,7 @@ export class Game{
   this.input?.clear();this.audio?.setPaused(paused);this.needsPausedRender=true;
   if(this.metrics){this.metrics.resolution.reset();this.metrics.previous=null;this.metrics.samples=[];this.metrics.cpu=[];this.metrics.gpu=[];}
  }
- configureVehicle(vehicle,id){const definition=vehicleById(id);vehicle.definition=definition;this.sub.collisionProxy=definition.collision;this.sub.movement=definition.movement;this.chase.profile=definition.camera;this.audio.setVehicle(definition.audio);}
+ configureVehicle(vehicle,id){const definition=vehicleById(id);vehicle.definition=definition;this.sub.collisionProxy=definition.collision;this.sub.turbo.stop();this.sub.selectVehicle(id,definition.movement);this.turboMeter.update(this.sub.turbo.charge);this.chase.profile=definition.camera;this.audio.setVehicle(definition.audio);}
  installVehicle(next,previous,id){
   const pose=this.discovery?.safeSwitch(id,this.sub);if(pose){Object.assign(this.sub.position,{x:pose.x,y:pose.y,z:pose.z});this.sub.heading=pose.heading;this.sub.speed=this.sub.vertical=0;this.sub.collisionDrift.x=this.sub.collisionDrift.z=0;this.input.clear();}
   next.update(0,this.sub);this.scene.remove(previous.group);this.gup=next;this.scene.add(next.group);next.group.add(this.turboEffects.group);this.configureVehicle(next,id);

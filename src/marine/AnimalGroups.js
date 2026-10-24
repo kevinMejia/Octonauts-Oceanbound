@@ -29,7 +29,7 @@ export async function createAnimalGroup(d,game){
  const record={definition:d,visual,members,points,floor,centerY,elapsed:0};
  game.marineDiscovery.setGroupPositions(d.id,points);return record;
 }
-export function updateAnimalGroup(r,time,dt,player,force=false){
+export function updateAnimalGroup(r,time,dt,player,force=false,motion=null){
  const d=r.definition,b=d.behavior,group=r.visual.group,dx=group.position.x-player.x,dz=group.position.z-player.z;r.elapsed+=dt;
  const distance=dx*dx+dz*dz;group.visible=force||distance<240**2;
  if(!force&&distance>110**2&&r.elapsed<.25)return;
@@ -38,6 +38,7 @@ export function updateAnimalGroup(r,time,dt,player,force=false){
  const hovering=['hover','drift','peek'].includes(b.style);
  group.rotation.y=hovering?.4+Math.sin(phase)*.3:Math.atan2(Math.cos(phase),-.65*Math.sin(phase));
  group.rotation.z=b.style==='glide'?Math.sin(phase)*.1:0;
+ if(motion){group.position.copy(motion.position);group.rotation.set(0,motion.heading,motion.bank);}
  for(let i=0;i<r.members.length;i++){const m=r.members[i],p=m.visual.group,t=time+m.phase;
   if(b.memberMotion==='orbit'){
    const pose=pufferfishPose(time,i,r.members.length,b,m.motion);p.position.set(pose.x,pose.y,pose.z);p.rotation.y=pose.heading;p.rotation.z=pose.bank;

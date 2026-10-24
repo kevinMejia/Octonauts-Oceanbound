@@ -1,3 +1,5 @@
+import {AnimalMovement} from './AnimalMovement.js';
+import {movementForAnimal} from '../config/animalMovementConfig.js';
 import {createAnimalGroup,updateAnimalGroup} from './AnimalGroups.js';
 import * as T from 'three';
 import {heightAt} from '../environment/terrainMath.js';
@@ -17,7 +19,11 @@ export class MarineAnimals{
   // Render the actual visual once with the existing renderer, before placing it.
   try{animals.thumbnails.set(d.id,d.thumbnailPath??d.visual?.thumbnailPath??animals.thumbnail(visual.group));}catch(error){console.warn('Marine thumbnail unavailable',d.id,error);}
   game.scene.add(visual.group);
- }animals.update(0,game.sub.position,true);return animals;}
+ }
+ for(const r of animals.records){const config=movementForAnimal(r.definition);if(config){
+  config.center.y=Math.min(config.maxY,Math.max(config.center.y,(r.centerY??r.floor+r.definition.behavior.clearance)));
+  r.movement=new AnimalMovement(config);
+ }}animals.update(0,game.sub.position,true);return animals;}
  constructor(game){this.game=game;this.records=[];this.thumbnails=new Map();this.time=0;}
  thumbnail(group,fit=false){
   const renderer=this.game.renderer,scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,200);
@@ -33,7 +39,15 @@ export class MarineAnimals{
   }finally{renderer.setRenderTarget(previous);renderer.setClearColor(color,alpha);target.dispose();scene.remove(group);}
  }
  update(dt,player,force=false){this.time+=dt;
-  for(const r of this.records){if(r.members){updateAnimalGroup(r,this.time,dt,player,force);continue;}const g=r.visual.group,d=r.definition,b=d.behavior;r.elapsed+=dt;
+  for(const r of this.records){if(r.movement){
+   const g=r.visual.group,distance=Math.hypot(g.position.x-player.x,g.position.z-player.z);r.elapsed+=dt;g.visible=force||distance<240;
+   if(!force&&distance>110&&r.elapsed<.25)continue;
+   const step=r.elapsed;r.elapsed=0;const motion=r.movement,c=motion.config;
+   motion.update(step,player,{grid:this.game.interactions.surfaces.grid,ground:(x,z)=>{let floor=heightAt(x,z);for(let i=0;i<8;i++){const a=i*Math.PI/4;floor=Math.max(floor,heightAt(x+Math.sin(a)*c.footprint,z+Math.cos(a)*c.footprint));}return floor;}});
+   if(r.members)updateAnimalGroup(r,this.time,step,player,true,motion);
+   else{g.position.copy(motion.position);g.rotation.set(0,motion.heading,motion.bank);r.visual.animate(this.time,step);this.game.marineDiscovery.setPosition(r.definition.id,g.position);}
+   g.visible=force||distance<240;continue;
+  }if(r.members){updateAnimalGroup(r,this.time,dt,player,force);continue;}const g=r.visual.group,d=r.definition,b=d.behavior;r.elapsed+=dt;
    const distance=(g.position.x-player.x)**2+(g.position.z-player.z)**2;g.visible=force||distance<240**2;
    if(!force&&distance>110**2&&r.elapsed<.25)continue;
    const step=r.elapsed;r.elapsed=0;const t=this.time*b.speed,phase=d.id==='octopus'?t+Math.sin(t*2)*.08:t;

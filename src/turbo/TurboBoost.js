@@ -1,8 +1,8 @@
 import {turboBoostConfig} from '../config/turboConfig.js';
 
-// Session charge is independent of the current vehicle and its handling tuning.
+// Each deployed vehicle owns a charge state for this dive.
 export class TurboBoost {
- constructor(config=turboBoostConfig){this.config=config;this.charge=0;this.active=false;this.requested=false;this.exhausted=false;}
+ constructor(config=turboBoostConfig){this.config=config;this.charge=100;this.active=false;this.requested=false;this.exhausted=false;}
  get multiplier(){return this.active?1+Math.max(0,this.config.speedBoostPercent)/100:1;}
  get remaining(){return this.active?this.charge/Math.max(.001,this.config.drainPerSecond):0;}
  collect(){if(!this.config.enabled)return false;this.charge=Math.min(100,this.charge+this.config.pickupCharge);return true;}

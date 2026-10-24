@@ -11,7 +11,7 @@ test('seeded scenery and smooth terrain are deterministic',()=>{const a=random(7
 
 import {turboBoostConfig} from '../src/config/turboConfig.js';
 import {vehicles,vehicleById} from '../src/config/vehicleConfig.js';
-test('GUP speed tiers apply to forward, reverse and turbo while B keeps its original speed',()=>{
+test('GUP speed tiers apply to forward, reverse and turbo with individual maxima',()=>{
  for(const {id,movement:{speedMultiplier:multiplier}} of vehicles){
   for(const [thrust,boost,target] of [[1,false,12],[-1,false,-5],[1,true,12*(1+turboBoostConfig.speedBoostPercent/100)]]){
    const sub=new SubmarineController();sub.movement=vehicleById(id).movement;sub.turbo.charge=100;
@@ -25,5 +25,5 @@ test('changing GUP speed profile preserves position and smoothly adjusts existin
  const position={...sub.position};const speed=sub.speed;
  sub.movement=vehicleById('gup-a').movement;
  assert.deepEqual(sub.position,position);assert.equal(sub.speed,speed);
- run(sub,{...zero,thrust:1},5);assert.ok(Math.abs(sub.speed-9)<.01);
+ run(sub,{...zero,thrust:1},5);assert.ok(Math.abs(sub.speed-8.64)<.01);
 });

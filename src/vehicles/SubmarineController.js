@@ -6,10 +6,16 @@ import {TurboBoost} from '../turbo/TurboBoost.js';
 const damp=(a,b,k,dt)=>a+(b-a)*(1-Math.exp(-k*dt));
 export class SubmarineController{
  constructor(){this.previousPosition={x:0,y:8,z:0};this.collisionDrift={x:0,z:0};this.floorContact={};this.turbo=new TurboBoost();this.position={x:0,y:8,z:0};this.heading=0;this.speed=0;this.vertical=0;this.steer=0;this.bank=0;this.pitch=0;}
+ selectVehicle(id,movement){
+  this.vehicleTurbo??=new Map();
+  if(this.vehicleId)this.vehicleTurbo.set(this.vehicleId,this.turbo);
+  if(this.vehicleId!==id)this.turbo=this.vehicleTurbo.get(id)??new TurboBoost();
+  this.vehicleId=id;this.movement=movement;
+ }
  update(dt,input){dt=Math.min(dt,.05);Object.assign(this.previousPosition,this.position);const drift=this.collisionDrift,decay=Math.exp(-collisionConfig.driftDrag*dt);drift.x*=decay;drift.z*=decay;this.turbo.request(input.boost);this.turbo.step(dt,input.thrust>0);const boost=this.turbo.multiplier,speedMultiplier=this.movement?.speedMultiplier??1;
  // Brake before reversing. Once nearly stationary, a held back button engages reverse.
  const thrust=input.brakeReverse&&this.speed>.15?0:input.thrust;
- const response=input.brakeReverse&&this.speed>.15?6:(thrust?c.acceleration*boost:c.drag);this.steer=damp(this.steer,input.turn,5,dt);this.heading+=this.steer*c.turnSpeed*dt;this.speed=damp(this.speed,thrust*(thrust>=0?c.maxForwardSpeed*boost*speedMultiplier:c.maxReverseSpeed*speedMultiplier),response,dt);this.vertical=damp(this.vertical,input.rise*(input.rise>=0?c.ascendSpeed:c.descendSpeed),input.rise?c.acceleration:c.drag,dt);
+ const response=input.brakeReverse&&this.speed>.15?6:(thrust?(this.movement?.acceleration??c.acceleration)*boost:c.drag);this.steer=damp(this.steer,input.turn,5,dt);this.heading+=this.steer*c.turnSpeed*dt;this.speed=damp(this.speed,thrust*(thrust>=0?(input.cruise?(this.movement?.cruisingSpeed??c.maxForwardSpeed*speedMultiplier):(this.movement?.maxSpeed??c.maxForwardSpeed*speedMultiplier))*boost:c.maxReverseSpeed*speedMultiplier),response,dt);this.vertical=damp(this.vertical,input.rise*(input.rise>=0?c.ascendSpeed:c.descendSpeed),input.rise?c.acceleration:c.drag,dt);
  const p=this.position,edge=w.size/2-12,soft=edge-w.boundaryMargin;
  let dx=Math.sin(this.heading)*this.speed+drift.x,dz=Math.cos(this.heading)*this.speed+drift.z;
  if(p.x*dx>0&&Math.abs(p.x)>soft)dx*=Math.max(0,(edge-Math.abs(p.x))/w.boundaryMargin);
