@@ -8,7 +8,7 @@ Eleven independent discoverable species (24 individual animals) now inhabit the 
 
 | ID | X | Z | Habitat / movement |
 | --- | --- | --- | --- |
-| octopus | -45 | 66 | Rocky reef, 5m slow route with near-pauses and gently moving arms |
+| octopus | -45 | 66 | Rocky reef, 5m reef loop with steady swimming, a gentle body pulse and moving arms |
 | bottlenose-dolphin | 110 | 215 | Accessible open water near the start, 19m arcs and playful vertical motion |
 | whale-shark | -230 | -120 | Spacious water away from the showcase, 28m slow wide turns |
 | giant-manta-ray | 65 | 110 | Reef edge, 14m banked glide with flapping wings |
@@ -17,7 +17,7 @@ Y is a preferred depth; initialization samples each whole route against terrain 
 
 ## Seven additional species
 
-The original four entries, procedural models, sizes, animation, movement path, and spawn positions are unchanged. `ExpandedRegistry.js`, appended to the original registry, adds exactly seven species; no turtle or ambient animal is registered.
+The seven-species expansion preserved the original four. Later requested movement tuning increases the octopus pace without changing its model, size or habitat. `ExpandedRegistry.js`, appended to the original registry, adds exactly seven species; no turtle or ambient animal is registered.
 
 | Species | Count | Habitat center X, Z | Motion |
 | --- | ---: | --- | --- |
@@ -25,7 +25,7 @@ The original four entries, procedural models, sizes, animation, movement path, a
 | Seahorse | 4 | -43, 12 | Sheltered coral/seaweed edge, upright hover and dorsal flutter |
 | Jellyfish | 6 | -85, 190 | Quiet water, pulsing translucent bells and swaying tentacles |
 | Spotted Eagle Ray | 2 | 90, 50 | Reef shallows, pointed spotted wings and banking glide |
-| Moray Eel | 1 | -49, 102 | Rocky reef edge, short peeking route with jaw/head motion |
+| Moray Eel | 1 | -49, 102 | Rocky reef edge, compact 3.2m swimming loop with jaw/head motion |
 | Pufferfish | 3 | 44, 145 | Coral garden, individual circling paths, fin flutter and brief subtle puff every 16 seconds |
 | Humpback Whale | 1 | 350, -180 | Spacious ocean, wide 40m turns and slow horizontal tail strokes |
 
@@ -54,3 +54,5 @@ Progress uses localStorage key `oceanbound.marine-discoveries.v1` with `{version
 The existing collection button is a compact orange-trimmed teal **CREATURES** capsule beside the original settings badge. Its fish icon is inline SVG and its counter reads current discovery count / registered species. The collection UI refreshes the counter on construction and when an encounter or collection opens, so the existing discovery callback updates it immediately without changes to persistence or proximity rules. Branding reflows separately at desktop and narrow portrait sizes, with safe-area offsets, focus/keyboard support and 44px touch targets. `tests/creature-hud-browser.cjs` verifies five viewport layouts, logo/settings behavior, keyboard and touch activation, counter changes, saved reload and full 11/11 sizing at 320px.
 
 Pufferfish have separate, phase-offset elliptical orbits inside their existing group envelope. Each faces its swimming direction, with small depth and radius variations; the shared group still drifts in its original coral habitat. `behavior.memberMotion`, `orbitRadius` and `orbitSpeed` configure this motion. Discovery centers follow every fish as before. The math-only motion helper reuses member state and adds no geometry or physics.
+
+The octopus now swims continuously around its existing 5m route at .22 radians/second, with a small pace variation instead of long near-stalls. The moray eel uses a 3.2m loop at .22 radians/second, faces its travel direction and has a slightly stronger body sway. Its terrain clearance envelope includes its full tail. Species IDs, habitat centers, models, scale and saved progress stay unchanged. `tests/reef-animal-motion-browser.cjs` checks visible displacement in every three-second interval, turning, safe bounds, discovery-center tracking and stable geometry for both animals.

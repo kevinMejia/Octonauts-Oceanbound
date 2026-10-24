@@ -64,7 +64,7 @@ export function createExpandedVisual(d,options={}){
   else if(kind==='seahorse')parts.dorsal.rotation.y=Math.sin(time*18)*.18;
   else if(kind==='jellyfish'){parts.bell.scale.set(1+wave*.09,1-wave*.1,1+wave*.09);for(let i=0;i<7;i++)parts['tentacle'+i].rotation.z=Math.sin(time*1.3+i*.7)*.1;}
   else if(kind==='eagle-ray')for(const sign of [-1,1])parts['wing'+sign].rotation.z=sign*Math.sin(time*1.5)*.23;
-  else if(kind==='moray'){parts.body.rotation.y=wave*.09;parts.head.rotation.y=Math.sin(time*.7)*.05;parts.jaw.rotation.x=.08+(1+Math.sin(time*.9))*.08;}
+  else if(kind==='moray'){parts.body.rotation.y=wave*.14;parts.head.rotation.y=Math.sin(time*.7)*.05;parts.jaw.rotation.x=.08+(1+Math.sin(time*.9))*.08;}
   else{for(const sign of [-1,1])parts['fin'+sign].rotation.y=Math.sin(time*6)*.15;const phase=time%16,puff=phase>13?Math.sin((phase-13)/3*Math.PI)*.12:0;parts.body.scale.setScalar(1+puff);}
  },dispose(){group.traverse(o=>{if(o.isInstancedMesh)o.dispose();});if(own){for(const value of shared.values())value.dispose?.();shared.clear();}}};
 }

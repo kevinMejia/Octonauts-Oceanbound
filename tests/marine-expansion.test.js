@@ -8,8 +8,9 @@ test('collection has eleven distinct species, correct groups, and no turtle',()=
  assert.deepEqual(marineAnimals.map(a=>a.id),[...originalIds,...addedIds]);assert.equal(new Set(marineAnimals.map(a=>a.id)).size,11);
  assert.deepEqual(marineAnimals.slice(4).map(a=>a.group.count),[3,4,6,2,1,3,1]);assert.equal(marineAnimals.slice(4).reduce((n,a)=>n+a.group.count,0),20);
 });
-test('old four entries remain exactly unchanged',()=>{
+test('original entries stay unchanged except the requested octopus swimming pace',()=>{
  const expected=JSON.parse(readFileSync(new URL('./fixtures/original-marine-animals.json',import.meta.url),'utf8'));
+ expected[0].behavior.speed=.22;
  assert.deepEqual(marineAnimals.slice(0,4),expected);
 });
 test('old discoveries survive expansion and any group member unlocks just one species',()=>{

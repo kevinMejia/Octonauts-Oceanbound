@@ -36,10 +36,10 @@ export class MarineAnimals{
   for(const r of this.records){if(r.members){updateAnimalGroup(r,this.time,dt,player,force);continue;}const g=r.visual.group,d=r.definition,b=d.behavior;r.elapsed+=dt;
    const distance=(g.position.x-player.x)**2+(g.position.z-player.z)**2;g.visible=force||distance<240**2;
    if(!force&&distance>110**2&&r.elapsed<.25)continue;
-   const step=r.elapsed;r.elapsed=0;const t=this.time*b.speed,phase=d.id==='octopus'?t+Math.sin(t*2)*.45:t;
+   const step=r.elapsed;r.elapsed=0;const t=this.time*b.speed,phase=d.id==='octopus'?t+Math.sin(t*2)*.08:t;
    const x=d.position.x+Math.sin(phase)*b.radius,z=d.position.z+Math.cos(phase)*b.radius*.65;
    const y=Math.min(39,Math.max(d.position.y,r.floor+b.clearance+b.vertical)+Math.sin(t*2.1)*b.vertical);
-   g.position.set(x,y,z);g.rotation.y=Math.atan2(Math.cos(phase),-.65*Math.sin(phase));g.rotation.z=d.id==='giant-manta-ray'?Math.sin(t)*.12:0;
+   g.position.set(x,y,z);g.rotation.y=Math.atan2(Math.cos(phase),-.65*Math.sin(phase));g.rotation.z=d.id==='giant-manta-ray'?Math.sin(t)*.12:0;g.rotation.x=d.id==='octopus'?Math.sin(this.time*1.6)*.065:0;
    r.visual.animate(this.time,step);this.game.marineDiscovery.setPosition(d.id,g.position);
   }
  }
