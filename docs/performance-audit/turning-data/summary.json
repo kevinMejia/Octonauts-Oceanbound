@@ -1,0 +1,46 @@
+{
+  "high": {
+    "baseline": {
+      "missingSelectionFrames": 885,
+      "frames": 1080,
+      "meanDecorMs": 0.20712962960479436,
+      "shaderCompiles": 26,
+      "firstTurnMaxRenderSubmitMs": 682,
+      "verification": null
+    },
+    "optimized": {
+      "missingSelectionFrames": 0,
+      "frames": 1080,
+      "meanDecorMs": 1.0853703703662312,
+      "shaderCompiles": 4,
+      "firstTurnMaxRenderSubmitMs": 64.29999999701977,
+      "verification": {
+        "stationaryUploads": 0,
+        "equalityCases": 12,
+        "changedChannels": 226
+      }
+    }
+  },
+  "low": {
+    "baseline": {
+      "missingSelectionFrames": 800,
+      "frames": 1080,
+      "meanDecorMs": 0.15527777774949317,
+      "shaderCompiles": 6,
+      "firstTurnMaxRenderSubmitMs": 224,
+      "verification": null
+    },
+    "optimized": {
+      "missingSelectionFrames": 0,
+      "frames": 1080,
+      "meanDecorMs": 0.8521296295923767,
+      "shaderCompiles": 0,
+      "firstTurnMaxRenderSubmitMs": 11.799999997019768,
+      "verification": {
+        "stationaryUploads": 0,
+        "equalityCases": 12,
+        "changedChannels": 0
+      }
+    }
+  }
+}
