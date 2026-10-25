@@ -64,6 +64,22 @@ for old in source_objects:
  for i,material in enumerate(mesh.materials):
   if material:mesh.materials[i]=convert_material(material)
  copies.append(obj)
+ # Optional source-derived tread morphs: shift the original link along its
+ # existing Array/Curve stack. No belt geometry or path is reconstructed.
+ track=JOB.get('tracks',{}).get(old.name)
+ if track:
+  obj.name=track['name'];obj.shape_key_add(name='Basis');original=[v.co.copy() for v in old.data.vertices]
+  steps=track.get('steps',8);pitch=track['sourcePitch']
+  for step in range(1,steps+1):
+   for vertex,co in zip(old.data.vertices,original):vertex.co=co+Vector((0,pitch*step/steps,0))
+   old.data.update();bpy.context.view_layer.update();sample=bpy.data.meshes.new_from_object(old.evaluated_get(deps),preserve_all_data_layers=True,depsgraph=deps)
+   assert len(sample.vertices)==len(mesh.vertices),'Tread topology changed'
+   key=obj.shape_key_add(name='TreadPhase'+str(step))
+   for vertex,target in zip(sample.vertices,key.data):target.co=vertex.co
+   bpy.data.meshes.remove(sample)
+  for vertex,co in zip(old.data.vertices,original):vertex.co=co
+  old.data.update();bpy.context.view_layer.update()
+  obj['treadPitch']=pitch*scale;obj['treadSteps']=steps
 assert triangle_count>0,triangle_count
 # Only clearly named independent blade meshes get a preserved world-space pivot.
 import re
@@ -123,7 +139,7 @@ bpy.ops.object.select_all(action='DESELECT')
 for o in copies+[root]:o.select_set(True)
 bpy.context.view_layer.objects.active=root
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT,VEHICLE+'-working.blend'))
-bpy.ops.export_scene.gltf(filepath=JOB['output'],export_format='GLB',use_selection=True,export_apply=False,export_animations=False,export_cameras=False,export_lights=False,export_extras=True)
+bpy.ops.export_scene.gltf(filepath=JOB['output'],export_format='GLB',use_selection=True,export_apply=False,export_animations=False,export_cameras=False,export_lights=False,export_extras=True,export_morph_normal=False)
 report={'creator':'Keeks_Q','sourceTriangles':triangle_count,'runtimeLength':JOB['targetLength'],'scale':scale,'sourceDimensions':list(hi-lo),'runtimeDimensionsXYZ':[float((hi.x-lo.x)*scale),float((hi.z-lo.z)*scale),JOB['targetLength']],'meshes':len(copies),'materials':len(set(m for o in copies if o.type=='MESH' for m in o.data.materials if m)),'propellers':propellers,'notes':notes}
 open(os.path.join(OUT,'preparation.json'),'w').write(json.dumps(report,indent=2));print('PREPARED',json.dumps(report))
 

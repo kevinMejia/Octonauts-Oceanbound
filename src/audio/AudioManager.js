@@ -107,7 +107,7 @@ export class AudioManager{
   const buffer=this.foundBuffers?.[kind];if(!buffer)return ()=>{};
   try{
    this.stopFoundSound();
-   const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;gain.gain.value=.25;source.connect(gain);gain.connect(this.master);
+   const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;gain.gain.value=kind==='gup'?.05:.25;source.connect(gain);gain.connect(this.master);
    const sound={source,gain};this.foundSound=sound;
    source.onended=()=>{source.disconnect();gain.disconnect();if(this.foundSound===sound)this.foundSound=null;};source.start();
    return ()=>{if(this.foundSound===sound)this.stopFoundSound();};

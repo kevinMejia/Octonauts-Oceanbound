@@ -9,7 +9,7 @@ test('cached discovery effects replace each other, respect mute and play during 
  audio.foundBuffers={animal:{id:'open'},gup:{id:'close'}};
  audio.context={state:'running',createBufferSource(){const source={connect(){},disconnect(){},start(){this.started=true;},stop(){this.stopped=true;}};sources.push(source);return source;},createGain(){const gain={gain:{value:0},connect(target){this.target=target;},disconnect(){}};gains.push(gain);return gain;}};
  audio.playFound('animal');assert.equal(sources.length,1);assert.equal(sources[0].buffer,audio.foundBuffers.animal);assert.equal(sources[0].started,true);assert.equal(gains[0].target,audio.master);assert.equal(gains[0].gain.value,.25);
- audio.playFound('gup');assert.equal(sources[0].stopped,true);assert.equal(sources[1].buffer,audio.foundBuffers.gup);
+ audio.playFound('gup');assert.equal(sources[0].stopped,true);assert.equal(sources[1].buffer,audio.foundBuffers.gup);assert.equal(gains[1].gain.value,.05);
  sources[0].onended();assert.equal(audio.foundSound.source,sources[1]);
  audio.settings.muted=true;audio.playFound('animal');assert.equal(sources.length,2);
  audio.settings.muted=false;audio.settings.master=0;audio.playFound('animal');assert.equal(sources.length,2);

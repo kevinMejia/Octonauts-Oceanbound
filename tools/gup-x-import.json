@@ -1,0 +1,20 @@
+{
+  "name": "GUP-X",
+  "source": "assets/models/Gup-X/GupX.blend",
+  "work": ".local-assets/gup-x-import",
+  "output": "assets/models/gup-x.glb",
+  "thumbnail": "assets/img/vehicles/gup-x.png",
+  "targetLength": 8,
+  "tracks": {
+    "Cylinder.012": {
+      "name": "LeftTread",
+      "sourcePitch": 0.15406381376703315,
+      "steps": 8
+    },
+    "Cylinder.020": {
+      "name": "RightTread",
+      "sourcePitch": 0.15406381376703315,
+      "steps": 8
+    }
+  }
+}
