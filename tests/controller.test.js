@@ -44,3 +44,20 @@ test('climb and dive tilt follows the live setting and levels out on release',()
   gameplaySettings.gupDiveTilt=10;run(s,{...zero,rise:1},1);assert(Math.abs(s.pitch+Math.PI/18)<.03);
  }finally{gameplaySettings.gupDiveTilt=previous;}
 });
+
+test('swimming displacement follows the nose at every tilt, heading and propulsion speed',()=>{
+ const previous=gameplaySettings.gupDiveTilt;
+ try{
+  for(const degrees of [0,20,45])for(const rise of [-1,1])for(const speed of [-5,12,24])for(const heading of [0,1.2]){
+   gameplaySettings.gupDiveTilt=degrees;
+   const sub=new SubmarineController();sub.position={x:0,y:22,z:0};sub.heading=heading;
+   sub.pitch=-rise*degrees*Math.PI/180;sub.heave=rise*5;sub.speed=speed;
+   const before={...sub.position};sub.update(1/60,{...zero,rise,thrust:Math.sign(speed),boost:speed>12});
+   const dx=sub.position.x-before.x,dy=sub.position.y-before.y,dz=sub.position.z-before.z;
+   const along=dx*Math.sin(heading)+dz*Math.cos(heading);
+   assert(Math.abs(dy/along+Math.tan(sub.pitch))<1e-8);
+   assert(Math.abs(dx*Math.cos(heading)-dz*Math.sin(heading))<1e-8);
+   assert(Math.abs(Math.hypot(dx,dy,dz)-Math.abs(sub.speed)/60)<1e-8);
+  }
+ }finally{gameplaySettings.gupDiveTilt=previous;}
+});
