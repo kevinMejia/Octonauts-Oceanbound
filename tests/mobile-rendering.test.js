@@ -4,8 +4,10 @@ import {batchJellyfishTentacles} from '../src/config/visualConfig.js';
 test('jellyfish batching defaults on with an explicit original-rendering comparison',()=>{
  assert.equal(batchJellyfishTentacles({location:{search:''}}),true);assert.equal(batchJellyfishTentacles({location:{search:'?tentacles=original'}}),false);assert.equal(batchJellyfishTentacles({location:{search:'?tentacles=batched'}}),true);
 });
-test('physical glass remains default and comparison modes are explicit',()=>{
- assert.equal(vehicleGlassMode({location:{search:''}}),'original');assert.equal(vehicleGlassMode({location:{search:'?glass=mobile'}}),'mobile');assert.equal(vehicleGlassMode({location:{search:'?glass=original'}}),'original');assert.equal(vehicleGlassMode({location:{search:'?glass=typo'}}),'original');
+test('desktop retains physical glass and mobile defaults to cheaper glass with explicit overrides',()=>{
+ assert.equal(vehicleGlassMode({location:{search:''}}),'original');
+ for(const userAgent of ['iPhone','iPad','Android']){const host={navigator:{userAgent},location:{search:''}};assert.equal(vehicleGlassMode(host),'mobile');host.location.search='?glass=original';assert.equal(vehicleGlassMode(host),'original');}
+ assert.equal(vehicleGlassMode({matchMedia:()=>({matches:true})}),'mobile');assert.equal(vehicleGlassMode({location:{search:'?glass=mobile'}}),'mobile');assert.equal(vehicleGlassMode({location:{search:'?glass=original'}}),'original');assert.equal(vehicleGlassMode({location:{search:'?glass=typo'}}),'original');
 });
 test('glass preview is reversible and preserves shader, texture, color and roughness',()=>{
  const shader=()=>{},map={},glass={transmission:.377,opacity:1,transparent:true,depthWrite:false,userData:{oceanboundFacingAlpha:true},onBeforeCompile:shader,map,color:{r:1},roughness:.2},opaque={transmission:0,opacity:1,userData:{}};
