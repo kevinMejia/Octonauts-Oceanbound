@@ -34,3 +34,10 @@ test('40 degree sand is traversable, but over-limit cliffs remain blocked under 
  for(const boost of [false,true]){const slope=Math.tan(40*Math.PI/180),h=(x,z)=>z*slope,s=make(h);s.collisionWorld=new CollisionWorld({grid:new SurfaceGrid(),count:0,solidCount:0},h);run(s,{thrust:1,boost},3);assert(s.position.z>10);assert(s.position.y>=hullFloor(s,s.position.x,s.position.z,h)-.001);assert.equal(s.vertical,0);}
  const cliff=make((x,z)=>Math.max(0,z-3)*Math.tan(gupXGround.maxSlope+.15));run(cliff,{thrust:1,boost:true},4);assert(cliff.position.z<3.2);
 });
+
+test('GUP-X reaches its increased driving and turbo maxima with shared registry tuning',()=>{
+ const v=vehicleById('gup-x'),s=make();assert.equal(v.movement.maxSpeed,gupXGround.maxSpeed);assert.equal(v.preloadAtStart,true);
+ run(s,{thrust:1},6);assert(Math.abs(s.speed-14.4)<.01);
+ run(s,{thrust:-1,brakeReverse:true},8);assert(Math.abs(s.speed+4.8)<.01);
+ s.turbo.setInfinite(true);run(s,{thrust:1,boost:true},6);assert(Math.abs(s.speed-27.36)<.01);assert.equal(s.vertical,0);
+});
