@@ -1,0 +1,754 @@
+{
+  "high": {
+    "reference": {
+      "boundaryReleases": [
+        6,
+        6,
+        6
+      ],
+      "boundaryPrepares": [
+        6,
+        6,
+        6
+      ],
+      "bufferBytes": [
+        40663488,
+        40663488,
+        40663488
+      ],
+      "bufferAllocations": [
+        2628,
+        2628,
+        2628
+      ],
+      "textureSubImageUploads": [
+        126,
+        126,
+        126
+      ],
+      "textureStorageAllocations": [
+        108,
+        108,
+        108
+      ],
+      "prepareMeanMs": [
+        469.7166666655491,
+        461.8500000008692,
+        460.3666666671634
+      ],
+      "outsideEstimatedTextureMiB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expiry": [
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ]
+      ],
+      "expiryPrepares": [
+        1,
+        1,
+        1
+      ],
+      "farDepartureReleases": [
+        1,
+        1,
+        1
+      ],
+      "finalResident": [
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        }
+      ],
+      "images": [
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        },
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        },
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        }
+      ]
+    },
+    "current": {
+      "boundaryReleases": [
+        0,
+        0,
+        0
+      ],
+      "boundaryPrepares": [
+        0,
+        0,
+        0
+      ],
+      "bufferBytes": [
+        0,
+        0,
+        0
+      ],
+      "bufferAllocations": [
+        0,
+        0,
+        0
+      ],
+      "textureSubImageUploads": [
+        0,
+        0,
+        0
+      ],
+      "textureStorageAllocations": [
+        0,
+        0,
+        0
+      ],
+      "prepareMeanMs": [
+        null,
+        null,
+        null
+      ],
+      "outsideEstimatedTextureMiB": [
+        195.99999999999994,
+        195.99999999999994,
+        195.99999999999994
+      ],
+      "expiry": [
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ]
+      ],
+      "expiryPrepares": [
+        1,
+        1,
+        1
+      ],
+      "farDepartureReleases": [
+        1,
+        1,
+        1
+      ],
+      "finalResident": [
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 205520895.99999994,
+          "geometries": 1273,
+          "textures": 114
+        }
+      ],
+      "images": [
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        },
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        },
+        {
+          "maxTextureSize": null,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 26214400
+        }
+      ]
+    }
+  },
+  "low": {
+    "reference": {
+      "boundaryReleases": [
+        6,
+        6,
+        6
+      ],
+      "boundaryPrepares": [
+        6,
+        6,
+        6
+      ],
+      "bufferBytes": [
+        40663488,
+        40663488,
+        40663488
+      ],
+      "bufferAllocations": [
+        2628,
+        2628,
+        2628
+      ],
+      "textureSubImageUploads": [
+        126,
+        126,
+        126
+      ],
+      "textureStorageAllocations": [
+        108,
+        108,
+        108
+      ],
+      "prepareMeanMs": [
+        434.983333333085,
+        453.0666666657974,
+        436.9333333335817
+      ],
+      "outsideEstimatedTextureMiB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expiry": [
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            true
+          ],
+          [
+            1,
+            true
+          ],
+          [
+            2,
+            true
+          ],
+          [
+            3,
+            true
+          ],
+          [
+            4,
+            true
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ]
+      ],
+      "expiryPrepares": [
+        1,
+        1,
+        1
+      ],
+      "farDepartureReleases": [
+        1,
+        1,
+        1
+      ],
+      "finalResident": [
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        }
+      ],
+      "images": [
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        },
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        },
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        }
+      ]
+    },
+    "current": {
+      "boundaryReleases": [
+        0,
+        0,
+        0
+      ],
+      "boundaryPrepares": [
+        0,
+        0,
+        0
+      ],
+      "bufferBytes": [
+        0,
+        0,
+        0
+      ],
+      "bufferAllocations": [
+        0,
+        0,
+        0
+      ],
+      "textureSubImageUploads": [
+        0,
+        0,
+        0
+      ],
+      "textureStorageAllocations": [
+        0,
+        0,
+        0
+      ],
+      "prepareMeanMs": [
+        null,
+        null,
+        null
+      ],
+      "outsideEstimatedTextureMiB": [
+        27.99999999999999,
+        27.99999999999999,
+        27.99999999999999
+      ],
+      "expiry": [
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ],
+        [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            3,
+            false
+          ],
+          [
+            4,
+            false
+          ],
+          [
+            5,
+            true
+          ],
+          [
+            6,
+            true
+          ]
+        ]
+      ],
+      "expiryPrepares": [
+        1,
+        1,
+        1
+      ],
+      "farDepartureReleases": [
+        1,
+        1,
+        1
+      ],
+      "finalResident": [
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        },
+        {
+          "textureHandles": 21,
+          "estimatedTextureBytes": 29360127.99999999,
+          "geometries": 1144,
+          "textures": 112
+        }
+      ],
+      "images": [
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        },
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        },
+        {
+          "maxTextureSize": 512,
+          "uniqueImages": 85,
+          "encodedBytes": 36277067,
+          "decodedBytes": 0,
+          "peakDecodedBytes": 1048576
+        }
+      ]
+    }
+  }
+}
