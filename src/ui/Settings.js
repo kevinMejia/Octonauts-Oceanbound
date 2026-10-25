@@ -65,6 +65,12 @@ export function installSettings(){
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
  const unlockX=check(gameplayPanel,'unlockGupX','Unlock GUP-X',async value=>{gameplaySettings.unlockGupX=value;const game=window.explorer;game?.unlocks?.setOverride('gup-x',value);status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';if(game?.vehicles?.activeId==='gup-x'&&!game.unlocks.isUnlocked('gup-x')){try{await game.vehicles.select('gup-b');game.vehicleSelector.updateHUD();}catch{status.textContent='Could not switch vehicles. Try disabling Unlock GUP-X again.';gameplaySettings.unlockGupX=true;unlockX.checked=true;game.unlocks.setOverride('gup-x',true);saveGameplaySettings(storage,gameplaySettings);}}});unlockX.checked=gameplaySettings.unlockGupX;
  const unlockHelp=document.createElement('p');unlockHelp.className='section-description';unlockHelp.textContent='Unlock the GUP-X instantly without finding all the other GUPs.';gameplayPanel.append(unlockHelp);
+ intro(gameplayPanel,'Camera Shake','Gentle feedback when your GUP bumps into the ocean world.');
+ const saveShake=()=>{window.explorer?.chase?.clearShake();if(window.explorer)window.explorer.needsPausedRender=true;status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';};
+ const shakeEnabled=check(gameplayPanel,'cameraShake','Camera Shake',value=>{gameplaySettings.cameraShake=value;saveShake();});shakeEnabled.checked=gameplaySettings.cameraShake;
+ const shakeIntensity=range(grid(gameplayPanel),'shakeIntensity','Shake Intensity',0,100,1);
+ const syncShake=()=>{shakeIntensity.input.value=Math.round(gameplaySettings.shakeIntensity*100);shakeIntensity.output.value=shakeIntensity.input.value+'%';fill(shakeIntensity.input);};
+ shakeIntensity.input.addEventListener('input',()=>{gameplaySettings.shakeIntensity=Number(shakeIntensity.input.value)/100;syncShake();saveShake();});syncShake();
  intro(gameplayPanel,'Compass','Adjust its size and choose which undiscovered destinations appear.');
  const compassSize=range(grid(gameplayPanel),'compassSize','Compass size',compassSizeLimits.min,compassSizeLimits.max,compassSizeLimits.step);
  const syncCompassSize=()=>{compassSize.input.value=gameplaySettings.compassSize;compassSize.output.value=gameplaySettings.compassSize+'%';fill(compassSize.input);};

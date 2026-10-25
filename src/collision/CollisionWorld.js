@@ -84,6 +84,8 @@ export class CollisionWorld{
   if(this.contact.active){this.contact.fresh=this.separation>=.3||this.lastSurface!==this.contact.surface;this.lastSurface=this.contact.surface;this.separation=0;}
   else this.separation+=dt;
   sub.collisionContact=this.contact.active?this.contact:null;
+  // Observe each resolved step, including tracked-vehicle substeps, without altering response.
+  if(this.contact.active)this.onImpact?.(this.contact);
   m.ms=performance.now()-began;
  }
 }
