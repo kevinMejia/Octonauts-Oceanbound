@@ -1,0 +1,115 @@
+{
+  "high": {
+    "original": {
+      "cpuMeanMs": 6.868888888797826,
+      "cpuRunMeansMs": [
+        7.286666666405896,
+        6.649999999875823,
+        6.6700000001117585
+      ],
+      "gpuMedianRunMs": [
+        5.25568,
+        5.177856,
+        5.161472
+      ],
+      "callsPerFrame": {
+        "shadow": 16.0,
+        "transmission": 340.0,
+        "main": 401.0
+      },
+      "jellyCallsPerFrame": 108.0
+    },
+    "batched": {
+      "cpuMeanMs": 6.660000000004139,
+      "cpuRunMeansMs": [
+        6.7033333333209155,
+        6.646666666679084,
+        6.6300000000124175
+      ],
+      "gpuMedianRunMs": [
+        5.24032,
+        5.130752,
+        5.142016
+      ],
+      "callsPerFrame": {
+        "shadow": 16.0,
+        "transmission": 310.0,
+        "main": 371.0
+      },
+      "jellyCallsPerFrame": 48.0
+    },
+    "batched-mobile-glass": {
+      "cpuMeanMs": 4.096666666699781,
+      "cpuRunMeansMs": [
+        4.108333333209157,
+        4.093333333482345,
+        4.0883333334078396
+      ],
+      "gpuMedianRunMs": [
+        4.148224,
+        4.215296,
+        4.192256
+      ],
+      "callsPerFrame": {
+        "shadow": 16.0,
+        "main": 371.0
+      },
+      "jellyCallsPerFrame": 36.0
+    }
+  },
+  "low": {
+    "original": {
+      "cpuMeanMs": 3.983888888835079,
+      "cpuRunMeansMs": [
+        4.116666666604578,
+        3.9366666667784256,
+        3.8983333331222334
+      ],
+      "gpuMedianRunMs": [
+        4.173312,
+        4.16768,
+        4.191231999999999
+      ],
+      "callsPerFrame": {
+        "transmission": 119.0,
+        "main": 177.0
+      },
+      "jellyCallsPerFrame": 108.0
+    },
+    "batched": {
+      "cpuMeanMs": 3.8094444444816973,
+      "cpuRunMeansMs": [
+        3.848333333370586,
+        3.8283333332588274,
+        3.7516666668156784
+      ],
+      "gpuMedianRunMs": [
+        4.150784,
+        4.274176000000001,
+        3.974144
+      ],
+      "callsPerFrame": {
+        "transmission": 89.0,
+        "main": 147.0
+      },
+      "jellyCallsPerFrame": 48.0
+    },
+    "batched-mobile-glass": {
+      "cpuMeanMs": 2.6538888886984853,
+      "cpuRunMeansMs": [
+        2.6849999997764824,
+        2.6533333331967395,
+        2.6233333331222335
+      ],
+      "gpuMedianRunMs": [
+        3.759104,
+        3.786752,
+        3.8128640000000003
+      ],
+      "callsPerFrame": {
+        "main": 147.0
+      },
+      "jellyCallsPerFrame": 36.0
+    }
+  }
+}

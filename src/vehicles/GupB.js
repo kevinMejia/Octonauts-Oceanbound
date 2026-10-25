@@ -1,4 +1,5 @@
 import {GroundRide} from './GroundRide.js';
+import {setVehicleGlass,vehicleGlassMode} from './VehicleGlass.js';
 import * as T from 'three';
 import {vehicleLoader} from './VehicleTextures.js';
 import {collectModelStats,useImportedGup} from './gupAsset.js';
@@ -30,6 +31,7 @@ export class GupB{
   });
   // The imported tail is not a propeller. Never animate unrelated geometry.
   this.propeller=imported?null:model.getObjectByName('Propeller');
+  if(vehicleGlassMode()==='mobile')setVehicleGlass(this.group,'mobile');
  }
  update(dt,s){this.trackAnimator?.update(dt,s.groundController);this.group.position.set(s.position.x,s.position.y,s.position.z);this.ride.update(dt,s);this.group.position.y+=this.ride.y;this.group.rotation.set(s.pitch+this.ride.pitch,s.heading,s.bank+this.ride.roll,'YXZ');if(this.propeller)this.propeller.rotation.z+=dt*(2+Math.abs(s.speed)*5);if(this.rotors?.length){const target=Math.abs(s.speed)*5+Math.abs(s.vertical)*2;this.rotorRate=(this.rotorRate??0)+(target-(this.rotorRate??0))*(1-Math.exp(-dt*5));for(const rotor of this.rotors)rotor.node.rotation[rotor.axis]+=dt*this.rotorRate*rotor.direction;}}
 }
