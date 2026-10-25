@@ -1,3 +1,4 @@
+import {cameraShakeConfig} from '../config/cameraShakeConfig.js';
 import {CollisionShake} from './CollisionShake.js';
 import {gameplaySettings} from '../ui/gameplayPreferences.js';
 import * as T from 'three';
@@ -8,12 +9,12 @@ import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './ca
 const radians=Math.PI/180;
 export class ChaseCamera{
  constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;this.recenter={active:false,x:0,y:0};
-  this.shake=new CollisionShake(gameplaySettings);this.shakeOffset=new T.Vector3();this.shakeInverse=new T.Quaternion();this.basePosition=new T.Vector3();this.hasBase=false;
+  this.shake=new CollisionShake(gameplaySettings);this.shakeOffset=new T.Vector3();this.shakeInverse=new T.Quaternion();this.baseRotation=new T.Quaternion();this.basePosition=new T.Vector3();this.hasBase=false;
   this.pivot=new T.Vector3();this.desired=new T.Vector3();this.focus=new T.Vector3();this.target=new T.Vector3();this.look=new T.Matrix4();this.rotation=new T.Quaternion();this.up=new T.Vector3(0,1,0);
  }
- clearShake(){if(this.hasBase)this.camera.position.copy(this.basePosition);this.shake.reset();}
+ clearShake(){if(this.hasBase){this.camera.position.copy(this.basePosition);this.camera.quaternion.copy(this.baseRotation);}this.shake.reset();}
  // Restore the unshaken pose before follow smoothing so offsets never accumulate.
- update(dt,sub,input){if(this.hasBase)this.camera.position.copy(this.basePosition);const o=input.orbit,p=sub.position;
+ update(dt,sub,input){if(this.hasBase){this.camera.position.copy(this.basePosition);this.camera.quaternion.copy(this.baseRotation);}const o=input.orbit,p=sub.position;
   updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
   const speed=speedFraming(sub.speed,c),distance=c.distance*(this.profile?.distanceMultiplier??1)*aspectDistance(this.camera.aspect,c)*(1+speed*c.speedDistanceIncrease);
   const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
@@ -38,7 +39,7 @@ export class ChaseCamera{
   if(this.initial||limit<.98)this.camera.quaternion.copy(this.rotation);else this.camera.quaternion.slerp(this.rotation,smoothFactor(c.rotationSmoothing,dt));
   this.camera.fov+=(c.fov+speed*c.speedFovIncrease-this.camera.fov)*smoothFactor(c.fovSmoothing,dt);this.camera.updateProjectionMatrix();this.initial=false;
   if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'cameraMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({position:this.camera.position.toArray(),focus:this.target.toArray(),fov:this.camera.fov,distance:this.camera.position.distanceTo(this.pivot),limit,orbitX:o.x,orbitY:o.y,speed:sub.speed,sub:{...p},heading:sub.heading,candidates:this.obstacles?.near.length??0});}
-  this.basePosition.copy(this.camera.position);this.hasBase=true;this.shake.update(dt);
+  this.basePosition.copy(this.camera.position);this.baseRotation.copy(this.camera.quaternion);this.hasBase=true;this.shake.update(dt);
   if(this.shake.amount){
    const shake=this.shake,offset=this.shakeOffset.set(shake.nx,shake.ny,shake.nz);
    if(Math.abs(shake.ny)<.7){
@@ -50,6 +51,11 @@ export class ChaseCamera{
    }
    // Floor landings retain their world-space vertical direction; all offsets stay capped.
    this.camera.position.addScaledVector(offset,shake.amount);
+   // Restore this temporary rotation before the next follow/orbit update as well.
+   // Angular recoil remains visible regardless of camera distance or screen size.
+   const angle=shake.recoil*(shake.strength/cameraShakeConfig.maxIntensity)*Math.min(1,Math.max(0,shake.settings.shakeIntensity))*cameraShakeConfig.maxRotation;
+   this.camera.rotateX(angle*(Math.abs(shake.ny)>.7?.45:.65));
+   if(Math.abs(shake.ny)<.7)this.camera.rotateZ(angle*.75);
   }
  }
 }

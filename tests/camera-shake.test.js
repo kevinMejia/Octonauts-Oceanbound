@@ -52,3 +52,10 @@ test('light and moderate impacts remain visible at 20, 30 and 60 fps without mid
   assert.ok(visible>=2,impact+' at '+fps);assert.ok(peak>0);assert.equal(s.amount,0);
  }
 });
+
+test('rotational recoil reverses smoothly, remains bounded and clears with the toggle',()=>{
+ const s=new CollisionShake({cameraShake:true,shakeIntensity:1});s.impact(hit(12));
+ s.update(s.length*.2);assert.ok(s.recoil>0);
+ s.update(s.length*.3);assert.ok(s.recoil<0);assert.ok(Math.abs(s.recoil)<=1);
+ s.settings.cameraShake=false;s.update(0);assert.equal(s.recoil,0);
+});
