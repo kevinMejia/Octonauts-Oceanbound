@@ -16,3 +16,13 @@ test('disabled display does no sampling; pauses exclude resume gaps; history sta
  display.frame(20000,false);display.frame(30000,true);display.frame(30016,true);assert.equal(display.samples.length,1);assert.equal(display.samples[0].ms,16);
  display.setEnabled(false);assert.equal(display.output.hidden,true);assert.equal(display.samples.length,0);
 });
+
+test('memory scan runs at most every two seconds and never while disabled',()=>{
+ let scans=0;const game={scene:{traverse(){scans++;}},renderer:{properties:new WeakMap()}},display=new PerformanceDisplay();
+ display.frame(500,true,game);assert.equal(scans,0);
+ display.enabled=true;display.output={textContent:''};display.frame(0,true,game);display.frame(500,true,game);
+ assert.equal(scans,1);assert.match(display.output.textContent,/GPU textures ~0.0 MiB/);
+ display.frame(1000,true,game);display.frame(2499,true,game);assert.equal(scans,1);
+ display.frame(2500,true,game);assert.equal(scans,1);display.frame(3000,true,game);assert.equal(scans,2);
+ display.setEnabled(false);display.frame(5000,true,game);assert.equal(scans,2);
+});

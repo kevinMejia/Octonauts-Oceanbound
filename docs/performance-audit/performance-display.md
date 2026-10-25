@@ -7,3 +7,5 @@ The top-center, touch-through display reports reciprocal mean frame interval (FP
 These are browser animation-loop frame-delivery intervals on the actual device, not CPU duration, GPU timer measurements, exact presented frames or a benchmark proving improvements. The display itself adds small sampling and text-update overhead while enabled. It does no frame sampling or DOM querying while disabled. No gameplay/rendering settings are changed.
 
 Verification: 268 Node tests and production build pass. Unit checks cover statistics, disabled sampling, bounded history and pause/resume gaps. Run tools/verify-performance-display.cjs with the local server on port 5173 and Playwright/Edge available to check desktop and mobile layouts, immediate toggling, menu exclusion and persisted preference.
+
+GPU texture-memory estimation was added afterward; see [GPU memory display details](gpu-memory-display.md) for scope, exclusions and validation.

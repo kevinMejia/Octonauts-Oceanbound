@@ -1,0 +1,54 @@
+[
+  {
+    "quality": "high",
+    "before": {
+      "bytes": 798495552,
+      "textures": 109,
+      "unknownTextures": 0
+    },
+    "released": {
+      "bytes": 639112048,
+      "textures": 91,
+      "unknownTextures": 0
+    },
+    "restored": {
+      "bytes": 798495552,
+      "textures": 109,
+      "unknownTextures": 0
+    },
+    "scanMs": {
+      "mean": 2.6924999999813735,
+      "median": 2.600000001490116,
+      "p95": 3,
+      "max": 4.800000000745058
+    },
+    "unchangedState": true,
+    "errors": []
+  },
+  {
+    "quality": "low",
+    "before": {
+      "bytes": 148755848,
+      "textures": 108,
+      "unknownTextures": 0
+    },
+    "released": {
+      "bytes": 123590048,
+      "textures": 90,
+      "unknownTextures": 0
+    },
+    "restored": {
+      "bytes": 148755848,
+      "textures": 108,
+      "unknownTextures": 0
+    },
+    "scanMs": {
+      "mean": 2.625,
+      "median": 2.599999997764826,
+      "p95": 3.100000001490116,
+      "max": 4.100000001490116
+    },
+    "unchangedState": true,
+    "errors": []
+  }
+]
