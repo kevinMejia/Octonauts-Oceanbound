@@ -6,7 +6,7 @@ export const submarineConfig={
  turnSpeed:1.25, // Radians per second, also while hovering.
  ascendSpeed:5, // Vertical speed in metres per second.
  descendSpeed:5, // Downward speed in metres per second.
- bankAmount:.25, // Maximum roll in radians during steering (about 14 degrees).
- pitchAmount:.32, // Maximum pitch during vertical thrust (about 18 degrees).
+ bankAmount:.28, // Maximum roll in radians during steering (about 16 degrees).
+ pitchAmount:.40, // Maximum pitch during vertical thrust (about 23 degrees).
  minTerrainClearance:1.7, // Hull/camera safety clearance, including pitch.
 };
