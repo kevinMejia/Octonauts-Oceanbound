@@ -5,7 +5,7 @@ const assert=require('node:assert/strict');
  try{
  const page=await browser.newPage({viewport:{width:1280,height:800}});
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
- await page.goto('http://localhost:5173/dist/');
+ await page.goto('http://localhost:5173/dist/?quality=low');
  await page.waitForSelector('#startup-play:not([hidden])',{timeout:180000});
  await page.click('#startup-play');
  await page.evaluate(()=>explorer.pause.set('shake-qa',true));
@@ -17,14 +17,14 @@ const assert=require('node:assert/strict');
   const base=g.camera.position.clone(),rotation=g.camera.quaternion.clone();
   s.impact({fresh:true,impact:12,nx:0,ny:1,nz:0});c.update(.025,g.sub,input);
   if(!(g.camera.position.y>c.basePosition.y))throw Error('Missing vertical jolt');
-  if(g.camera.quaternion.angleTo(rotation)>1e-6)throw Error('Shake rotated base view');
+  if(g.camera.quaternion.angleTo(c.baseRotation)<=1e-6)throw Error('Missing rotational recoil');
   for(let i=0;i<30;i++)c.update(.016,g.sub,input);
-  if(g.camera.position.distanceTo(base)>1e-6)throw Error('Camera drift');
+  if(g.camera.position.distanceTo(base)>1e-6||g.camera.quaternion.angleTo(rotation)>1e-6)throw Error('Camera drift');
   input.orbit.x=1;c.update(.05,g.sub,input);
   if(g.camera.position.distanceTo(base)<.01)throw Error('Orbit stopped');
   s.impact({fresh:true,impact:12,nx:1,ny:0,nz:0});c.update(.025,g.sub,input);
   const before=c.basePosition.clone();c.clearShake();
-  if(g.camera.position.distanceTo(before)>1e-9||s.strength!==0)throw Error('Clear failed');
+  if(g.camera.position.distanceTo(before)>1e-9||g.camera.quaternion.angleTo(c.baseRotation)>1e-6||s.strength!==0)throw Error('Clear failed');
   // One million scalar updates exercise the hot path without rendering noise.
   const begin=performance.now();for(let i=0;i<1000000;i++)s.update(1/60);
   return {drift:g.camera.position.distanceTo(before),millionUpdatesMs:performance.now()-begin,defaults:{enabled:gameplaySettings.cameraShake,intensity:gameplaySettings.shakeIntensity}};
