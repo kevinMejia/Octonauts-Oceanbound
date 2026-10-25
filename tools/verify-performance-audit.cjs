@@ -43,5 +43,5 @@ const baseline=fs.readFileSync('docs/performance-audit/baseline-revision.txt','u
   if(!escort||!collection||!collisionHits)throw Error('Gameplay smoke check failed');
   return {instanceBufferEqualityCases:cases,compassDomEqualityCases:domCases,instanceAttributeVersionIncrements:updates,smoke:{escort,collection,collisionHits},quality:g.quality};
  });
- result.errors=errors;if(errors.length)throw Error(errors.join('\n'));fs.writeFileSync('docs/performance-audit/equivalence'+(mobile?'-mobile':'')+'.json',JSON.stringify(result,null,2));console.log(result);await browser.close();
+ result.errors=errors;if(errors.length)throw Error(errors.join('\n'));fs.writeFileSync(process.env.AUDIT_OUTPUT??('docs/performance-audit/equivalence'+(mobile?'-mobile':'')+'.json'),JSON.stringify(result,null,2));console.log(result);await browser.close();
 })().catch(e=>{console.error(e);process.exit(1);});
