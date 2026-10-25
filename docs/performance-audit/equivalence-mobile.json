@@ -1,0 +1,15 @@
+{
+  "instanceBufferEqualityCases": 66,
+  "compassDomEqualityCases": 40,
+  "instanceAttributeVersionIncrements": {
+    "optimized": 1353,
+    "original": 4323
+  },
+  "smoke": {
+    "escort": true,
+    "collection": true,
+    "collisionHits": 6
+  },
+  "quality": "low",
+  "errors": []
+}
