@@ -1,3 +1,5 @@
+import {CollisionShake} from './CollisionShake.js';
+import {gameplaySettings} from '../ui/gameplayPreferences.js';
 import * as T from 'three';
 import {cameraConfig as c} from '../config/cameraConfig.js';
 import {worldConfig as w} from '../config/worldConfig.js';
@@ -6,9 +8,12 @@ import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './ca
 const radians=Math.PI/180;
 export class ChaseCamera{
  constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;this.recenter={active:false,x:0,y:0};
+  this.shake=new CollisionShake(gameplaySettings);this.basePosition=new T.Vector3();this.hasBase=false;
   this.pivot=new T.Vector3();this.desired=new T.Vector3();this.focus=new T.Vector3();this.target=new T.Vector3();this.look=new T.Matrix4();this.rotation=new T.Quaternion();this.up=new T.Vector3(0,1,0);
  }
- update(dt,sub,input){const o=input.orbit,p=sub.position;
+ clearShake(){if(this.hasBase)this.camera.position.copy(this.basePosition);this.shake.reset();}
+ // Restore the unshaken pose before follow smoothing so offsets never accumulate.
+ update(dt,sub,input){if(this.hasBase)this.camera.position.copy(this.basePosition);const o=input.orbit,p=sub.position;
   updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
   const speed=speedFraming(sub.speed,c),distance=c.distance*(this.profile?.distanceMultiplier??1)*aspectDistance(this.camera.aspect,c)*(1+speed*c.speedDistanceIncrease);
   const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
@@ -33,5 +38,7 @@ export class ChaseCamera{
   if(this.initial||limit<.98)this.camera.quaternion.copy(this.rotation);else this.camera.quaternion.slerp(this.rotation,smoothFactor(c.rotationSmoothing,dt));
   this.camera.fov+=(c.fov+speed*c.speedFovIncrease-this.camera.fov)*smoothFactor(c.fovSmoothing,dt);this.camera.updateProjectionMatrix();this.initial=false;
   if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'cameraMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({position:this.camera.position.toArray(),focus:this.target.toArray(),fov:this.camera.fov,distance:this.camera.position.distanceTo(this.pivot),limit,orbitX:o.x,orbitY:o.y,speed:sub.speed,sub:{...p},heading:sub.heading,candidates:this.obstacles?.near.length??0});}
+  // Contact normals are world-space: floor jolts stay vertical at every orbit angle.
+  this.basePosition.copy(this.camera.position);this.hasBase=true;this.shake.update(dt);this.camera.position.x+=this.shake.x;this.camera.position.y+=this.shake.y;this.camera.position.z+=this.shake.z;
  }
 }
