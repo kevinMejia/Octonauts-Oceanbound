@@ -1,0 +1,693 @@
+{
+  "baseline": "9014d409b706e7141ac949fd8d6398cf7e95ea82",
+  "results": [
+    {
+      "low": false,
+      "compared": 720,
+      "gpuChecks": 26,
+      "changedChannels": 0,
+      "runs": [
+        {
+          "repeat": 0,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.08966666673620542,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.038666666615754366,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 921600
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 307200
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.07966666663686435,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.024000000053395826,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 908160
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 302720
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.052166666612029074,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.02400000002856056,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.046999999998758236,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.021833333329608042,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 30720
+            },
+            "phase": {
+              "requests": 22,
+              "bytes": 10688
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.048333333364377416,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.022999999982615312,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04966666664928198,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.019500000004967055,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 30720
+            },
+            "phase": {
+              "requests": 22,
+              "bytes": 10688
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.08083333329608043,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.02366666673372189,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 921600
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 307200
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.08016666660706202,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.019333333373069764,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 908160
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 302720
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.08149999997889003,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.021833333348234493,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 921600
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 307200
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.08233333337431152,
+            "p95": 0.19999999925494194
+          },
+          "renderSubmitMs": {
+            "mean": 0.018499999971439442,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 908160
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 302720
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04716666664307316,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.019500000029802324,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4915200
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04466666668653488,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.020333333325882753,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 4843520
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 30720
+            },
+            "phase": {
+              "requests": 22,
+              "bytes": 10688
+            }
+          }
+        }
+      ]
+    },
+    {
+      "low": true,
+      "compared": 720,
+      "gpuChecks": 26,
+      "changedChannels": 0,
+      "runs": [
+        {
+          "repeat": 0,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04399999999751647,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.03166666667287548,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 432000
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 144000
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.042999999970197676,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.0319999999863406,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 423360
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 141120
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.03100000003352761,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.016999999955296517,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 0,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.02816666668280959,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.030666666639347872,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 14640
+            },
+            "phase": {
+              "requests": 21,
+              "bytes": 4880
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.027666666693985462,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.019833333287388087,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.02949999999875824,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.029666666674117246,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 14640
+            },
+            "phase": {
+              "requests": 21,
+              "bytes": 4880
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.042333333287388086,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.022000000029802323,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 432000
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 144000
+            }
+          }
+        },
+        {
+          "repeat": 1,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.041666666703919567,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.03233333330601454,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 423360
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 141120
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "reference",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04299999998261531,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.021666666672875482,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 432000
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 144000
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "reference",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.04133333330973983,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.03099999999627471,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 600,
+              "bytes": 423360
+            },
+            "phase": {
+              "requests": 600,
+              "bytes": 141120
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "current",
+          "scenario": "stationary",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.029166666629413765,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.014333333379278581,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2304000
+            },
+            "color": {
+              "requests": 0,
+              "bytes": 0
+            },
+            "phase": {
+              "requests": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "name": "current",
+          "scenario": "travel",
+          "frames": 600,
+          "updateMs": {
+            "mean": 0.02733333334947626,
+            "p95": 0.10000000149011612
+          },
+          "renderSubmitMs": {
+            "mean": 0.02666666663562258,
+            "p95": 0.10000000149011612
+          },
+          "uploads": {
+            "matrix": {
+              "requests": 600,
+              "bytes": 2257920
+            },
+            "color": {
+              "requests": 21,
+              "bytes": 14640
+            },
+            "phase": {
+              "requests": 21,
+              "bytes": 4880
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
