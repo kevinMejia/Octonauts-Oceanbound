@@ -1,0 +1,41 @@
+[
+  {
+    "mode": "original",
+    "transmission": 9,
+    "facing": 9,
+    "escort": true,
+    "collection": true,
+    "collisionHits": 6,
+    "groundSwitch": true,
+    "fallbacks": 2,
+    "disposed": 2,
+    "tentacles": "batched",
+    "errors": []
+  },
+  {
+    "mode": "mobile",
+    "transmission": 0,
+    "facing": 9,
+    "escort": true,
+    "collection": true,
+    "collisionHits": 6,
+    "groundSwitch": true,
+    "fallbacks": 2,
+    "disposed": 2,
+    "tentacles": "batched",
+    "errors": []
+  },
+  {
+    "mode": "original",
+    "transmission": 9,
+    "facing": 9,
+    "escort": true,
+    "collection": true,
+    "collisionHits": 6,
+    "groundSwitch": true,
+    "fallbacks": 2,
+    "disposed": 2,
+    "tentacles": "original",
+    "errors": []
+  }
+]
