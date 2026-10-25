@@ -93,3 +93,11 @@ python tools/build.py
 ```
 
 Run browser audits sequentially. The focused JSON contains all three repetitions, GPU query samples, pass/triangle totals, transform/image checks and local capture paths. The eight-scenario `baseline-*` and `batched-*` JSON files preserve the broader comparison. The glass experiment is suitable for review on an iPhone before making any decision to change the default.
+
+## Mobile default follow-up
+
+Following the user's iPhone visual check and authorization, glass now defaults to the cheaper transparent approximation on coarse-pointer devices and iPhone/iPad/iPod/Android user agents. Desktop retains physical transmission. Explicit ?glass=original and ?glass=mobile overrides remain available, independently of graphics quality preferences.
+
+This promotes the already measured mode: the focused portrait replay used 147 draws versus 236 with physical glass and batched jellyfish (37.7% fewer). These are prior desktop-hardware emulation results, not new iPhone benchmarks or an FPS claim. The approximation preserves reflections, tint and facing-alpha but does not preserve physical refraction exactly. Earlier opt-in descriptions above describe the original release.
+
+Validation: 266 Node tests and production build pass. All four browser startup paths, including automatic mobile selection without a glass override, pass collection, escort, collision, vehicle switching and cleanup checks with no page errors. Automatic mobile startup has zero transmissive material references.

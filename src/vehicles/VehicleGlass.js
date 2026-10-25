@@ -1,9 +1,9 @@
 import {visualConfig} from '../config/visualConfig.js';
 
 const originals=new WeakMap();
-export function vehicleGlassMode(host=globalThis){const requested=new URLSearchParams(host.location?.search??'').get('glass');return ['original','mobile'].includes(requested)?requested:visualConfig.mobileGlass.mode;}
+export function vehicleGlassMode(host=globalThis){const requested=new URLSearchParams(host.location?.search??'').get('glass');if(['original','mobile'].includes(requested))return requested;const mobile=host.matchMedia?.('(any-pointer:coarse)').matches||/iPhone|iPad|iPod|Android/i.test(host.navigator?.userAgent??'');return visualConfig.mobileGlass.mode==='auto'?(mobile?'mobile':'original'):visualConfig.mobileGlass.mode;}
 
-// Explicit preview only. Keep original physical transmission as the default;
+// Mobile defaults avoid the physical transmission capture; desktop keeps it.
 // tint, environment reflections and the authored facing-alpha shader survive.
 export function setVehicleGlass(root,mode){
  const seen=new Set();let changed=0;
