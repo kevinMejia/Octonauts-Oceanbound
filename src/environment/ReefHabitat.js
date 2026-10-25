@@ -1,3 +1,4 @@
+import {writeStaticInstance,finishStaticInstances} from './staticInstances.js';
 import {waterConfig} from '../config/waterConfig.js';
 import {applyWaterCaustics} from './waterCaustics.js';
 import {bendVegetation} from '../effects/vegetationInteraction.js';
@@ -28,6 +29,6 @@ export class ReefHabitat{
   draco.dispose();
  }
  update(time,position,camera){for(const s of this.shaders)s.uniforms.uHabitatTime.value=time;camera.updateMatrixWorld();this.clip.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);this.frustum.setFromProjectionMatrix(this.clip);
-  for(const b of this.batches){let high=0,low=0;for(const p of b.records){const d=Math.hypot(position.x-p.x,position.z-p.z);if(d>config.renderDistance+18)continue;this.sphere.center.set(p.x,p.y+4,p.z);this.sphere.radius=(p.type==='wall'?17:15)*p.scale;if(!this.frustum.intersectsSphere(this.sphere))continue;const detailed=b.high&&d<config.detailDistance;const mesh=detailed?b.high:b.low;mesh.setMatrixAt(detailed?high++:low++,p.matrix);}b.low.count=low;b.low.instanceMatrix.needsUpdate=true;if(b.high){b.high.count=high;b.high.instanceMatrix.needsUpdate=true;}}
+  for(const b of this.batches){let high=0,low=0;for(const p of b.records){const d=Math.hypot(position.x-p.x,position.z-p.z);if(d>config.renderDistance+18)continue;this.sphere.center.set(p.x,p.y+4,p.z);this.sphere.radius=(p.type==='wall'?17:15)*p.scale;if(!this.frustum.intersectsSphere(this.sphere))continue;const detailed=b.high&&d<config.detailDistance;const mesh=detailed?b.high:b.low;writeStaticInstance(mesh,detailed?high++:low++,p);}finishStaticInstances(b.low,low);if(b.high)finishStaticInstances(b.high,high);}
  }
 }
