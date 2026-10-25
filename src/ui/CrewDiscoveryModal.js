@@ -1,3 +1,4 @@
+import {focusGameplay} from './focusGameplay.js';
 import {DiscoveryCelebration} from './DiscoveryCelebration.js';
 export class CrewDiscoveryModal{
  constructor(game){
@@ -17,5 +18,5 @@ export class CrewDiscoveryModal{
   try{this.dialog.showModal();document.body.classList.add('crew-open');this.dialog.querySelector('#returnCrew').focus({preventScroll:true});this.celebration.start();try{this.stopSound=this.game.audio?.playDiscovery?.();}catch{}this.game.atmosphere.propulsion.discoveryBurst(position.x,position.y,position.z);this.game.needsPausedRender=true;}
   catch(error){if(this.dialog.open)this.dialog.close();else this.didClose();throw error;}
  }
- didClose(){this.celebration.stop();this.stopSound?.();this.stopSound=null;this.game.crewDiscovery.finish();document.body.classList.remove('crew-open');this.game.input.clear();this.game.needsPausedRender=true;this.release?.();this.release=null;this.returnFocus?.focus({preventScroll:true});}
+ didClose(){this.celebration.stop();this.stopSound?.();this.stopSound=null;this.game.crewDiscovery.finish();document.body.classList.remove('crew-open');this.game.input.clear();this.game.needsPausedRender=true;this.release?.();this.release=null;focusGameplay();}
 }

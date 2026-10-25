@@ -1,3 +1,4 @@
+import {focusGameplay} from './focusGameplay.js';
 import {gameplaySettings,compassSizeLimits,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
 import {installGraphicsSettings} from './GraphicsSettings.js';
 import {audioDefaults,volumeKeys} from '../audio/AudioSettings.js';
@@ -90,6 +91,6 @@ export function installSettings(){
  toggle.onclick=()=>{if(dialog.open){close();return;}clearTimeout(closeTimer);dialog.classList.remove('is-closing');clear();syncCamera();syncAudio();syncGraphics();toggle.setAttribute('aria-expanded','true');dialog.showModal();window.explorer?.audio?.playWindow?.(true);title.focus({preventScroll:true});};
  document.querySelector('#closeSettings').onclick=close;
  dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
- dialog.addEventListener('close',()=>{window.explorer?.audio?.playWindow?.(false);clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();toggle.focus();});
+ dialog.addEventListener('close',()=>{window.explorer?.audio?.playWindow?.(false);clearTimeout(closeTimer);dialog.classList.remove('is-closing');toggle.setAttribute('aria-expanded','false');clear();focusGameplay();});
  syncCamera();syncAudio();
 }

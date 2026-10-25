@@ -1,3 +1,4 @@
+import {focusGameplay} from './focusGameplay.js';
 import {DiscoveryCelebration} from './DiscoveryCelebration.js';
 import {vehicleThumbnailURL} from '../config/vehicleConfig.js';
 export class DiscoveryModal{
@@ -28,5 +29,5 @@ export class DiscoveryModal{
   finally{if(operation===this.operation){this.busy=false;this.imageButton.disabled=false;}}
  }
  close(){if(!this.dialog.open||this.dialog.classList.contains('is-closing'))return;this.operation++;this.celebration.stop();this.stopDiscoverySound?.();this.stopDiscoverySound=null;this.game.vehicles.cancel();this.dialog.classList.add('is-closing');this.closeTimer=setTimeout(()=>this.dialog.close(),180);}
- didClose(){this.celebration.stop();this.stopDiscoverySound?.();this.stopDiscoverySound=null;clearTimeout(this.closeTimer);this.operation++;this.busy=false;this.imageButton.disabled=false;document.body.classList.remove('discovery-open');this.game.discovery.finishDiscovery();this.game.input.clear();this.releasePause?.();this.releasePause=null;this.game.vehicleSelector.render();this.game.vehicleSelector.updateHUD();this.game.vehicleSelector.hud.focus({preventScroll:true});}
+ didClose(){this.celebration.stop();this.stopDiscoverySound?.();this.stopDiscoverySound=null;clearTimeout(this.closeTimer);this.operation++;this.busy=false;this.imageButton.disabled=false;document.body.classList.remove('discovery-open');this.game.discovery.finishDiscovery();this.game.input.clear();this.releasePause?.();this.releasePause=null;this.game.vehicleSelector.render();this.game.vehicleSelector.updateHUD();focusGameplay();}
 }

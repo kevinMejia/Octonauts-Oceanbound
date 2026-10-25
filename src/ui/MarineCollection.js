@@ -1,3 +1,4 @@
+import {focusGameplay} from './focusGameplay.js';
 export class MarineCollection {
 
  constructor(game,discovery){
@@ -19,7 +20,7 @@ export class MarineCollection {
 
   this.dialog.querySelector('#marineTitle').tabIndex=-1;document.body.append(this.dialog);this.content=this.dialog.querySelector('.marine-content');this.button.onclick=()=>this.open();this.dialog.querySelector('.marine-close').onclick=()=>this.dialog.close();
 
-  this.dialog.addEventListener('close',()=>{this.game.audio?.playWindow?.(false);document.body.classList.remove('marine-open');this.game.input.clear();this.release?.();this.release=null;this.button.setAttribute('aria-expanded','false');this.returnFocus?.focus({preventScroll:true});});
+  this.dialog.addEventListener('close',()=>{this.game.audio?.playWindow?.(false);document.body.classList.remove('marine-open');this.game.input.clear();this.release?.();this.release=null;this.button.setAttribute('aria-expanded','false');focusGameplay();});
 
  }
 
