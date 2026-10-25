@@ -1,3 +1,4 @@
+import {fleetResidencyConfig as residency} from '../config/fleetParkingConfig.js';
 import {fleetAnchor,FleetPlacement} from './fleetPlacement.js';
 import {hullFrame,sweepHull} from '../collision/collisionMath.js';
 
@@ -36,7 +37,7 @@ export class DiscoveryFleet{
   for(const r of this.records.values()){
    r.parked=r.id!==activeId;
    const desired=this.poseFor(r);if(desired&&r.anchorUnlocked!==this.unlocks.isUnlocked(r.id)){this.positionRecord(r,false);r.anchorUnlocked=this.unlocks.isUnlocked(r.id);}
-   if(r.vehicle){if(r.parked)this.park(r);else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;r.evicted=false;}}
+   if(r.vehicle){if(r.parked)this.park(r);else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;r.evicted=false;r.outsideSince=undefined;}}
    for(const p of r.proxies){this.setSolid(p,!!r.vehicle&&r.parked);p.triggerEnabled=!!r.vehicle&&r.parked&&!this.unlocks.isUnlocked(r.id)&&r.definition.discovery?.enabled===true;p.loadCandidate=!r.vehicle&&p===r.proxies[1];}
   }
  }
@@ -48,8 +49,9 @@ export class DiscoveryFleet{
  }
  update(sub){
   const now=performance.now();if(!this.visibilityAt||now-this.visibilityAt>500){this.visibilityAt=now;for(const r of this.records.values())if(r.vehicle){
-   const visible=!r.parked||Math.hypot(sub.position.x-r.pose.x,sub.position.z-r.pose.z)<160;r.distanceVisible=visible;
-   if(!visible){r.vehicle.group.visible=false;if(!r.evicted){this.release(r.vehicle);r.evicted=true;}}
+   const distance=Math.hypot(sub.position.x-r.pose.x,sub.position.z-r.pose.z),visible=!r.parked||distance<residency.visibleDistance;r.distanceVisible=visible;
+   if(visible)r.outsideSince=undefined;else r.outsideSince??=now;
+   if(!visible){r.vehicle.group.visible=false;if(!r.evicted&&(distance>=residency.releaseDistance||now-r.outsideSince>=residency.graceMs)){this.release(r.vehicle);r.evicted=true;}}
    else if(r.evicted){this.restoreVisible(r);}else r.vehicle.group.visible=true;
   }}
   if(this.blocked()||this.activeDiscovery)return false;

@@ -4,6 +4,8 @@ Audit date: 2026-10-25. Original revision: see `baseline-revision.txt`.
 
 Latest targeted follow-up: [Starting-area terrain GPU warm-up](scenery-warmup.md).
 
+Latest fleet investigation: [Parked-vehicle boundary residency](fleet-residency.md).
+
 ## Executive assessment
 
 The game already has effective performance foundations: instanced reef/fish rendering, GPU vegetation and fish-tail animation, pooled effects, spatial collision queries, distant-animal throttling, bounded fish-school caching, shared reef textures, vehicle image deduplication, and GPU eviction for distant parked vehicles. A wholesale rewrite is unwarranted.

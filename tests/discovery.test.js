@@ -98,3 +98,31 @@ test('selector-prepared models are tracked for parking and GPU release even if s
  const world=new DiscoveryFleet({registry:[definition],fleet:f.fleet,unlocks:f.unlocks,surfaces:f.surfaces,scene:f.scene,onDiscover(){},release:()=>released++}),vehicle={definition,group:new T.Group()},sub=new SubmarineController();sub.collisionProxy=vehicles[1].collision;world.prepared(vehicle);const record=world.records.get(definition.id);assert.equal(record.vehicle,vehicle);assert.equal(record.parked,true);assert.equal(vehicle.group.visible,false);assert.equal(f.fleet.activeId,'gup-b');
  Object.assign(sub.position,{x:900,y:30,z:900});Object.assign(sub.previousPosition,sub.position);world.update(sub);assert.equal(released,1);assert.equal(record.evicted,true);world.prepared(vehicle);world.visibilityAt=0;world.update(sub);assert.equal(released,2);assert.equal(f.scene.children.filter(g=>g===vehicle.group).length,1);
 });
+import {fleetResidencyConfig as residency} from '../src/config/fleetParkingConfig.js';
+
+test('brief visibility-boundary crossings retain GPU data without changing visibility',async t=>{
+ let clock=10000;t.mock.method(performance,'now',()=>clock);
+ const f=await fixture(),r=f.world.records.get('gup-a');f.block(true);let releases=0,prepares=0;
+ f.world.release=v=>{if(v===r.vehicle)releases++;};f.world.prepare=async v=>{if(v===r.vehicle)prepares++;};
+ const tick=d=>{clock+=601;f.world.visibilityAt=0;f.world.update({position:{x:r.pose.x+d,y:30,z:r.pose.z}});};
+ for(let i=0;i<6;i++){tick(159);assert.equal(r.vehicle.group.visible,true);tick(161);assert.equal(r.vehicle.group.visible,false);assert.equal(r.distanceVisible,false);assert.equal(!!r.evicted,false);}
+ tick(159);assert.equal(r.outsideSince,undefined);assert.equal(releases,0);assert.equal(prepares,0);
+});
+test('hidden retention expires, farther departure releases immediately, active vehicles never evict',async t=>{
+ let clock=10000;t.mock.method(performance,'now',()=>clock);
+ const f=await fixture(),r=f.world.records.get('gup-a');f.block(true);let releases=0;f.world.release=v=>{if(v===r.vehicle)releases++;};
+ const tick=d=>{f.world.visibilityAt=0;f.world.update({position:{x:r.pose.x+d,y:30,z:r.pose.z}});};
+ tick(161);assert.equal(!!r.evicted,false);clock+=residency.graceMs-1;tick(161);assert.equal(releases,0);clock++;tick(161);assert.equal(releases,1);assert.equal(r.evicted,true);tick(161);assert.equal(releases,1);
+ r.evicted=false;clock+=601;tick(residency.releaseDistance);assert.equal(releases,2);
+ r.evicted=false;f.world.switched(r.id);clock+=601;tick(900);assert.equal(releases,2);assert.equal(r.vehicle.group.visible,true);assert.equal(r.outsideSince,undefined);
+});
+test('return during grace restarts the timer, while a pending restore stays hidden outside view',async t=>{
+ let clock=10000;t.mock.method(performance,'now',()=>clock);
+ const f=await fixture(),r=f.world.records.get('gup-a');f.block(true);let releases=0,finish;
+ f.world.release=v=>{if(v===r.vehicle)releases++;};f.world.prepare=v=>v===r.vehicle?new Promise(resolve=>finish=resolve):Promise.resolve();
+ const tick=d=>{f.world.visibilityAt=0;f.world.update({position:{x:r.pose.x+d,y:30,z:r.pose.z}});};
+ tick(161);clock+=2500;tick(159);clock+=601;tick(161);clock+=2500;tick(161);assert.equal(releases,0);
+ clock+=601;tick(181);assert.equal(r.evicted,true);tick(159);assert.equal(r.restoring,true);tick(161);assert.equal(r.vehicle.group.visible,false);
+ finish();await new Promise(resolve=>setImmediate(resolve));assert.equal(!!r.evicted,false);assert.equal(r.vehicle.group.visible,false);
+ clock+=residency.graceMs;tick(161);assert.equal(r.evicted,true);assert.equal(releases,2);
+});

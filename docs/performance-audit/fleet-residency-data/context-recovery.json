@@ -1,0 +1,100 @@
+[
+  {
+    "quality": "high",
+    "before": {
+      "hidden": true,
+      "retained": true,
+      "handles": 21,
+      "proxy": [
+        true,
+        true,
+        true
+      ],
+      "position": [
+        204,
+        12.366523751797764,
+        148
+      ]
+    },
+    "recovery": {
+      "evicted": true,
+      "hidden": true,
+      "pausePreserved": true
+    },
+    "pending": {
+      "restoring": true,
+      "visible": false
+    },
+    "after": {
+      "handles": 21,
+      "proxy": [
+        true,
+        true,
+        true
+      ],
+      "position": [
+        204,
+        12.366523751797764,
+        148
+      ],
+      "sceneCopies": 1,
+      "images": {
+        "maxTextureSize": null,
+        "uniqueImages": 85,
+        "encodedBytes": 36277067,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 26214400
+      }
+    },
+    "errors": []
+  },
+  {
+    "quality": "low",
+    "before": {
+      "hidden": true,
+      "retained": true,
+      "handles": 21,
+      "proxy": [
+        true,
+        true,
+        true
+      ],
+      "position": [
+        204,
+        12.366523751797764,
+        148
+      ]
+    },
+    "recovery": {
+      "evicted": true,
+      "hidden": true,
+      "pausePreserved": true
+    },
+    "pending": {
+      "restoring": true,
+      "visible": false
+    },
+    "after": {
+      "handles": 21,
+      "proxy": [
+        true,
+        true,
+        true
+      ],
+      "position": [
+        204,
+        12.366523751797764,
+        148
+      ],
+      "sceneCopies": 1,
+      "images": {
+        "maxTextureSize": 512,
+        "uniqueImages": 85,
+        "encodedBytes": 36277067,
+        "decodedBytes": 0,
+        "peakDecodedBytes": 1048576
+      }
+    },
+    "errors": []
+  }
+]
