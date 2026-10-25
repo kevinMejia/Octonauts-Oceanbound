@@ -1,5 +1,5 @@
 import {focusGameplay} from './focusGameplay.js';
-import {gameplaySettings,compassSizeLimits,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
+import {gameplaySettings,compassSizeLimits,gupDiveTiltLimits,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
 import {installGraphicsSettings} from './GraphicsSettings.js';
 import {audioDefaults,volumeKeys} from '../audio/AudioSettings.js';
 import {cameraConfig} from '../config/worldConfig.js';
@@ -65,6 +65,10 @@ export function installSettings(){
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
  const unlockX=check(gameplayPanel,'unlockGupX','Unlock GUP-X',async value=>{gameplaySettings.unlockGupX=value;const game=window.explorer;game?.unlocks?.setOverride('gup-x',value);status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';if(game?.vehicles?.activeId==='gup-x'&&!game.unlocks.isUnlocked('gup-x')){try{await game.vehicles.select('gup-b');game.vehicleSelector.updateHUD();}catch{status.textContent='Could not switch vehicles. Try disabling Unlock GUP-X again.';gameplaySettings.unlockGupX=true;unlockX.checked=true;game.unlocks.setOverride('gup-x',true);saveGameplaySettings(storage,gameplaySettings);}}});unlockX.checked=gameplaySettings.unlockGupX;
  const unlockHelp=document.createElement('p');unlockHelp.className='section-description';unlockHelp.textContent='Unlock the GUP-X instantly without finding all the other GUPs.';gameplayPanel.append(unlockHelp);
+ intro(gameplayPanel,'GUP movement','Choose how far your GUP tilts its nose when climbing or diving. Changes apply on your next move.');
+ const diveTilt=range(grid(gameplayPanel),'gupDiveTilt','Climb / dive tilt',gupDiveTiltLimits.min,gupDiveTiltLimits.max,gupDiveTiltLimits.step);
+ const syncDiveTilt=()=>{diveTilt.input.value=gameplaySettings.gupDiveTilt;diveTilt.output.value=gameplaySettings.gupDiveTilt+'°';fill(diveTilt.input);};
+ diveTilt.input.addEventListener('input',()=>{gameplaySettings.gupDiveTilt=Number(diveTilt.input.value);syncDiveTilt();status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});syncDiveTilt();
  intro(gameplayPanel,'Camera Shake','Gentle feedback when your GUP bumps into the ocean world.');
  const saveShake=()=>{window.explorer?.chase?.clearShake();if(window.explorer)window.explorer.needsPausedRender=true;status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';};
  const shakeEnabled=check(gameplayPanel,'cameraShake','Camera Shake',value=>{gameplaySettings.cameraShake=value;saveShake();});shakeEnabled.checked=gameplaySettings.cameraShake;

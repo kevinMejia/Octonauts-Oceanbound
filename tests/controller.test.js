@@ -27,3 +27,20 @@ test('changing GUP speed profile preserves position and smoothly adjusts existin
  assert.deepEqual(sub.position,position);assert.equal(sub.speed,speed);
  run(sub,{...zero,thrust:1},5);assert.ok(Math.abs(sub.speed-8.64)<.01);
 });
+
+import {gameplaySettings} from '../src/ui/gameplayPreferences.js';
+test('climb and dive tilt follows the live setting and levels out on release',()=>{
+ const previous=gameplaySettings.gupDiveTilt;
+ try{
+  for(const degrees of [0,20,45])for(const rise of [-1,1]){
+   gameplaySettings.gupDiveTilt=degrees;
+   const s=new SubmarineController();s.position.y=rise>0?15:30;
+   run(s,{...zero,rise},3);
+   assert(Math.abs(s.pitch+rise*degrees*Math.PI/180)<.005);
+   run(s,zero,4);assert(Math.abs(s.pitch)<.001);
+  }
+  const s=new SubmarineController();s.position.y=15;gameplaySettings.gupDiveTilt=45;
+  run(s,{...zero,rise:1},2);assert(s.pitch<-.7);
+  gameplaySettings.gupDiveTilt=10;run(s,{...zero,rise:1},1);assert(Math.abs(s.pitch+Math.PI/18)<.03);
+ }finally{gameplaySettings.gupDiveTilt=previous;}
+});

@@ -1,3 +1,4 @@
+import {gameplaySettings} from '../ui/gameplayPreferences.js';
 import {TrackedGroundController} from './TrackedGroundController.js';
 import {hullFloor} from '../collision/collisionMath.js';
 import {collisionConfig} from '../config/collisionConfig.js';
@@ -27,7 +28,7 @@ export class SubmarineController{
  const floor=hullFloor(this),terrainClearance=this.collisionProxy?.terrainClearance??c.minTerrainClearance;
  const contact=this.floorContact;contact.clearance=Math.max(0,p.y-floor);contact.touching=p.y<=floor+.025;contact.impact=Math.max(p.y<floor?Math.max(0,-this.vertical):0,this.collisionContact?.surface==='sand'?this.collisionContact.impact:0);contact.floor=floor-terrainClearance;
 
- if(p.y<floor){p.y=floor;this.vertical=Math.max(0,this.vertical);}if(p.y>w.surface-(this.collisionProxy?.surfaceClearance??2.5)){p.y=w.surface-(this.collisionProxy?.surfaceClearance??2.5);this.vertical=Math.min(0,this.vertical);}this.bank=damp(this.bank,-this.steer*c.bankAmount,4,dt);this.pitch=damp(this.pitch,-this.vertical/c.ascendSpeed*c.pitchAmount,4,dt);
+ if(p.y<floor){p.y=floor;this.vertical=Math.max(0,this.vertical);}if(p.y>w.surface-(this.collisionProxy?.surfaceClearance??2.5)){p.y=w.surface-(this.collisionProxy?.surfaceClearance??2.5);this.vertical=Math.min(0,this.vertical);}this.bank=damp(this.bank,-this.steer*c.bankAmount,4,dt);this.pitch=damp(this.pitch,-this.vertical/c.ascendSpeed*(gameplaySettings.gupDiveTilt*Math.PI/180),4,dt);
  // The new tilt can lower the bow or stern after the movement clearance check.
  const tiltedFloor=hullFloor(this);if(p.y<tiltedFloor){p.y=tiltedFloor;this.vertical=Math.max(0,this.vertical);}
  }
