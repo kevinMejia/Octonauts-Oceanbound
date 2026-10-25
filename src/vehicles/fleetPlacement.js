@@ -27,7 +27,7 @@ export class FleetPlacement{
    const a=i*Math.PI/6,r=ring*4,x=origin.x+Math.sin(a)*r,z=origin.z+Math.cos(a)*r;
    if(Math.abs(x)>worldConfig.size/2-12||Math.abs(z)>worldConfig.size/2-12)continue;
    body.collisionProxy=parking?{...definition.collision,terrainClearance:origin.groundClearance}:definition.collision;
-   const floor=hullFloor(body,x,z,this.ground),y=parking?floor+.04+(origin.heightOffset??0):Math.max(origin.y,floor+.05);
+   const floor=hullFloor(body,x,z,this.ground),y=parking?floor+.04+(origin.heightOffset??0):definition.type==='ground'?floor+.05:Math.max(origin.y,floor+.05);
    if(y>worldConfig.surface-definition.collision.surfaceClearance)continue;
    const pose={x,y,z,heading:body.heading};if(this.clear(pose,definition,ignoreId,returningId))return pose;
   }return null;

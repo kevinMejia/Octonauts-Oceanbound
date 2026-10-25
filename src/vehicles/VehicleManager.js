@@ -1,3 +1,4 @@
+import {TrackAnimator} from './TrackAnimator.js';
 import {vehicleLoader} from './VehicleTextures.js';
 import {GupB} from './GupB.js';
 import {collectModelStats} from './gupAsset.js';
@@ -9,5 +10,5 @@ export function releaseVehicleGPU(vehicle){
  for(const item of textures){item.dispose();item.needsUpdate=true;}for(const item of materials){item.dispose();item.needsUpdate=true;}for(const item of geometries)item.dispose();
 }
 export async function loadVehicle(id){const definition=vehicleById(id),start=performance.now();const gltf=await vehicleLoader().loadAsync(vehicleModelURL(definition));const vehicle=new GupB(gltf.scene,{imported:true});
- vehicle.group.scale.setScalar(definition.scale);gltf.scene.rotation.y+=definition.orientation;vehicle.definition=definition;vehicle.rotors=definition.propellers.map(p=>({...p,node:gltf.scene.getObjectByName(p.name)})).filter(p=>p.node);vehicle.stats={...collectModelStats(gltf.scene),variant:id,loadMs:performance.now()-start};return vehicle;
+ vehicle.group.scale.setScalar(definition.scale);gltf.scene.position.y+=definition.groundOffset??0;if(definition.tracks)vehicle.trackAnimator=new TrackAnimator(gltf.scene,definition.tracks,gltf.animations);gltf.scene.rotation.y+=definition.orientation;vehicle.definition=definition;vehicle.rotors=definition.propellers.map(p=>({...p,node:gltf.scene.getObjectByName(p.name)})).filter(p=>p.node);vehicle.stats={...collectModelStats(gltf.scene),variant:id,loadMs:performance.now()-start};return vehicle;
 }

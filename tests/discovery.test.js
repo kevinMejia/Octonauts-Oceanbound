@@ -72,7 +72,7 @@ test('moving parking proxies updates their existing spatial cells without rebuil
 });
 
 test('new fleet entries are locked, lazy, uniquely parked and use bounds-based collision proxies',()=>{
- const ids=new Set(),homes=new Set();for(const v of vehicles){assert.ok(!ids.has(v.id));ids.add(v.id);const key=v.parking.spawn.offset.join(',');assert.ok(!homes.has(key));homes.add(key);assert.ok(v.collision.radius>0&&v.collision.halfLength>0);if(!['gup-a','gup-b','gup-r'].includes(v.id)){assert.equal(v.preloadAtStart,false);assert.equal(v.unlockedByDefault,false);assert.equal(v.discovery.enabled,true);}}
+ const ids=new Set(),homes=new Set();for(const v of vehicles){assert.ok(!ids.has(v.id));ids.add(v.id);const key=v.parking.spawn.offset.join(',');assert.ok(!homes.has(key));homes.add(key);assert.ok(v.collision.radius>0&&v.collision.halfLength>0);if(!['gup-a','gup-b','gup-r'].includes(v.id)){assert.equal(v.preloadAtStart,false);assert.equal(v.unlockedByDefault,false);assert.equal(v.discovery.enabled,!v.finalReward);}}
 });
 test('nearby new GUPs load once, distant parked GPU resources release once, and active vehicles remain visible',async()=>{
  const f=await fixture(),definition={...vehicles[0],id:'future',parking:{...vehicles[0].parking,spawn:{offset:[90,0,50]}},discovery:{...vehicles[0].discovery,spawn:{offset:[120,0,100]}}};let releases=0;

@@ -12,7 +12,7 @@ export class ChaseCamera{
   updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
   const speed=speedFraming(sub.speed,c),distance=c.distance*(this.profile?.distanceMultiplier??1)*aspectDistance(this.camera.aspect,c)*(1+speed*c.speedDistanceIncrease);
   const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
-  const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height,distance)+o.y));
+  const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height*(this.profile?.heightMultiplier??1),distance)+o.y));
   const angle=sub.heading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
   this.pivot.set(p.x,p.y+.6,p.z);
   this.desired.set(p.x-Math.sin(angle)*distance,p.y+height,p.z-Math.cos(angle)*distance);

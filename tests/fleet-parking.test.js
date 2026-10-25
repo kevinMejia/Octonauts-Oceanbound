@@ -8,7 +8,7 @@ import {octopodConfig} from '../src/config/octopodConfig.js';
 import {fleetParkingRadius,withOctopodBerth} from '../src/config/fleetParkingConfig.js';
 import {importedVehicles} from '../src/config/importedVehicles.js';
 test('collected GUPs have distinct radial berths with an open approach and outward headings',()=>{
- const points=vehicles.map(v=>fleetAnchor(v,true)),base=octopodConfig.position;
+ const points=vehicles.filter(v=>!v.finalReward).map(v=>fleetAnchor(v,true)),base=octopodConfig.position;
  for(const p of points){assert.ok(Math.abs(Math.hypot(p.x-base.x,p.z-base.z)-fleetParkingRadius)<.001);assert.ok(Math.abs(Math.sin(p.heading)-(p.x-base.x)/fleetParkingRadius)<.001);assert.ok(Math.abs(p.x-base.x)>13);}
  for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++)assert.ok(Math.hypot(points[i].x-points[j].x,points[i].z-points[j].z)>14);
  const shifted=fleetAnchor(vehicles[0],true,{x:500,y:0,z:500});assert.equal(shifted.x,500+vehicles[0].parking.spawn.offset[0]);

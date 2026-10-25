@@ -84,3 +84,5 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 
 .compass-targets image{filter:drop-shadow(0 1px 1px #013348)}
 .compass-targets .nearby image{filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) #b4f5ef)}
+
+.fleet-notice{position:fixed;top:15%;left:50%;transform:translateX(-50%);color:white;background:#a51d30;border-radius:18px;padding:12px 22px;z-index:15;pointer-events:none}.fleet-notice:empty{display:none}

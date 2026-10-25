@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {SubmarineController} from '../src/vehicles/SubmarineController.js';
+import {TrackedGroundController} from '../src/vehicles/TrackedGroundController.js';
+import {vehicleById,vehicles} from '../src/config/vehicleConfig.js';
+import {VehicleUnlocks} from '../src/vehicles/VehicleUnlocks.js';
+import {hullFloor} from '../src/collision/collisionMath.js';
+import {CollisionWorld} from '../src/collision/CollisionWorld.js';
+import {SurfaceGrid} from '../src/effects/interactionMath.js';
+import {towAnchor} from '../src/rescue/towMath.js';
+const input={thrust:0,turn:0,rise:0,boost:false};
+function make(ground=()=>0){const s=new SubmarineController(),v=vehicleById('gup-x');s.collisionProxy=v.collision;s.selectVehicle(v.id,v.movement,v);s.groundController=new TrackedGroundController(v.ground,ground);s.position={x:0,y:.65,z:0};s.groundController.align(s);return s;}
+function run(s,controls,seconds=3,hz=60){for(let i=0;i<seconds*hz;i++)s.update(1/hz,{...input,...controls});}
+test('tracked drive accelerates, brakes, reverses, steers and ignores vertical input',()=>{const s=make();run(s,{thrust:1,rise:1});assert(s.speed>10);assert(Math.abs(s.position.y-.65)<1e-8);run(s,{thrust:-1,brakeReverse:true},6);assert(s.speed<-3.7);const h=s.heading;run(s,{thrust:-1,turn:1});assert(s.heading>h);run(s,{},5);assert(Math.abs(s.speed)<.001);assert.equal(s.vertical,0);});
+test('ground turbo uses shared energy and infinite reward',()=>{const s=make();run(s,{thrust:1,boost:true},4);assert(s.speed>19);assert(s.turbo.charge<70);s.turbo.setInfinite(true);run(s,{thrust:1,boost:true},30);assert.equal(s.turbo.charge,100);assert(s.turbo.active);assert(Math.abs(s.position.y-.65)<1e-8);});
+test('slope pitch, clearance, steep rejection and frame independence',()=>{const slope=(x,z)=>z*.15;const s=make(slope);run(s,{thrust:1});assert(s.pitch<0);assert(s.position.y>=hullFloor(s,s.position.x,s.position.z,slope)-.001);const steep=make((x,z)=>Math.max(0,z-3)*2);run(steep,{thrust:1,boost:true},10);assert(steep.position.z<3.1);const a=make(),b=make();run(a,{thrust:1,turn:.3},3,30);run(b,{thrust:1,turn:.3},3,120);assert(Math.hypot(a.position.x-b.position.x,a.position.z-b.position.z)<.05);});
+test('swept obstacles block turbo without lift and track speeds reflect steering',()=>{const s=make(),grid=new SurfaceGrid();grid.add({x:0,y:1,z:15,rx:8,ry:5,rz:1,radius:8,solid:true,surface:'rock'});s.collisionWorld=new CollisionWorld({grid,count:1,solidCount:1},()=>0);run(s,{thrust:1,boost:true,rise:1},5);assert(s.position.z<12);assert(s.position.y<1);assert.equal(s.vertical,0);const turn=make();run(turn,{thrust:1,turn:.7});assert.notEqual(turn.groundController.leftSpeed,turn.groundController.rightSpeed);});
+test('effective availability keeps override separate from earned progress and reload',()=>{const data=new Map(),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)},u=new VehicleUnlocks(vehicles,storage);assert(!u.isUnlocked('gup-x'));u.setOverride('gup-x',true);assert(u.isUnlocked('gup-x'));assert(!u.ids.has('gup-x'));u.unlock('gup-a');u.setOverride('gup-x',false);assert(!u.isUnlocked('gup-x'));for(const v of vehicles.filter(v=>!v.finalReward))u.unlock(v.id);assert(u.ids.has('gup-x'));const reload=new VehicleUnlocks(vehicles,storage);assert(reload.isUnlocked('gup-x'));reload.setOverride('gup-x',false);assert(reload.isUnlocked('gup-x'));reload.reset();assert(!reload.isUnlocked('gup-x'));});
+test('ground switching preserves shared turbo state and restores swimming and rear tow point',()=>{const s=make();s.turbo.charge=42;s.towAttachment=vehicleById('gup-x').towing.attachment;const anchor=towAnchor(s);assert(anchor.z<s.position.z);const b=vehicleById('gup-b');s.selectVehicle(b.id,b.movement,b);assert(!s.groundController);run(s,{rise:1},2);assert(s.position.y>5);const x=vehicleById('gup-x');s.selectVehicle(x.id,x.movement,x);assert.equal(s.turbo.charge,42);assert(s.position.y<1);});
+
