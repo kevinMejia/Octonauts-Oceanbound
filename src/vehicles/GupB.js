@@ -1,3 +1,4 @@
+import {GroundRide} from './GroundRide.js';
 import * as T from 'three';
 import {vehicleLoader} from './VehicleTextures.js';
 import {collectModelStats,useImportedGup} from './gupAsset.js';
@@ -11,7 +12,7 @@ export class GupB{
   vehicle.stats.bounds=new T.Box3().setFromObject(gltf.scene).getSize(new T.Vector3()).toArray();return vehicle;
  }
  constructor(model,{imported=false}={}){
-  this.group=new T.Group();this.group.add(model);
+  this.ride=new GroundRide();this.group=new T.Group();this.group.add(model);
   model.traverse(o=>{if(!o.isMesh)return;
    for(const m of Array.isArray(o.material)?o.material:[o.material]){
     if(!imported){if(m.name.startsWith('Hull')){m.roughness=.3;m.envMapIntensity=.85;}if(m.name==='Blue bubble canopy'){m.roughness=.16;m.envMapIntensity=1.2;m.opacity=.38;m.depthWrite=false;}}
@@ -30,5 +31,5 @@ export class GupB{
   // The imported tail is not a propeller. Never animate unrelated geometry.
   this.propeller=imported?null:model.getObjectByName('Propeller');
  }
- update(dt,s){this.trackAnimator?.update(dt,s.groundController);this.group.position.set(s.position.x,s.position.y,s.position.z);this.group.rotation.set(s.pitch,s.heading,s.bank,'YXZ');if(this.propeller)this.propeller.rotation.z+=dt*(2+Math.abs(s.speed)*5);if(this.rotors?.length){const target=Math.abs(s.speed)*5+Math.abs(s.vertical)*2;this.rotorRate=(this.rotorRate??0)+(target-(this.rotorRate??0))*(1-Math.exp(-dt*5));for(const rotor of this.rotors)rotor.node.rotation[rotor.axis]+=dt*this.rotorRate*rotor.direction;}}
+ update(dt,s){this.trackAnimator?.update(dt,s.groundController);this.group.position.set(s.position.x,s.position.y,s.position.z);this.ride.update(dt,s);this.group.position.y+=this.ride.y;this.group.rotation.set(s.pitch+this.ride.pitch,s.heading,s.bank+this.ride.roll,'YXZ');if(this.propeller)this.propeller.rotation.z+=dt*(2+Math.abs(s.speed)*5);if(this.rotors?.length){const target=Math.abs(s.speed)*5+Math.abs(s.vertical)*2;this.rotorRate=(this.rotorRate??0)+(target-(this.rotorRate??0))*(1-Math.exp(-dt*5));for(const rotor of this.rotors)rotor.node.rotation[rotor.axis]+=dt*this.rotorRate*rotor.direction;}}
 }
