@@ -77,3 +77,8 @@
 #settingsDialog .monitor-content>[role=tabpanel]{grid-area:1/1/2/2;min-width:0}
 #settingsDialog .monitor-content>[role=tabpanel]:not(#audioPanel){position:absolute;inset:0 0 auto}
 #settingsDialog #audioPanel[hidden]{display:block!important;visibility:hidden;pointer-events:none}
+
+/* Read-only diagnostics stay clear of touch controls and safe-area edges. */
+#performanceDisplay{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 8px);transform:translateX(-50%);z-index:20;pointer-events:none;white-space:pre;text-align:center;font:11px/1.5 ui-monospace,monospace;font-variant-numeric:tabular-nums;color:#eafff8;background:#002c42e6;border:1px solid #83dac3;border-radius:7px;padding:5px 9px;}
+#performanceDisplay[hidden]{display:none}
+@media(max-width:600px){#performanceDisplay{top:calc(env(safe-area-inset-top,0px) + 192px)}}
