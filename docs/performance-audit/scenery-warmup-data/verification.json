@@ -1,0 +1,46 @@
+[
+  {
+    "quality": "high",
+    "startup": {
+      "check": {
+        "passes": 4,
+        "restored": true,
+        "canvasHidden": true
+      },
+      "ready": true,
+      "paused": true,
+      "playedAudio": false
+    },
+    "gameplay": {
+      "repeatWarmStateRestored": true,
+      "changedChannels": 79,
+      "unchangedRepeatChannels": 196,
+      "escort": true,
+      "collection": true,
+      "collisionHits": 6
+    },
+    "errors": []
+  },
+  {
+    "quality": "low",
+    "startup": {
+      "check": {
+        "passes": 2,
+        "restored": true,
+        "canvasHidden": true
+      },
+      "ready": true,
+      "paused": true,
+      "playedAudio": false
+    },
+    "gameplay": {
+      "repeatWarmStateRestored": true,
+      "changedChannels": 0,
+      "unchangedRepeatChannels": 0,
+      "escort": true,
+      "collection": true,
+      "collisionHits": 6
+    },
+    "errors": []
+  }
+]
