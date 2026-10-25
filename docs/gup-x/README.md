@@ -15,7 +15,7 @@ Asset integration changes: shared prepare_vehicle.py optional source tread morph
 
 ## Configuration
 
-`groundVehicleConfig.js` uses metres/seconds/radians: forward 10.8 m/s, reverse 3.8 m/s, acceleration response 1.6/s, braking 5/s, turn radius 5 m, maximum slope 32 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
+`groundVehicleConfig.js` uses metres/seconds/radians: forward 10.8 m/s, reverse 3.8 m/s, acceleration response 1.6/s, braking 5/s, turn radius 5 m, maximum slope 45 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
 
 Swimming movement remains on the existing controller branch. Ground movement ignores rise/jump input, samples centre/front/rear/sides, smooths body pitch and roll, clamps height to terrain support, rejects steep changes, and invokes the existing swept CollisionWorld at each substep. Collision lift/drift is removed after resolution. Towing only affects the existing shared speed multiplier and rear attachment.
 
@@ -35,8 +35,14 @@ The original file and archive are never saved or overwritten. The user requested
 
 ## Validation
 
-241 Node unit tests passed, including ground forward/reverse/braking, steering, slopes, support clearance, frame-rate independence (30 versus 120 Hz), turbo against swept obstacles, ignored lift input, infinite turbo, unlock/override/reload/reset, shared turbo state on switching and rear tow attachment. Existing swimming/discovery/camera/rescue/word-hunt/graphics tests also pass.
+246 Node unit tests passed, including ground forward/reverse/braking, steering, slopes, support clearance, frame-rate independence (30 versus 120 Hz), turbo against swept obstacles, ignored lift input, infinite turbo, unlock/override/reload/reset, shared turbo state on switching and rear tow attachment. Existing swimming/discovery/camera/rescue/word-hunt/graphics tests also pass.
 
 Headless Edge browser check passed startup, settings override, carousel model selection, ground turbo with zero vertical velocity, independently moving tracks, fallback to GUP-B, and reload with override disabled; no page errors. Real-model provenance, all 1,193,209 triangles, both morph bindings, freeze/reverse, and 100% infinite charge were verified in the browser. Production build passed and validated GLB headers/lengths.
 
 Limitations: temporary track impressions are omitted (optional). The model retains the source's full 1.19 million triangles and is approximately 39.7 MiB; sustained mobile performance is unverified. Subjective driving feel, prolonged performance across devices, real touch hardware, complete in-game letter/creature collection and rescue delivery using GUP-X have not been manually verified; shared logic is covered by existing unit tests. Floating collectibles above terrain must be reached with swimming vehicles when outside the existing pickup range; GUP-X never gains vertical movement to reach them.
+
+## Hill climbing, escape steering and berth fix
+
+Starting-biome sand slopes reach about 41.4 degrees, exceeding the old 32-degree ground limit. The configurable limit is now 45 degrees; sharper cliffs still stop travel and turbo cannot bypass that check. Differential pivot steering (.8 rad/s before input smoothing at rest) lets the tracks turn in opposite directions even when forward travel is blocked. Moving-speed steering reduction remains active. Regressions cover the actual 41-degree hill near (136,127), 40-degree ramp collision sweeps, steeper cliff rejection and pivoting away from a wall.
+
+GUP-X now parks 25 metres behind the Octopod at world (180,75), facing outward, within the level sand clearing. The full hull clears the real Octopod and every other vehicle. Ground parking samples the terrain using the existing tracked alignment logic, applies pitch/roll to the parked model and positions its collision lobes using that same orientation. Swimming berths remain unchanged. Browser validation verifies the installed parked model and proxies after switching back to GUP-B.

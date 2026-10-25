@@ -18,3 +18,19 @@ test('swept obstacles block turbo without lift and track speeds reflect steering
 test('effective availability keeps override separate from earned progress and reload',()=>{const data=new Map(),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)},u=new VehicleUnlocks(vehicles,storage);assert(!u.isUnlocked('gup-x'));u.setOverride('gup-x',true);assert(u.isUnlocked('gup-x'));assert(!u.ids.has('gup-x'));u.unlock('gup-a');u.setOverride('gup-x',false);assert(!u.isUnlocked('gup-x'));for(const v of vehicles.filter(v=>!v.finalReward))u.unlock(v.id);assert(u.ids.has('gup-x'));const reload=new VehicleUnlocks(vehicles,storage);assert(reload.isUnlocked('gup-x'));reload.setOverride('gup-x',false);assert(reload.isUnlocked('gup-x'));reload.reset();assert(!reload.isUnlocked('gup-x'));});
 test('ground switching preserves shared turbo state and restores swimming and rear tow point',()=>{const s=make();s.turbo.charge=42;s.towAttachment=vehicleById('gup-x').towing.attachment;const anchor=towAnchor(s);assert(anchor.z<s.position.z);const b=vehicleById('gup-b');s.selectVehicle(b.id,b.movement,b);assert(!s.groundController);run(s,{rise:1},2);assert(s.position.y>5);const x=vehicleById('gup-x');s.selectVehicle(x.id,x.movement,x);assert.equal(s.turbo.charge,42);assert(s.position.y<1);});
 
+import {heightAt} from '../src/environment/terrainMath.js';
+import {gupXGround} from '../src/config/groundVehicleConfig.js';
+test('tracked steering pivots at rest and can turn away from a blocked wall',()=>{
+ const s=make(),grid=new SurfaceGrid();grid.add({x:0,y:1,z:15,rx:8,ry:5,rz:1,radius:8,solid:true,surface:'rock'});s.collisionWorld=new CollisionWorld({grid,count:1,solidCount:1},()=>0);
+ run(s,{thrust:1},5);const z=s.position.z;assert(z<12);run(s,{turn:1},3);assert(s.heading>1.5);assert(s.groundController.leftSpeed>0);assert(s.groundController.rightSpeed<0);run(s,{thrust:1},2);assert(Math.hypot(s.position.x,s.position.z-z)>2);assert.equal(s.vertical,0);
+ const idle=make();run(idle,{turn:1},2);assert(idle.heading>1);assert(Math.hypot(idle.position.x,idle.position.z)<1e-8);
+});
+test('actual starting-biome hillside climbs with the real terrain collision solver',()=>{
+ const s=make(heightAt),x=136,z=127,e=.1;Object.assign(s.position,{x,z});s.heading=Math.atan2(heightAt(x+e,z)-heightAt(x-e,z),heightAt(x,z+e)-heightAt(x,z-e));s.groundController.align(s);
+ s.collisionWorld=new CollisionWorld({grid:new SurfaceGrid(),count:0,solidCount:0},heightAt);const y=s.position.y;
+ run(s,{thrust:1},3);assert(Math.hypot(s.position.x-x,s.position.z-z)>8);assert(s.position.y>y+3);assert.equal(s.vertical,0);
+});
+test('40 degree sand is traversable, but over-limit cliffs remain blocked under turbo',()=>{
+ for(const boost of [false,true]){const slope=Math.tan(40*Math.PI/180),h=(x,z)=>z*slope,s=make(h);s.collisionWorld=new CollisionWorld({grid:new SurfaceGrid(),count:0,solidCount:0},h);run(s,{thrust:1,boost},3);assert(s.position.z>10);assert(s.position.y>=hullFloor(s,s.position.x,s.position.z,h)-.001);assert.equal(s.vertical,0);}
+ const cliff=make((x,z)=>Math.max(0,z-3)*Math.tan(gupXGround.maxSlope+.15));run(cliff,{thrust:1,boost:true},4);assert(cliff.position.z<3.2);
+});

@@ -23,7 +23,8 @@ export class TrackedGroundController{
   const target=thrust*(thrust>=0?(input.cruise?c.maxSpeed*.8:c.maxSpeed)*s.turbo.multiplier:c.maxReverseSpeed)*(s.towingSpeedMultiplier??1);
   s.speed=damp(s.speed,target,input.brakeReverse&&s.speed>.15?c.braking:thrust?c.acceleration*(s.turbo.active?c.turboAcceleration:1):c.drag,dt);
   s.steer=damp(s.steer,input.turn,c.steering,dt);
-  const speed=Math.abs(s.speed),turn=s.steer*Math.min(c.turnSpeed,speed/c.turnRadius)*(1-(1-c.highSpeedSensitivity)*Math.min(1,speed/c.maxSpeed));
+  // Differential tracks can pivot even when forward motion is blocked.
+  const speed=Math.abs(s.speed),turn=s.steer*Math.max(c.pivotTurnSpeed*(1-Math.min(1,speed/c.maxSpeed)),Math.min(c.turnSpeed,speed/c.turnRadius))*(1-(1-c.highSpeedSensitivity)*Math.min(1,speed/c.maxSpeed));
   s.heading+=turn*dt;
   const x=p.x,z=p.z,sy=Math.sin(s.heading),cy=Math.cos(s.heading),edge=worldConfig.size/2-12;
   let dx=sy*s.speed*dt,dz=cy*s.speed*dt;
@@ -38,7 +39,7 @@ export class TrackedGroundController{
   if(Math.abs(change)>c.maxStep||Math.abs(Math.atan2(change,moved||1))>c.maxSlope){p.x=x;p.z=z;s.speed=0;}
   this.align(s,dt);s.collisionDrift.x=s.collisionDrift.z=0;
   const actual=((p.x-x)*sy+(p.z-z)*cy)/Math.max(dt,.00001);
-  const angular=moved>.000001?turn:0;
+  const angular=turn;
   this.leftSpeed=actual+angular*c.trackSpacing/2;this.rightSpeed=actual-angular*c.trackSpacing/2;
  }
 }

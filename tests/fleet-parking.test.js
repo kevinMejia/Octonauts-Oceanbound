@@ -28,3 +28,15 @@ test('every reserved berth clears the real Octopod and all other GUP hulls',()=>
  }
  for(const {definition,pose} of poses)assert.ok(placement.clear(pose,definition,definition.id,'*'),definition.id);
 });
+
+test('GUP-X berth sits on clear, level sand with room for its full footprint',()=>{
+ const v=vehicles.find(v=>v.id==='gup-x'),p=fleetAnchor(v,true),base=octopodConfig.position;
+ assert(Math.hypot(p.x-base.x,p.z-base.z)+v.collision.radius<octopodConfig.sceneryClearance);
+ assert.equal(fleetAnchor(v,false).heading,Math.PI);assert.equal(p.heading,Math.PI);
+ const placement=new FleetPlacement(new SurfaceGrid()),pose=placement.find(p,v,{parking:true,maxRadius:0});assert(pose);assert(Math.abs(pose.pitch)<1e-8);assert(Math.abs(pose.bank)<1e-8);assert(Math.abs(pose.y-.69)<1e-8);
+ for(const other of vehicles.filter(v=>v.id!=='gup-x')){const q=fleetAnchor(other,true);assert(Math.hypot(p.x-q.x,p.z-q.z)>14);}
+});
+test('ground parking follows a slope instead of keeping its body level',()=>{
+ const v=vehicles.find(v=>v.id==='gup-x'),h=(x,z)=>z*.2,placement=new FleetPlacement(new SurfaceGrid(),h);
+ const p=placement.find({x:0,y:0,z:0,heading:0,groundClearance:.65},v,{parking:true,maxRadius:0});assert(p);assert(Math.abs(p.pitch+Math.atan(.2))<.001);assert(Math.abs(p.bank)<1e-8);assert(p.y<.75);
+});

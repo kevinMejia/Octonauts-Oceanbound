@@ -20,17 +20,18 @@ export class DiscoveryFleet{
   const pose=this.placement.find(anchor,record.parkDefinition,{parking:true,ignoreId:record.id,returningId:'*',maxRadius:32});
   if(!pose&&record.pose)return;if(!pose)throw new Error('No clear parking position for '+d.name);
   record.pose=pose;
-  const c=record.parkDefinition.collision,depth=Math.min(c.radius,c.halfLength),l=Math.max(0,c.halfLength-depth),sy=Math.sin(pose.heading),cy=Math.cos(pose.heading);
+  const c=record.parkDefinition.collision,depth=Math.min(c.radius,c.halfLength),l=Math.max(0,c.halfLength-depth);
+  hullFrame(pose,this.frame);const f=this.frame,center=c.centerY??0;
   for(let i=-1;i<=1;i++){
    let p=record.proxies[i+1];
-   const x=pose.x+sy*l*i,y=pose.y+(c.centerY??0),z=pose.z+cy*l*i;
+   const x=pose.x+f.zx*l*i+f.yx*center,y=pose.y+f.zy*l*i+f.yy*center,z=pose.z+f.zz*l*i+f.yz*center;
    if(!p){p={x,y,z,rx:c.radius,ry:c.halfHeight,rz:depth,angle:pose.heading,parkedId:d.id,surface:'parked-gup',solid:false,triggerEnabled:false,loadCandidate:i===0};record.proxies.push(p);this.surfaces.add(p);}
    else{p.x=x;p.y=y;p.z=z;p.angle=pose.heading;p.co=Math.cos(p.angle);p.si=Math.sin(p.angle);this.surfaces.grid.move(p);}
   }
   if(moveModel&&record.vehicle&&record.parked)this.park(record);
  }
  setSolid(p,enabled){if(p.solid!==enabled){p.solid=enabled;this.surfaces.solidCount+=enabled?1:-1;}}
- park(record){const group=record.vehicle.group,p=record.pose;group.position.set(p.x,p.y,p.z);group.rotation.set(0,p.heading,0,'YXZ');group.scale.copy(record.baseScale).multiplyScalar(record.scale);group.visible=(record.distanceVisible??true)&&!record.evicted;this.scene.add(group);}
+ park(record){const group=record.vehicle.group,p=record.pose;group.position.set(p.x,p.y,p.z);group.rotation.set(p.pitch??0,p.heading,p.bank??0,'YXZ');group.scale.copy(record.baseScale).multiplyScalar(record.scale);group.visible=(record.distanceVisible??true)&&!record.evicted;this.scene.add(group);}
  sync(activeId=this.fleet.activeId){
   for(const r of this.records.values()){
    r.parked=r.id!==activeId;
