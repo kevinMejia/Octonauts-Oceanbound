@@ -1,0 +1,8 @@
+{
+  "quality": "high",
+  "pairedSystemFrames": 960,
+  "frozenOctopodMeshes": 11,
+  "frozenTerrainChunks": 256,
+  "frozenCrew": 0,
+  "errors": []
+}

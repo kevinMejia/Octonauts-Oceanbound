@@ -1,3 +1,4 @@
+import {uploadActivePrefix} from './bufferUpdates.js';
 import {SeaTurtle} from './SeaTurtle.js';
 import {nearbySchools} from './marineLayout.js';
 import {MarineVisitors} from './MarineVisitors.js';
@@ -43,7 +44,7 @@ export class ReefFish{
    if(time>=g.nextFloor){g.floor=this.floor(px,pz);g.nextFloor=time+.35;}g.swimX=px;g.swimZ=pz;activeSchools++;const angle=this.path.heading,co=Math.cos(angle),si=Math.sin(angle),slender=g.seed%3===0;
    for(let i=0;i<g.records.length&&n<this.capacity;i++){const r=g.records[i],x=px+co*r.side+si*r.fore,z=pz-si*r.side+co*r.fore,desired=Math.min(worldConfig.surface-2,g.floor+(g.base?2.5:c.heightAboveSand)+r.vertical+(g.base?0:g.seed%4)+Math.sin(time*.8+r.phase)*.45);if(r.y===null)r.y=desired;r.y=Math.max(g.floor+1,Math.min(worldConfig.surface-2,r.y+(desired-r.y)*(1-Math.exp(-dt*3))));this.dummy.position.set(x,r.y,z);this.dummy.rotation.set(0,angle+Math.sin(time*.65+r.phase)*.1,Math.sin(time*.8+r.phase)*.045);this.dummy.scale.set(r.scale*(slender?.7:1),r.scale*(slender?.7:1),r.scale*(slender?1.45:1));this.dummy.updateMatrix();this.mesh.setMatrixAt(n,this.dummy.matrix);this.mesh.geometry.attributes.swimPhase.setX(n,r.phase);this.color.set(palette[(g.seed+i%3)%palette.length]);this.mesh.setColorAt(n,this.color);n++;}
   }
-  this.mesh.count=n;this.mesh.visible=n>0;this.mesh.instanceMatrix.needsUpdate=true;this.mesh.geometry.attributes.swimPhase.needsUpdate=true;if(this.mesh.instanceColor)this.mesh.instanceColor.needsUpdate=true;this.visitors.update(time,this.groups,camera);this.turtle.update(dt,time,this.groups,camera);
+  this.mesh.count=n;this.mesh.visible=n>0;uploadActivePrefix(this.mesh.instanceMatrix,n);uploadActivePrefix(this.mesh.geometry.attributes.swimPhase,n);if(this.mesh.instanceColor)uploadActivePrefix(this.mesh.instanceColor,n);this.visitors.update(time,this.groups,camera);this.turtle.update(dt,time,this.groups,camera);
   if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'fishMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({count:n,schools:activeSchools,budget:this.capacity,visitors:this.visitors.active,trianglesPerFish:this.mesh.geometry.index.count/3});}
  }
 }

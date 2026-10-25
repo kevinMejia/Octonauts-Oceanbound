@@ -1,13 +1,17 @@
 // Local QA only. Uses the bundled Playwright runtime; adds no game dependency.
 const {chromium}=require('playwright');
 const fs=require('node:fs');
+const {execFileSync}=require('node:child_process');
 (async()=>{
+ const quality=process.env.AUDIT_QUALITY??'high',probes=process.env.AUDIT_PROBES==='1',reference=process.env.AUDIT_REFERENCE;
  const browser=await chromium.launch({headless:true,channel:'msedge'});
- const page=await browser.newPage({viewport:{width:1280,height:720},deviceScaleFactor:1});
+ const page=await browser.newPage(quality==='low'?{viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true}:{viewport:{width:1280,height:720},deviceScaleFactor:1});
+ if(reference)await page.route('**/src/**/*.js',route=>route.fulfill({contentType:'text/javascript',body:execFileSync('git',['show',reference+':'+new URL(route.request().url()).pathname.slice(1)],{encoding:'utf8'})}));
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
- await page.goto('http://127.0.0.1:5173/?quality=high&benchmark&inspect');
+ await page.goto('http://127.0.0.1:5173/?quality='+quality+'&benchmark&inspect');
  await page.waitForFunction(()=>window.explorer?.ready,{timeout:180000});
  console.log('ready');
+ if(probes)await page.evaluate(require('./rendering-probes.cjs'));
  const result=await page.evaluate(async()=>{
   const g=window.explorer;g.renderer.setAnimationLoop(null);g.releaseStartup();document.body.classList.remove('starting');document.querySelector('#startup').remove();
   const stats=a=>{const b=a.slice().sort((a,b)=>a-b);return {mean:a.reduce((s,v)=>s+v,0)/a.length,median:b[Math.floor(b.length*.5)],p95:b[Math.floor(b.length*.95)]};};
@@ -20,6 +24,7 @@ const fs=require('node:fs');
    const measure=(key,fn,record)=>{const t=performance.now();fn();if(record)(costs[key]??=[]).push(performance.now()-t);};
    for(let i=0;i<150;i++){
     await new Promise(requestAnimationFrame);const now=performance.now(),record=i>=30;if(record&&last)frames.push(now-last);last=now;time+=1/60;
+    if(i===30)window.renderingProbes?.reset();window.renderingProbes?.poll();
     if(name==='particles'&&i%30===0)g.interactions.burst(x,y,z,1,0,0);
     measure('physics',()=>g.sub.update(1/60,{thrust:name==='high-speed'?1:0,turn:0,rise:0,boost:name==='high-speed'}),record);
     g.gup.update(1/60,g.sub);g.chase.update(1/60,g.sub,g.input);
@@ -34,12 +39,13 @@ const fs=require('node:fs');
     measure('crew',()=>g.crew.update(1/60,g.camera),record);
     measure('rescue',()=>g.rescue.update(1/60,false),record);
     measure('wordHunt',()=>g.wordHunt.update(1/60,g.sub),record);
-    measure('render',()=>g.renderScene(),record);
+    const query=window.renderingProbes?.begin();measure('render',()=>g.renderScene(),record);window.renderingProbes?.end(query);
    }
-   observer.disconnect();results.push({name,frameMs:stats(frames),costMs:Object.fromEntries(Object.entries(costs).map(([k,v])=>[k,stats(v)])),compassMutations:mutations,render:{...g.renderer.info.render},memory:{...g.renderer.info.memory},collision:{...g.collisions.metrics},heap:performance.memory?.usedJSHeapSize});
+   observer.disconnect();results.push({name,frameMs:stats(frames),costMs:Object.fromEntries(Object.entries(costs).map(([k,v])=>[k,stats(v)])),compassMutations:mutations,render:{...g.renderer.info.render},memory:{...g.renderer.info.memory},collision:{...g.collisions.metrics},heap:performance.memory?.usedJSHeapSize,probes:window.renderingProbes?JSON.parse(JSON.stringify(window.renderingProbes.counters)):undefined,snapshot:await window.renderingProbes?.snapshot()});
+   if(window.renderingProbes)results[results.length-1].framebufferEquivalence=await window.renderingProbes.compareFullUploads();
    if(name==='escort')g.rescue.stop();
   }
-  return {userAgent:navigator.userAgent,renderer:g.renderer.getContext().getParameter(g.renderer.getContext().RENDERER),viewport:[innerWidth,innerHeight],pixelRatio:g.renderer.getPixelRatio(),results};
+  return {userAgent:navigator.userAgent,renderer:g.renderer.getContext().getParameter(g.renderer.getContext().RENDERER),inventory:window.renderingProbes?.inventory,viewport:[innerWidth,innerHeight],pixelRatio:g.renderer.getPixelRatio(),results};
  });
- result.errors=errors;fs.mkdirSync('docs/performance-audit',{recursive:true});fs.writeFileSync(process.argv[2]??'docs/performance-audit/baseline.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));await browser.close();
+ result.errors=errors;fs.mkdirSync('docs/performance-audit',{recursive:true});fs.writeFileSync(process.argv[2]??'docs/performance-audit/baseline.json',JSON.stringify(result,null,2));console.log('Saved audit: '+(process.argv[2]??'baseline.json'));await browser.close();if(errors.length)throw Error(errors.join('\n'));
 })().catch(e=>{console.error(e);process.exit(1);});

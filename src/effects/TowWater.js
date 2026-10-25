@@ -1,3 +1,4 @@
+import {uploadActivePrefix} from '../environment/bufferUpdates.js';
 import * as T from 'three';
 import {ParticlePool,clamp} from './interactionMath.js';
 import {waterParticleVertexShader,waterParticleFragmentShader} from './PropulsionWater.js';
@@ -25,7 +26,7 @@ export class TowWater{
    if(particle.life<=0)continue;const range=Math.hypot(particle.x-camera.position.x,particle.y-camera.position.y,particle.z-camera.position.z);if(range>c.renderDistance){particle.life=0;continue;}
    const alpha=clamp(particle.age/.12)*clamp((particle.life-particle.age)/.25)*clamp((c.renderDistance-range)/10)*c.opacity;position.setXYZ(count,particle.x,particle.y,particle.z);shape.setXYZW(count,particle.size,alpha,particle.seed,particle.kind);direction.setXYZ(count,particle.dx,particle.dy,particle.dz);count++;
   }
-  position.needsUpdate=shape.needsUpdate=direction.needsUpdate=true;this.geometry.setDrawRange(0,count);this.points.visible=count>0;this.material.uniforms.pointScale.value=camera.projectionMatrix.elements[5]*innerHeight*pixelRatio/2;
+  uploadActivePrefix(position,count);uploadActivePrefix(shape,count);uploadActivePrefix(direction,count);this.geometry.setDrawRange(0,count);this.points.visible=count>0;this.material.uniforms.pointScale.value=camera.projectionMatrix.elements[5]*innerHeight*pixelRatio/2;
  }
  clear(){for(const particle of this.pool.items)particle.life=0;this.emission=0;this.speed=0;this.lastValid=false;this.points.visible=false;this.geometry.setDrawRange(0,0);}
  dispose(){this.clear();this.points.removeFromParent();this.geometry.dispose();this.material.dispose();}

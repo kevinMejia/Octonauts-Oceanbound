@@ -23,7 +23,7 @@ export class OceanTerrain{
   for(let z=-world.size/2;z<world.size/2;z+=width)for(let x=-world.size/2;x<world.size/2;x+=width){
    const g=new T.PlaneGeometry(width,width,segments,segments);g.rotateX(-Math.PI/2);const p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv,colors=[];const col=new T.Color();
    for(let i=0;i<p.count;i++){const wx=p.getX(i)+x+width/2,wz=p.getZ(i)+z+width/2;p.setY(i,heightAt(wx,wz));uv.setXY(i,wx/visualConfig.sand.tileMetres,wz/visualConfig.sand.tileMetres);const normal=new T.Vector3(heightAt(wx-.2,wz)-heightAt(wx+.2,wz),.4,heightAt(wx,wz-.2)-heightAt(wx,wz+.2)).normalize();n.setXYZ(i,normal.x,normal.y,normal.z);const variation=.83+noise(wx/18,wz/18)*.17;col.setRGB(variation,variation,variation*.98);colors.push(col.r,col.g,col.b);}
-   g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.computeBoundingSphere();const mesh=new T.Mesh(g,material);mesh.position.set(x+width/2,0,z+width/2);mesh.receiveShadow=true;scene.add(mesh);this.chunks.push(mesh);
+   g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.computeBoundingSphere();const mesh=new T.Mesh(g,material);mesh.position.set(x+width/2,0,z+width/2);mesh.updateMatrix();mesh.matrixAutoUpdate=false;mesh.receiveShadow=true;scene.add(mesh);this.chunks.push(mesh);
   }
  }
  setOcclusion(texture){this.occlusion=texture;if(this.shader)this.shader.uniforms.uReefOcclusion.value=texture;}

@@ -1,3 +1,4 @@
+import {uploadActivePrefix} from '../environment/bufferUpdates.js';
 import * as T from 'three';
 import {ParticlePool,clamp} from './interactionMath.js';
 import {bubbleRate,flowRate,stepBubble} from './waterMath.js';
@@ -36,6 +37,6 @@ export class PropulsionWater{
  this.geometry.boundingSphere.center.copy(vehicle.position);let n=0;this.activeBubbles=0;this.activeStreaks=0;this.activeReefBubbles=0;const position=this.geometry.attributes.position,shape=this.geometry.attributes.bubble,direction=this.geometry.attributes.flowDirection;
  for(const p of this.bubbles.items){if(!celebrationOnly||p.celebration)stepBubble(p,dt,time,worldConfig.surface);if(p.life<=0)continue;const distance=Math.hypot(p.x-camera.position.x,p.y-camera.position.y,p.z-camera.position.z);if(distance>config.bubbles.renderDistance){p.life=0;continue;}const age=p.age/p.life,fade=clamp((distance-1)/2)*clamp(p.age/.15)*clamp((1-age)/.25)*clamp((worldConfig.surface-.15-p.y)/.65)*(1-clamp((distance-config.bubbles.renderDistance*.65)/(config.bubbles.renderDistance*.35)));position.setXYZ(n,p.x,p.y,p.z);shape.setXYZW(n,p.size*(p.celebration?1+age*.5:1-age*.2),fade,p.seed,0);direction.setXYZ(n,0,1,0);n++;this.activeBubbles++;if(p.vent)this.activeReefBubbles++;}
  for(const p of this.streaks.items){if(p.life<=0)continue;if(!celebrationOnly){p.age+=dt;if(p.age>=p.life){p.life=0;continue;}p.x+=Math.sin(time*.5+p.seed)*dt*.03;p.y+=dt*.03;}const fade=Math.sin(p.age/p.life*Math.PI)*config.motion.streakIntensity;position.setXYZ(n,p.x,p.y,p.z);shape.setXYZW(n,p.size,fade,p.seed,1);direction.setXYZ(n,p.vx,p.vy,p.vz);n++;this.activeStreaks++;}
- position.needsUpdate=shape.needsUpdate=direction.needsUpdate=true;this.geometry.setDrawRange(0,n);this.points.visible=n>0;this.material.uniforms.pointScale.value=camera.projectionMatrix.elements[5]*innerHeight*pixelRatio/2;
+ uploadActivePrefix(position,n);uploadActivePrefix(shape,n);uploadActivePrefix(direction,n);this.geometry.setDrawRange(0,n);this.points.visible=n>0;this.material.uniforms.pointScale.value=camera.projectionMatrix.elements[5]*innerHeight*pixelRatio/2;
  }
 }

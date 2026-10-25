@@ -1,0 +1,2212 @@
+{
+  "high": {
+    "timing": {
+      "baseline": {
+        "meanFrameMs": {
+          "mean": 7.277499999999095,
+          "min": 7.26791666666589,
+          "max": 7.2963541666647265,
+          "stdev": 0.016328934887315582
+        },
+        "timedSubsystemSumMs": {
+          "mean": 6.393229166691243,
+          "min": 6.336979166664726,
+          "max": 6.435312500048894,
+          "stdev": 0.05067427302873298
+        },
+        "renderSubmitMs": {
+          "mean": 5.505972222231665,
+          "min": 5.450416666659294,
+          "max": 5.561458333358557,
+          "stdev": 0.05552086592206405
+        },
+        "scenarios": {
+          "octopod": {
+            "meanFrameMs": {
+              "mean": 7.05,
+              "min": 6.941666666666666,
+              "max": 7.2575000000031045,
+              "stdev": 0.17975871173714095
+            },
+            "p95FrameMs": {
+              "mean": 8.366666667163372,
+              "min": 7.5,
+              "max": 9.800000000745058,
+              "stdev": 1.2503332891589547
+            }
+          },
+          "reef": {
+            "meanFrameMs": {
+              "mean": 7.505277777778812,
+              "min": 7.421666666663563,
+              "max": 7.556666666672876,
+              "stdev": 0.07304076741301604
+            },
+            "p95FrameMs": {
+              "mean": 8.366666666542491,
+              "min": 8.199999999254942,
+              "max": 8.5,
+              "stdev": 0.1527525236123034
+            }
+          },
+          "high-speed": {
+            "meanFrameMs": {
+              "mean": 7.199166666664597,
+              "min": 7.1766666666604575,
+              "max": 7.235833333339542,
+              "stdev": 0.0320264647580679
+            },
+            "p95FrameMs": {
+              "mean": 7.466666666790843,
+              "min": 7.399999998509884,
+              "max": 7.600000001490116,
+              "stdev": 0.1154700550208637
+            }
+          },
+          "animals": {
+            "meanFrameMs": {
+              "mean": 7.436388888887854,
+              "min": 7.3433333333271245,
+              "max": 7.483333333333333,
+              "stdev": 0.0805895522176841
+            },
+            "p95FrameMs": {
+              "mean": 8.26666666691502,
+              "min": 8.199999999254942,
+              "max": 8.400000000372529,
+              "stdev": 0.11547005394546503
+            }
+          },
+          "particles": {
+            "meanFrameMs": {
+              "mean": 7.434444444440305,
+              "min": 7.317499999996896,
+              "max": 7.547499999993791,
+              "stdev": 0.11504930504892934
+            },
+            "p95FrameMs": {
+              "mean": 8.333333333954215,
+              "min": 8.100000001490116,
+              "max": 8.599999999627471,
+              "stdev": 0.2516611469048475
+            }
+          },
+          "collision": {
+            "meanFrameMs": {
+              "mean": 7.658888888886819,
+              "min": 7.652499999990686,
+              "max": 7.665833333336438,
+              "stdev": 0.006684005236906043
+            },
+            "p95FrameMs": {
+              "mean": 8.699999999875823,
+              "min": 8.599999999627471,
+              "max": 8.800000000745058,
+              "stdev": 0.10000000055879354
+            }
+          },
+          "letter": {
+            "meanFrameMs": {
+              "mean": 6.984444444445479,
+              "min": 6.935000000009313,
+              "max": 7.0700000000031045,
+              "stdev": 0.07439260218194217
+            },
+            "p95FrameMs": {
+              "mean": 7.733333333705862,
+              "min": 7.599999999627471,
+              "max": 8,
+              "stdev": 0.2309401073532307
+            }
+          },
+          "escort": {
+            "meanFrameMs": {
+              "mean": 6.951388888888889,
+              "min": 6.938333333330229,
+              "max": 6.9625,
+              "stdev": 0.012200106255240453
+            },
+            "p95FrameMs": {
+              "mean": 7.733333333084981,
+              "min": 7.699999999254942,
+              "max": 7.799999998882413,
+              "stdev": 0.057735026166183506
+            }
+          }
+        }
+      },
+      "final": {
+        "meanFrameMs": {
+          "mean": 7.230972222221316,
+          "min": 7.209166666665503,
+          "max": 7.244583333330229,
+          "stdev": 0.019077388690674955
+        },
+        "timedSubsystemSumMs": {
+          "mean": 6.335520833310956,
+          "min": 6.296979166654637,
+          "max": 6.381458333309274,
+          "stdev": 0.04272243161130279
+        },
+        "renderSubmitMs": {
+          "mean": 5.4562847221923425,
+          "min": 5.429479166634459,
+          "max": 5.49270833330617,
+          "stdev": 0.032693456899013595
+        },
+        "scenarios": {
+          "octopod": {
+            "meanFrameMs": {
+              "mean": 7.090277777782952,
+              "min": 6.952500000006209,
+              "max": 7.2341666666790845,
+              "stdev": 0.14093273941134948
+            },
+            "p95FrameMs": {
+              "mean": 8.566666666418314,
+              "min": 7.599999999627471,
+              "max": 9.900000000372529,
+              "stdev": 1.1930353450184692
+            }
+          },
+          "reef": {
+            "meanFrameMs": {
+              "mean": 7.35888888888682,
+              "min": 7.275833333330229,
+              "max": 7.41083333332402,
+              "stdev": 0.07267857955335381
+            },
+            "p95FrameMs": {
+              "mean": 8.266666665673256,
+              "min": 8.199999999254942,
+              "max": 8.299999998882413,
+              "stdev": 0.05773502670388284
+            }
+          },
+          "high-speed": {
+            "meanFrameMs": {
+              "mean": 7.184166666663562,
+              "min": 7.183333333333334,
+              "max": 7.184999999993791,
+              "stdev": 0.0008333333302288359
+            },
+            "p95FrameMs": {
+              "mean": 7.36666666654249,
+              "min": 7.299999998882413,
+              "max": 7.5,
+              "stdev": 0.11547005394546503
+            }
+          },
+          "animals": {
+            "meanFrameMs": {
+              "mean": 7.334999999993791,
+              "min": 7.3016666666604575,
+              "max": 7.3674999999968955,
+              "stdev": 0.03292457711005707
+            },
+            "p95FrameMs": {
+              "mean": 8.133333333457509,
+              "min": 8.099999999627471,
+              "max": 8.200000001117587,
+              "stdev": 0.05773502777928152
+            }
+          },
+          "particles": {
+            "meanFrameMs": {
+              "mean": 7.325277777776743,
+              "min": 7.303333333336438,
+              "max": 7.347499999993791,
+              "stdev": 0.022084643562334756
+            },
+            "p95FrameMs": {
+              "mean": 8.233333333705863,
+              "min": 8.199999999254942,
+              "max": 8.300000000745058,
+              "stdev": 0.057735027241582186
+            }
+          },
+          "collision": {
+            "meanFrameMs": {
+              "mean": 7.626666666670806,
+              "min": 7.563333333345751,
+              "max": 7.7216666666635625,
+              "stdev": 0.08378212484333858
+            },
+            "p95FrameMs": {
+              "mean": 8.533333333209157,
+              "min": 8.400000000372529,
+              "max": 8.699999999254942,
+              "stdev": 0.15275252259614716
+            }
+          },
+          "letter": {
+            "meanFrameMs": {
+              "mean": 6.982222222221187,
+              "min": 6.953333333336437,
+              "max": 7.038333333330229,
+              "stdev": 0.048600792553801786
+            },
+            "p95FrameMs": {
+              "mean": 7.666666666666667,
+              "min": 7.400000000372529,
+              "max": 8,
+              "stdev": 0.3055050462084506
+            }
+          },
+          "escort": {
+            "meanFrameMs": {
+              "mean": 6.945277777774673,
+              "min": 6.927500000006209,
+              "max": 6.96083333332402,
+              "stdev": 0.01677740984813912
+            },
+            "p95FrameMs": {
+              "mean": 7.833333334575097,
+              "min": 7.700000001117587,
+              "max": 8.100000001490116,
+              "stdev": 0.23094010789093003
+            }
+          }
+        }
+      }
+    },
+    "measurements": [
+      {
+        "name": "octopod",
+        "baseline": {
+          "uploadRequests": 3120,
+          "uploadBytes": 3179520,
+          "matrixCompositions": 345918,
+          "gpuMedianMs": 4.694528,
+          "gpuP95Ms": 5.900288,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1224,
+            "textures": 114
+          },
+          "heapMiB": 212.93438816070557
+        },
+        "final": {
+          "uploadRequests": 3120,
+          "uploadBytes": 1668720,
+          "matrixCompositions": 313878,
+          "gpuMedianMs": 4.593664,
+          "gpuP95Ms": 6.065152,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1224,
+            "textures": 114
+          },
+          "heapMiB": 217.9144744873047
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 2040,
+            "triangles": 60200640
+          },
+          "transmission": {
+            "calls": 16228,
+            "triangles": 132653788
+          },
+          "main": {
+            "calls": 21148,
+            "triangles": 162405388
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 39,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 1.0579427083333334e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 89,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.414279513888889e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 39,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.0579427083333334e-05,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 26,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.0529513888888886e-06,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 38,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.0308159722222223e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 52,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.4105902777777777e-05,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "reef",
+        "baseline": {
+          "uploadRequests": 2985,
+          "uploadBytes": 2734848,
+          "matrixCompositions": 384230,
+          "gpuMedianMs": 5.79584,
+          "gpuP95Ms": 6.495232,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1232,
+            "textures": 114
+          },
+          "heapMiB": 227.8470983505249
+        },
+        "final": {
+          "uploadRequests": 2985,
+          "uploadBytes": 1565256,
+          "matrixCompositions": 352190,
+          "gpuMedianMs": 5.66272,
+          "gpuP95Ms": 6.321152,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1232,
+            "textures": 114
+          },
+          "heapMiB": 254.22478675842285
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1920,
+            "triangles": 75164400
+          },
+          "transmission": {
+            "calls": 27849,
+            "triangles": 360700394
+          },
+          "main": {
+            "calls": 35366,
+            "triangles": 390875996
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 78,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 2.1158854166666667e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 121,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 3.2823350694444446e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 95,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.5770399305555555e-05,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 61,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 1.654730902777778e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 82,
+            "maxChannelDelta": 35,
+            "meanAbsoluteChannelDelta": 6.754557291666667e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 64,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.736111111111111e-05,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "high-speed",
+        "baseline": {
+          "uploadRequests": 3210,
+          "uploadBytes": 3186696,
+          "matrixCompositions": 387687,
+          "gpuMedianMs": 3.943904,
+          "gpuP95Ms": 6.567936,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 245.25743198394775
+        },
+        "final": {
+          "uploadRequests": 3210,
+          "uploadBytes": 1817584,
+          "matrixCompositions": 355647,
+          "gpuMedianMs": 4.77696,
+          "gpuP95Ms": 5.820416,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 250.2383804321289
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 835,
+            "triangles": 3809546
+          },
+          "transmission": {
+            "calls": 9925,
+            "triangles": 39746585
+          },
+          "main": {
+            "calls": 14327,
+            "triangles": 69279829
+          }
+        },
+        "crossLaunchPixelsEqual": true,
+        "baselineFramebuffer": {
+          "differentChannels": 2,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 5.425347222222222e-07,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 9,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.44140625e-06,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 2,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 5.425347222222222e-07,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 5,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 1.3563368055555556e-06,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 3,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 8.138020833333334e-07,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 3,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 8.138020833333334e-07,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "animals",
+        "baseline": {
+          "uploadRequests": 3120,
+          "uploadBytes": 3179520,
+          "matrixCompositions": 363741,
+          "gpuMedianMs": 5.50144,
+          "gpuP95Ms": 6.144,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 280.4955053329468
+        },
+        "final": {
+          "uploadRequests": 3120,
+          "uploadBytes": 1609480,
+          "matrixCompositions": 331701,
+          "gpuMedianMs": 5.462016,
+          "gpuP95Ms": 6.218752,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 214.22689819335938
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1800,
+            "triangles": 56968560
+          },
+          "transmission": {
+            "calls": 28920,
+            "triangles": 251632800
+          },
+          "main": {
+            "calls": 36360,
+            "triangles": 281857440
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 74,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 2.0073784722222223e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 43,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.1664496527777778e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 13,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 3.5264756944444443e-06,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 28,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.595486111111111e-06,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 40,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.0850694444444445e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 31,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 8.409288194444444e-06,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "particles",
+        "baseline": {
+          "uploadRequests": 3840,
+          "uploadBytes": 5836800,
+          "matrixCompositions": 395452,
+          "gpuMedianMs": 5.597184,
+          "gpuP95Ms": 6.105088,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 302.0412645339966
+        },
+        "final": {
+          "uploadRequests": 3840,
+          "uploadBytes": 2555500,
+          "matrixCompositions": 363412,
+          "gpuMedianMs": 5.3831679999999995,
+          "gpuP95Ms": 6.008832,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 239.75150775909424
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1920,
+            "triangles": 75164400
+          },
+          "transmission": {
+            "calls": 25920,
+            "triangles": 360586500
+          },
+          "main": {
+            "calls": 33600,
+            "triangles": 390773100
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 82,
+          "maxChannelDelta": 21,
+          "meanAbsoluteChannelDelta": 3.2823350694444446e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 42,
+            "maxChannelDelta": 21,
+            "meanAbsoluteChannelDelta": 2.170138888888889e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 76,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.0616319444444445e-05,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 88,
+          "maxChannelDelta": 2,
+          "meanAbsoluteChannelDelta": 2.414279513888889e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 61,
+            "maxChannelDelta": 21,
+            "meanAbsoluteChannelDelta": 2.712673611111111e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 84,
+            "maxChannelDelta": 21,
+            "meanAbsoluteChannelDelta": 3.309461805555556e-05,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "collision",
+        "baseline": {
+          "uploadRequests": 3855,
+          "uploadBytes": 5841632,
+          "matrixCompositions": 395005,
+          "gpuMedianMs": 5.84192,
+          "gpuP95Ms": 6.43584,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 224.07730102539062
+        },
+        "final": {
+          "uploadRequests": 3855,
+          "uploadBytes": 2553928,
+          "matrixCompositions": 362965,
+          "gpuMedianMs": 5.7784320000000005,
+          "gpuP95Ms": 6.242304,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1238,
+            "textures": 114
+          },
+          "heapMiB": 260.63263416290283
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1920,
+            "triangles": 78873516
+          },
+          "transmission": {
+            "calls": 27240,
+            "triangles": 391511596
+          },
+          "main": {
+            "calls": 34920,
+            "triangles": 421655316
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 119,
+          "maxChannelDelta": 4,
+          "meanAbsoluteChannelDelta": 3.8519965277777775e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 86,
+            "maxChannelDelta": 3,
+            "meanAbsoluteChannelDelta": 2.5227864583333333e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 78,
+            "maxChannelDelta": 4,
+            "meanAbsoluteChannelDelta": 2.5227864583333333e-05,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 208,
+          "maxChannelDelta": 2,
+          "meanAbsoluteChannelDelta": 6.320529513888889e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 52,
+            "maxChannelDelta": 3,
+            "meanAbsoluteChannelDelta": 1.5190972222222222e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 261,
+            "maxChannelDelta": 3,
+            "meanAbsoluteChannelDelta": 7.866753472222223e-05,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "letter",
+        "baseline": {
+          "uploadRequests": 2760,
+          "uploadBytes": 3083520,
+          "matrixCompositions": 356579,
+          "gpuMedianMs": 4.813312,
+          "gpuP95Ms": 5.787648,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1237,
+            "textures": 114
+          },
+          "heapMiB": 235.1800661087036
+        },
+        "final": {
+          "uploadRequests": 2760,
+          "uploadBytes": 1599360,
+          "matrixCompositions": 324539,
+          "gpuMedianMs": 4.6842880000000005,
+          "gpuP95Ms": 5.566464,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1237,
+            "textures": 114
+          },
+          "heapMiB": 219.1599817276001
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1560,
+            "triangles": 61770720
+          },
+          "transmission": {
+            "calls": 17845,
+            "triangles": 151545685
+          },
+          "main": {
+            "calls": 22525,
+            "triangles": 181113925
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 51,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 1.3834635416666666e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 77,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.0887586805555555e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 35,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 9.494357638888889e-06,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 21,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 5.696614583333334e-06,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 56,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.5190972222222222e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 64,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.736111111111111e-05,
+            "comparedChannels": 3686400
+          }
+        }
+      },
+      {
+        "name": "escort",
+        "baseline": {
+          "uploadRequests": 3153,
+          "uploadBytes": 3390720,
+          "matrixCompositions": 371445,
+          "gpuMedianMs": 4.396784,
+          "gpuP95Ms": 5.00736,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1243,
+            "textures": 114
+          },
+          "heapMiB": 216.96537017822266
+        },
+        "final": {
+          "uploadRequests": 3153,
+          "uploadBytes": 1798424,
+          "matrixCompositions": 339405,
+          "gpuMedianMs": 4.862976,
+          "gpuP95Ms": 7.042048,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1243,
+            "textures": 114
+          },
+          "heapMiB": 230.22188568115234
+        },
+        "passTotals": {
+          "shadow": {
+            "calls": 1560,
+            "triangles": 49701600
+          },
+          "transmission": {
+            "calls": 17640,
+            "triangles": 130475192
+          },
+          "main": {
+            "calls": 22492,
+            "triangles": 160089272
+          },
+          "hud": {
+            "calls": 480,
+            "triangles": 23040
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 63,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 1.708984375e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 38,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.0308159722222223e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 81,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 2.197265625e-05,
+            "comparedChannels": 3686400
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 118,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 3.2009548611111114e-05,
+          "comparedChannels": 3686400,
+          "unchangedRenderRepeat": {
+            "differentChannels": 168,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 4.557291666666667e-05,
+            "comparedChannels": 3686400
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 34,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 9.223090277777778e-06,
+            "comparedChannels": 3686400
+          }
+        }
+      }
+    ],
+    "inventory": {
+      "octopod": [
+        {
+          "name": "Runtime_Octopod_orange_enamel",
+          "vertices": 2304,
+          "triangles": 3584,
+          "groups": 0,
+          "materials": [
+            "76c68959-a198-4a7e-83ff-20e54ac10f98"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Orange_panel_insets",
+          "vertices": 3025,
+          "triangles": 4992,
+          "groups": 0,
+          "materials": [
+            "6ff18e81-72cd-4e70-a863-7837ef5c0e7e"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Graphite_seals_and_flexible_arms",
+          "vertices": 8077,
+          "triangles": 14432,
+          "groups": 0,
+          "materials": [
+            "2ee453c6-f138-4e7f-9d1a-b09fb6f83ea9"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Warm_grey_arm_ribs",
+          "vertices": 32636,
+          "triangles": 56240,
+          "groups": 0,
+          "materials": [
+            "eb0f0bed-cbeb-4df0-9980-d50d97a4b522"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Turquoise_windows_and_screens",
+          "vertices": 4939,
+          "triangles": 5428,
+          "groups": 0,
+          "materials": [
+            "b2d2c18b-91bd-4cb1-aec6-766f03d2aaf4"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Garden_and_room_accents",
+          "vertices": 3553,
+          "triangles": 5808,
+          "groups": 0,
+          "materials": [
+            "a4287aca-fd0b-42c9-852f-6550a15c2287"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Main_Dome_Glass",
+          "vertices": 320,
+          "triangles": 512,
+          "groups": 0,
+          "materials": [
+            "e4aedf1f-56d8-476c-9aa5-b8be8b4048a4"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Garden_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "e4aedf1f-56d8-476c-9aa5-b8be8b4048a4"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Kwazii_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "e4aedf1f-56d8-476c-9aa5-b8be8b4048a4"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Barnacles_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "e4aedf1f-56d8-476c-9aa5-b8be8b4048a4"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Peso_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "e4aedf1f-56d8-476c-9aa5-b8be8b4048a4"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        }
+      ],
+      "transmission": [
+        {
+          "object": "Windshield001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowBR",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowBR001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowFR",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowFR001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windshield",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windshield",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_TankWindshield001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windsheild",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        }
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1080 Ti (0x00001B06) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "gpuTimerSupported": true
+    }
+  },
+  "low": {
+    "timing": {
+      "baseline": {
+        "meanFrameMs": {
+          "mean": 7.057430555556978,
+          "min": 7.048125000001164,
+          "max": 7.068958333334497,
+          "stdev": 0.010592952758623073
+        },
+        "timedSubsystemSumMs": {
+          "mean": 4.600347222248092,
+          "min": 4.465520833355064,
+          "max": 4.832395833389213,
+          "stdev": 0.20183764957672612
+        },
+        "renderSubmitMs": {
+          "mean": 3.5879861111222353,
+          "min": 3.4883333333418705,
+          "max": 3.7635416666957706,
+          "stdev": 0.1524986244016562
+        },
+        "scenarios": {
+          "octopod": {
+            "meanFrameMs": {
+              "mean": 6.9538888888899235,
+              "min": 6.953333333336437,
+              "max": 6.954999999996896,
+              "stdev": 0.0009622504450651243
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "reef": {
+            "meanFrameMs": {
+              "mean": 7.726666666665632,
+              "min": 7.707500000003105,
+              "max": 7.764999999990687,
+              "stdev": 0.033197640471234226
+            },
+            "p95FrameMs": {
+              "mean": 7.333333333333333,
+              "min": 7.099999999627471,
+              "max": 7.800000000745058,
+              "stdev": 0.40414518907797725
+            }
+          },
+          "high-speed": {
+            "meanFrameMs": {
+              "mean": 6.95416666667184,
+              "min": 6.953333333336437,
+              "max": 6.955000000012418,
+              "stdev": 0.000833333337990183
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "animals": {
+            "meanFrameMs": {
+              "mean": 6.95388888888475,
+              "min": 6.9533333333209155,
+              "max": 6.954166666666667,
+              "stdev": 0.000481125231494081
+            },
+            "p95FrameMs": {
+              "mean": 7.100000000248353,
+              "min": 7.099999999627471,
+              "max": 7.100000001490116,
+              "stdev": 1.0753986783132436e-09
+            }
+          },
+          "particles": {
+            "meanFrameMs": {
+              "mean": 6.95361111111318,
+              "min": 6.953333333336437,
+              "max": 6.954166666666667,
+              "stdev": 0.00048112522253256215
+            },
+            "p95FrameMs": {
+              "mean": 7.100000000248353,
+              "min": 7.099999999627471,
+              "max": 7.100000001490116,
+              "stdev": 1.0753986783132436e-09
+            }
+          },
+          "collision": {
+            "meanFrameMs": {
+              "mean": 6.972500000004139,
+              "min": 6.953333333336437,
+              "max": 7.0108333333395425,
+              "stdev": 0.03319764048019626
+            },
+            "p95FrameMs": {
+              "mean": 7.400000000372529,
+              "min": 7.099999999627471,
+              "max": 8,
+              "stdev": 0.5196152419480435
+            }
+          },
+          "letter": {
+            "meanFrameMs": {
+              "mean": 6.973055555557625,
+              "min": 6.953333333336437,
+              "max": 7.011666666669771,
+              "stdev": 0.03344079899009111
+            },
+            "p95FrameMs": {
+              "mean": 7.100000000248353,
+              "min": 7.099999999627471,
+              "max": 7.100000001490116,
+              "stdev": 1.0753986783132436e-09
+            }
+          },
+          "escort": {
+            "meanFrameMs": {
+              "mean": 6.971666666668736,
+              "min": 6.953333333336437,
+              "max": 7.0075000000031045,
+              "stdev": 0.03103537408343554
+            },
+            "p95FrameMs": {
+              "mean": 7.533333333209157,
+              "min": 7.099999999627471,
+              "max": 8.400000000372529,
+              "stdev": 0.750555350376673
+            }
+          }
+        }
+      },
+      "final": {
+        "meanFrameMs": {
+          "mean": 7.052500000001035,
+          "min": 7.047812500002328,
+          "max": 7.054895833332557,
+          "stdev": 0.004059828180095342
+        },
+        "timedSubsystemSumMs": {
+          "mean": 4.562430555555168,
+          "min": 4.549270833347691,
+          "max": 4.581770833310051,
+          "stdev": 0.01710882665597724
+        },
+        "renderSubmitMs": {
+          "mean": 3.5644097222345104,
+          "min": 3.547708333324408,
+          "max": 3.5734375000310443,
+          "stdev": 0.01447966627709978
+        },
+        "scenarios": {
+          "octopod": {
+            "meanFrameMs": {
+              "mean": 6.952499999995861,
+              "min": 6.952499999990687,
+              "max": 6.952500000006209,
+              "stdev": 8.96151890859711e-12
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "reef": {
+            "meanFrameMs": {
+              "mean": 7.7266666666708055,
+              "min": 7.706666666672875,
+              "max": 7.765000000006209,
+              "stdev": 0.03320809807699951
+            },
+            "p95FrameMs": {
+              "mean": 7.100000000248353,
+              "min": 7.099999999627471,
+              "max": 7.100000001490116,
+              "stdev": 1.0753986783132436e-09
+            }
+          },
+          "high-speed": {
+            "meanFrameMs": {
+              "mean": 6.972777777780882,
+              "min": 6.953333333336437,
+              "max": 7.011666666669771,
+              "stdev": 0.033678765702728305
+            },
+            "p95FrameMs": {
+              "mean": 7.066666666418314,
+              "min": 7,
+              "max": 7.099999999627471,
+              "stdev": 0.05773502670388284
+            }
+          },
+          "animals": {
+            "meanFrameMs": {
+              "mean": 6.95361111111318,
+              "min": 6.953333333336437,
+              "max": 6.954166666666667,
+              "stdev": 0.00048112522253256215
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "particles": {
+            "meanFrameMs": {
+              "mean": 6.9538888888899235,
+              "min": 6.953333333336437,
+              "max": 6.954166666666667,
+              "stdev": 0.00048112522253256215
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "collision": {
+            "meanFrameMs": {
+              "mean": 6.95361111111318,
+              "min": 6.953333333336437,
+              "max": 6.954166666666667,
+              "stdev": 0.00048112522253256215
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "letter": {
+            "meanFrameMs": {
+              "mean": 6.953055555554521,
+              "min": 6.952499999990687,
+              "max": 6.953333333336437,
+              "stdev": 0.00048112523149356824
+            },
+            "p95FrameMs": {
+              "mean": 7.099999999627471,
+              "min": 7.099999999627471,
+              "max": 7.099999999627471,
+              "stdev": 0.0
+            }
+          },
+          "escort": {
+            "meanFrameMs": {
+              "mean": 6.9538888888899235,
+              "min": 6.953333333336437,
+              "max": 6.954166666666667,
+              "stdev": 0.00048112522253256215
+            },
+            "p95FrameMs": {
+              "mean": 7.100000000248353,
+              "min": 7.099999999627471,
+              "max": 7.100000001490116,
+              "stdev": 1.0753986783132436e-09
+            }
+          }
+        }
+      }
+    },
+    "measurements": [
+      {
+        "name": "octopod",
+        "baseline": {
+          "uploadRequests": 3120,
+          "uploadBytes": 1908480,
+          "matrixCompositions": 332478,
+          "gpuMedianMs": 3.824128,
+          "gpuP95Ms": 4.69504,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1002,
+            "textures": 113
+          },
+          "heapMiB": 179.0972785949707
+        },
+        "final": {
+          "uploadRequests": 3120,
+          "uploadBytes": 974120,
+          "matrixCompositions": 300438,
+          "gpuMedianMs": 3.8824959999999997,
+          "gpuP95Ms": 4.447232,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1002,
+            "textures": 113
+          },
+          "heapMiB": 301.35049533843994
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 8622,
+            "triangles": 29534742
+          },
+          "main": {
+            "calls": 12822,
+            "triangles": 58947222
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "reef",
+        "baseline": {
+          "uploadRequests": 2985,
+          "uploadBytes": 1679104,
+          "matrixCompositions": 371003,
+          "gpuMedianMs": 3.5189760000000003,
+          "gpuP95Ms": 4.009984,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1009,
+            "textures": 113
+          },
+          "heapMiB": 195.85551261901855
+        },
+        "final": {
+          "uploadRequests": 2985,
+          "uploadBytes": 906312,
+          "matrixCompositions": 338963,
+          "gpuMedianMs": 3.4242559999999997,
+          "gpuP95Ms": 4.20864,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1009,
+            "textures": 113
+          },
+          "heapMiB": 191.8242645263672
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 12767,
+            "triangles": 121829113
+          },
+          "main": {
+            "calls": 17044,
+            "triangles": 151285381
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 1,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 1,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "high-speed",
+        "baseline": {
+          "uploadRequests": 3132,
+          "uploadBytes": 1908996,
+          "matrixCompositions": 374301,
+          "gpuMedianMs": 4.224,
+          "gpuP95Ms": 5.18656,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 196.59210205078125
+        },
+        "final": {
+          "uploadRequests": 3132,
+          "uploadBytes": 1119316,
+          "matrixCompositions": 342261,
+          "gpuMedianMs": 4.435968,
+          "gpuP95Ms": 5.098496,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 192.72859287261963
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 6081,
+            "triangles": 19607600
+          },
+          "main": {
+            "calls": 10281,
+            "triangles": 49065920
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 1,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "animals",
+        "baseline": {
+          "uploadRequests": 3124,
+          "uploadBytes": 1908708,
+          "matrixCompositions": 350421,
+          "gpuMedianMs": 3.6531200000000004,
+          "gpuP95Ms": 4.154368,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 227.8649444580078
+        },
+        "final": {
+          "uploadRequests": 3124,
+          "uploadBytes": 941428,
+          "matrixCompositions": 318381,
+          "gpuMedianMs": 3.4959360000000004,
+          "gpuP95Ms": 4.083712,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 172.5402717590332
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 13200,
+            "triangles": 66961420
+          },
+          "main": {
+            "calls": 17400,
+            "triangles": 96419740
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 1,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 2,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.5190181066958319e-06,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "particles",
+        "baseline": {
+          "uploadRequests": 3840,
+          "uploadBytes": 2991360,
+          "matrixCompositions": 381112,
+          "gpuMedianMs": 1.7720319999999998,
+          "gpuP95Ms": 3.723264,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 221.54335403442383
+        },
+        "final": {
+          "uploadRequests": 3840,
+          "uploadBytes": 1807060,
+          "matrixCompositions": 349072,
+          "gpuMedianMs": 3.39712,
+          "gpuP95Ms": 4.099072,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 193.13864135742188
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 11755,
+            "triangles": 121828518
+          },
+          "main": {
+            "calls": 16195,
+            "triangles": 151294338
+          }
+        },
+        "crossLaunchPixelsEqual": true,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 1,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 1,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "collision",
+        "baseline": {
+          "uploadRequests": 3840,
+          "uploadBytes": 2991360,
+          "matrixCompositions": 379003,
+          "gpuMedianMs": 3.315712,
+          "gpuP95Ms": 4.004864,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 190.21909141540527
+        },
+        "final": {
+          "uploadRequests": 3840,
+          "uploadBytes": 1658464,
+          "matrixCompositions": 346963,
+          "gpuMedianMs": 3.331072,
+          "gpuP95Ms": 4.030464,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1013,
+            "textures": 113
+          },
+          "heapMiB": 197.46640014648438
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 14160,
+            "triangles": 161756520
+          },
+          "main": {
+            "calls": 18600,
+            "triangles": 191224400
+          }
+        },
+        "crossLaunchPixelsEqual": false,
+        "baselineFramebuffer": {
+          "differentChannels": 1,
+          "maxChannelDelta": 1,
+          "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 1,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 1,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 7.595090533479159e-07,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 2,
+            "maxChannelDelta": 1,
+            "meanAbsoluteChannelDelta": 1.5190181066958319e-06,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "letter",
+        "baseline": {
+          "uploadRequests": 2760,
+          "uploadBytes": 1843200,
+          "matrixCompositions": 343379,
+          "gpuMedianMs": 3.467776,
+          "gpuP95Ms": 4.023296,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1015,
+            "textures": 113
+          },
+          "heapMiB": 208.14972972869873
+        },
+        "final": {
+          "uploadRequests": 2760,
+          "uploadBytes": 924360,
+          "matrixCompositions": 311339,
+          "gpuMedianMs": 3.557376,
+          "gpuP95Ms": 4.058112,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1015,
+            "textures": 113
+          },
+          "heapMiB": 177.87503051757812
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 11280,
+            "triangles": 45068280
+          },
+          "main": {
+            "calls": 15840,
+            "triangles": 74630520
+          }
+        },
+        "crossLaunchPixelsEqual": true,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      },
+      {
+        "name": "escort",
+        "baseline": {
+          "uploadRequests": 3000,
+          "uploadBytes": 2038080,
+          "matrixCompositions": 358009,
+          "gpuMedianMs": 3.467264,
+          "gpuP95Ms": 4.320512,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1020,
+            "textures": 113
+          },
+          "heapMiB": 185.95842456817627
+        },
+        "final": {
+          "uploadRequests": 3000,
+          "uploadBytes": 1094480,
+          "matrixCompositions": 325969,
+          "gpuMedianMs": 3.108864,
+          "gpuP95Ms": 4.532224,
+          "gpuSamples": 118,
+          "memory": {
+            "geometries": 1020,
+            "textures": 113
+          },
+          "heapMiB": 175.7214593887329
+        },
+        "passTotals": {
+          "transmission": {
+            "calls": 12662,
+            "triangles": 39395138
+          },
+          "main": {
+            "calls": 17342,
+            "triangles": 69003218
+          },
+          "hud": {
+            "calls": 480,
+            "triangles": 23040
+          }
+        },
+        "crossLaunchPixelsEqual": true,
+        "baselineFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        },
+        "sameStateFramebuffer": {
+          "differentChannels": 0,
+          "maxChannelDelta": 0,
+          "meanAbsoluteChannelDelta": 0,
+          "comparedChannels": 1316640,
+          "unchangedRenderRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          },
+          "fullUploadRepeat": {
+            "differentChannels": 0,
+            "maxChannelDelta": 0,
+            "meanAbsoluteChannelDelta": 0,
+            "comparedChannels": 1316640
+          }
+        }
+      }
+    ],
+    "inventory": {
+      "octopod": [
+        {
+          "name": "Runtime_Octopod_orange_enamel",
+          "vertices": 2304,
+          "triangles": 3584,
+          "groups": 0,
+          "materials": [
+            "d8fd2e09-a5c0-4b59-a7b3-8d7c050d8b71"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Orange_panel_insets",
+          "vertices": 3025,
+          "triangles": 4992,
+          "groups": 0,
+          "materials": [
+            "77b98b7a-2820-41aa-8125-436bf5bd55e6"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Graphite_seals_and_flexible_arms",
+          "vertices": 8077,
+          "triangles": 14432,
+          "groups": 0,
+          "materials": [
+            "3d84e230-78d7-4af2-af7b-5e629b25cebb"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Warm_grey_arm_ribs",
+          "vertices": 32636,
+          "triangles": 56240,
+          "groups": 0,
+          "materials": [
+            "96af652a-ecca-43c6-a3d6-56df655a8f61"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Turquoise_windows_and_screens",
+          "vertices": 4939,
+          "triangles": 5428,
+          "groups": 0,
+          "materials": [
+            "3074d583-81b8-4f63-9b14-fec7781e28b3"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Garden_and_room_accents",
+          "vertices": 3553,
+          "triangles": 5808,
+          "groups": 0,
+          "materials": [
+            "ae36da37-0b13-4876-9c17-1ed9ade264c8"
+          ],
+          "transparent": false,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Main_Dome_Glass",
+          "vertices": 320,
+          "triangles": 512,
+          "groups": 0,
+          "materials": [
+            "994bd342-b805-4f1f-b79e-5c8f87c88c72"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Garden_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "994bd342-b805-4f1f-b79e-5c8f87c88c72"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Kwazii_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "994bd342-b805-4f1f-b79e-5c8f87c88c72"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Barnacles_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "994bd342-b805-4f1f-b79e-5c8f87c88c72"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        },
+        {
+          "name": "Runtime_Peso_Pod_Glazing",
+          "vertices": 192,
+          "triangles": 288,
+          "groups": 0,
+          "materials": [
+            "994bd342-b805-4f1f-b79e-5c8f87c88c72"
+          ],
+          "transparent": true,
+          "skinned": false,
+          "children": 0
+        }
+      ],
+      "transmission": [
+        {
+          "object": "Windshield001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowBR",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowBR001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowFR",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_WindowFR001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windshield",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windshield",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_TankWindshield001",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        },
+        {
+          "object": "Part_Windsheild",
+          "material": "Glass2 [Oceanbound]",
+          "factor": 0.37727272510528564,
+          "side": 2,
+          "transparent": true
+        }
+      ],
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1080 Ti (0x00001B06) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "gpuTimerSupported": true
+    }
+  }
+}
