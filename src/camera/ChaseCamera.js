@@ -8,7 +8,7 @@ import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './ca
 const radians=Math.PI/180;
 export class ChaseCamera{
  constructor(camera,obstacles){this.camera=camera;this.obstacles=obstacles;this.initial=true;this.recenter={active:false,x:0,y:0};
-  this.shake=new CollisionShake(gameplaySettings);this.basePosition=new T.Vector3();this.hasBase=false;
+  this.shake=new CollisionShake(gameplaySettings);this.shakeOffset=new T.Vector3();this.shakeInverse=new T.Quaternion();this.basePosition=new T.Vector3();this.hasBase=false;
   this.pivot=new T.Vector3();this.desired=new T.Vector3();this.focus=new T.Vector3();this.target=new T.Vector3();this.look=new T.Matrix4();this.rotation=new T.Quaternion();this.up=new T.Vector3(0,1,0);
  }
  clearShake(){if(this.hasBase)this.camera.position.copy(this.basePosition);this.shake.reset();}
@@ -38,7 +38,18 @@ export class ChaseCamera{
   if(this.initial||limit<.98)this.camera.quaternion.copy(this.rotation);else this.camera.quaternion.slerp(this.rotation,smoothFactor(c.rotationSmoothing,dt));
   this.camera.fov+=(c.fov+speed*c.speedFovIncrease-this.camera.fov)*smoothFactor(c.fovSmoothing,dt);this.camera.updateProjectionMatrix();this.initial=false;
   if(this.inspect){this.output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'cameraMetrics',hidden:true}));this.output.dataset.metrics=JSON.stringify({position:this.camera.position.toArray(),focus:this.target.toArray(),fov:this.camera.fov,distance:this.camera.position.distanceTo(this.pivot),limit,orbitX:o.x,orbitY:o.y,speed:sub.speed,sub:{...p},heading:sub.heading,candidates:this.obstacles?.near.length??0});}
-  // Contact normals are world-space: floor jolts stay vertical at every orbit angle.
-  this.basePosition.copy(this.camera.position);this.hasBase=true;this.shake.update(dt);this.camera.position.x+=this.shake.x;this.camera.position.y+=this.shake.y;this.camera.position.z+=this.shake.z;
+  this.basePosition.copy(this.camera.position);this.hasBase=true;this.shake.update(dt);
+  if(this.shake.amount){
+   const shake=this.shake,offset=this.shakeOffset.set(shake.nx,shake.ny,shake.nz);
+   if(Math.abs(shake.ny)<.7){
+    // Head-on recoil alone is almost invisible. Retain impact direction but ensure
+    // a small screen-plane component, including in portrait and after orbiting.
+    this.shakeInverse.copy(this.camera.quaternion).invert();offset.applyQuaternion(this.shakeInverse);
+    offset.x=(offset.x<0?-1:1)*Math.max(.6,Math.abs(offset.x));
+    offset.normalize().applyQuaternion(this.camera.quaternion);
+   }
+   // Floor landings retain their world-space vertical direction; all offsets stay capped.
+   this.camera.position.addScaledVector(offset,shake.amount);
+  }
  }
 }

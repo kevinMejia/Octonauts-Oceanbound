@@ -3,6 +3,6 @@ export const cameraShakeConfig={
  enabled:true,intensity:.3,
  minimumImpactThreshold:.65, // Inward contact velocity, never total travel speed.
  maxIntensity:.32, // Absolute positional cap, including overlapping impacts.
- duration:.3, // Hard impacts; light bumps use one third of this duration.
+ duration:.3, // Hard impacts; light bumps use 55% to remain visible at lower frame rates.
  cooldown:.22 // Minimum time between accepted impacts.
 };

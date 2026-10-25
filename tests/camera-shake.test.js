@@ -43,3 +43,12 @@ test('shared collision observer captures inward impacts for every GUP without ch
   assert.ok(count>0,definition.id);assert.ok(shake.z!==0,definition.id);assert.ok(sub.speed<=0,definition.id);
  }
 });
+
+test('light and moderate impacts remain visible at 20, 30 and 60 fps without midpoint cancellation',()=>{
+ for(const impact of [.8,6,12])for(const fps of [20,30,60]){
+  const s=new CollisionShake({cameraShake:true,shakeIntensity:1});s.impact(hit(impact));
+  let visible=0,peak=0;
+  for(let i=0;i<Math.ceil(.4*fps);i++){s.update(1/fps);if(s.amount>.001)visible++;peak=Math.max(peak,s.amount);}
+  assert.ok(visible>=2,impact+' at '+fps);assert.ok(peak>0);assert.equal(s.amount,0);
+ }
+});
