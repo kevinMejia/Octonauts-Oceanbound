@@ -6,9 +6,19 @@ not implementation approval. This is not a background scheduler.
 
 ## Active task
 
-None. WORKFLOW-002 has been independently reviewed and delivered in
-[PR #3](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/3), open and unmerged
-on `chore/non-interrupting-request-queue`. No further implementation is authorized.
+| ID | Request | Priority | Authorization | Status | Dependency / next action |
+| --- | --- | --- | --- | --- | --- |
+| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Planning | Project Manager investigation, scoped implementation, independent QA, full tests/build, dedicated PR |
+
+Checkpoint: branch `fix/rescue-arrow-above-gup`, based on main commit
+`637743a324c8ab6b18d677a19c10e1fe1dda99dd`. Real planning subagent
+`rescue_arrow_project_manager` is investigating the existing HUD-rendered arrow,
+world-space placement, heading-independent target bearing, and mission lifecycle.
+Reuse the existing arrow/navigation architecture and appearance; expose height,
+forward offset, scale, and position/rotation smoothing in existing configuration.
+Support all playable GUPs, including GUP-X. Preserve towing, rescue completion,
+discovery progression, and the GUP-X camera. Implementation and QA follow planning
+sequentially. No merge or deployment is authorized.
 
 ## Queue, in priority order
 
