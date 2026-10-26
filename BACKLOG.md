@@ -8,7 +8,7 @@ not implementation approval. This is not a background scheduler.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
-| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Implementing QA fixes | Resolve phone-size readability, paused redraw invalidation, and screenshot resize timing; repeat independent QA and deliver PR |
+| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Verifying QA fixes | Repeat independent QA and final phone-sized captures, then deliver the rescue-arrow PR |
 
 Checkpoint: [draft PR #4](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/4),
 branch `fix/rescue-arrow-above-gup`, initial verified commit `774c20f3063ee71e1eae27b53a34562875ac651d`.
@@ -19,7 +19,7 @@ browser switching checks, and scripted stop/reset/delivery state checks passed.
 QA found three remaining issues: the world-horizontal arrow is too edge-on in
 phone-sized GUP-X uphill views; paused stop/reset can leave old framebuffer pixels;
 and the optional browser harness must let resize settle before rendering captures.
-The developer is fixing these within the approved navigation/configuration scope.
+The developer fixed these with bounded intrinsic model presentation tilt, safe mesh-support height, event-only paused redraw invalidation, and corrected capture timing. The revised 15 focused cases, 56-file suite, and production build passed; repeated independent QA and new actual browser captures are in progress.
 Actual browser evidence is under /tmp/rescue-arrow-qa while this environment lasts;
 recreate it from the repository browser harness if temporary artifacts are lost.
 
@@ -30,11 +30,45 @@ Repeat independent QA after the fixes. No merge or deployment is authorized.
 
 ## Queue, in priority order
 
-No additional feature requests, bug reports, or improvement ideas are queued.
-Do not automatically start new work. For each incoming request, add a row with:
-
 | ID | Request / scope | Priority | Authorization | Status | Dependencies / next action |
 | --- | --- | --- | --- | --- | --- |
+| TURBO-004 | Vehicle-specific turbo flame positioning and attachment for every GUP | Next candidate | Request recorded; explicit approval to start is still required | Queued | Finish RESCUE-003 and its independent QA/PR first, present this queue, then await user go-ahead |
+
+### TURBO-004 — vehicle-specific turbo flame emitters
+
+Execution preference: use a **single-agent workflow** for efficiency; do not spawn
+additional agents unless necessary. The existing Project Manager only triaged the
+request as future work. No model investigation or implementation has begun.
+
+Approved investigation scope when the user authorizes a start:
+
+- Inspect the existing flame effect, vehicle configurations, and each actual GUP
+  model individually; account for model origin, scale, orientation, and hierarchy.
+- Determine each vehicle's real visible engine, exhaust, or propulsion outlets.
+  Do not copy one generic offset across the fleet. Document ambiguous locations
+  and the geometry-based assumptions used.
+- Define emitters in existing per-vehicle configuration: array length/count,
+  local position, local direction, scale, length, optional intensity multiplier,
+  and optional visibility. Support one, two, or multiple outlets without hardcoded
+  vehicle-name checks in the core effects implementation.
+- Attach emitters to the actual rendered model or an appropriate hierarchy node,
+  preserving attachment during acceleration, turning, pitch/roll, slopes,
+  airborne motion, and underwater movement. Prevent clipping or detached flames.
+- Reuse existing flame colors, animation, activation/expiration, speed/duration,
+  audio, and turbo/gameplay mechanics. Do not redesign the visuals.
+- Reuse materials/resources; avoid frame-loop allocations and expensive geometry
+  work. Correctly clean up or reuse emitters on vehicle changes and disposal.
+- Verify all nine current GUPs, directions, attachment, turbo lifecycle, switching,
+  no duplicates/lingering flames, and performance scope. Run the full tests and
+  production build. Use actual browser inspection if available and identify every
+  visually unconfirmed outlet without claiming tests that did not run.
+- Deliver a dedicated PR with per-vehicle emitter locations, assumptions, test
+  results, and limitations. Do not merge or deploy automatically.
+
+Dependencies/risks identified by Project Manager: individual-model outlet inventory,
+coordinate-frame/scale correctness, effect switching and resource ownership,
+ambiguous geometry, cached-vehicle duplicates, and additional mobile draw cost.
+This is separate from rescue navigation and must not expand RESCUE-003.
 
 Use `proposed`, `queued`, `active`, `verifying`, `blocked`, or `delivered`. Have the
 Project Manager triage requests and record the recommendation. A recommendation
