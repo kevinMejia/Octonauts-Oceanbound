@@ -1,3 +1,4 @@
+import {particleLightTint} from '../environment/particleLighting.js';
 import {uploadActivePrefix} from '../environment/bufferUpdates.js';
 import {vegetationInteraction} from './vegetationInteraction.js';
 import * as T from 'three';
@@ -15,13 +16,13 @@ vec3 world=center+cameraPosition*0.;world+=vec3(viewMatrix[0][0],viewMatrix[1][0
 vHeight=world.y-details.y;vec4 mvPosition=viewMatrix*vec4(world,1.);gl_Position=projectionMatrix*mvPosition;
 #include <fog_vertex>
 }`;
-const fragment=`uniform float time;varying vec2 vUv;varying vec4 vShade;varying float vSeed;varying float vHeight;
+const fragment=`uniform vec3 particleLightTint;uniform float time;varying vec2 vUv;varying vec4 vShade;varying float vSeed;varying float vHeight;
 #include <fog_pars_fragment>
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1)),f.x),f.y);}
 void main(){vec2 p=vUv*2.-1.;vec2 drift=vec2(time*.025,vSeed);float n=noise(p*2.8+drift)*.65+noise(p*6.3-drift)*.35;
 float edge=1.-smoothstep(.23,.98,length(p)+(.5-n)*.35);float alpha=edge*(.32+.68*n)*vShade.a*smoothstep(0.,.25,vHeight);if(alpha<.002)discard;
-gl_FragColor=vec4(vShade.rgb,alpha);
+gl_FragColor=vec4(vShade.rgb*particleLightTint,alpha);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 #include <fog_fragment>
@@ -32,7 +33,7 @@ export class EnvironmentalInteractions{
  static async create(scene,quality,habitat,decor,base=[]){const proxies=await fetch(new URL('../../assets/models/reef-formations/interactions.json',import.meta.url).href).then(r=>{if(!r.ok)throw new Error('Interaction surfaces unavailable');return r.json();});return new EnvironmentalInteractions(scene,quality,new InteractionSurfaces(habitat,decor,proxies,base));}
  constructor(scene,quality,surfaces){this.inspect=new URLSearchParams(location.search).has('inspect');this.sorted=[];this.enabled=config.enabled&&!(new URLSearchParams(location.search).has('inspect')&&new URLSearchParams(location.search).get('effects')==='off');this.surfaces=surfaces;const low=(config.qualityLevel==='auto'?quality:config.qualityLevel)==='low';this.rng=random(7229);this.clouds=new ParticlePool(low?config.sediment.lowClouds:config.sediment.maxClouds);this.grains=new ParticlePool(low?config.sediment.lowParticles:config.sediment.maxParticles);this.fragments=new ParticlePool(low?config.debris.lowFragments:config.debris.maxFragments);this.dummy=new T.Object3D();this.color=new T.Color();this.time=0;this.emission=0;this.lastImpact=-10;this.lastReef=-10;this.touching=false;this.events={sand:0,rock:0,coral:0};this.bounds=new T.Box3();this.frustum=new T.Frustum();this.clip=new T.Matrix4();
  const geometry=new T.PlaneGeometry(1,1);geometry.setAttribute('cloud',new T.InstancedBufferAttribute(new Float32Array(this.clouds.items.length*4),4));geometry.setAttribute('shade',new T.InstancedBufferAttribute(new Float32Array(this.clouds.items.length*4),4));geometry.setAttribute('details',new T.InstancedBufferAttribute(new Float32Array(this.clouds.items.length*2),2));
- const material=new T.ShaderMaterial({vertexShader:vertex,fragmentShader:fragment,uniforms:{time:{value:0},fogColor:{value:scene.fog.color.clone()},fogDensity:{value:scene.fog.density}},fog:true,transparent:true,depthWrite:false,side:T.DoubleSide,forceSinglePass:true});this.cloudMesh=new T.InstancedMesh(geometry,material,this.clouds.items.length);this.cloudMesh.name='Pooled seabed sediment';
+ const material=new T.ShaderMaterial({vertexShader:vertex,fragmentShader:fragment,uniforms:{particleLightTint,time:{value:0},fogColor:{value:scene.fog.color.clone()},fogDensity:{value:scene.fog.density}},fog:true,transparent:true,depthWrite:false,side:T.DoubleSide,forceSinglePass:true});this.cloudMesh=new T.InstancedMesh(geometry,material,this.clouds.items.length);this.cloudMesh.name='Pooled seabed sediment';
  const make=(geo,count,name)=>{const m=new T.InstancedMesh(geo,new T.MeshStandardMaterial({color:0xffffff,roughness:.95}),count);m.name=name;m.instanceMatrix.setUsage(T.DynamicDrawUsage);scene.add(m);m.count=0;m.frustumCulled=false;return m;};this.chips=make(new T.IcosahedronGeometry(1,0),this.fragments.items.length,'Pooled rock and coral chips');this.branches=make(branchGeometry(),this.fragments.items.length,'Pooled coral branches');this.sand=make(new T.IcosahedronGeometry(1,0),this.grains.items.length,'Pooled heavy sand grains');scene.add(this.cloudMesh);this.cloudMesh.frustumCulled=false;this.cloudMesh.instanceMatrix.setUsage(T.DynamicDrawUsage);this.cloudMesh.count=0;
  this.ground=(x,z,y)=>this.surfaces.ground(x,z,y);
  }

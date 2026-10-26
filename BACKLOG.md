@@ -238,8 +238,22 @@ Physical Safari remains unverified; no queued surface changes were implemented.
 
 ## SURFACE-013 — Limit airborne GUP hovering
 
-User observed that swimming GUPs can fly above water. Proposed scope: brief
-breaches with gentle settling near the waterline. Status: proposed; implementation
-not authorized. User explicitly selected pushing day/night only. Dependency:
-separate movement/physics scope and branch. Next: await explicit approval.
-Priority: future surface follow-up.
+User explicitly authorized implementing the flying fix and committing/pushing
+when done. Scope: brief breaches followed by gentle settling near the mean
+waterline, preserving normal diving and GUP-X ground movement. Primary agent
+only. Status: active; keep separate from CYCLE-014. Next: checkpoint the completed
+sediment fix locally, branch from main and implement/test the surface constraint.
+
+## CYCLE-014 — Nighttime sediment brightness
+
+User explicitly requested investigation of sand clouds remaining daylight-bright
+at night. Current branch: `fix/night-sediment-lighting`. Scope: shared unlit cloud
+shader ambient color response, including its existing transformation reuse. Primary
+agent only; preserve particle behavior/daytime appearance and rendering budgets.
+Status: completed locally. Fixed vShade.rgb bypassing scene lighting using one
+shared ambient tint, including paused transformation clouds. 350 Node tests,
+production build, diff checks and actual Edge low/high before/fixed comparisons
+pass with stable draws/textures/programs/pools and no errors.
+Evidence: docs/night-sediment/. Physical Safari/performance remain unverified.
+Locally checkpointed to keep SURFACE-013 on a separate branch. No push/merge
+for this fix is authorized yet. Next: user review.
