@@ -1,0 +1,136 @@
+[
+  {
+    "position": {
+      "x": 136,
+      "y": 13.014192866183791,
+      "z": 127
+    },
+    "heading": 2.163243909112681,
+    "hits": 0,
+    "camera": [
+      119.06537964527331,
+      31.60746972077923,
+      143.32204133805809
+    ],
+    "arm": 28.95812844239093,
+    "intersects": [
+      {
+        "name": "Mesh130",
+        "distance": 27.297816916953945,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Mesh130",
+        "distance": 27.32392106304404,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DivePort002",
+        "distance": 27.635563837049062,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DoorIn001",
+        "distance": 29.35037755896333,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DoorIn001",
+        "distance": 29.363774580182994,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DoorArchIn003",
+        "distance": 30.063418175310925,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DooEx",
+        "distance": 30.08881540648932,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_DooEx",
+        "distance": 30.104870036237,
+        "instance": null,
+        "vehicle": true
+      }
+    ],
+    "name": "steep-downhill",
+    "degrees": 41.41659002780803
+  },
+  {
+    "position": {
+      "x": 136,
+      "y": 13.017936911805757,
+      "z": 127
+    },
+    "heading": 5.304836562702475,
+    "hits": 0,
+    "camera": [
+      152.9346203547267,
+      21.570278985688958,
+      110.67795866194191
+    ],
+    "arm": 24.497856883766595,
+    "intersects": [
+      {
+        "name": "Part_Horn",
+        "distance": 22.689017880934628,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_Horn",
+        "distance": 22.733526900485288,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_Horn001",
+        "distance": 22.78233136589112,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_Horn001",
+        "distance": 22.810957817672335,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_GliderBody",
+        "distance": 22.9651468481759,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_GliderBody",
+        "distance": 23.001532341184554,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Mesh130",
+        "distance": 23.074342608383734,
+        "instance": null,
+        "vehicle": true
+      },
+      {
+        "name": "Part_GliderBody",
+        "distance": 23.091194607376625,
+        "instance": null,
+        "vehicle": true
+      }
+    ],
+    "name": "steep-uphill",
+    "degrees": 41.41659002780803
+  }
+]

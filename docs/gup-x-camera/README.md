@@ -117,9 +117,49 @@ Developer verification:
   results). `npm run build`: passed, including GLB validation and production
   module versioning. `git diff --check`: passed.
 
-Independent QA and browser observations are reported separately by the main
-coordinator. Automated geometry does not establish subjective terrain readability,
-WebGL/mobile performance, or real touch behavior. Physical iPhone Safari testing
+## Independent QA and rendered checks
+
+Real subagents performed planning (`gup_x_project_manager`), implementation
+(`gup_x_game_developer`), and independent review (`gup_x_qa_engineer`). They read
+the project role instructions explicitly; the host did not select named TOML
+roles automatically. QA found the initial forward-terrain visibility gap, then
+independently verified the fix, all 55 test files, 15 focused cases, build, and
+exact regeneration of the six underwater fixtures. Additional independent probes
+covered 80 actual-terrain sightlines, 30 planar sightlines, and 64 orbit/frustum
+cases. No blocking camera-code findings remain.
+
+The coordinator ran actual local Chromium with the real game, model, terrain,
+and collision systems at 844 × 390. Scripted uphill/downhill driving, reversing,
+turning, orbit, and return-to-follow poses passed hull-frustum and terrain-ray
+checks. A real mouse drag updated the orbit, retained manual control through
+release, and returned to zero after the delay and damped return. No page errors
+were observed. These are desktop Chromium results, not iPhone tests.
+
+Final captures explicitly waited for the startup overlay to detach and for two
+animation frames after rendering. No scenery was hidden or modified:
+
+- [Clear downhill view](rendered-clear-downhill.png), on a 28.86° slope at
+  (122,119), shows the vehicle and terrain ahead. The uphill view was inspected too.
+- [Very steep uphill view](rendered-steep-uphill.png), at (136,127) on a 41.42°
+  slope, shows the vehicle and upcoming grade.
+- [Existing reef overlap](rendered-reef-overlap.png), at the original (132,132)
+  downhill location, records the remaining partial decorative occlusion rather
+  than concealing it. The terrain-induced collapse is gone, the camera arm is
+  about 29.46 m, and forward terrain sightlines are clear. Some rendered coral
+  and vegetation are not represented by the existing simplified solid proxies,
+  so the entire hull is not guaranteed unobstructed by decorative scenery.
+
+[Scene diagnostics](browser-scenes.json) and [very-steep diagnostics](browser-steep-scenes.json)
+record final poses and center-ray mesh hits. All tested static poses had zero
+physics-overlap hits; the original location must not be described as an invalid
+spawn. Center rays hit vehicle meshes first, which does not prove every hull
+pixel is unobstructed. An earlier capture attempt included the startup overlay
+and was rejected; it is not used as evidence.
+
+Automated geometry does not establish subjective driving feel, WebGL/mobile
+performance, or real touch behavior. At extreme saved minimum distance/height,
+narrow FOV, and portrait side orbit, hull corners can still crop; default settings
+and the documented automated orbit cases pass. Physical iPhone Safari testing
 is still needed: drive both directions across steep hills, crests and valleys;
 stop/reverse and steer on grades; orbit during a transition and release; check
 landscape/portrait framing, simultaneous steering/orbit touch, and sustained frame
