@@ -27,7 +27,9 @@ export const rescueConfig={
   scale:1.5, // Uniform world-space scale of the existing rescue arrow.
   positionSmoothing:10, // Exponential response per second for heading offset and height.
   rotationSmoothing:12, // Shortest-bearing exponential response per second.
-  minClearance:.6, // Minimum hull gap while damped height catches a rapid ascent.
+  minClearance:.6, // Minimum mesh/hull gap while damped height catches a rapid ascent.
+  presentationTilt:55, // Maximum face-normal tilt from world up, in degrees.
+  presentationSmoothing:12, // Exponential response of the intrinsic readability tilt.
  },
  hud:{
   enabled:true, // Show the compact mission indicator.

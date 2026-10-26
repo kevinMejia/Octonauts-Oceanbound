@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import * as T from '../vendor/three.module.js';
 import {RescueNavigation,GLTFLoader,RescueSystem} from './fixtures/loadRescueNavigation.js';
+import {ChaseCamera} from './fixtures/loadChaseCamera.js';
 import {rescueConfig} from '../src/config/rescueConfig.js';
 import {vehicles} from '../src/config/vehicleConfig.js';
 import {positionRescueArrow,rescueHullTop,rescueNavigationState,smoothRescueBearing} from '../src/navigation/rescueNavigation.js';
@@ -20,7 +21,7 @@ const bytes=await readFile(new URL('../assets/models/rescue-arrow.glb',import.me
 const {scene:asset}=await new Promise((resolve,reject)=>new GLTFLoader().parse(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'',resolve,reject));
 const mission={id:'barnacles',name:'Captain Barnacles'},target={x:200,y:20,z:-100};
 const state=(definition=vehicles[0])=>({definition,vehicleId:definition.id,collisionProxy:definition.collision,position:{x:0,y:12,z:0},previousPosition:{x:0,y:12,z:0},heading:0,pitch:0,bank:0,speed:0,vertical:0,steer:0,collisionDrift:{x:0,z:0}});
-const setup=(options=config)=>{const world=new T.Scene(),root=new Element(),arrow=asset.clone(true);arrow.traverse(o=>{if(o.isMesh){o.geometry=o.geometry.clone();o.material=o.material.clone();}});const nav=new RescueNavigation(root,arrow,world,options);return {world,root,arrow,nav};};
+const setup=(options=config,onChange=()=>{})=>{const world=new T.Scene(),root=new Element(),arrow=asset.clone(true);arrow.traverse(o=>{if(o.isMesh){o.geometry=o.geometry.clone();o.material=o.material.clone();}});const nav=new RescueNavigation(root,arrow,world,options,onChange);return {world,root,arrow,nav};};
 const direction=nav=>new T.Vector3(0,0,-1).applyQuaternion(nav.pivot.quaternion);
 const towards=(nav,t)=>new T.Vector3(t.x-nav.pivot.position.x,0,t.z-nav.pivot.position.z).normalize();
 const settle=(nav,s,t=target)=>{for(let i=0;i<180;i++)nav.update(1/60,mission,s,t);};
@@ -62,7 +63,7 @@ test('turbo, reverse and sharp continuous turns keep marker ahead without transl
  for(let i=0;i<600;i++){s.heading+=.025;s.speed=i<300?27.36:-4.8;s.position.x+=Math.sin(s.heading)*s.speed/60;s.position.z+=Math.cos(s.heading)*s.speed/60;v.nav.update(1/60,mission,s,target);
   const dx=v.nav.pivot.position.x-s.position.x,dz=v.nav.pivot.position.z-s.position.z;assert.ok(dx*Math.sin(s.heading)+dz*Math.cos(s.heading)>config.forwardOffset*.97);assert.ok(Math.hypot(dx,dz)<=config.forwardOffset+1e-10);
  }
- assert.equal(v.nav.position,objects[0]);assert.equal(v.nav.state,objects[1]);assert.equal(v.nav.pivot,objects[2]);assert.equal(v.nav.pivot.children[0],objects[3]);const after=[];v.arrow.traverse(o=>{if(o.isMesh)after.push(o.geometry);});assert.deepEqual(after,geometry);v.nav.dispose();
+ assert.equal(v.nav.position,objects[0]);assert.equal(v.nav.state,objects[1]);assert.equal(v.nav.pivot,objects[2]);assert.equal(v.nav.presentation.children[0],objects[3]);const after=[];v.arrow.traverse(o=>{if(o.isMesh)after.push(o.geometry);});assert.deepEqual(after,geometry);v.nav.dispose();
 });
 
 test('uneven slopes, fast vertical swim and synthetic flight retain safe gap with reduced bump motion',()=>{
@@ -110,3 +111,50 @@ test('disposal releases only owned arrow resources and never touches ocean objec
 });
 
 test('navigation state accepts reusable output while retaining legacy relative bearing/distance API',()=>{const out={};assert.equal(rescueNavigationState({x:0,y:20,z:0},Math.PI,{x:100,y:20,z:0},out),out);assert.equal(out.relative,90);assert.equal(out.distance,100);});
+
+function facePixels(arrow,camera,width,height){
+ let mesh;arrow.traverse(o=>{if(o.isMesh&&o.material.name==='Cyan screen top')mesh=o;});assert.ok(mesh);
+ const a=mesh.geometry.attributes.position,index=mesh.geometry.index,points=[];let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+ for(let i=0;i<a.count;i++){const v=new T.Vector3().fromBufferAttribute(a,i).applyMatrix4(mesh.matrixWorld).project(camera);const p={x:(v.x+1)*width/2,y:(1-v.y)*height/2};points.push(p);minX=Math.min(minX,p.x);maxX=Math.max(maxX,p.x);minY=Math.min(minY,p.y);maxY=Math.max(maxY,p.y);}
+ let area=0;for(let i=0;i<index.count;i+=3){const a=points[index.getX(i)],b=points[index.getX(i+1)],c=points[index.getX(i+2)];area+=Math.abs((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x))/2;}
+ return {width:maxX-minX,height:maxY-minY,area,minX,minY,maxX,maxY};
+}
+
+test('bounded intrinsic tilt exposes the actual cyan GLB face on phone views for every GUP',()=>{
+ for(const definition of vehicles)for(const [width,height] of [[844,390],[390,844]]){
+  const v=setup(),s=state(definition),camera=new T.PerspectiveCamera(65,width/height,.1,650),chase=new ChaseCamera(camera,null,()=>0);chase.profile=definition.camera;s.pitch=-.7;s.bank=.2;
+  v.nav.update(0,mission,s,target);chase.update(0,s,{orbit:{x:0,y:0,last:1e9},drag:false});v.nav.prepare(camera,0);camera.updateMatrixWorld();v.world.updateMatrixWorld(true);
+  const pixels=facePixels(v.arrow,camera,width,height);assert.ok(Math.min(pixels.width,pixels.height)>12,definition.id+' '+JSON.stringify(pixels));assert.ok(pixels.area>100,definition.id+' area '+pixels.area);
+  const tip=new T.Vector3(0,0,-1).applyQuaternion(v.nav.presentation.quaternion).applyQuaternion(v.nav.pivot.quaternion);tip.y=0;tip.normalize();assert.ok(tip.dot(towards(v.nav,target))>1-1e-10,definition.id);
+  const normal=new T.Vector3(0,1,0).applyQuaternion(v.nav.presentation.quaternion);assert.ok(normal.y>=Math.cos(config.presentationTilt*Math.PI/180)-1e-10);
+  const box=new T.Box3().setFromObject(v.nav.pivot);assert.ok(box.min.y>=s.position.y+rescueHullTop(s)+config.minClearance-1e-9,definition.id+' mesh clearance');v.nav.dispose();
+ }
+});
+
+test('GUP-X uphill regression has a readable cyan face rather than an edge-on phone bar',()=>{
+ const definition=vehicles.find(v=>v.id==='gup-x');
+ for(const [width,height] of [[844,390],[390,844]]){
+  const v=setup(),s=state(definition);Object.assign(s.position,{x:136,y:13.01794,z:127});s.heading=5.304836562702475;s.pitch=-.7;
+  const camera=new T.PerspectiveCamera(65,width/height,.1,650);camera.position.set(152.93462,21.57028,110.67796);camera.lookAt(133.5,15,128.5);camera.updateMatrixWorld();
+  v.nav.update(0,mission,s,{x:180,y:20,z:100});v.world.updateMatrixWorld(true);const old=facePixels(v.arrow,camera,width,height);v.nav.prepare(camera,0);v.world.updateMatrixWorld(true);const next=facePixels(v.arrow,camera,width,height);
+  assert.ok(next.area>old.area*2,JSON.stringify({old,next}));assert.ok(Math.min(next.width,next.height)>12,JSON.stringify(next));assert.ok(next.area>120,JSON.stringify(next));v.nav.dispose();
+ }
+});
+
+test('presentation ignores camera roll, stays bounded through orbit, and settles smoothly across frame rates',()=>{
+ const run=hz=>{const v=setup(),s=state();v.nav.update(0,mission,s,target);const camera=new T.PerspectiveCamera();camera.position.set(0,18,-20);v.nav.prepare(camera,0);camera.position.set(20,15,0);for(let i=0;i<hz;i++)v.nav.prepare(camera,1/hz);return v;};
+ const a=run(30),b=run(120);assert.ok(a.nav.presentation.quaternion.angleTo(b.nav.presentation.quaternion)<.001);a.nav.dispose();b.nav.dispose();
+ const v=setup(),s=state(),camera=new T.PerspectiveCamera();v.nav.update(0,mission,s,target);camera.position.set(5,15,25);v.nav.prepare(camera,0);const before=v.nav.presentation.quaternion.clone();camera.rotation.z=2;v.nav.prepare(camera,0);assert.ok(before.angleTo(v.nav.presentation.quaternion)<1e-7);
+ let last=before;for(let i=0;i<360;i++){camera.position.set(Math.sin(i/60)*22,15,Math.cos(i/60)*22);v.nav.prepare(camera,1/60);assert.ok(last.angleTo(v.nav.presentation.quaternion)<.06);const normal=new T.Vector3(0,1,0).applyQuaternion(v.nav.presentation.quaternion);assert.ok(normal.y>=Math.cos(config.presentationTilt*Math.PI/180)-1e-10);last=v.nav.presentation.quaternion.clone();}
+ v.nav.dispose();
+});
+
+test('paused-world invalidation is event-only and covers start, stop, reset, completion, and disposal',()=>{
+ let dirty=false;const v=setup(config,()=>dirty=true),s=state(),system=Object.create(RescueSystem.prototype);
+ Object.assign(system,{config:{...rescueConfig,completion:{showEffect:false,showMessage:false}},active:null,time:0,noticeLeft:0,centre:{x:0,y:12,z:0},notice:{hidden:true},rope:{hide(){},update(){}},water:{clear(){},update(){}},onDelivered(){}});
+ system.game={sub:s,rescueNavigation:v.nav,compass:{setRescue(){}},audio:{playRescue(){}},renderer:{getPixelRatio:()=>1}};system.rebind=()=>v.nav.update(0,system.active,s,system.centre);
+ const model=new T.Group();model.position.set(0,11.2,0);const payload={id:'barnacles',name:'Captain Barnacles',height:1.8,radius:.4,model};
+ system.start(payload);assert.equal(dirty,true);dirty=false;for(let i=0;i<30;i++)v.nav.update(1/60,system.active,s,system.centre);assert.equal(dirty,false,'normal follow must not force paused redraws');
+ system.stop();assert.equal(dirty,true);assert.equal(v.nav.pivot.visible,false);system.start(payload);dirty=false;system.reset();assert.equal(dirty,true);assert.equal(v.nav.pivot.visible,false);
+ system.start(payload);dirty=false;system.constrain=()=>{};system.adjustTarget=()=>{};system.update(0);assert.equal(dirty,true);assert.equal(v.nav.pivot.visible,false);dirty=false;v.nav.dispose();assert.equal(dirty,true);
+});

@@ -1,0 +1,195 @@
+{
+  "results": [
+    {
+      "id": "gup-x",
+      "position": {
+        "x": 136,
+        "y": 13.015905845789643,
+        "z": 127
+      },
+      "arrow": [
+        134.50676238618806,
+        20.967648067454355,
+        128.0051076702007
+      ],
+      "screen": [
+        -0.007497215876996954,
+        0.2815585421401777,
+        0.9922753335639795
+      ],
+      "targetDot": 1.0000000000000002,
+      "modelTargetDot": 1,
+      "meshRoofGap": 1.7999999999998693,
+      "rotation": [
+        0,
+        -1.0189935751017698,
+        0,
+        "XYZ"
+      ],
+      "visible": true,
+      "scene": true,
+      "uuid": "e942fe84-63f4-484f-b82c-2336bec05838",
+      "arrowGroups": 1,
+      "hudCanvases": 0,
+      "name": "fixed-x-landscape",
+      "viewport": [
+        844,
+        390
+      ]
+    },
+    {
+      "id": "gup-x",
+      "position": {
+        "x": 136,
+        "y": 13.013950989329087,
+        "z": 127
+      },
+      "arrow": [
+        134.50676238618792,
+        20.966889195386123,
+        128.00510767020094
+      ],
+      "screen": [
+        -0.03250286269261155,
+        0.265494275897019,
+        0.9929571827329313
+      ],
+      "targetDot": 1,
+      "modelTargetDot": 1,
+      "meshRoofGap": 1.8000000000000114,
+      "rotation": [
+        0,
+        -1.018993575101756,
+        0,
+        "XYZ"
+      ],
+      "visible": true,
+      "scene": true,
+      "uuid": "e942fe84-63f4-484f-b82c-2336bec05838",
+      "arrowGroups": 1,
+      "hudCanvases": 0,
+      "name": "fixed-x-portrait",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "id": "gup-b",
+      "position": {
+        "x": 180,
+        "y": 15,
+        "z": 195
+      },
+      "arrow": [
+        179.99999999999986,
+        19.110079848303304,
+        193.20000000000027
+      ],
+      "screen": [
+        0.0022849743631370677,
+        0.21320878058161735,
+        0.9894959839509216
+      ],
+      "targetDot": 1,
+      "modelTargetDot": 1,
+      "meshRoofGap": 1.8000000000002245,
+      "rotation": [
+        0,
+        -8.449720008005343e-15,
+        0,
+        "XYZ"
+      ],
+      "visible": true,
+      "scene": true,
+      "uuid": "e942fe84-63f4-484f-b82c-2336bec05838",
+      "arrowGroups": 1,
+      "hudCanvases": 0,
+      "name": "fixed-b-toward",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "id": "gup-b",
+      "position": {
+        "x": 180,
+        "y": 15,
+        "z": 195
+      },
+      "arrow": [
+        180,
+        19.32488020278264,
+        196.79999999999967
+      ],
+      "screen": [
+        0.0022912043834216514,
+        0.2315556933708466,
+        0.9894665055207346
+      ],
+      "targetDot": 1,
+      "modelTargetDot": 1,
+      "meshRoofGap": 1.8000000000000114,
+      "rotation": [
+        0,
+        -1.2561962846610681e-15,
+        0,
+        "XYZ"
+      ],
+      "visible": true,
+      "scene": true,
+      "uuid": "e942fe84-63f4-484f-b82c-2336bec05838",
+      "arrowGroups": 1,
+      "hudCanvases": 0,
+      "name": "fixed-b-away",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "id": "gup-x",
+      "position": {
+        "x": 136,
+        "y": 13.015905845789643,
+        "z": 127
+      },
+      "arrow": [
+        137.49323761381194,
+        20.75469543359113,
+        125.99489232979931
+      ],
+      "screen": [
+        -0.008376045184128478,
+        0.2668797954256213,
+        0.9929357573236565
+      ],
+      "targetDot": 1,
+      "modelTargetDot": 1,
+      "meshRoofGap": 1.7999999999998657,
+      "rotation": [
+        0,
+        -1.0219294601474405,
+        0,
+        "XYZ"
+      ],
+      "visible": true,
+      "scene": true,
+      "uuid": "e942fe84-63f4-484f-b82c-2336bec05838",
+      "arrowGroups": 1,
+      "hudCanvases": 0,
+      "name": "fixed-x-downhill",
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "pausedStop": {
+    "paused": true,
+    "objectHidden": true,
+    "dirty": true
+  },
+  "pageErrors": []
+}
