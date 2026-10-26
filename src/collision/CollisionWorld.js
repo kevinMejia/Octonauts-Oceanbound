@@ -8,12 +8,12 @@ export class CollisionWorld{
   this.surfaces=surfaces;this.grid=surfaces.grid;this.ground=ground;this.near=[];this.frame={};
   this.hit={};this.best={};this.separation=1;this.lastSurface=null;
   this.sand={surface:'sand',color:[.6,.5,.31]};
-  this.contact={active:false,impact:0,x:0,y:0,z:0,nx:0,ny:0,nz:0,surface:'rock',color:null,branch:false};
+  this.contact={active:false,impact:0,x:0,y:0,z:0,nx:0,ny:0,nz:0,surface:'rock',parkedId:null,color:null,branch:false};
   this.metrics={registered:surfaces.count??0,solids:surfaces.solidCount??0,broadphase:0,candidates:0,tests:0,hits:0,ms:0};
  }
  record(sub,s,nx,ny,nz,impact,offset){
   const c=this.contact;if(c.active&&impact<=c.impact)return;
-  c.active=true;c.impact=impact;c.nx=nx;c.ny=ny;c.nz=nz;c.surface=s.surface;c.color=s.color??this.sand.color;c.branch=!!s.branch;
+  c.active=true;c.impact=impact;c.nx=nx;c.ny=ny;c.nz=nz;c.surface=s.surface;c.parkedId=s.parkedId??null;c.color=s.color??this.sand.color;c.branch=!!s.branch;
   const hull=sub.collisionProxy,r=hull?.radius??2.2,h=hull?.halfHeight??1.1;
   const extent=Math.sqrt(r*r*(nx*nx+nz*nz)+h*h*ny*ny);
   const f=this.frame,centerY=s.surface==='sand'?0:hull?.centerY??0;

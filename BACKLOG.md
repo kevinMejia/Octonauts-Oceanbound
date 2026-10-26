@@ -177,3 +177,16 @@ production build, seven-helmet bounds/reload/reset checks, towing/delivery and
 30 desktop/phone discovery captures (all nine GUPs) pass. Physical Safari remains
 untested. Earned GUP-X selection/persistence and real Tunip rescue/HUD regression
 also pass. Next: no further local implementation pending.
+
+## PARK-009 — Pushable parked GUPs
+
+User authorized implementation with “Yeah let’s try this out”. Status: delivered locally;
+single-agent workflow. Approved scope:
+lightweight horizontal impulses and damping for nearby, unlocked parked GUPs,
+using existing collision proxies/spatial grid, terrain support and fleet poses.
+Preserve discovery triggers, safe switching and renderer residency. Displaced GUPs
+stay moved for the session and return to berths on reload. Verified: 331 tests,
+production build, actual Edge collisions at desktop/phone viewport sizes, sleep,
+terrain/obstacle/player blocking, eight-GUP stress, grid synchronization, switching
+and reload reset. Evidence: docs/parked-vehicles/README.md. Physical iPhone remains
+untested. Next: user playtest; no further local implementation pending. Not pushed.
