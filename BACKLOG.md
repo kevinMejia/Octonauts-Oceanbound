@@ -190,3 +190,15 @@ production build, actual Edge collisions at desktop/phone viewport sizes, sleep,
 terrain/obstacle/player blocking, eight-GUP stress, grid synchronization, switching
 and reload reset. Evidence: docs/parked-vehicles/README.md. Physical iPhone remains
 untested. Next: user playtest; no further local implementation pending. Not pushed.
+
+
+## FINAL-010 — GUP-X discovery on return to the Octopod
+
+User explicitly requested all other GUPs found followed by return to the base.
+Current task on main; delivered locally. Delay earned unlock and existing
+discovery modal until near the Octopod; preserve earned saves and settings override.
+Verified: 338 tests, production build, actual Edge reward/selection/reload flow,
+responsive HUD and rescue regressions; independent QA passed 32 focused tests.
+Return radius39 excludes the nearest discovery anchor (A). Physical Safari untested.
+Next: no further local implementation pending; not pushed.
+PARK-009 was pushed to main as b9902ad at the user's explicit request.

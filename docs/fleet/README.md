@@ -69,3 +69,26 @@ The user explicitly approved publishing the five runtime GLBs and thumbnails aft
 The central runtime mapping in `vehicleConfig.js` overrides only parking spawn/heading, preserving each GUP's own ground clearance and all model, discovery, movement and audio configuration. Generated imports can be regenerated without overwriting the layout, and unknown future IDs keep their authored custom parking until assigned a berth. No additional models, clones or rendering loops are added. Existing collision-aware placement and GPU resource handling remain in use.
 
 Validation includes all eight hulls against real Octopod collision data and one another, at least 14m between centers, relative-base positioning, unchanged discovery anchors, live saved-fleet loading, and repeated switches returning inactive models to their berths. The full Node suite has 171 passing tests; the live eight-model check reports no WebGL or page errors.
+
+
+## GUP-X return-to-base reward (FINAL-010)
+
+Finding every other required GUP makes GUP-X eligible, but does not unlock it or
+queue its discovery window. During unpaused gameplay, returning within 39 metres
+horizontally of the Octopod (within 40 metres of its 20-metre docking height)
+earns GUP-X and queues the existing discovery modal once. The return volume is
+configured in octopodConfig and excludes the nearest discovery anchor, GUP-A.
+Other discovery dialogs finish first. Existing artwork, sounds and selection work
+through the same modal; no extra UI or rendering resources are introduced.
+
+Earned saves retain GUP-X. A save with all other GUPs found waits for return after
+reload; no additional pending flag is needed. Overrides remain separate from
+earned progress, and reset clears eligibility.
+
+Verification: 338 Node tests pass; production build and whitespace checks pass.
+Independent QA reviewed the final diff and ran 32 focused tests. Actual Edge
+WebGL browser verification via tests/hud-rewards-browser.cjs confirms the last
+GUP discovery does not queue X, return triggers X, selecting X works, and reload
+does not repeat the window. Existing responsive HUD captures, rescue delivery,
+queued rescue notices and infinite turbo checks also pass. Physical iPhone Safari
+remains untested.

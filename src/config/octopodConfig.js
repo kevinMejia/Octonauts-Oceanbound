@@ -5,6 +5,8 @@ export const octopodConfig={
  levelRadius:30, // Flat sand only under the complete base footprint.
  blendRadius:70, // Smooth transition back to untouched procedural terrain.
  sceneryClearance:39, // Includes support feet, pods and decoration footprint margins.
+ finalRewardRadius:39, // Return near the base after finding every other GUP.
+ finalRewardHeight:20,finalRewardHeightRange:40, // Include ground vehicles and the base docking height.
  collisionEnabled:true,
  navigationMarkerEnabled:true,
  spawn:{x:180,y:20,z:195,heading:Math.PI}, // 95 m south of the hub, facing north (-Z).
