@@ -21,6 +21,14 @@ export const rescueConfig={
   maxStretch:12, // Recover near the GUP if an exceptional switch/obstacle separates the tow.
   recoveryDelay:1.2, // Seconds of blocked movement before looking for a clear reattachment.
  },
+ navigation:{
+  height:1.8, // World-up metres above the active hull's highest point.
+  forwardOffset:1.8, // Metres along horizontal vehicle heading, independent of tilt.
+  scale:1.5, // Uniform world-space scale of the existing rescue arrow.
+  positionSmoothing:10, // Exponential response per second for heading offset and height.
+  rotationSmoothing:12, // Shortest-bearing exponential response per second.
+  minClearance:.6, // Minimum hull gap while damped height catches a rapid ascent.
+ },
  hud:{
   enabled:true, // Show the compact mission indicator.
   highlightOctopod:true, // Emphasize the existing base marker while towing.
