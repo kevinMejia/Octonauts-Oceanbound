@@ -3,7 +3,6 @@ import {CollisionShake} from './CollisionShake.js';
 import {gameplaySettings} from '../ui/gameplayPreferences.js';
 import * as T from 'three';
 import {cameraConfig as c} from '../config/cameraConfig.js';
-import {worldConfig as w} from '../config/worldConfig.js';
 import {heightAt} from '../environment/terrainMath.js';
 import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './cameraMath.js';
 import {terrainArmHeight,terrainViewHeight} from './groundCameraMath.js';
@@ -20,7 +19,7 @@ export class ChaseCamera{
   const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height*(this.profile.heightMultiplier??1),distance)+o.y));
   const near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
   this.pivot.set(p.x,p.y+g.pivotHeight,p.z);
-  this.desired.set(p.x-Math.sin(angle)*distance,Math.min(w.surface-1,p.y+Math.tan(elevation)*distance+near*c.nearFloorLift),p.z-Math.cos(angle)*distance);
+  this.desired.set(p.x-Math.sin(angle)*distance,p.y+Math.tan(elevation)*distance+near*c.nearFloorLift,p.z-Math.cos(angle)*distance);
   this.desired.y=terrainArmHeight(this.pivot,this.desired,ground,g);
   const sy=Math.sin(sub.heading),cy=Math.cos(sub.heading),ahead=g.lookAhead+speed*g.speedLookAhead;
   const support=sub.floorContact?.touching===true?1:sub.floorContact?.touching===false?0:Math.max(0,1-Math.max(0,p.y-floor-(sub.collisionProxy?.terrainClearance??.65))/g.airborneFadeHeight);
@@ -99,13 +98,12 @@ export class ChaseCamera{
   const angle=sub.heading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
   this.pivot.set(p.x,p.y+.6,p.z);
   this.desired.set(p.x-Math.sin(angle)*distance,p.y+height,p.z-Math.cos(angle)*distance);
-  this.desired.y=Math.min(w.surface-1,this.desired.y);
   this.focus.set(p.x+Math.sin(sub.heading)*c.lookAhead,p.y+Math.max(.4,Math.min(2,c.height-(c.distance+c.lookAhead)*Math.tan(c.downwardAngle*radians)+c.framingLift)),p.z+Math.cos(sub.heading)*c.lookAhead);
   if(this.initial){this.camera.position.copy(this.desired);this.target.copy(this.focus);}
   else{this.camera.position.lerp(this.desired,smoothFactor(c.positionSmoothing,dt));this.target.lerp(this.focus,smoothFactor(c.rotationSmoothing,dt));}
   // Check the smoothed path as well: turns must not cut through a reef corner.
   if(c.collisionEnabled&&this.obstacles){limit=this.obstacles.limit(this.pivot,this.camera.position,c);this.camera.position.lerpVectors(this.pivot,this.camera.position,limit);}
-  this.camera.position.y=Math.max(heightAt(this.camera.position.x,this.camera.position.z)+c.terrainClearance,Math.min(w.surface-1,this.camera.position.y));
+  this.camera.position.y=Math.max(heightAt(this.camera.position.x,this.camera.position.z)+c.terrainClearance,this.camera.position.y);
   }
   // At forced close range, aim at the hull rather than beyond its bow.
   // This keeps the vehicle readable when a structure restricts camera space.

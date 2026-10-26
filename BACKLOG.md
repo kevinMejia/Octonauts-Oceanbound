@@ -202,3 +202,17 @@ responsive HUD and rescue regressions; independent QA passed 32 focused tests.
 Return radius39 excludes the nearest discovery anchor (A). Physical Safari untested.
 Next: no further local implementation pending; not pushed.
 PARK-009 was pushed to main as b9902ad at the user's explicit request.
+
+## SURFACE-011 — Seamless above-water exploration
+
+User explicitly authorized implementation; current local task on main. Single
+implementation agent, independent QA only. Scope: shared sea level, existing
+controller/camera ceiling adjustment, animated two-sided surface, camera-based
+atmosphere and pooled crossing effects. No land, new physics, merge or deploy.
+Status: completed locally. 340 Node tests, build and diff checks pass. Independent
+QA passed after transparency ordering fix. Production Edge high/low checks pass
+repeated crossings, opposing camera/hull media, four speeds, orbit, swimming fleet
+switches, splashes, real keyboard ascent/dive and pointer drag/recenter.
+Evidence: docs/above-water/. Physical Safari/touch/performance remain unverified.
+User subsequently authorized commit and push to main. Next: push the verified
+feature commit, then user playtest. No next queued task started.

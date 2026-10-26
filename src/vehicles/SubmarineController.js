@@ -35,6 +35,6 @@ export class SubmarineController{
  const floor=hullFloor(this),terrainClearance=this.collisionProxy?.terrainClearance??c.minTerrainClearance;
  const contact=this.floorContact;contact.clearance=Math.max(0,p.y-floor);contact.touching=p.y<=floor+.025;contact.impact=Math.max(p.y<floor?Math.max(0,-this.vertical):0,this.collisionContact?.surface==='sand'?this.collisionContact.impact:0);contact.floor=floor-terrainClearance;
 
- if(p.y<floor){p.y=floor;this.vertical=Math.max(0,this.vertical);}if(p.y>w.surface-(this.collisionProxy?.surfaceClearance??2.5)){p.y=w.surface-(this.collisionProxy?.surfaceClearance??2.5);this.vertical=Math.min(0,this.vertical);}
+ if(p.y<floor){p.y=floor;this.vertical=Math.max(0,this.vertical);}if(p.y>w.surface+w.aboveWaterHeight){p.y=w.surface+w.aboveWaterHeight;this.vertical=Math.min(0,this.vertical);}
  }
 }

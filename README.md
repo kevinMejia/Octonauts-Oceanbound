@@ -33,7 +33,7 @@ W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag 
 - `src/config/`: commented movement, world and camera tuning. Change `seed` to generate another layout.
 - `vendor/`: pinned Three.js r168 and loader utilities; license included.
 
-Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and prevents ascent above the water ceiling. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.25, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
+Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and allows swimming GUPs to ascend up to 35 metres above the shared sea level. The camera crosses freely; sky, fog, light and water effects blend at its local waterline. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.25, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
 
 ## Environment visual upgrade
 
@@ -135,3 +135,10 @@ Movement, camera obstruction and particle settling share one static spatial grid
 The supplied `assets/audio/turbo.mp3` plays once on successful turbo activation, using the existing AudioManager and the saved Turbo volume slider. It never loops or overlaps itself. Audio remains locked until PLAY, and existing propulsion, bubbles, ambience and music are preserved. Runtime recordings live in `assets/audio`; the original music source is retained under `assets/audio/source` and excluded from deployment. The obsolete duplicate `assets/sounds` folder was removed with user authorization.
 
 Architecture, measured hull dimensions, desktop collision CPU comparisons, test results and device limitations: [collision and audio report](docs/collisions/README.md).
+
+### Above-water exploration
+
+Space/Shift and the existing touch depth control continue through sea level with
+no scene change. Swimming GUPs hover in air using their existing kinematics;
+GUP-X retains tracked ground movement. Camera orbit, follow and reset are unchanged.
+See [implementation and verification](docs/above-water/README.md) for limits.

@@ -34,7 +34,7 @@ export class FleetPlacement{
    let pitch=0,bank=0;
    if(tracked){body.position={x,y:0,z};body.pitch=body.bank=0;body.floorContact={};tracked.align(body);pitch=body.pitch;bank=body.bank;}
    const floor=hullFloor(body,x,z,this.ground),y=parking?floor+.04+(origin.heightOffset??0):definition.type==='ground'?floor+.05:Math.max(origin.y,floor+.05);
-   if(y>worldConfig.surface-definition.collision.surfaceClearance)continue;
+   if(y>(parking?worldConfig.surface-definition.collision.surfaceClearance:worldConfig.surface+worldConfig.aboveWaterHeight))continue;
    const pose={x,y,z,heading:body.heading,...(tracked?{pitch,bank}:{})};if(this.clear(pose,definition,ignoreId,returningId))return pose;
   }return null;
  }
