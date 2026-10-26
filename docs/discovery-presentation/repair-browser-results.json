@@ -1,0 +1,697 @@
+{
+  "results": [
+    {
+      "id": "tunip",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 8244
+    },
+    {
+      "id": "barnacles",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12350
+    },
+    {
+      "id": "peso",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 14048
+    },
+    {
+      "id": "gup-a",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 21680
+    },
+    {
+      "id": "gup-b",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 22492
+    },
+    {
+      "id": "gup-r",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 14695
+    },
+    {
+      "id": "gup-c",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 15552
+    },
+    {
+      "id": "gup-d",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 22301
+    },
+    {
+      "id": "gup-e",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 20922
+    },
+    {
+      "id": "gup-f",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 16606
+    },
+    {
+      "id": "gup-q",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 25146
+    },
+    {
+      "id": "gup-x",
+      "width": 1200,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 28831
+    },
+    {
+      "id": "octopus",
+      "width": 1200,
+      "natural": [
+        370,
+        262
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 27865
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "width": 1200,
+      "natural": [
+        385,
+        211
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 31424
+    },
+    {
+      "id": "jellyfish",
+      "width": 1200,
+      "natural": [
+        270,
+        443
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "translucent": true,
+      "overlayPixelsChecked": 13
+    },
+    {
+      "id": "tunip",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 7248
+    },
+    {
+      "id": "barnacles",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 11138
+    },
+    {
+      "id": "peso",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12869
+    },
+    {
+      "id": "gup-a",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 10318
+    },
+    {
+      "id": "gup-b",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 10658
+    },
+    {
+      "id": "gup-r",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 6613
+    },
+    {
+      "id": "gup-c",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 7265
+    },
+    {
+      "id": "gup-d",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 10666
+    },
+    {
+      "id": "gup-e",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 9999
+    },
+    {
+      "id": "gup-f",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 7153
+    },
+    {
+      "id": "gup-q",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 11363
+    },
+    {
+      "id": "gup-x",
+      "width": 390,
+      "natural": [
+        640,
+        448
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 13801
+    },
+    {
+      "id": "octopus",
+      "width": 390,
+      "natural": [
+        370,
+        262
+      ],
+      "rect": {
+        "x": 41,
+        "y": 261.96875,
+        "right": 349,
+        "bottom": 515.15625
+      },
+      "dialog": {
+        "x": 10,
+        "y": 95.171875,
+        "right": 380,
+        "bottom": 748.828125
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 18734
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "width": 390,
+      "natural": [
+        385,
+        211
+      ],
+      "rect": {
+        "x": 41,
+        "y": 261.96875,
+        "right": 349,
+        "bottom": 515.15625
+      },
+      "dialog": {
+        "x": 10,
+        "y": 95.171875,
+        "right": 380,
+        "bottom": 748.828125
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12315
+    },
+    {
+      "id": "jellyfish",
+      "width": 390,
+      "natural": [
+        270,
+        443
+      ],
+      "rect": {
+        "x": 41,
+        "y": 273.15625,
+        "right": 349,
+        "bottom": 526.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 106.359375,
+        "right": 380,
+        "bottom": 737.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "translucent": true,
+      "overlayPixelsChecked": 6
+    }
+  ],
+  "errors": []
+}

@@ -164,3 +164,16 @@ using existing thumbnail path. Colors, layering, world models, and front-facing
 characters preserved. 319 tests and production build pass; all 11 animals verified
 at desktop and phone sizes with larger longest dimensions and no page errors.
 Next: no additional local implementation pending. Physical Safari remains untested.
+
+## HELMET-007 and VEHICLE-PREVIEW-008
+
+User explicitly requested fixing the oversized unrescued-character helmet bases,
+removing Tunip's helmet, and restoring GUP discovery-window angles. Single agent.
+Status: delivered locally. Fixed stale parent/attached skin transforms before helmet
+fitting; removed Tunip helmet geometry via per-character opt-out; restored original
+authored GUP discovery images. Preserved frontal crew portraits, larger angled
+marine framing, world models, gameplay bounds and rescue persistence. 322 tests,
+production build, seven-helmet bounds/reload/reset checks, towing/delivery and
+30 desktop/phone discovery captures (all nine GUPs) pass. Physical Safari remains
+untested. Earned GUP-X selection/persistence and real Tunip rescue/HUD regression
+also pass. Next: no further local implementation pending.

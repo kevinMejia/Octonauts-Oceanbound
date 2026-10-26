@@ -2,9 +2,9 @@
 
 The existing discovery previews are cached model-derived PNGs, not rotating live
 viewports. Crew and marine previews already shared a render-target path; vehicle
-discovery used authored PNGs. That shared path now lives in DiscoveryThumbnail.js
-and also renders cached vehicle discovery artwork with the existing renderer.
-Authored vehicle images remain the fallback; carousel artwork is unchanged.
+discovery uses its original authored PNGs, preserving each vehicle's established
+three-quarter angle and matching the carousel. The shared crew/marine path lives
+in DiscoveryThumbnail.js and uses the existing renderer.
 
 Scan lines and the light sweep sit behind artwork in isolated preview stacking
 contexts. The monitor decoration remains behind content. Transparent image regions
@@ -15,7 +15,8 @@ Loaders retain native-axis corrections: imported crew use their existing pi asse
 rotation; vehicle definitions and the marine adapter retain their orientation
 metadata. The preview removes only the gameplay root pose. Its camera faces the
 normalized front for crew. Marine creatures retain the original three-quarter
-camera direction (x .8, y .4, z 1); vehicles use a 12-degree side view. An orthographic camera fits all eight visual bounds corners.
+camera direction (x .8, y .4, z 1). Vehicle windows use their original authored
+angles. The crew/marine orthographic camera fits all eight visual bounds corners.
 Tunip, Barnacles and Peso show both eyes on opening. No GLBs or materials changed.
 
 The offscreen texture explicitly uses sRGB before PNG readback, avoiding the old
@@ -23,8 +24,8 @@ linear-pixel PNG darkening. Neutral hemisphere, frontal key and gentle fill ligh
 replace the cyan-biased miniature lighting. No CSS brightness compensation, bloom,
 new renderer or recurring render work is added. Targets are disposed immediately;
 root transform, visibility, parent order and renderer state restore even on failure.
-Vehicle preparation finishes before selection begins, preventing shared texture
-preparation/disposal from racing a click on the discovery image.
+Vehicle discovery no longer generates a replacement preview or uploads model
+textures for artwork; its existing selection/preparation flow remains intact.
 
 ## Verification
 
@@ -80,3 +81,22 @@ front-facing. Physical iPhone Safari is still unverified.
 ![Previous front-facing dolphin](marine-before-bottlenose-dolphin-390.png)
 ![Restored angled, larger dolphin](marine-after-bottlenose-dolphin-390.png)
 ![Tall animals still fit](marine-after-jellyfish-390.png)
+
+## Vehicle angle correction
+
+Only crew portraits remain front-facing. GUP discovery windows again display the
+original model-derived vehicle PNGs through vehicleThumbnailURL, restoring their
+per-vehicle authored angles and framing. Scanner overlays remain behind the artwork;
+sounds, bubbles, controls, unlocks and selection behavior are preserved. The larger
+angled marine previews are unaffected. The earlier GUP-X comparison above records
+the previous iteration; the restored view is shown below.
+
+![Restored GUP-B view](restored-gup-b-390.png)
+![Restored GUP-X view](restored-gup-x-390.png)
+
+The correction passes all 322 Node tests and the production build. Production
+Edge checks cover all nine GUP images, three front-facing crew portraits and
+three marine previews at desktop/phone sizes. Asset URLs match the original
+vehicle PNGs, models fit their screens, and opaque artwork remains unaffected by
+scanner overlays. Current observations: repair-browser-results.json. Helmet
+fitting and Tunip's helmet exclusion are documented in ../tow-visuals.md.

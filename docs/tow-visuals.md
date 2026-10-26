@@ -18,4 +18,28 @@ Validation: `node --test tests/*.test.js`, `python tools/build.py`, and `node te
 
 `src/crew/CrewHelmet.js` measures the upper part of each existing model once and adds a lightweight clear bubble, neck seal and reflection under its motion root. Measurement happens after gameplay dimensions and portraits are determined. Helmets follow the towing pose, appear for crew outside the Octopod below the water surface, and hide for rescued crew in the pod. Saved progress and reset reuse the existing crew synchronization. Geometry and materials are released with the crew.
 
-`src/config/crewHelmetConfig.js` controls helmet enablement, padding and each character's head fitting cutoff. `node tests/crew-helmets-browser.cjs` checks all eight characters, saved rescue reloads, resets and unchanged gameplay dimensions.
+`src/config/crewHelmetConfig.js` controls helmet enablement, padding and each character's head fitting cutoff. `node tests/crew-helmets-browser.cjs` checks all eight characters (seven helmets, with Tunip excluded), saved rescue reloads, resets and unchanged gameplay dimensions.
+
+## Helmet fitting regression repair
+
+The discovery thumbnail renderer now restores its original parent's world matrix
+before refreshing the character's attached skin bind inverses. Previously, the
+first character's inverse could still describe the thumbnail coordinate frame
+while helmet measurement used the translated Octopod frame. Barnacles' fitted
+horizontal radius became about 110 metres, turning its neck seal into the large
+teal strips visible across the seabed.
+
+CrewHelmet also refreshes attached SkinnedMesh inverses before reading posed
+vertices, so fitting stays local under translated, rotated or scaled parents.
+Only cached transforms are refreshed; model geometry, materials, gameplay bounds,
+rigs, towing and rescue progress remain unchanged. Tunip explicitly opts out via
+crewHelmetConfig.characters.tunip.enabled=false. It allocates no visor, collar or
+reflection geometry, including after reset or reload.
+
+322 Node tests and the production build pass. Regression fixtures cover stale skin
+inverses and Tunip's opt-out. Production browser checks verify seven fitted helmets,
+no Tunip helmet, rescued visibility, saved reload/reset and unchanged dimensions.
+The existing towing browser suite also passes hand/rope continuity, bounded water,
+pose release and real delivery. Physical iPhone Safari remains untested.
+
+![Correctly fitted helmets and helmet-free Tunip](characters/helmets-fixed.png)

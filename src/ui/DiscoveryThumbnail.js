@@ -33,6 +33,6 @@ export function discoveryThumbnail(renderer,group,view=config.views.marine){
  }finally{
   renderer.setRenderTarget(previous);renderer.setViewport(viewport);renderer.setScissor(scissor);renderer.setScissorTest(scissorTest);renderer.autoClear=autoClear;renderer.setClearColor(color,alpha);target.dispose();
   scene.remove(group);group.position.copy(position);group.quaternion.copy(rotation);group.scale.copy(scale);group.visible=visible;
-  if(parent){parent.add(group);parent.children.splice(parent.children.indexOf(group),1);parent.children.splice(index,0,group);}group.updateMatrixWorld(true);
+  if(parent){parent.updateWorldMatrix(true,false);parent.add(group);parent.children.splice(parent.children.indexOf(group),1);parent.children.splice(index,0,group);}group.updateMatrixWorld(true);
  }
 }

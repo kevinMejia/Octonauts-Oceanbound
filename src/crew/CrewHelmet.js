@@ -3,7 +3,12 @@ import {crewHelmetConfig as config} from '../config/crewHelmetConfig.js';
 // Cosmetic only: measured before installation, so helmets never affect gameplay bounds.
 export class CrewHelmet{
  constructor(record){
-  const root=record.motionRoot,profile=config.characters[record.definition.id]??{},bounds=new T.Box3(),point=new T.Vector3(),matrix=new T.Matrix4();root.updateWorldMatrix(true,true);const inverse=root.matrixWorld.clone().invert();
+  const root=record.motionRoot,profile=config.characters[record.definition.id]??{};this.enabled=profile.enabled!==false;
+  if(!this.enabled){this.group=new T.Group();this.group.visible=false;return;}
+  const bounds=new T.Box3(),point=new T.Vector3(),matrix=new T.Matrix4();root.updateWorldMatrix(true,true);
+  // updateWorldMatrix alone does not refresh SkinnedMesh.bindMatrixInverse.
+  // Refresh it before reading posed vertices under a moved/reattached parent.
+  root.updateMatrixWorld(true);const inverse=root.matrixWorld.clone().invert();
   const meshes=[];record.content.traverse(node=>{if(node.isMesh&&node.geometry.attributes.position){node.skeleton?.update();meshes.push(node);}});
   const visit=callback=>{for(const mesh of meshes){matrix.multiplyMatrices(inverse,mesh.matrixWorld);for(let i=0;i<mesh.geometry.attributes.position.count;i++){mesh.getVertexPosition(i,point).applyMatrix4(matrix);callback(point);}}};
   visit(p=>bounds.expandByPoint(p));const cutoff=bounds.min.y+(bounds.max.y-bounds.min.y)*(profile.headStart??config.headStart),head=new T.Box3();visit(p=>{if(p.y>=cutoff)head.expandByPoint(p);});if(head.isEmpty())head.copy(bounds);
@@ -13,6 +18,6 @@ export class CrewHelmet{
   const collar=new T.Mesh(new T.TorusGeometry(.6,.035,8,40),new T.MeshStandardMaterial({color:0x72dce9,metalness:.35,roughness:.35}));collar.rotation.x=Math.PI/2;collar.position.y=-.8;collar.name='Helmet neck seal';this.group.add(collar);
   const curve=new T.CatmullRomCurve3([new T.Vector3(.38,.74,.555),new T.Vector3(.53,.59,.61),new T.Vector3(.64,.4,.655)]),glint=new T.Mesh(new T.TubeGeometry(curve,12,.014,5,false),new T.MeshBasicMaterial({color:0xeeffff,transparent:true,opacity:.65,depthWrite:false}));glint.name='Visor reflection';glint.renderOrder=3;this.group.add(glint);
  }
- setUnderwater(underwater){this.group.visible=config.enabled&&underwater;}
+ setUnderwater(underwater){this.group.visible=config.enabled&&this.enabled&&underwater;}
  dispose(){this.group.removeFromParent();this.group.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});}
 }

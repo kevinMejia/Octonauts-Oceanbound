@@ -31,3 +31,7 @@ test('marine-only cropping removes empty padding with a margin while crew portra
   canvases.length=0;discoveryThumbnail(f.renderer,f.root,config.views.crew);assert.equal(canvases.length,1);assert.equal(canvases[0].width,512);assert.equal(canvases[0].height,512);assert.equal(f.captured.camera.position.x,0);
  }finally{globalThis.document=previous;}
 });
+
+test('thumbnail restoration refreshes moved parent matrices before attached skin inverses',()=>{
+ const f=fixture(true);f.parent.position.set(180,12,100);f.parent.rotation.y=.6;f.parent.scale.set(1.2,.9,1.5);assert.throws(()=>discoveryThumbnail(f.renderer,f.root),/render failed/);const expected=new T.Matrix4().multiplyMatrices(f.parent.matrixWorld,f.root.matrix);assert(f.root.matrixWorld.equals(expected));assert.equal(f.parent.matrixWorld.elements[12],180);assert.equal(f.parent.matrixWorld.elements[14],100);
+});

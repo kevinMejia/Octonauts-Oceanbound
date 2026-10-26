@@ -1,10 +1,9 @@
-import {discoveryPreviewConfig} from '../config/discoveryPreviewConfig.js';
 import {focusGameplay} from './focusGameplay.js';
 import {DiscoveryCelebration} from './DiscoveryCelebration.js';
 import {vehicleThumbnailURL} from '../config/vehicleConfig.js';
 export class DiscoveryModal{
  constructor(game){
-  this.game=game;this.pending=[];this.previews=new Map();this.operation=0;this.busy=false;this.dialog=document.createElement('dialog');this.dialog.id='discoveryDialog';this.dialog.setAttribute('aria-labelledby','discoveryTitle');this.dialog.setAttribute('aria-describedby','discoveryInstruction');
+  this.game=game;this.pending=[];this.operation=0;this.busy=false;this.dialog=document.createElement('dialog');this.dialog.id='discoveryDialog';this.dialog.setAttribute('aria-labelledby','discoveryTitle');this.dialog.setAttribute('aria-describedby','discoveryInstruction');
   this.dialog.innerHTML=`<div class="monitor-screen"><div class="monitor-header"><img src="./assets/img/Octopus%20Badge%20Icon.png" width="44" height="44" alt=""><div><p class="monitor-eyebrow">OCTOPOD SYSTEMS</p><h2 id="discoveryTitle"></h2></div><button id="closeDiscovery" type="button" aria-label="Close discovery">&#10005;</button></div><div class="monitor-content discovery-content"><span class="discovery-status">NEW GUP UNLOCKED</span><button id="discoveryVehicle" type="button"><img alt="" draggable="false"></button><p id="discoveryInstruction">TAP YOUR NEW GUP TO EXPLORE!</p><p id="discoveryError" role="status" aria-live="polite"></p></div><div class="monitor-footer"><p>EXPLORE &#183; RESCUE &#183; PROTECT</p><span>FLEET SYSTEMS</span></div></div>`;
   document.body.append(this.dialog);this.imageButton=this.dialog.querySelector('#discoveryVehicle');this.image=this.imageButton.querySelector('img');this.error=this.dialog.querySelector('#discoveryError');this.celebration=new DiscoveryCelebration(this.dialog,this.imageButton);
   this.imageButton.onclick=()=>this.select();this.dialog.querySelector('#closeDiscovery').onclick=()=>this.close();
@@ -19,28 +18,15 @@ export class DiscoveryModal{
   this.dialog.querySelector('#discoveryTitle').textContent=definition.name+' DISCOVERED!';this.image.src=vehicleThumbnailURL(definition);this.image.alt=definition.name;this.imageButton.setAttribute('aria-label','Explore in your new '+definition.name);
   this.dialog.querySelector('.discovery-status').textContent=this.game.unlocks.saved?'NEW GUP UNLOCKED':'UNLOCKED FOR THIS DIVE';
   this.releasePause=this.game.pause.acquire('discovery');this.game.input.clear();
-  try{this.dialog.showModal();this.previewTask=this.preview(definition);document.body.classList.add('discovery-open');this.imageButton.focus({preventScroll:true});
+  try{this.dialog.showModal();document.body.classList.add('discovery-open');this.imageButton.focus({preventScroll:true});
    try{this.stopDiscoverySound=this.game.audio?.playFound?.('gup');}catch{ /* Optional audio never blocks discovery. */ }
    if(definition.discovery.effects!==false){this.celebration.start();}
    this.game.needsPausedRender=true;
   }catch(error){this.didClose();console.warn('Discovery screen unavailable',error);}
  }
- async preview(definition){
-  const operation=this.operation;
-  try{
-   if(!this.previews.has(definition.id)){
-    const [{prepareVehicleTextures},{releaseVehicleGPU},vehicle]=await Promise.all([import('../vehicles/VehicleTextures.js'),import('../vehicles/VehicleManager.js'),this.game.vehicles.get(definition.id)]);
-    if(operation!==this.operation||!this.dialog.open)return;
-    const record=this.game.discovery.records.get(definition.id),evicted=record?.evicted;
-    try{await prepareVehicleTextures(vehicle,this.game.renderer);if(operation!==this.operation||!this.dialog.open)return;this.previews.set(definition.id,this.game.marineAnimals.thumbnail(vehicle.group,true,discoveryPreviewConfig.views.vehicle));}
-    finally{if(evicted&&record.evicted&&this.game.vehicles.activeId!==definition.id)releaseVehicleGPU(vehicle);}
-   }
-   if(operation===this.operation&&this.dialog.open)this.image.src=this.previews.get(definition.id);
-  }catch{ /* Keep the authored thumbnail if optional preview rendering fails. */ }
- }
  async select(){
   if(this.busy||!this.dialog.open||this.dialog.classList.contains('is-closing'))return;const operation=++this.operation;this.busy=true;this.imageButton.disabled=true;this.error.textContent='Getting your new GUP ready...';
-  try{await this.previewTask;if(operation!==this.operation||!this.dialog.open)return;const selected=await this.game.vehicles.select(this.definition.id,()=>this.dialog.open&&operation===this.operation&&!this.dialog.classList.contains('is-closing'));
+  try{const selected=await this.game.vehicles.select(this.definition.id,()=>this.dialog.open&&operation===this.operation&&!this.dialog.classList.contains('is-closing'));
    if(selected){this.game.vehicleSelector.updateHUD();this.close();}
   }catch(error){if(operation===this.operation)this.error.textContent='Your current GUP is safe. Tap your new GUP to try again, or close to keep exploring.';}
   finally{if(operation===this.operation){this.busy=false;this.imageButton.disabled=false;}}
