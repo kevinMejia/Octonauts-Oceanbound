@@ -1,0 +1,207 @@
+{
+  "viewport": [
+    844,
+    390
+  ],
+  "pageErrors": [],
+  "results": [
+    {
+      "position": {
+        "x": 122,
+        "y": 18.43285351426425,
+        "z": 119
+      },
+      "heading": 1.955747236887208,
+      "hits": 0,
+      "camera": [
+        102.06611374038485,
+        36.3366261915367,
+        131.48321186989656
+      ],
+      "arm": 28.56138387712895,
+      "intersects": [
+        {
+          "name": "Mesh130",
+          "distance": 26.67221400505908,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh130",
+          "distance": 26.700773188627675,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_Wall1002",
+          "distance": 27.004640314616427,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DoorIn001",
+          "distance": 28.738783789611002,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DoorIn001",
+          "distance": 28.753190403261364,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx",
+          "distance": 29.48183971206542,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx",
+          "distance": 29.497893898560335,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DoorArchIn001",
+          "distance": 29.579340592025932,
+          "instance": null,
+          "vehicle": true
+        }
+      ],
+      "name": "clear-downhill"
+    },
+    {
+      "position": {
+        "x": 122,
+        "y": 18.433353569463293,
+        "z": 119
+      },
+      "heading": 5.097339890477001,
+      "hits": 0,
+      "camera": [
+        141.93388625961515,
+        27.204490523253284,
+        106.51678813010344
+      ],
+      "arm": 24.55995476012231,
+      "intersects": [
+        {
+          "name": "Part_Horn001",
+          "distance": 22.906812482911075,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_Horn001",
+          "distance": 22.947429628729978,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh130",
+          "distance": 23.15185219993139,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh130",
+          "distance": 23.193371790827257,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx",
+          "distance": 23.970931241847452,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx",
+          "distance": 23.994476358668354,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx001",
+          "distance": 24.14432936543611,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DooEx001",
+          "distance": 24.167755322330112,
+          "instance": null,
+          "vehicle": true
+        }
+      ],
+      "name": "clear-uphill"
+    },
+    {
+      "position": {
+        "x": 132,
+        "y": 17.43332498990845,
+        "z": 132
+      },
+      "heading": 2.1663852594,
+      "hits": 0,
+      "camera": [
+        115.11673636623148,
+        36.874657622210535,
+        148.37515829153017
+      ],
+      "arm": 29.460911112353376,
+      "intersects": [
+        {
+          "name": "Mesh121",
+          "distance": 27.67668196291783,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh037",
+          "distance": 27.71971412553732,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh037",
+          "distance": 27.735551058773137,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh037",
+          "distance": 28.05187133725635,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh037",
+          "distance": 28.067708295264108,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Mesh121",
+          "distance": 28.1785396135936,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DoorIn001",
+          "distance": 29.78549564555817,
+          "instance": null,
+          "vehicle": true
+        },
+        {
+          "name": "Part_DoorIn001",
+          "distance": 29.79527104854286,
+          "instance": null,
+          "vehicle": true
+        }
+      ],
+      "name": "original-downhill"
+    }
+  ]
+}

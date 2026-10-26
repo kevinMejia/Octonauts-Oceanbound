@@ -19,3 +19,17 @@ export const cameraConfig={
  collisionEnabled:true,collisionRadius:.65,collisionPadding:.18,
  terrainClearance:.8,terrainSampleSpacing:.75,maxTerrainSamples:96,
 };
+
+// GUP-X only: metres and exponential response rates per second. The shared
+// distance/height preferences and orbit controls still apply to this profile.
+export const gupXCamera={
+ minDistance:14,horizontalResponse:7,verticalResponse:5,focusResponse:6,
+ pivotHeight:1.7,lookHeight:1.7,lookAhead:3.5,speedLookAhead:1.5,
+ terrainLookWeight:.45,maxLookRise:3,maxLookDrop:1.2,
+ speedDistanceIncrease:.08,steerLookAhead:1.4,steerFullSpeed:12,
+ airborneFadeHeight:3,terrainPrediction:.7,maxTerrainPrediction:6,
+ terrainClearance:1,terrainPadding:.15,
+ terrainSampleSpacing:.75,maxTerrainSamples:64,
+ terrainViewNear:2,terrainViewFar:10,terrainViewTargetHeight:.2,
+ terrainViewClearance:.12,terrainViewSampleSpacing:1.5,maxTerrainViewSamples:24,maxTerrainViewAngle:50,terrainViewRiseRate:10,
+};
