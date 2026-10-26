@@ -73,8 +73,6 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 .rescue-content{min-height:0;overflow:hidden;position:relative}
 .rescue-content::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0px,transparent 3px,#002e4126 3px,#002e4126 4px);pointer-events:none;z-index:1}
 #rescueHud .rescue-caption{position:relative;z-index:2;margin:7px 0 3px;color:#eafff7;font:600 9px/1.35 Arial,sans-serif;text-wrap:balance}
-.rescue-arrow-screen{width:100%;height:66px;border-radius:6px;overflow:hidden;background:#07525f}
-#rescueHud canvas{display:block;width:100%;height:100%}
 #rescueHud .rescue-distance{position:relative;z-index:2;margin:3px 0 1px;color:#a5fff0;font:bold 12px/1.3 Arial,sans-serif;letter-spacing:.3px;font-variant-numeric:tabular-nums}
 @media(max-width:500px){body.rescue-navigation-active #navigation{top:calc(env(safe-area-inset-top,0px) + 164px)}}
 @media(max-width:360px){#turboHud.has-rescue{width:104px}}
