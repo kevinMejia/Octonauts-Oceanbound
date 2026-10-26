@@ -1,3 +1,4 @@
+import {updateParticleLighting} from './particleLighting.js';
 import {dayNightConfig as dayConfig} from '../config/dayNightConfig.js';
 import {airBlend} from '../effects/waterMath.js';
 import {SunRays} from './SunRays.js';
@@ -39,6 +40,7 @@ export function atmosphere(scene,profile=environmentConfig.profiles.high,rendere
   scene.fog.color.lerp(nightFog,nightAmount*wet).lerp(nightSky,nightAmount*air);scene.fog.density*=1+nightAmount*(night.fogDensity-1);scene.background.copy(scene.fog.color);sunRays.material.uniforms.fogDensity.value=scene.fog.density;
   sun.color.copy(daySun).lerp(warmSun,warmth).lerp(nightSun,nightAmount);sun.intensity*=gain(nightAmount,night.sun);
   hemi.color.copy(dayHemi).lerp(nightHemi,nightAmount);hemi.groundColor.copy(dayGround).lerp(nightGround,nightAmount);hemi.intensity*=gain(nightAmount,night.ambient)*(1-warmth*.12);
+  updateParticleLighting(nightAmount,night.particleTint);
   scene.environmentIntensity=(profile.reflectionIntensity??.25)*gain(nightAmount,night.reflection);causticDaylight.value=gain(nightAmount,night.caustics);
   sunRays.material.uniforms.intensity.value*=gain(nightAmount,night.rays);dome.material.uniforms.shaftIntensity.value=config.atmosphere.lightShaftIntensity*(low?.6:1)*gain(nightAmount,night.rays);
   const skyTint=dome.material.uniforms.cycleTint.value,waterTint=surface.material.uniforms.cycleTint.value;

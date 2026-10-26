@@ -1,9 +1,9 @@
 # Surface settling instead of flight
 
 Branch: `fix/gup-surface-settling`. User authorized implementation, commit and
-push. Primary agent only; no independent-agent QA. The earlier nighttime sand
-cloud correction is isolated in local branch `fix/night-sediment-lighting`,
-commit 1061597, and is not part of this change.
+push, then merging into main for live testing. Primary agent only; no independent-
+agent QA. The earlier nighttime sand-cloud correction is separate commit 1061597;
+user subsequently authorized delivering both fixes together on main.
 
 ## Behavior
 

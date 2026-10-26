@@ -4,6 +4,15 @@ Read this record with AGENTS.md at session start. Keep active scope, authorizati
 dependencies, verification, and the next action current. A backlog entry alone is
 not implementation approval. This is not a background scheduler.
 
+## Standing delivery authorization
+
+User explicitly instructed: "Please merge to main when ever you are done with
+something moving forward." Default delivery for completed, verified work is now
+commit, merge into main and push so the user can test live. Check Pages delivery
+when available, and distinguish pushed from confirmed live. This explicit user
+authorization supersedes the earlier no-automatic-merge/deploy default. Honor any
+later request to hold a particular change. Do not start unapproved queued work.
+
 ## Active task
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
@@ -246,7 +255,19 @@ and GUP-X ground movement. Status: implementation and verification complete.
 checks cover 16 swimmer hover/turbo ascent/settle/dive cases, GUP-X ground bypass,
 real Space/Shift, camera medium/orbit, repeated crossings, switching and splashes.
 Evidence: docs/surface-settling/. Physical iPhone/performance remain unverified.
-Delivery: user-authorized commit/push to feature branch. Next: user playtest;
-no merge/deployment or additional queued implementation authorized.
-Nighttime sediment fix is separately checkpointed as 1061597 on local branch
-`fix/night-sediment-lighting`; not included or pushed by this task.
+Delivery: user explicitly authorized merging both completed fixes into main for
+live testing. Implementation: 3d2a1b6. Next: combined checks, push and Pages check.
+
+## CYCLE-014 — Nighttime sediment brightness
+
+User explicitly requested investigation of sand clouds remaining daylight-bright
+at night. Current branch: `fix/night-sediment-lighting`. Scope: shared unlit cloud
+shader ambient color response, including its existing transformation reuse. Primary
+agent only; preserve particle behavior/daytime appearance and rendering budgets.
+Status: completed locally. Fixed vShade.rgb bypassing scene lighting using one
+shared ambient tint, including paused transformation clouds. 350 Node tests,
+production build, diff checks and actual Edge low/high before/fixed comparisons
+pass with stable draws/textures/programs/pools and no errors.
+Evidence: docs/night-sediment/. Physical Safari/performance remain unverified.
+Implementation: 1061597. User explicitly authorized merging completed fixes
+into main for live testing. Next: combined verification and Pages deployment.

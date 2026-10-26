@@ -1,3 +1,4 @@
+import {particleLightTint} from '../environment/particleLighting.js';
 import * as T from 'three';
 import {ParticlePool,clamp,stepParticle} from './interactionMath.js';
 import {stepBubble} from './waterMath.js';
@@ -32,7 +33,7 @@ export class VehicleTransformation{
   const fog={fogColor:{value:g.scene.fog.color.clone()},fogDensity:{value:g.scene.fog.density}},bubbleGeometry=new T.PlaneGeometry(1,1);bubbleGeometry.setAttribute('bubble',new T.InstancedBufferAttribute(new Float32Array(this.bubbles.items.length*4),4).setUsage(T.DynamicDrawUsage));
   this.bubbleMesh=new T.InstancedMesh(bubbleGeometry,new T.ShaderMaterial({vertexShader:bubbleVertex,fragmentShader:bubbleFragment,uniforms:fog,fog:true,transparent:true,depthWrite:false,side:T.DoubleSide,forceSinglePass:true}),this.bubbles.items.length);
   const geometry=new T.PlaneGeometry(1,1);for(const [name,size] of [['cloud',4],['shade',4],['details',2]])geometry.setAttribute(name,new T.InstancedBufferAttribute(new Float32Array(this.clouds.items.length*size),size).setUsage(T.DynamicDrawUsage));
-  this.cloudMesh=new T.InstancedMesh(geometry,new T.ShaderMaterial({vertexShader:sedimentVertexShader,fragmentShader:sedimentFragmentShader,uniforms:{...fog,time:{value:0}},fog:true,transparent:true,depthWrite:false,side:T.DoubleSide,forceSinglePass:true}),this.clouds.items.length);
+  this.cloudMesh=new T.InstancedMesh(geometry,new T.ShaderMaterial({vertexShader:sedimentVertexShader,fragmentShader:sedimentFragmentShader,uniforms:{...fog,particleLightTint,time:{value:0}},fog:true,transparent:true,depthWrite:false,side:T.DoubleSide,forceSinglePass:true}),this.clouds.items.length);
   this.cloudMesh.name='Transformation vapor and seabed sediment';this.bubbleMesh.name='Transformation bubble shells';
   for(const mesh of [this.cloudMesh,this.bubbleMesh]){mesh.count=0;mesh.visible=false;mesh.frustumCulled=false;mesh.instanceMatrix.setUsage(T.DynamicDrawUsage);this.group.add(mesh);}this.cloudMesh.renderOrder=1;this.bubbleMesh.renderOrder=2;g.scene.add(this.group);
  }
