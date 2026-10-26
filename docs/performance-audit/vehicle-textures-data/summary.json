@@ -1,0 +1,41 @@
+{
+  "assetImages": 275,
+  "uniqueEncodedImages": 157,
+  "exactPixelDuplicateGroups": 0,
+  "uniformImages": 1,
+  "uniformImageAlreadyOptimized": "76abe82e853d5fde87bf6acbec08e076f37c0381c1c796233116ff291f42cda8",
+  "profiles": {
+    "low": {
+      "nativeHandles": 157,
+      "estimatedMiB": 207.99980545043945,
+      "compatibleDuplicateGroups": 0,
+      "sourceSettingVariants": 0,
+      "materials": 567,
+      "meshSummary": {
+        "meshes": 1327,
+        "hiddenMeshes": 0,
+        "multiMaterialMeshes": 0,
+        "unusedMaterialSlots": 0
+      },
+      "glError": 0,
+      "pageErrors": [],
+      "decodedImageBytes": 0
+    },
+    "high": {
+      "nativeHandles": 157,
+      "estimatedMiB": 1211.6398277282715,
+      "compatibleDuplicateGroups": 0,
+      "sourceSettingVariants": 0,
+      "materials": 567,
+      "meshSummary": {
+        "meshes": 1327,
+        "hiddenMeshes": 0,
+        "multiMaterialMeshes": 0,
+        "unusedMaterialSlots": 0
+      },
+      "glError": 0,
+      "pageErrors": [],
+      "decodedImageBytes": 0
+    }
+  }
+}
