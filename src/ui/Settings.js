@@ -1,3 +1,4 @@
+import {dayNightConfig} from '../config/dayNightConfig.js';
 import {focusGameplay} from './focusGameplay.js';
 import {gameplaySettings,compassSizeLimits,gupDiveTiltLimits,loadGameplaySettings,saveGameplaySettings} from './gameplayPreferences.js';
 import {installGraphicsSettings} from './GraphicsSettings.js';
@@ -65,6 +66,15 @@ export function installSettings(){
  dialog.querySelector('.settings-tabs').append(gameplayTab);dialog.querySelector('.monitor-content').append(gameplayPanel);
  const unlockX=check(gameplayPanel,'unlockGupX','Unlock GUP-X',async value=>{gameplaySettings.unlockGupX=value;const game=window.explorer;game?.unlocks?.setOverride('gup-x',value);status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';if(game?.vehicles?.activeId==='gup-x'&&!game.unlocks.isUnlocked('gup-x')){try{await game.vehicles.select('gup-b');game.vehicleSelector.updateHUD();}catch{status.textContent='Could not switch vehicles. Try disabling Unlock GUP-X again.';gameplaySettings.unlockGupX=true;unlockX.checked=true;game.unlocks.setOverride('gup-x',true);saveGameplaySettings(storage,gameplaySettings);}}});unlockX.checked=gameplaySettings.unlockGupX;
  const unlockHelp=document.createElement('p');unlockHelp.className='section-description';unlockHelp.textContent='Unlock the GUP-X instantly without finding all the other GUPs.';gameplayPanel.append(unlockHelp);
+ intro(gameplayPanel,'Day/Night Cycle','Explore a changing ocean. Turn off the cycle to hold the current time, or preview Day and Night.');
+ const saveCycle=()=>{status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';if(window.explorer)window.explorer.needsPausedRender=true;};
+ const cycleChecks=grid(gameplayPanel);
+ for(const [key,label] of [['cycleEnabled','Cycle Enabled'],['automaticHeadlights','Automatic Headlights']]){const input=check(cycleChecks,key,label,value=>{gameplaySettings[key]=value;saveCycle();});input.checked=gameplaySettings[key];}
+ const cycleOptions=grid(gameplayPanel);
+ for(const [key,title,options] of [['cycleDuration','Cycle Duration',dayNightConfig.durations.map(value=>[value,value+' minutes'])],['timeOfDay','Time of Day',[['automatic','Automatic'],['day','Day'],['night','Night']]]]){
+  const row=document.createElement('div'),label=document.createElement('label'),select=document.createElement('select');row.className='setting-row';select.className='setting-select';select.id=key;label.htmlFor=key;label.textContent=title;
+  for(const [value,text] of options){const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);}select.value=gameplaySettings[key];select.addEventListener('change',()=>{gameplaySettings[key]=key==='cycleDuration'?Number(select.value):select.value;saveCycle();});row.append(label,select);cycleOptions.append(row);
+ }
  intro(gameplayPanel,'GUP movement','Choose your climbing and diving angle. Forward thrust follows your GUP’s nose; up/down controls also work while hovering.');
  const diveTilt=range(grid(gameplayPanel),'gupDiveTilt','Climb / dive tilt',gupDiveTiltLimits.min,gupDiveTiltLimits.max,gupDiveTiltLimits.step);
  const syncDiveTilt=()=>{diveTilt.input.value=gameplaySettings.gupDiveTilt;diveTilt.output.value=gameplaySettings.gupDiveTilt+'°';fill(diveTilt.input);};

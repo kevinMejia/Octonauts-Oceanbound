@@ -142,3 +142,12 @@ Space/Shift and the existing touch depth control continue through sea level with
 no scene change. Swimming GUPs hover in air using their existing kinematics;
 GUP-X retains tracked ground movement. Camera orbit, follow and reset are unchanged.
 See [implementation and verification](docs/above-water/README.md) for limits.
+
+### Day/night cycle and automatic headlights
+
+The ocean starts in daylight and cycles every five active minutes. Settings >
+Gameplay > Day/Night Cycle provides 5/10/20/30-minute durations, automatic/day/night
+previews, a cycle freeze switch and automatic headlights. One shadow-free light
+follows the active swimming or tracked GUP; night retains comfortable ambient
+visibility. Preferences save with existing gameplay settings. See
+[implementation, testing and performance limits](docs/day-night/README.md).

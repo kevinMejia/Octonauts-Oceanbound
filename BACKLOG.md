@@ -216,3 +216,28 @@ switches, splashes, real keyboard ascent/dive and pointer drag/recenter.
 Evidence: docs/above-water/. Physical Safari/touch/performance remain unverified.
 User subsequently authorized commit and push to main. Next: push the verified
 feature commit, then user playtest. No next queued task started.
+
+## CYCLE-012 — Day/night cycle and automatic headlights
+
+Explicitly authorized; branch `feat/day-night-cycle`. Primary agent only, as requested;
+no independent agent QA. Scope: 5-minute clock, existing atmosphere integration,
+one active shadow-free spotlight, persisted Gameplay settings. No new above-water
+gameplay, moon/stars/weather/bioluminescence or dependencies.
+Status: completed locally. 348 Node tests, production build and diff checks pass.
+Production Edge high/low passes full simulated cycle, nine-GUP light ownership,
+41-degree GUP-X slope, terrain pixel comparison, UI persistence and render-cost
+samples. Additional real clock/UI/night turbo/dive controls and existing GUP-X,
+emulated touch rescue escort and word-hunt HUD browser regressions pass.
+Evidence and full changed-file list: docs/day-night/README.md. Physical iPhone
+Safari/performance and full night mission playthroughs remain unverified.
+User authorized committing and pushing day/night only on this feature branch.
+Next: push the verified commit, then user review/playtest. No merge/deployment
+or next queued task started.
+
+## SURFACE-013 — Limit airborne GUP hovering
+
+User observed that swimming GUPs can fly above water. Proposed scope: brief
+breaches with gentle settling near the waterline. Status: proposed; implementation
+not authorized. User explicitly selected pushing day/night only. Dependency:
+separate movement/physics scope and branch. Next: await explicit approval.
+Priority: future surface follow-up.
