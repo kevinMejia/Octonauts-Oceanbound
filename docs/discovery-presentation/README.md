@@ -14,8 +14,8 @@ Bubbles, sparkles, sounds, buttons and discovery entrance animations remain inta
 Loaders retain native-axis corrections: imported crew use their existing pi asset
 rotation; vehicle definitions and the marine adapter retain their orientation
 metadata. The preview removes only the gameplay root pose. Its camera faces the
-normalized front: straight ahead for crew and marine creatures, 12 degrees to the
-side for vehicles. An orthographic camera fits all eight visual bounds corners.
+normalized front for crew. Marine creatures retain the original three-quarter
+camera direction (x .8, y .4, z 1); vehicles use a 12-degree side view. An orthographic camera fits all eight visual bounds corners.
 Tunip, Barnacles and Peso show both eyes on opening. No GLBs or materials changed.
 
 The offscreen texture explicitly uses sRGB before PNG readback, avoiding the old
@@ -60,3 +60,23 @@ GUP-X on desktop:
 
 ![Before](before-gup-x-1200.png)
 ![After](after-gup-x-1200.png)
+
+## Marine preview correction
+
+Marine life now uses its earlier angled view, while crew portraits remain
+front-facing. Marine thumbnails alone use a tighter 94% fit and trim transparent
+padding with a 3.5% safety margin. The resulting natural aspect ratio lets wide
+animals fill the scanner width and tall animals fill its height without clipping,
+stretching, changing the panel layout or increasing GPU render-target dimensions.
+Character and vehicle preview framing, colors and layering are unchanged.
+
+All 319 Node tests and the production build pass. Production Edge checks compare
+all 11 marine species at desktop and phone sizes: each uses more space along its
+longest visible dimension, all images fit the viewport, and no page errors occur.
+The dolphin grows from 216x102 to 288x147 visible pixels on the phone test pose;
+measurements for all species are in marine-framing-results.json. Tunip remains
+front-facing. Physical iPhone Safari is still unverified.
+
+![Previous front-facing dolphin](marine-before-bottlenose-dolphin-390.png)
+![Restored angled, larger dolphin](marine-after-bottlenose-dolphin-390.png)
+![Tall animals still fit](marine-after-jellyfish-390.png)

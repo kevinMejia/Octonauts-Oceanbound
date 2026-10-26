@@ -1,0 +1,357 @@
+{
+  "errors": [],
+  "cases": [
+    {
+      "id": "octopus",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        220,
+        146
+      ],
+      "afterInk": [
+        344,
+        236
+      ],
+      "croppedImage": [
+        363,
+        257
+      ]
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        220,
+        103
+      ],
+      "afterInk": [
+        446,
+        228
+      ],
+      "croppedImage": [
+        385,
+        210
+      ]
+    },
+    {
+      "id": "whale-shark",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        222,
+        143
+      ],
+      "afterInk": [
+        324,
+        236
+      ],
+      "croppedImage": [
+        309,
+        231
+      ]
+    },
+    {
+      "id": "giant-manta-ray",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        222,
+        36
+      ],
+      "afterInk": [
+        572,
+        220
+      ],
+      "croppedImage": [
+        316,
+        134
+      ]
+    },
+    {
+      "id": "hammerhead-shark",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        220,
+        152
+      ],
+      "afterInk": [
+        384,
+        234
+      ],
+      "croppedImage": [
+        387,
+        245
+      ]
+    },
+    {
+      "id": "seahorse",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        56,
+        209
+      ],
+      "afterInk": [
+        88,
+        242
+      ],
+      "croppedImage": [
+        178,
+        442
+      ]
+    },
+    {
+      "id": "jellyfish",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        138,
+        209
+      ],
+      "afterInk": [
+        154,
+        242
+      ],
+      "croppedImage": [
+        289,
+        440
+      ]
+    },
+    {
+      "id": "spotted-eagle-ray",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        222,
+        37
+      ],
+      "afterInk": [
+        606,
+        218
+      ],
+      "croppedImage": [
+        292,
+        117
+      ]
+    },
+    {
+      "id": "moray-eel",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        207,
+        130
+      ],
+      "afterInk": [
+        624,
+        182
+      ],
+      "croppedImage": [
+        471,
+        159
+      ]
+    },
+    {
+      "id": "pufferfish",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        219,
+        153
+      ],
+      "afterInk": [
+        292,
+        238
+      ],
+      "croppedImage": [
+        313,
+        259
+      ]
+    },
+    {
+      "id": "humpback-whale",
+      "viewportWidth": 1200,
+      "beforeInk": [
+        142,
+        57
+      ],
+      "afterInk": [
+        562,
+        222
+      ],
+      "croppedImage": [
+        296,
+        128
+      ]
+    },
+    {
+      "id": "octopus",
+      "viewportWidth": 390,
+      "beforeInk": [
+        216,
+        143
+      ],
+      "afterInk": [
+        288,
+        199
+      ],
+      "croppedImage": [
+        363,
+        257
+      ]
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "viewportWidth": 390,
+      "beforeInk": [
+        216,
+        102
+      ],
+      "afterInk": [
+        288,
+        147
+      ],
+      "croppedImage": [
+        385,
+        210
+      ]
+    },
+    {
+      "id": "whale-shark",
+      "viewportWidth": 390,
+      "beforeInk": [
+        216,
+        140
+      ],
+      "afterInk": [
+        286,
+        209
+      ],
+      "croppedImage": [
+        309,
+        231
+      ]
+    },
+    {
+      "id": "giant-manta-ray",
+      "viewportWidth": 390,
+      "beforeInk": [
+        218,
+        36
+      ],
+      "afterInk": [
+        288,
+        111
+      ],
+      "croppedImage": [
+        316,
+        134
+      ]
+    },
+    {
+      "id": "hammerhead-shark",
+      "viewportWidth": 390,
+      "beforeInk": [
+        216,
+        149
+      ],
+      "afterInk": [
+        288,
+        175
+      ],
+      "croppedImage": [
+        387,
+        245
+      ]
+    },
+    {
+      "id": "seahorse",
+      "viewportWidth": 390,
+      "beforeInk": [
+        56,
+        204
+      ],
+      "afterInk": [
+        86,
+        237
+      ],
+      "croppedImage": [
+        178,
+        442
+      ]
+    },
+    {
+      "id": "jellyfish",
+      "viewportWidth": 390,
+      "beforeInk": [
+        136,
+        205
+      ],
+      "afterInk": [
+        150,
+        237
+      ],
+      "croppedImage": [
+        289,
+        440
+      ]
+    },
+    {
+      "id": "spotted-eagle-ray",
+      "viewportWidth": 390,
+      "beforeInk": [
+        216,
+        37
+      ],
+      "afterInk": [
+        288,
+        103
+      ],
+      "croppedImage": [
+        292,
+        117
+      ]
+    },
+    {
+      "id": "moray-eel",
+      "viewportWidth": 390,
+      "beforeInk": [
+        202,
+        128
+      ],
+      "afterInk": [
+        288,
+        83
+      ],
+      "croppedImage": [
+        471,
+        159
+      ]
+    },
+    {
+      "id": "pufferfish",
+      "viewportWidth": 390,
+      "beforeInk": [
+        213,
+        150
+      ],
+      "afterInk": [
+        286,
+        233
+      ],
+      "croppedImage": [
+        313,
+        259
+      ]
+    },
+    {
+      "id": "humpback-whale",
+      "viewportWidth": 390,
+      "beforeInk": [
+        138,
+        57
+      ],
+      "afterInk": [
+        288,
+        113
+      ],
+      "croppedImage": [
+        296,
+        128
+      ]
+    }
+  ]
+}

@@ -153,3 +153,14 @@ all nine GUPs, both quality profiles, portrait/landscape, measured concealment,
 resource reuse/cleanup, failures, rapid input, real-loop controls and a cancelled
 slow-load/new-selection race. Evidence: docs/vehicle-transformation/. Physical
 iPhone Safari/performance remains unverified. No push or deployment performed.
+
+## MARINE-006 — Marine preview correction
+
+User requested restoring the previous marine-life viewing angles, preserving
+front-facing characters, and enlarging animals within the scanner screen.
+Priority: current. Explicitly authorized. Status: delivered locally. Marine-only
+camera configuration restored; transparent padding cropped with safety margin
+using existing thumbnail path. Colors, layering, world models, and front-facing
+characters preserved. 319 tests and production build pass; all 11 animals verified
+at desktop and phone sizes with larger longest dimensions and no page errors.
+Next: no additional local implementation pending. Physical Safari remains untested.
