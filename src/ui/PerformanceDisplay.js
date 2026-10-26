@@ -24,7 +24,7 @@ export class PerformanceDisplay{
   this.lastReport=now;
   if(game&&now-this.lastMemory>=2000){this.memory=estimateResidentTextureMemory(game);this.lastMemory=now;}
   const data=summarizeFrames(this.samples.map(s=>s.ms));
-  this.output.textContent=data.fps.toFixed(0)+' FPS · '+data.mean.toFixed(1)+' ms avg\n'+data.p95.toFixed(1)+' ms p95 · '+data.stutters+' frames >50 ms / 2s'+(this.memory?'\nGPU textures ~'+(this.memory.bytes/1048576).toFixed(1)+' MiB'+(this.memory.unknownTextures?' + ?':''):'');
+  this.output.textContent='FPS '+data.fps.toFixed(0)+' · Avg '+data.mean.toFixed(1)+' ms\nP95 '+data.p95.toFixed(1)+' ms · Spikes '+data.stutters+(this.memory?'\nGPU textures ~'+(this.memory.bytes/1048576).toFixed(1)+' MiB'+(this.memory.unknownTextures?' + ?':''):'');
  }
 }
 export const performanceDisplay=new PerformanceDisplay();

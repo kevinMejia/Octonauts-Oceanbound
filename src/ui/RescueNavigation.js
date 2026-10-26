@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {GLTFLoader} from '../../vendor/GLTFLoader.js';
 import {rescueNavigationState,smoothRescueBearing} from '../navigation/rescueNavigation.js';
+import {rescueConfig} from '../config/rescueConfig.js';
 
 function fallbackArrow(){
  const shape=new T.Shape();[[-.28,-.72],[.28,-.72],[.28,.08],[.7,.08],[0,.92],[-.7,.08],[-.28,.08]].forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();
@@ -19,7 +20,7 @@ export class RescueNavigation{
   root.append(this.section);this.caption=this.section.querySelector('.rescue-caption');this.distance=this.section.querySelector('.rescue-distance');this.canvas=this.section.querySelector('canvas');this.context=this.canvas.getContext('2d',{alpha:false});
   this.scene=new T.Scene();this.scene.background=new T.Color('#07525f');this.scene.add(new T.HemisphereLight(0xd6ffff,0x013341,1.6));const light=new T.DirectionalLight(0xffffff,1.8);light.position.set(-2,4,3);this.scene.add(light);
   this.pivot=new T.Group();this.pivot.scale.setScalar(1.2);this.pivot.add(arrow);this.scene.add(this.pivot);
-  this.camera=new T.OrthographicCamera(-1.5,1.5,.95,-.95,.1,20);this.camera.position.set(0,4,5);this.camera.lookAt(0,0,0);
+  this.camera=new T.OrthographicCamera(-1.5,1.5,.95,-.95,.1,20);const elevation=rescueConfig.hud.arrowViewElevation*Math.PI/180;this.camera.position.set(0,Math.sin(elevation)*6.4,Math.cos(elevation)*6.4);this.camera.lookAt(0,0,0);
   this.viewport=new T.Vector4();this.scissor=new T.Vector4();this.drawingSize=new T.Vector2();
  }
  setMission(mission){

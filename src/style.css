@@ -54,13 +54,14 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 @keyframes compass-near{50%{stroke:#17576a;stroke-width:4px;opacity:.8}}
 @media(prefers-reduced-motion:reduce){.compass-targets .nearby text{animation:none}}
 
-/* Centered rescue completion uses the same metallic screen and scanlines as menus. */
-#rescueNotice{position:fixed;z-index:7;top:50%;left:50%;transform:translate(-50%,-50%);width:min(340px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 32px));padding:22px 20px;border:2px solid transparent;border-radius:22px;outline:1px solid #91a29a;outline-offset:-1px;background:linear-gradient(135deg,#073e51ed,#06283eea) padding-box,linear-gradient(145deg,#a4b5ac,#364548 65%,#81928c) border-box;box-shadow:0 8px 24px #001a354d,inset 0 1px 2px #d2dad04d,inset 0 -2px 5px #002c4b66;pointer-events:none;color:#ffe2a2;text-align:center;font:800 clamp(16px,4.5vw,20px)/1.4 Arial,sans-serif;letter-spacing:.3px;isolation:isolate}
-#rescueNotice::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,#003b4020 3px,#003b4020 4px),linear-gradient(120deg,#d1fff30a,transparent 35%)}
-#rescueNotice[hidden]{display:none}
-#rescueNotice:not([hidden]){animation:rescue-notice-in .25s ease-out}
-@keyframes rescue-notice-in{from{opacity:0;transform:translate(-50%,calc(-50% - 8px))}to{opacity:1;transform:translate(-50%,-50%)}}
-@media(prefers-reduced-motion:reduce){#rescueNotice:not([hidden]){animation:none}}
+/* Rescue completion uses the same metallic screen and scanlines as menus. */
+#turboHud{transition:width .25s ease,top .25s ease;}
+#turboHud.rescue-success{width:min(260px,calc(100vw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px) - 240px));min-width:125px;box-shadow:0 0 12px #ffe09b55,inset 0 1px 2px #d2dad04d}
+#rescueNotice{max-height:110px;overflow:hidden;opacity:1;margin:0;padding:10px 0 5px;color:#ffe29b;text-shadow:0 0 8px #ffd56a55;font:800 17px/1.3 Arial,sans-serif;text-wrap:balance;pointer-events:none;transition:max-height .25s ease,padding .25s ease,opacity .2s ease}
+#rescueNotice[hidden]{display:block;max-height:0;padding:0;opacity:0}
+/* On narrow phones, the center lane below the counters clears the title row. */
+@media(max-width:500px) and (min-height:501px){#turboHud.rescue-success{top:calc(env(safe-area-inset-top,0px) + 164px)}}
+@media(prefers-reduced-motion:reduce){#turboHud,#rescueNotice{transition:none}}
 #compass.rescue-active .base-bearing span{border-radius:50%;outline:2px solid #ffe29b;background:#086575;box-shadow:0 0 12px #ffe09baa}
 #compass.rescue-active .base-bearing img{filter:drop-shadow(0 0 4px #ffe29b)}
 
@@ -85,4 +86,9 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 .compass-targets image{filter:drop-shadow(0 1px 1px #013348)}
 .compass-targets .nearby image{filter:drop-shadow(0 0 calc(2px + var(--proximity)*3px) #b4f5ef)}
 
-.fleet-notice{position:fixed;top:15%;left:50%;transform:translateX(-50%);color:white;background:#a51d30;border-radius:18px;padding:12px 22px;z-index:15;pointer-events:none}.fleet-notice:empty{display:none}
+/* Shared control anchors keep statistics directly above the steering region. */
+:root{--steering-size:150px;--control-left:max(20px,env(safe-area-inset-left,0px));--control-bottom:max(24px,env(safe-area-inset-bottom,0px))}
+#joystick{left:var(--control-left);bottom:var(--control-bottom);width:var(--steering-size);height:var(--steering-size)}
+@media(max-width:500px){:root{--steering-size:140px}}
+@media(max-height:500px){:root{--steering-size:clamp(80px,calc(100dvh - 270px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)),130px)}}
+#joystick .stick-knob{left:calc(50% - 27px);top:calc(50% - 27px)}

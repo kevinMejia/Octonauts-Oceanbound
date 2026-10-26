@@ -3,12 +3,15 @@ import {DiscoveryCelebration} from './DiscoveryCelebration.js';
 import {vehicleThumbnailURL} from '../config/vehicleConfig.js';
 export class DiscoveryModal{
  constructor(game){
-  this.game=game;this.operation=0;this.busy=false;this.dialog=document.createElement('dialog');this.dialog.id='discoveryDialog';this.dialog.setAttribute('aria-labelledby','discoveryTitle');this.dialog.setAttribute('aria-describedby','discoveryInstruction');
+  this.game=game;this.pending=[];this.operation=0;this.busy=false;this.dialog=document.createElement('dialog');this.dialog.id='discoveryDialog';this.dialog.setAttribute('aria-labelledby','discoveryTitle');this.dialog.setAttribute('aria-describedby','discoveryInstruction');
   this.dialog.innerHTML=`<div class="monitor-screen"><div class="monitor-header"><img src="./assets/img/Octopus%20Badge%20Icon.png" width="44" height="44" alt=""><div><p class="monitor-eyebrow">OCTOPOD SYSTEMS</p><h2 id="discoveryTitle"></h2></div><button id="closeDiscovery" type="button" aria-label="Close discovery">&#10005;</button></div><div class="monitor-content discovery-content"><span class="discovery-status">NEW GUP UNLOCKED</span><button id="discoveryVehicle" type="button"><img alt="" draggable="false"></button><p id="discoveryInstruction">TAP YOUR NEW GUP TO EXPLORE!</p><p id="discoveryError" role="status" aria-live="polite"></p></div><div class="monitor-footer"><p>EXPLORE &#183; RESCUE &#183; PROTECT</p><span>FLEET SYSTEMS</span></div></div>`;
   document.body.append(this.dialog);this.imageButton=this.dialog.querySelector('#discoveryVehicle');this.image=this.imageButton.querySelector('img');this.error=this.dialog.querySelector('#discoveryError');this.celebration=new DiscoveryCelebration(this.dialog,this.imageButton);
   this.imageButton.onclick=()=>this.select();this.dialog.querySelector('#closeDiscovery').onclick=()=>this.close();
   this.dialog.addEventListener('cancel',e=>{e.preventDefault();this.close();});this.dialog.addEventListener('close',()=>this.didClose());
  }
+ // Earned rewards wait for the discovering GUP and any other modal to close.
+ enqueue(definition){if(!this.pending.some(d=>d.id===definition.id))this.pending.push(definition);}
+ update(){if(this.pending.length&&!this.game.pause.paused&&!this.game.discovery.activeDiscovery&&!document.querySelector('dialog[open]'))this.open(this.pending.shift());}
  open(definition,location){
   if(this.dialog.open)return;
   this.definition=definition;this.operation++;this.busy=false;this.imageButton.disabled=false;this.error.textContent='';this.dialog.classList.remove('is-closing');

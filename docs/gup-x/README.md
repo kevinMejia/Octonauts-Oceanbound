@@ -23,7 +23,7 @@ Camera distance is 1.4x, height 1.3x existing settings; orbit/reset/collision be
 
 ## Availability
 
-VehicleUnlocks evaluates all registry vehicles except final rewards and entries explicitly marked `requiredForFinal:false`. It saves earned GUP-X once those required GUPs are unlocked, including migration of complete older saves. A short non-modal status notice announces newly earned GUP-X. The gameplay `unlockGupX` preference is applied as an in-memory override; it never enters the saved earned ID set. Disabling it switches an unearned active GUP-X to GUP-B through VehicleFleet; on loading failure the override is restored with an explanatory settings status. Reset clears earned progress while preserving preferences.
+VehicleUnlocks evaluates all registry vehicles except final rewards and entries explicitly marked `requiredForFinal:false`. It saves earned GUP-X once those required GUPs are unlocked, including migration of complete older saves. Newly earned GUP-X queues the standard discovery window after the last regular discovery closes. The window uses the shared thumbnail, celebration, sound and selection controls. Saved unlocks and testing overrides do not replay the celebration. The gameplay `unlockGupX` preference is applied as an in-memory override; it never enters the saved earned ID set. Disabling it switches an unearned active GUP-X to GUP-B through VehicleFleet; on loading failure the override is restored with an explanatory settings status. Reset clears earned progress while preserving preferences.
 
 ## Actual model configuration and treads
 

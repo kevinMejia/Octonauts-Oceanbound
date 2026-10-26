@@ -23,11 +23,12 @@ export const rescueConfig={
  },
  hud:{
   enabled:true, // Show the compact mission indicator.
+  arrowViewElevation:25, // Degrees above horizontal: keep the arrow visibly flatter.
   highlightOctopod:true, // Emphasize the existing base marker while towing.
  },
  completion:{
   showMessage:true, // Show a brief accessible completion status.
   showEffect:true, // Reuse the existing discovery burst and sound.
-  messageSeconds:4, // Completion message lifetime in gameplay seconds.
+  messageSeconds:3, // Completion message lifetime in gameplay seconds.
  },
 };
