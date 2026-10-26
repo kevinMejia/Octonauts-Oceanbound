@@ -71,3 +71,43 @@ to real delegated agents, without claiming the TOML role was loaded.
 Configuration references: [Codex subagents](https://developers.openai.com/codex/subagents),
 [config schema](https://developers.openai.com/codex/config-schema.json), and
 [configuration basics](https://developers.openai.com/codex/config-basic).
+
+## Incoming requests and persistent backlog
+
+Read BACKLOG.md at session start and before choosing work. Keep the active task,
+approved scope, branch/PR, verification status, blockers, and next action current.
+Preserve these checkpoints across messages and Codex sessions.
+
+During an active task, treat additional feature requests, bug reports, and
+improvement ideas as separate queued requests by default, including related ideas.
+Record each request in BACKLOG.md with an ID, scope, priority, authorization,
+status, dependencies, and next action. Briefly acknowledge it, then continue the
+current approved work and retain its progress and active subagents.
+
+Have the Project Manager evaluate queued requests, identify dependencies, and
+recommend whether they belong in the current feature or a future task. Triage
+does not authorize a scope change. Do not add queued work to an active
+implementation or interrupt/reprioritize it unless the user explicitly approves
+the change or says to prioritize the request now. Answer status questions briefly
+and resume; do not treat them as cancellation.
+
+Finish the active task's authorized implementation, independent QA, verification,
+and requested PR delivery before starting the next task. Resolve blocking QA
+findings within the approved scope. At completion, present queued requests in
+priority order with dependencies and authorization. Do not automatically start
+the next queued task without explicit user approval. An explicit implementation
+request can already provide that approval; do not ask again for authorization
+already given. An idea or backlog entry alone is not implementation approval.
+
+Keep unrelated tasks on separate branches and PRs. In particular, changes to
+these queue conventions and the backlog belong in an infrastructure PR without
+gameplay changes. Never merge or deploy automatically.
+
+The backlog is a repository-managed coordination record, not a background
+scheduler. Do not promise asynchronous processing unless the current host
+actually supports it. If a new message interrupts execution, preserve the current
+checkpoint, inspect task/subagent/tool state, and resume from the last completed
+step before considering queued work. A tool call may have changed local or remote
+state before interruption; inspect its result before retrying mutations. Do not
+restart analysis, abandon active agents, or switch scope merely because a new
+request arrived.

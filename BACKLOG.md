@@ -1,45 +1,65 @@
 # Development backlog
 
-This repository record tracks requests and task checkpoints. It is not a background
-scheduler. An idea or backlog entry does not authorize implementation. Never merge
-or deploy automatically.
+Read this record with AGENTS.md at session start. Keep active scope, authorization,
+dependencies, verification, and the next action current. A backlog entry alone is
+not implementation approval. This is not a background scheduler.
 
 ## Active task
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
-| CAMERA-001 | Fix GUP-X steep-slope chase camera and driving view | Current | Explicit user implementation request | Verifying | Finish rendered checks and deliver the camera PR; do not add queued scope |
+| WORKFLOW-002 | Noninterrupting request queue, project instructions, and persistent backlog | Current | Explicit user implementation request | Verifying | Independently review AGENTS.md and this record; open a separate infrastructure PR |
 
-Checkpoint: [camera PR #2](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/2)
-is open as a draft on `fix/gup-x-steep-slope-camera`; source commit
-`27bc96b003bcb5fb79532b3b754831e4e50f8b31`. Real Project Manager, Game Developer,
-and independent QA agents ran. Independent QA passed 15 focused cases, the full
-55-file suite, production build, and six unchanged underwater camera snapshots.
-Its blocking terrain-ahead visibility finding was fixed and re-reviewed.
-Browser driving/orbit geometry and real mouse drag/recenter ran in Chromium.
-Rendered reef occlusion remains qualified; the environment restarted during the
-final clear-slope capture, clearing temporary artifacts. Recreate that capture
-after waiting for the startup overlay to detach before claiming visual success.
-No physical iPhone testing, merge, or deployment occurred.
+Scope: instructions and backlog only; no gameplay changes. Branch:
+`chore/non-interrupting-request-queue`. The Project Manager triaged this as the next
+already-authorized task after camera delivery. Existing AGENTS.md instructions
+are preserved; the new section adds queue handling, approval boundaries, and
+interruption recovery.
 
 ## Queue, in priority order
 
-| ID | Request | Priority | Authorization | Status | Dependency / next action |
+No additional feature requests, bug reports, or improvement ideas are queued.
+Do not automatically start new work. For each incoming request, add a row with:
+
+| ID | Request / scope | Priority | Authorization | Status | Dependencies / next action |
 | --- | --- | --- | --- | --- | --- |
-| WORKFLOW-002 | Noninterrupting request queue, project instructions, and persistent backlog | Next | Explicit user request; approved for implementation after current task | Queued | After CAMERA-001 verification and PR delivery, update AGENTS.md and this record, obtain independent review, and open a separate infrastructure PR |
 
-Scope: instructions and backlog only; no gameplay changes. New feature requests,
-bug reports, and improvement ideas arriving during active work go into this queue.
-Project Manager triage may recommend current or future scope, but does not grant
-permission to change active scope. Require explicit user approval to reprioritize
-or implement unapproved queued work. Do not ask again for already authorized work.
+Use `proposed`, `queued`, `active`, `verifying`, `blocked`, or `delivered`. Have the
+Project Manager triage requests and record the recommendation. A recommendation
+to include a request in current scope still needs explicit user approval before
+implementation. Explicitly approved work does not require repeated approval.
 
-No other game feature requests are queued or authorized.
+## Delivered work and remaining verification
 
-## Resuming work
+| ID | Request | Delivery | Verification / qualifications |
+| --- | --- | --- | --- |
+| CAMERA-001 | Fix GUP-X steep-slope camera and driving view | [PR #2](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/2), open and unmerged; branch `fix/gup-x-steep-slope-camera` | Independent QA passed; physical iPhone verification and documented rendering limits remain |
 
-Read AGENTS.md and this file, inspect branches and tool outcomes, then resume the
-active task from its checkpoint. An interrupted tool call may already have changed
-remote state; inspect before retrying a mutation. Update this record as requests,
-authorization, dependencies, verification, or delivery status change. Mark a task
-delivered when its requested PR is open and reviewed; that does not mean merged.
+Camera checkpoint: commit `c64de6d796fd2908995bdf7cf31412fee81dfc9b`. Real Project
+Manager, Game Developer, and QA subagents ran. QA's blocking terrain-ahead
+visibility finding was fixed and independently re-reviewed. All 55 test files,
+15 focused camera cases, production build, and six exact underwater camera
+snapshots passed. Actual local Chromium driving/orbit checks and real pointer
+drag/recenter ran. Corrected final captures show a clear 28.86° slope in both
+directions and a 41.42° uphill view; evidence and diagnostics are in the camera PR.
+
+The original location still has partial decorative-reef overlap, and extreme
+close-distance/narrow-FOV portrait side views can crop the hull. These are
+documented qualifications, not evidence of an invalid physics spawn. Physical
+iPhone Safari feel, sustained frame pacing/thermal behavior, portrait framing,
+and simultaneous steering/orbit touch remain untested. Airborne coverage is
+synthetic; the existing tracked controller has no jump mechanic. No merge or
+deployment occurred. These notes do not authorize a new implementation task.
+
+## Resuming and updating this record
+
+Inspect the active branch/PR, subagent results, and tool outcomes, then resume the
+active task from its last completed step. An interrupted tool call may already
+have changed remote state; inspect before retrying a mutation. Preserve progress
+and active agents rather than restarting. Record new requests before considering
+their implementation and briefly acknowledge them while continuing approved work.
+
+At independent QA completion and requested PR delivery, present the queue in
+priority order. Mark a task delivered when its requested PR is open and reviewed;
+that does not imply merge or deployment. Keep remaining verification and known
+limits visible. Do not start an unapproved queued task automatically.
