@@ -1,0 +1,375 @@
+{
+  "results": [
+    {
+      "id": "tunip",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 9219
+    },
+    {
+      "id": "barnacles",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12950
+    },
+    {
+      "id": "peso",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 306.046875,
+        "right": 934,
+        "bottom": 566.046875
+      },
+      "dialog": {
+        "x": 220,
+        "y": 132.046875,
+        "right": 980,
+        "bottom": 767.9375
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 14716
+    },
+    {
+      "id": "gup-b",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 6707
+    },
+    {
+      "id": "gup-x",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 326,
+        "y": 326.25,
+        "right": 874,
+        "bottom": 606.25
+      },
+      "dialog": {
+        "x": 260,
+        "y": 134.25,
+        "right": 940,
+        "bottom": 765.75
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 15241
+    },
+    {
+      "id": "octopus",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12164
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 6356
+    },
+    {
+      "id": "jellyfish",
+      "width": 1200,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 266,
+        "y": 304.859375,
+        "right": 934,
+        "bottom": 564.859375
+      },
+      "dialog": {
+        "x": 220,
+        "y": 112.859375,
+        "right": 980,
+        "bottom": 787.140625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "translucent": true,
+      "overlayPixelsChecked": 79
+    },
+    {
+      "id": "tunip",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 8715
+    },
+    {
+      "id": "barnacles",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 12182
+    },
+    {
+      "id": "peso",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 265.15625,
+        "right": 349,
+        "bottom": 518.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 112.359375,
+        "right": 380,
+        "bottom": 731.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 13889
+    },
+    {
+      "id": "gup-b",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 5621
+    },
+    {
+      "id": "gup-x",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 53,
+        "y": 304.265625,
+        "right": 337,
+        "bottom": 563.21875
+      },
+      "dialog": {
+        "x": 12,
+        "y": 144.265625,
+        "right": 378,
+        "bottom": 699.71875
+      },
+      "filter": "drop-shadow(rgba(0, 73, 99, 0.2) 0px 9px 7px)",
+      "zIndex": "1",
+      "overlayPixelsChecked": 12928
+    },
+    {
+      "id": "octopus",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 261.96875,
+        "right": 349,
+        "bottom": 515.15625
+      },
+      "dialog": {
+        "x": 10,
+        "y": 95.171875,
+        "right": 380,
+        "bottom": 748.828125
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 11483
+    },
+    {
+      "id": "bottlenose-dolphin",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 261.96875,
+        "right": 349,
+        "bottom": 515.15625
+      },
+      "dialog": {
+        "x": 10,
+        "y": 95.171875,
+        "right": 380,
+        "bottom": 748.828125
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "overlayPixelsChecked": 5994
+    },
+    {
+      "id": "jellyfish",
+      "width": 390,
+      "natural": [
+        512,
+        512
+      ],
+      "rect": {
+        "x": 41,
+        "y": 273.15625,
+        "right": 349,
+        "bottom": 526.34375
+      },
+      "dialog": {
+        "x": 10,
+        "y": 106.359375,
+        "right": 380,
+        "bottom": 737.625
+      },
+      "filter": "none",
+      "zIndex": "auto",
+      "translucent": true,
+      "overlayPixelsChecked": 72
+    }
+  ],
+  "errors": []
+}

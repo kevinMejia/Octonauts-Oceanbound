@@ -121,3 +121,28 @@ in Game.js and RescueNavigation.js resolved; removed the obsolete HUD-camera
 elevation setting and use navigation.presentationTilt=25. Verification passed: 313 Node tests, production build, discovery/HUD browser
 checks, and world-arrow browser checks across all GUPs and four viewport sizes.
 Leave the merge uncommitted for review. TURBO-004 is outside this local scope.
+
+## Arrow angle follow-up
+
+User explicitly requested a 20-degree arrow tilt after the resolved merge was
+pushed as d966601. Scope: change navigation.presentationTilt from 25 to 20 and
+update associated assertions/documentation. All 15 focused tests and production build pass.
+The flatter angle makes projected faces thinner in grazing views; geometry checks
+retain a 6-pixel minimum dimension and 80-pixel face area across fleet fixtures.
+
+## Active local presentation request
+
+User explicitly authorized discovery presentation fixes: inspect shared preview
+layering, front orientation and neutral lighting; preserve gameplay/assets and
+existing animations; single agent. Status: delivered locally. Shared sRGB thumbnail renderer, neutral lights,
+front-facing cameras and protected artwork layers implemented. 315 Node tests,
+production build, 16 production desktop/phone captures with opaque-pixel overlay
+comparisons, celebration and HUD browser regressions pass. Physical Safari remains
+unverified. Next: SWITCH-005, explicitly authorized below.
+
+## Authorized next local request
+
+SWITCH-005: user explicitly requested bubble-cloud vehicle transformations, with
+terrain-based sediment near the seabed. Single agent; focused reuse of existing
+particle pools, safe async selection and 1–1.5 second timing; test and commit on
+the current branch. Status: queued after discovery presentation commit.

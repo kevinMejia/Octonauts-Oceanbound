@@ -1,3 +1,4 @@
+import {discoveryThumbnail} from '../ui/DiscoveryThumbnail.js';
 import {AnimalMovement} from './AnimalMovement.js';
 import {movementForAnimal} from '../config/animalMovementConfig.js';
 import {createAnimalGroup,updateAnimalGroup} from './AnimalGroups.js';
@@ -25,19 +26,7 @@ export class MarineAnimals{
   r.movement=new AnimalMovement(config);
  }}animals.update(0,game.sub.position,true);return animals;}
  constructor(game){this.game=game;this.records=[];this.thumbnails=new Map();this.time=0;}
- thumbnail(group,fit=false){
-  const renderer=this.game.renderer,scene=new T.Scene(),camera=new T.PerspectiveCamera(32,1,.1,200);
-  scene.add(group,new T.HemisphereLight(0xd5faff,0x51677a,2));const key=new T.DirectionalLight(0xffffff,2.5);key.position.set(5,8,10);scene.add(key);
-  const box=new T.Box3().setFromObject(group),size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3()),distance=size.length()*1.05;
-  camera.position.copy(center).add(new T.Vector3(distance*.8,distance*.4,distance));camera.lookAt(center);
-  if(fit){for(let pass=0;pass<5;pass++){camera.updateMatrixWorld(true);let edge=0;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const p=new T.Vector3(x,y,z).project(camera);edge=Math.max(edge,Math.abs(p.x),Math.abs(p.y));}if(edge<=.86)break;camera.position.sub(center).multiplyScalar(edge/.84).add(center);}}
-  const target=new T.WebGLRenderTarget(256,256),previous=renderer.getRenderTarget(),alpha=renderer.getClearAlpha(),color=renderer.getClearColor(new T.Color());
-  try{renderer.setRenderTarget(target);renderer.setClearColor(0x000000,0);renderer.render(scene,camera);
-   const pixels=new Uint8Array(256*256*4);renderer.readRenderTargetPixels(target,0,0,256,256,pixels);
-   const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const context=canvas.getContext('2d'),data=context.createImageData(256,256);
-   for(let y=0;y<256;y++)data.data.set(pixels.subarray((255-y)*1024,(256-y)*1024),y*1024);context.putImageData(data,0,0);return canvas.toDataURL('image/png');
-  }finally{renderer.setRenderTarget(previous);renderer.setClearColor(color,alpha);target.dispose();scene.remove(group);}
- }
+ thumbnail(group,fit=false,view){return discoveryThumbnail(this.game.renderer,group,view);}
  update(dt,player,force=false){this.time+=dt;
   for(const r of this.records){if(r.independent){updateAnimalGroup(r,this.time,dt,player,force);continue;}if(r.movement){
    const g=r.visual.group,distance=Math.hypot(g.position.x-player.x,g.position.z-player.z);r.elapsed+=dt;g.visible=force||distance<240;

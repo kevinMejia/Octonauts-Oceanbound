@@ -31,3 +31,11 @@
 @keyframes discovery-sweep{0%{opacity:0;transform:translateX(-130%)}20%{opacity:.65}80%{opacity:.4}100%{opacity:0;transform:translateX(130%)}}
 @keyframes discovery-reveal{from{opacity:.55}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){#discoveryDialog[open]{animation:discovery-reveal .16s ease-out}#discoveryDialog.is-closing,#discoveryDialog::backdrop,#discoveryDialog #discoveryVehicle img,#discoveryDialog #discoveryVehicle::before{animation:none!important}#discoveryVehicle{transition:none}}
+
+/* Scanner decorations stay behind the original, untinted model artwork. */
+:is(#discoveryDialog,#crewDialog,#marineDialog) .monitor-screen{isolation:isolate}
+:is(#discoveryDialog,#crewDialog,#marineDialog) .monitor-screen::after{z-index:0}
+:is(#discoveryDialog,#crewDialog,#marineDialog) :is(.monitor-header,.monitor-content,.monitor-footer){position:relative;z-index:1}
+#discoveryVehicle{isolation:isolate}
+#discoveryVehicle::after,#discoveryDialog.discovery-celebrating #discoveryVehicle::before{z-index:0}
+#discoveryVehicle img{z-index:1}

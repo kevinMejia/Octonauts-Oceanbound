@@ -1,3 +1,4 @@
+import {discoveryPreviewConfig} from '../config/discoveryPreviewConfig.js';
 import {TowPose} from '../crew/TowPose.js';
 import {towVisualConfig} from '../config/towVisualConfig.js';
 import {rescueConfig} from '../config/rescueConfig.js';
@@ -38,7 +39,7 @@ export class OctopodCrew{
    const d=record.definition,model=record.model;model.position.set(0,0,0);model.rotation.set(0,0,0);
    // Reuse the existing model-thumbnail renderer; restore the same instance below.
    record.portrait=d.portraitPath;
-   if(!record.portrait){const time=record.mixer.time;try{record.mixer.setTime(d.visual?.portraitTime??0);record.portrait=game.marineAnimals.thumbnail(model,true);}finally{record.mixer.setTime(time);}}
+   if(!record.portrait){const time=record.mixer.time;try{record.mixer.setTime(d.visual?.portraitTime??0);record.portrait=game.marineAnimals.thumbnail(model,true,discoveryPreviewConfig.views.crew);}finally{record.mixer.setTime(time);}}
    const size=new T.Box3().setFromObject(model).getSize(new T.Vector3());record.height=d.gameplaySize?.height??size.y;record.radius=d.gameplaySize?.radius??Math.max(size.x,size.z)/2;record.activityRadius=Math.max(record.radius,Math.max(size.x,size.z)/2);
    record.towPose.pivot.set(0,record.height*(rescueConfig.towing.attachmentHeightRatio??.45)/model.scale.y,0);
    record.helmet=new CrewHelmet(record);
