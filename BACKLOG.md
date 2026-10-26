@@ -8,17 +8,25 @@ not implementation approval. This is not a background scheduler.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
-| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Planning | Project Manager investigation, scoped implementation, independent QA, full tests/build, dedicated PR |
+| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Implementing QA fixes | Resolve phone-size readability, paused redraw invalidation, and screenshot resize timing; repeat independent QA and deliver PR |
 
-Checkpoint: branch `fix/rescue-arrow-above-gup`, based on main commit
-`637743a324c8ab6b18d677a19c10e1fe1dda99dd`. Real planning subagent
-`rescue_arrow_project_manager` is investigating the existing HUD-rendered arrow,
-world-space placement, heading-independent target bearing, and mission lifecycle.
-Reuse the existing arrow/navigation architecture and appearance; expose height,
-forward offset, scale, and position/rotation smoothing in existing configuration.
-Support all playable GUPs, including GUP-X. Preserve towing, rescue completion,
-discovery progression, and the GUP-X camera. Implementation and QA follow planning
-sequentially. No merge or deployment is authorized.
+Checkpoint: [draft PR #4](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/4),
+branch `fix/rescue-arrow-above-gup`, initial verified commit `774c20f3063ee71e1eae27b53a34562875ac651d`.
+Real agents `rescue_arrow_project_manager`, `rescue_arrow_game_developer`, and
+`rescue_arrow_qa_engineer` performed planning, implementation, and independent QA.
+The initial 11 focused cases, full 56-file test suite, production build, all-nine-GUP
+browser switching checks, and scripted stop/reset/delivery state checks passed.
+QA found three remaining issues: the world-horizontal arrow is too edge-on in
+phone-sized GUP-X uphill views; paused stop/reset can leave old framebuffer pixels;
+and the optional browser harness must let resize settle before rendering captures.
+The developer is fixing these within the approved navigation/configuration scope.
+Actual browser evidence is under /tmp/rescue-arrow-qa while this environment lasts;
+recreate it from the repository browser harness if temporary artifacts are lost.
+
+Reuse the existing arrow and navigation architecture and appearance. Keep placement,
+scale, and damping configurable. Support all nine playable GUPs, including GUP-X.
+Preserve towing, rescue completion, discovery progression, and the GUP-X camera.
+Repeat independent QA after the fixes. No merge or deployment is authorized.
 
 ## Queue, in priority order
 
