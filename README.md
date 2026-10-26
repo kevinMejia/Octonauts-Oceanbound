@@ -33,7 +33,7 @@ W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag 
 - `src/config/`: commented movement, world and camera tuning. Change `seed` to generate another layout.
 - `vendor/`: pinned Three.js r168 and loader utilities; license included.
 
-Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and allows swimming GUPs to ascend up to 35 metres above the shared sea level. The camera crosses freely; sky, fog, light and water effects blend at its local waterline. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.25, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
+Finite boundaries use an outward velocity falloff across the final 90 metres, followed by a numeric guard. The controller samples bow, center and stern for clearance and allows swimming GUPs to breach briefly, then settle near the shared sea level. Holding Rise cannot sustain flight. The camera crosses freely; sky, fog, light and water effects blend at its local waterline. Scenery is decorative. There is no gravity or fluid solver. Mobile caps pixel ratio at 1.25, omits antialiasing, uses instancing, and avoids shadow maps or volumetrics.
 
 ## Environment visual upgrade
 
@@ -138,10 +138,11 @@ Architecture, measured hull dimensions, desktop collision CPU comparisons, test 
 
 ### Above-water exploration
 
-Space/Shift and the existing touch depth control continue through sea level with
-no scene change. Swimming GUPs hover in air using their existing kinematics;
+Space/Shift and the existing touch depth control reach the surface with
+no scene change. Swimming GUPs breach briefly and settle gently near the waterline;
 GUP-X retains tracked ground movement. Camera orbit, follow and reset are unchanged.
-See [implementation and verification](docs/above-water/README.md) for limits.
+See [implementation and verification](docs/above-water/README.md) and the
+[surface settling fix](docs/surface-settling/README.md) for current behavior.
 
 ### Day/night cycle and automatic headlights
 

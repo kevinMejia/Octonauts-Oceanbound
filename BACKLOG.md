@@ -238,8 +238,15 @@ Physical Safari remains unverified; no queued surface changes were implemented.
 
 ## SURFACE-013 — Limit airborne GUP hovering
 
-User observed that swimming GUPs can fly above water. Proposed scope: brief
-breaches with gentle settling near the waterline. Status: proposed; implementation
-not authorized. User explicitly selected pushing day/night only. Dependency:
-separate movement/physics scope and branch. Next: await explicit approval.
-Priority: future surface follow-up.
+User explicitly authorized the flying fix, plus commit/push when done. Branch:
+`fix/gup-surface-settling`, from main. Primary agent only. Scope: small breaches
+then gentle settling at mean sea level; preserve diving, terrain collision, camera
+and GUP-X ground movement. Status: implementation and verification complete.
+354 Node tests, production build and diff checks pass. Actual Edge low/high
+checks cover 16 swimmer hover/turbo ascent/settle/dive cases, GUP-X ground bypass,
+real Space/Shift, camera medium/orbit, repeated crossings, switching and splashes.
+Evidence: docs/surface-settling/. Physical iPhone/performance remain unverified.
+Delivery: user-authorized commit/push to feature branch. Next: user playtest;
+no merge/deployment or additional queued implementation authorized.
+Nighttime sediment fix is separately checkpointed as 1061597 on local branch
+`fix/night-sediment-lighting`; not included or pushed by this task.

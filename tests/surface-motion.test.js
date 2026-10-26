@@ -1,0 +1,18 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {SubmarineController} from '../src/vehicles/SubmarineController.js';
+import {surfaceLevel,surfaceVertical} from '../src/vehicles/surfaceMotion.js';
+import {worldConfig} from '../src/config/worldConfig.js';
+import {submarineConfig} from '../src/config/submarineConfig.js';
+import {vehicles} from '../src/config/vehicleConfig.js';
+const idle={thrust:0,rise:0,turn:0},run=(s,input,seconds,hz=60)=>{let peak=s.position.y;for(let i=0;i<seconds*hz;i++){s.update(1/hz,input);peak=Math.max(peak,s.position.y);}return peak;};
+function swimmer(definition){const s=new SubmarineController();s.collisionProxy=definition.collision;s.selectVehicle(definition.id,definition.movement,definition);s.position={x:-400,y:40,z:-400};return s;}
+test('all swimming GUPs breach briefly, settle while Rise stays held, and can dive again',()=>{for(const d of vehicles.filter(d=>d.type!=='ground'))for(const thrust of [0,1]){const s=swimmer(d);s.turbo.setInfinite(true);const peak=run(s,{...idle,thrust,rise:1,boost:thrust===1},12);assert(peak>surfaceLevel(s)+.4,d.id);assert(peak<=surfaceLevel(s)+worldConfig.aboveWaterHeight+.001,d.id);assert(Math.abs(s.position.y-surfaceLevel(s))<.015,d.id);assert(Math.abs(s.pitch)<.002,d.id);const start=s.position.y;run(s,{...idle,rise:-1},3);assert(s.position.y<start-5,d.id);assert(!s.surfaceActive,d.id);}});
+test('released controls settle at the surface without perpetual bouncing or hovering in air',()=>{const s=swimmer(vehicles.find(d=>d.id==='gup-b'));s.position.y=surfaceLevel(s);s.heave=5;run(s,{...idle,rise:1},.5);const peak=run(s,idle,8);assert(peak<surfaceLevel(s)+2);assert(Math.abs(s.position.y-surfaceLevel(s))<.001);assert(Math.abs(s.vertical)<.001);});
+test('surface response is frame-rate independent and max breach speed bounds turbo entry',()=>{const samples=[];for(const hz of [30,60,120]){const s={position:{y:47},collisionProxy:{centerY:.3},surfaceActive:true,surfaceVelocity:4};for(let i=0;i<hz*2;i++)s.position.y+=surfaceVertical(s,50,1,1/hz)/hz;samples.push(s.position.y);}assert(Math.max(...samples)-Math.min(...samples)<1e-9);const s=swimmer(vehicles.find(d=>d.id==='gup-r'));s.position.y=surfaceLevel(s);s.speed=30;s.pitch=-Math.PI/4;s.heave=5;assert(run(s,{...idle,thrust:1,rise:1,boost:true},8)<=surfaceLevel(s)+2);});
+test('underwater motion is untouched and zero dt cannot create invalid state',()=>{const s={position:{y:25}};assert.equal(surfaceVertical(s,8,1,1/60),8);assert.equal(surfaceVertical(s,-8,-1,1/60),-8);s.position.y=47;assert.equal(surfaceVertical(s,0,0,0),0);assert(Number.isFinite(s.position.y));});
+test('GUP-X ignores Rise, remains grounded, and never enters surface constraint',()=>{const d=vehicles.find(d=>d.id==='gup-x'),s=swimmer(d);run(s,{...idle,rise:1},3);assert(s.groundController);assert(!s.surfaceActive);assert.equal(s.vertical,0);assert(s.position.y<worldConfig.surface-5);});
+
+// Exercise the real shared particle pool without a renderer or replacement emitter.
+import './fixtures/loadRescueNavigation.js';import * as T from '../vendor/three.module.js';
+const {PropulsionWater}=await import('../src/effects/PropulsionWater.js');
+test('surface splashes follow hull center so higher-center GUPs still splash on small breaches',()=>{const scene=new T.Scene();scene.fog=new T.FogExp2(0x08789f,.0054);const water=new PropulsionWater(scene,true),s={position:{x:0,y:44,z:0},collisionProxy:{centerY:.55},vehicleId:'gup-r'};water.surfaceCrossing(0,s);s.position.y=46.4;water.surfaceCrossing(0,s);assert(water.bubbles.items.some(p=>p.life>0&&p.splash));water.geometry.dispose();water.material.dispose();});

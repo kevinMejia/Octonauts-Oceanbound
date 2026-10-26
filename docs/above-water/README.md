@@ -1,5 +1,7 @@
 # Seamless ocean surface
 
+Surface movement was subsequently constrained by the [surface settling fix](../surface-settling/README.md). The original 35 m hovering allowance described below is historical; swimming GUPs now breach briefly and settle at the waterline.
+
 The old controller ceiling was sea level (46 m) minus hull clearance; the chase
 camera also clamped to 45 m. `worldConfig.surface` remains the shared mean sea
 level. Swimming controllers now allow 35 m of air exploration, while tracked

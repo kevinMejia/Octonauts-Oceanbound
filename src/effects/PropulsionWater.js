@@ -31,7 +31,7 @@ export class PropulsionWater{
 
  discoveryBurst(x,y,z){this.celebrationLeft=1.8;for(let i=0;i<(this.low?16:24);i++){const p=this.bubbles.spawn()??this.bubbles.items[i],a=this.rng()*Math.PI*2,r=this.rng()*1.6;Object.assign(p,{x:x+Math.cos(a)*r,y:y+(this.rng()-.5)*1.5,z:z+Math.sin(a)*r,vx:Math.cos(a)*.6,vy:.8+this.rng()*.5,vz:Math.sin(a)*.6,size:.12+this.rng()*.2,splash:false,vent:false,celebration:true,age:0,life:1.8,seed:this.rng()*100});}}
  surfaceCrossing(time,sub){
-  const p=sub.position,c=config.surface,h=surfaceHeight(p.x,p.z,time),delta=p.y-h,side=delta>c.crossingHysteresis?1:delta<-c.crossingHysteresis?-1:0;
+  const p=sub.position,c=config.surface,h=surfaceHeight(p.x,p.z,time),delta=p.y+(sub.collisionProxy?.centerY??0)-h,side=delta>c.crossingHysteresis?1:delta<-c.crossingHysteresis?-1:0;
   if(this.surfaceVehicle!==sub.vehicleId||!this.surfaceLast||Math.hypot(p.x-this.surfaceLast.x,p.y-this.surfaceLast.y,p.z-this.surfaceLast.z)>8){this.surfaceSide=side;this.surfaceVehicle=sub.vehicleId;}
   else if(side&&this.surfaceSide&&side!==this.surfaceSide){
    for(let i=0;i<(this.low?c.lowSplashCount:c.splashCount);i++){const b=this.bubbles.spawn();if(!b)break;const a=this.rng()*Math.PI*2,r=.5+this.rng();Object.assign(b,{x:p.x+Math.cos(a)*r,y:h+.08,z:p.z+Math.sin(a)*r,vx:Math.cos(a)*(1+this.rng()*2),vz:Math.sin(a)*(1+this.rng()*2),vy:1.4+this.rng()*1.6,size:.09+this.rng()*.12,life:c.splashLifetime,age:0,seed:this.rng()*100,splash:true,vent:false,celebration:false});}

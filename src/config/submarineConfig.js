@@ -8,5 +8,6 @@ export const submarineConfig={
  descendSpeed:5, // Downward speed in metres per second.
  bankAmount:.28, // Maximum roll in radians during steering (about 16 degrees).
  pitchAmount:Math.PI/4, // Default maximum pitch during vertical thrust (45 degrees).
+ surface:{floatDepth:.2,breachSpeed:6,returnResponse:1.6,maxReturnSpeed:6,releaseDepth:1}, // Small breach, then critically damped settling; no airborne thrust.
  minTerrainClearance:1.7, // Hull/camera safety clearance, including pitch.
 };
