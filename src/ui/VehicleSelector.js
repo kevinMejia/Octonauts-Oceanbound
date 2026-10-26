@@ -32,16 +32,24 @@ export class VehicleSelector{
  }
  highlight(index){if(this.busy)return;const direction=index>=this.index?1:-1;this.index=wrapVehicleIndex(index,vehicles.length);this.status.textContent='';this.render();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)this.viewport.animate([{opacity:.65,transform:`translateX(${direction*10}px)`},{opacity:1,transform:'translateX(0)'}],{duration:180,easing:'ease-out'});}
  browse(direction){if(this.dialog.open&&!this.busy)this.highlight(wrapVehicleIndex(this.index+direction,vehicles.length));}
- open(){if(this.dialog.open)return;this.index=vehicles.findIndex(v=>v.id===this.game.vehicles.activeId);this.busy=false;this.status.textContent='';this.dialog.classList.remove('is-closing');this.releasePause=this.game.pause.acquire('vehicle-selector');this.game.input.clear();document.body.classList.add('vehicle-selector-open');this.hud.setAttribute('aria-expanded','true');this.render();try{this.dialog.showModal();this.game.audio?.playWindow?.(true);this.confirmButton.focus();}catch(error){this.didClose();throw error;}}
+ open(){if(this.dialog.open||this.transitioning)return;this.index=vehicles.findIndex(v=>v.id===this.game.vehicles.activeId);this.busy=false;this.status.textContent='';this.dialog.classList.remove('is-closing');this.releasePause=this.game.pause.acquire('vehicle-selector');this.game.input.clear();document.body.classList.add('vehicle-selector-open');this.hud.setAttribute('aria-expanded','true');this.render();try{this.dialog.showModal();this.game.audio?.playWindow?.(true);this.confirmButton.focus();}catch(error){this.didClose();throw error;}}
  async confirm(){
-  if(!this.dialog.open||this.busy||!this.game.unlocks.isUnlocked(vehicles[this.index].id))return;const definition=vehicles[this.index],operation=++this.operation;this.busy=true;this.status.textContent='Getting '+definition.name+' ready…';this.render();
-  try{const applied=await this.game.vehicles.select(definition.id,()=>operation===this.operation&&this.dialog.open&&!this.dialog.classList.contains('is-closing'));if(!applied)return;this.updateHUD();this.close();}
-  catch(error){if(operation!==this.operation)return;console.warn('Vehicle selection failed:',definition.id,error);this.status.textContent='Could not load '+definition.name+'. Your '+vehicleById(this.game.vehicles.activeId).name+' is safe. Try again or close.';}
-  finally{if(operation===this.operation){this.busy=false;this.render();}}
+  if(!this.dialog.open||this.busy||!this.game.unlocks.isUnlocked(vehicles[this.index].id))return;const definition=vehicles[this.index],operation=++this.operation;let ownsTransformation=false;this.busy=true;this.status.textContent='Getting '+definition.name+' ready…';this.render();
+  try{const applied=await this.game.vehicles.select(definition.id,()=>operation===this.operation&&(this.transitioning||this.dialog.open&&!this.dialog.classList.contains('is-closing')),async next=>{
+    await this.game.vehicleTransformation.prepare(next);
+    if(operation!==this.operation||!this.dialog.open||this.dialog.classList.contains('is-closing'))return;
+    this.transitioning=true;ownsTransformation=true;const covered=this.game.vehicleTransformation.cover();this.close(true);if(!await covered)throw Error('Vehicle transformation cancelled');
+   });
+   if(!applied){if(ownsTransformation)this.game.vehicleTransformation.cancel();return;}this.updateHUD();
+   if(this.transitioning){this.game.vehicleTransformation.reveal();await this.game.vehicleTransformation.finished;}else this.close();
+  }
+  catch(error){if(ownsTransformation)this.game.vehicleTransformation.cancel();if(operation!==this.operation)return;console.warn('Vehicle selection failed:',definition.id,error);if(!this.dialog.open){this.transitioning=false;this.open();}this.status.textContent='Could not load '+definition.name+'. Your '+vehicleById(this.game.vehicles.activeId).name+' is safe. Try again or close.';}
+
+  finally{if(operation===this.operation){this.transitioning=false;this.busy=false;this.render();}}
  }
- close(){if(!this.dialog.open||this.dialog.classList.contains('is-closing'))return;this.operation++;this.game.vehicles.cancel();this.dialog.classList.add('is-closing');this.closeTimer=setTimeout(()=>this.dialog.close(),180);}
- didClose(){clearTimeout(this.closeTimer);this.operation++;this.game.vehicles.cancel();this.busy=false;this.swipe=null;this.outsidePointer=null;this.dialog.classList.remove('is-closing');document.body.classList.remove('vehicle-selector-open');this.hud.setAttribute('aria-expanded','false');this.game.input.clear();this.releasePause?.();this.releasePause=null;this.updateHUD();
+ close(preserveSelection=false){if(!this.dialog.open||this.dialog.classList.contains('is-closing'))return;this.preserveSelection=preserveSelection;if(!preserveSelection){this.operation++;this.game.vehicles.cancel();}this.dialog.classList.add('is-closing');this.closeTimer=setTimeout(()=>this.dialog.close(),180);}
+ didClose(){clearTimeout(this.closeTimer);if(!this.preserveSelection){this.operation++;this.game.vehicles.cancel();this.busy=false;}this.preserveSelection=false;this.swipe=null;this.outsidePointer=null;this.dialog.classList.remove('is-closing');document.body.classList.remove('vehicle-selector-open');this.hud.setAttribute('aria-expanded','false');this.game.input.clear();this.releasePause?.();this.releasePause=null;this.updateHUD();
   focusGameplay();}
 
- dispose(){this.unsubscribe?.();if(this.dialog.open)this.dialog.close();this.didClose();this.dialog.remove();this.hud.remove();}
+ dispose(){this.game.vehicleTransformation?.cancel();this.unsubscribe?.();if(this.dialog.open)this.dialog.close();this.didClose();this.dialog.remove();this.hud.remove();}
 }

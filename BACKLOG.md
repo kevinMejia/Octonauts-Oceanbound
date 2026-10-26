@@ -145,4 +145,11 @@ unverified. Next: SWITCH-005, explicitly authorized below.
 SWITCH-005: user explicitly requested bubble-cloud vehicle transformations, with
 terrain-based sediment near the seabed. Single agent; focused reuse of existing
 particle pools, safe async selection and 1–1.5 second timing; test and commit on
-the current branch. Status: queued after discovery presentation commit.
+the current branch. Status: delivered locally after discovery presentation commit 668bc06. Implemented
+1.4-second pooled bubble/vapor and terrain-based sediment transition with prepared
+model handoff, normal safe placement, camera smoothing and cancellation ownership.
+318 Node tests and production build pass. Production Edge checks cover 22 switches,
+all nine GUPs, both quality profiles, portrait/landscape, measured concealment,
+resource reuse/cleanup, failures, rapid input, real-loop controls and a cancelled
+slow-load/new-selection race. Evidence: docs/vehicle-transformation/. Physical
+iPhone Safari/performance remains unverified. No push or deployment performed.

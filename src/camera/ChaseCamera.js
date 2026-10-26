@@ -15,7 +15,7 @@ export class ChaseCamera{
  }
  // Ground profile stays in the shared chase/orbit controller. Only GUP-X opts in.
  updateGround(dt,sub,o,distance,speed,g){
-  const p=sub.position,ground=this.ground,floor=ground(p.x,p.z),reset=this.initial||this.groundProfile!==g;
+  const p=sub.position,ground=this.ground,floor=ground(p.x,p.z),reset=this.initial||this.groundProfile!==g&&!this.transitioning;
   const angle=sub.heading+c.horizontalAngle*radians+o.x;
   const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height*(this.profile.heightMultiplier??1),distance)+o.y));
   const near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
