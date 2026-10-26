@@ -120,11 +120,11 @@ function facePixels(arrow,camera,width,height){
  return {width:maxX-minX,height:maxY-minY,area,minX,minY,maxX,maxY};
 }
 
-test('25 degree tilt keeps a visible cyan GLB face on phone views for every GUP',()=>{
+test('20 degree tilt keeps a visible cyan GLB face on phone views for every GUP',()=>{
  for(const definition of vehicles)for(const [width,height] of [[844,390],[390,844]]){
   const v=setup(),s=state(definition),camera=new T.PerspectiveCamera(65,width/height,.1,650),chase=new ChaseCamera(camera,null,()=>0);chase.profile=definition.camera;s.pitch=-.7;s.bank=.2;
   v.nav.update(0,mission,s,target);chase.update(0,s,{orbit:{x:0,y:0,last:1e9},drag:false});v.nav.prepare(camera,0);camera.updateMatrixWorld();v.world.updateMatrixWorld(true);
-  const pixels=facePixels(v.arrow,camera,width,height);assert.ok(Math.min(pixels.width,pixels.height)>8,definition.id+' '+JSON.stringify(pixels));assert.ok(pixels.area>100,definition.id+' area '+pixels.area);
+  const pixels=facePixels(v.arrow,camera,width,height);assert.ok(Math.min(pixels.width,pixels.height)>6,definition.id+' '+JSON.stringify(pixels));assert.ok(pixels.area>80,definition.id+' area '+pixels.area);
   const tip=new T.Vector3(0,0,-1).applyQuaternion(v.nav.presentation.quaternion).applyQuaternion(v.nav.pivot.quaternion);tip.y=0;tip.normalize();assert.ok(tip.dot(towards(v.nav,target))>1-1e-10,definition.id);
   const normal=new T.Vector3(0,1,0).applyQuaternion(v.nav.presentation.quaternion);assert.ok(normal.y>=Math.cos(config.presentationTilt*Math.PI/180)-1e-10);
   const box=new T.Box3().setFromObject(v.nav.pivot);assert.ok(box.min.y>=s.position.y+rescueHullTop(s)+config.minClearance-1e-9,definition.id+' mesh clearance');v.nav.dispose();
@@ -137,7 +137,7 @@ test('GUP-X uphill regression has a readable cyan face rather than an edge-on ph
   const v=setup(),s=state(definition);Object.assign(s.position,{x:136,y:13.01794,z:127});s.heading=5.304836562702475;s.pitch=-.7;
   const camera=new T.PerspectiveCamera(65,width/height,.1,650);camera.position.set(152.93462,21.57028,110.67796);camera.lookAt(133.5,15,128.5);camera.updateMatrixWorld();
   v.nav.update(0,mission,s,{x:180,y:20,z:100});v.world.updateMatrixWorld(true);const old=facePixels(v.arrow,camera,width,height);v.nav.prepare(camera,0);v.world.updateMatrixWorld(true);const next=facePixels(v.arrow,camera,width,height);
-  assert.ok(next.area>old.area*2,JSON.stringify({old,next}));assert.ok(Math.min(next.width,next.height)>12,JSON.stringify(next));assert.ok(next.area>120,JSON.stringify(next));v.nav.dispose();
+  assert.ok(next.area>old.area*2,JSON.stringify({old,next}));assert.ok(Math.min(next.width,next.height)>10,JSON.stringify(next));assert.ok(next.area>100,JSON.stringify(next));v.nav.dispose();
  }
 });
 

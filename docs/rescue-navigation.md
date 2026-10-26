@@ -39,7 +39,7 @@ A horizontal arrow face became an ambiguous thin bar on the GUP-X uphill camera
 in phone-sized views. The same GLB now has one presentation group under its
 yaw-only anchor. Immediately before the existing ocean render, camera position
 supplies a world-up reference for a bounded, smoothed tilt; camera roll and hull
-rotation are never copied. The face normal stays within 25 degrees of world up.
+rotation are never copied. The face normal stays within 20 degrees of world up.
 The intrinsic rotation is composed as Rx(pitch) * Rz(roll): local -Z retains its
 horizontal direction, so exposing the broad cyan face does not falsify the
 Octopod bearing. It is still a world-space model, not a replacement icon or a
@@ -70,7 +70,7 @@ presentation before capture; an early resize can otherwise clear a rendered fram
 | `positionSmoothing` | 10 /s | Offset and world-height exponential response |
 | `rotationSmoothing` | 12 /s | Shortest-bearing exponential response |
 | `minClearance` | 0.6 m | Minimum mesh/hull gap during rapid upward movement |
-| `presentationTilt` | 55 degrees | Maximum face-normal departure from world up |
+| `presentationTilt` | 20 degrees | Maximum face-normal departure from world up |
 | `presentationSmoothing` | 12 /s | Intrinsic readability-tilt response |
 
 Height defines the desired base clearance; a bounds-derived lift compensates for
@@ -108,8 +108,8 @@ it never clears, traverses for disposal, or disposes the ocean scene or its ligh
   with fixture game effects, not a replacement rescue implementation.
 - New regressions project the actual GLB cyan triangles in 844×390 and 390×844
   views, including the GUP-X uphill edge-on case. All nine vehicle profiles retain
-  a projected glyph minimum dimension above 8 pixels and cyan-face area above
-  100 square pixels in those configured cases; these are geometry assertions,
+  a projected glyph minimum dimension above 6 pixels and cyan-face area above
+  80 square pixels in those configured cases; these are geometry assertions,
   not physical-device or lighting measurements. Actual model tip bearing,
   conservative mesh underside clearance, world-up tilt bounds, camera-roll
   independence, and presentation frame-rate behavior are also checked.
@@ -153,7 +153,7 @@ add a GUP-X jump mechanic.
 
 ## Local merge resolution
 
-The presentation tilt is now capped at 25 degrees as requested. The incoming
+The presentation tilt is now capped at 20 degrees as requested. The incoming
 world-space arrow is retained alongside the local GUP-X discovery queue, compact
 performance display, and queued turbo-panel rescue messages. The historical
 captures above predate this tilt adjustment.
