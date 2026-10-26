@@ -230,9 +230,11 @@ samples. Additional real clock/UI/night turbo/dive controls and existing GUP-X,
 emulated touch rescue escort and word-hunt HUD browser regressions pass.
 Evidence and full changed-file list: docs/day-night/README.md. Physical iPhone
 Safari/performance and full night mission playthroughs remain unverified.
-User authorized committing and pushing day/night only on this feature branch.
-Next: push the verified commit, then user review/playtest. No merge/deployment
-or next queued task started.
+User authorized committing/pushing day/night only, then explicitly requested
+merging into main. Implementation commit: 47d92e0. Main was fast-forwarded
+without conflicts or implementation changes; prior verification remains applicable.
+Delivery: authorized push to main (triggers Pages). Next: user review/playtest.
+Physical Safari remains unverified; no queued surface changes were implemented.
 
 ## SURFACE-013 — Limit airborne GUP hovering
 

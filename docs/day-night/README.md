@@ -4,8 +4,8 @@ Implemented directly in the existing game on `feat/day-night-cycle`, using only
 the primary agent. No subagents or independent-agent QA ran. No dependencies,
 assets, movement/controller changes, new scene, renderer, UI redesign or additional
 above-water gameplay were introduced. Existing surface exploration remains intact.
-User subsequently authorized committing and pushing day/night only on its
-feature branch. No merge or deployment is authorized.
+User subsequently authorized committing and pushing day/night only, then merging
+that feature into main. Main pushes trigger the existing Pages deployment.
 
 ## Behavior and architecture
 
