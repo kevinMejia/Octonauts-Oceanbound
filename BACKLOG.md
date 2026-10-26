@@ -8,7 +8,7 @@ not implementation approval. This is not a background scheduler.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
-| RESCUE-003 | Reposition the existing rescue direction arrow above and slightly ahead of the active GUP | Current | Explicit user implementation request; no task was active on arrival | Verifying QA fixes | Repeat independent QA and final phone-sized captures, then deliver the rescue-arrow PR |
+| TURBO-004 | Vehicle-specific turbo flame positioning and attachment for every GUP | Current | User explicitly said to resume all work, then confirmed continuing | Active after rescue-arrow PR delivery | Inspect each model, configure emitters, implement attachment, verify, deliver a separate PR |
 
 Checkpoint: [draft PR #4](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/4),
 branch `fix/rescue-arrow-above-gup`, initial verified commit `774c20f3063ee71e1eae27b53a34562875ac651d`.
@@ -19,7 +19,7 @@ browser switching checks, and scripted stop/reset/delivery state checks passed.
 QA found three remaining issues: the world-horizontal arrow is too edge-on in
 phone-sized GUP-X uphill views; paused stop/reset can leave old framebuffer pixels;
 and the optional browser harness must let resize settle before rendering captures.
-The developer fixed these with bounded intrinsic model presentation tilt, safe mesh-support height, event-only paused redraw invalidation, and corrected capture timing. The revised 15 focused cases, 56-file suite, and production build passed; repeated independent QA and new actual browser captures are in progress.
+The developer fixed these with bounded intrinsic model presentation tilt, safe mesh-support height, event-only paused redraw invalidation, and corrected capture timing. The revised 15 focused cases, 56-file suite, and production build passed; fresh independent agent rescue_arrow_final_qa re-ran these checks and reviewed final actual captures: PASS, no blockers. Final Chromium captures show recognizable phone-sized arrows; paused cancellation invalidation passes. Physical iPhone behavior and complete manual mission playthrough remain unverified. PR #4 is delivered separately; no merge/deployment performed.
 Actual browser evidence is under /tmp/rescue-arrow-qa while this environment lasts;
 recreate it from the repository browser harness if temporary artifacts are lost.
 
@@ -32,15 +32,15 @@ Repeat independent QA after the fixes. No merge or deployment is authorized.
 
 | ID | Request / scope | Priority | Authorization | Status | Dependencies / next action |
 | --- | --- | --- | --- | --- | --- |
-| TURBO-004 | Vehicle-specific turbo flame positioning and attachment for every GUP | Next candidate | Request recorded; explicit approval to start is still required | Queued | Finish RESCUE-003 and its independent QA/PR first, present this queue, then await user go-ahead |
+| — | No additional queued requests | — | — | — | TURBO-004 is authorized next by the user’s resume-all-work instruction |
 
 ### TURBO-004 — vehicle-specific turbo flame emitters
 
 Execution preference: use a **single-agent workflow** for efficiency; do not spawn
 additional agents unless necessary. The existing Project Manager only triaged the
-request as future work. No model investigation or implementation has begun.
+request as future work. Implementation is authorized by the user’s subsequent resume-all-work and continue instructions. Resume single-agent after RESCUE-003 delivery; no new turbo agents are planned.
 
-Approved investigation scope when the user authorizes a start:
+Approved investigation scope:
 
 - Inspect the existing flame effect, vehicle configurations, and each actual GUP
   model individually; account for model origin, scale, orientation, and hierarchy.
@@ -79,6 +79,7 @@ implementation. Explicitly approved work does not require repeated approval.
 
 | ID | Request | Delivery | Verification / qualifications |
 | --- | --- | --- | --- |
+| RESCUE-003 | World-space rescue direction arrow | [PR #4](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/4), independent QA passed | 15 focused cases, 56 test files, build, rendered Chromium captures; physical iPhone testing remains |
 | WORKFLOW-002 | Noninterrupting request queue and persistent backlog | [PR #3](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/3), open and unmerged; branch `chore/non-interrupting-request-queue` | Independent QA passed; only AGENTS.md and BACKLOG.md change; existing instructions preserved |
 | CAMERA-001 | Fix GUP-X steep-slope camera and driving view | [PR #2](https://github.com/kevinMejia/Octonauts-Oceanbound/pull/2), merged by kevinMejia at 2026-10-26 10:14:23 UTC | Independent QA passed; physical iPhone verification and documented rendering limits remain |
 
