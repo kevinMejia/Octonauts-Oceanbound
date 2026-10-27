@@ -15,7 +15,7 @@ Asset integration changes: shared prepare_vehicle.py optional source tread morph
 
 ## Configuration
 
-`groundVehicleConfig.js` uses metres/seconds/radians: forward 14.4 m/s, reverse 4.8 m/s, acceleration response 2/s, braking 5/s, turn radius 5 m, maximum slope 45 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
+`groundVehicleConfig.js` uses metres/seconds/radians: forward 14.4 m/s, reverse 4.8 m/s, acceleration response 2/s, braking 5/s, turn radius 18 m, maximum slope 45 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
 
 Swimming movement remains on the existing controller branch. Ground movement ignores rise/jump input, samples centre/front/rear/sides, smooths body pitch and roll, clamps height to terrain support, rejects steep changes, and invokes the existing swept CollisionWorld at each substep. Collision lift/drift is removed after resolution. Towing only affects the existing shared speed multiplier and rear attachment.
 
@@ -50,3 +50,14 @@ GUP-X now parks 25 metres behind the Octopod at world (180,75), facing outward, 
 ## Speed and startup preload
 
 GUP-X now has 14.4 m/s forward speed (33% faster), 4.8 m/s reverse speed and 2/s acceleration response. Its existing 1.9x turbo reaches 27.36 m/s. Registry movement values derive from the same configuration. GUP-X joins GUP-A/R in the sequential startup preload, including texture preparation and shader compilation; the same cached instance is then used by the parked fleet and selector. Loading is moved to the initial loading screen; this does not reduce the full-detail model download size. Optional preload failures retain the existing retry-on-selection behavior. Browser validation checks that the real model is cached before Play and selecting it does not request its GLB again.
+
+## Wider moving turns (GUPX-030)
+
+Increased the existing turn-radius configuration from 5 to 18 metres. A two-second
+flat-ground controller comparison at 14.4 m/s measured the effective radius rising
+from 30.48 m to 40 m (31.25% wider), including the existing speed sensitivity and
+turn-rate cap. Stationary pivoting is unchanged. Other controls and the turbo
+turn-rate cap are retained. Twenty focused ground/damage tests, production build
+and diff checks pass. Existing Edge GUP-X controls, tracks, infinite turbo,
+selection, override fallback and reload regression passes without page errors.
+No subagents or physical iPhone testing. Tuning remains available for playtesting.

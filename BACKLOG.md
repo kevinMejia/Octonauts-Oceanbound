@@ -479,3 +479,17 @@ reload. Existing GUP-X browser controls/treads/infinite turbo/override fallback
 regression also passes. No page errors. Single agent; physical iPhone untested.
 Delivery: commit and push to main under the retained instruction.
 Next: user playtest; no further queued work started.
+
+
+## GUPX-030 — Wider moving turns
+
+Explicit request to increase GUP-X turn radius and commit/merge all changes.
+Branch: `tune/gup-x-turn-radius`; single agent. Scope: increase existing configured
+turn radius from 5 to 18 metres, producing roughly 32% wider full-speed turns
+under the existing turn-rate cap. Preserve stationary pivot and other controls.
+Status: verified. Effective full-speed flat-ground radius measured 30.48 -> 40 m
+(31.25% wider); stationary pivot unchanged. Twenty ground/damage tests, build/diff
+checks and existing Edge GUP-X controls/track/turbo/selection/override/reload
+regression pass with no page errors. Single agent; physical iPhone untested.
+Delivery: commit/merge main and push for live testing under the established
+instruction. Earlier requested changes already merged. Next: user playtest.
