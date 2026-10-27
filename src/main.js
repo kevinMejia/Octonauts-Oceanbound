@@ -1,9 +1,10 @@
 import {installSettings} from './ui/Settings.js';
 import {Game} from './game/Game.js';
 import {StartupScreen} from './ui/StartupScreen.js';
-const startup=new StartupScreen();
+let game;
+const startup=new StartupScreen(()=>game);
 installSettings();
-const game=new Game();window.explorer=game;
+game=new Game();window.explorer=game;
 game.start({onProgress:value=>startup.progress(value)}).then(()=>startup.ready(()=>{
  // Browser-restricted operations begin in this click stack, before any wait.
  try{game.audio.beginGameplay();}catch(error){console.warn('Audio unavailable',error);}

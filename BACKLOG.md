@@ -313,5 +313,18 @@ Explicitly authorized implementation, commit and push to main. Single agent only
 Priority: current. Status: verified; delivery authorized. Scope: connected settings/turbo/discovery
 assembly and independent notification stack; no mechanics or viewport changes.
 361 Node tests, build/diff checks, rendered Edge HUD checks and repeated orientation
-regression pass. Evidence: docs/hud/. No subagents ran. Next: commit/push to main
-for user playtest. Physical iPhone validation outstanding.
+regression pass. Evidence: docs/hud/. No subagents ran. Commit 1446c03 pushed to
+main; user reports not seeing it live. Verify combined Pages delivery with TIPS-018.
+Physical iPhone validation outstanding.
+
+
+## TIPS-018 — Context-aware welcome tips
+
+Explicitly authorized implementation, single agent only. Priority: current. Status:
+verified locally on main. Scope: existing welcome screen, shuffled four-second tips and
+existing session progression reads; no persistence/gameplay changes. 365 tests,
+production build/diff checks and Edge delayed-loading/ready rotation, completion,
+hide/resume, cleanup and orientation checks pass. Evidence: docs/startup-tips/.
+No subagents. User explicitly authorized commit/push to main including HUD-017.
+Delivery: commit tips, push combined history and verify Pages. Physical iPhone
+validation remains outstanding.
