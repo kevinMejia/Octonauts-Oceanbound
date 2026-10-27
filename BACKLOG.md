@@ -467,8 +467,15 @@ Next: DAMAGE-029, explicitly requested during final delivery.
 ## DAMAGE-029 — Hide parked GUP-X until discovery
 
 Explicit follow-up implementation request. Priority: next. Authorization: user
-request, with the current commit/push delivery instruction retained. Status: queued
-until DAMAGE-028 delivery. Scope: GUP-X has no visible or solid parked presence
+request, with the current commit/push delivery instruction retained. Status: verified;
+DAMAGE-028 delivered as 41c1b03. Branch: `fix/undiscovered-gup-x-parking`. Scope: GUP-X has no visible or solid parked presence
 until earned discovery; preserve loading, final reward flow and later selection.
-Dependency: finish DAMAGE-028. Next: inspect final-reward/parked fleet integration,
-implement the smallest shared-system fix and validate, then commit/push separately.
+Dependency satisfied: DAMAGE-028 is pushed. Implemented a configurable parking
+unlock gate with no hidden colliders or lazy-load triggers, and guarded visibility
+restoration. All 382 Node tests, production build and diff checks pass. Production
+Edge low/high checks pass fresh-save absence, repeated visibility passes, no
+colliders, real base-return reward/modal, selection, later parking and earned-save
+reload. Existing GUP-X browser controls/treads/infinite turbo/override fallback
+regression also passes. No page errors. Single agent; physical iPhone untested.
+Delivery: commit and push to main under the retained instruction.
+Next: user playtest; no further queued work started.

@@ -3,7 +3,7 @@ import {fleetAnchor,FleetPlacement} from './fleetPlacement.js';
 import {hullFrame,sweepHull} from '../collision/collisionMath.js';
 import {ParkedVehicleMotion} from './ParkedVehicleMotion.js';
 
-// Each cache entry is either piloted or parked: the same group, never a clone.
+// Cached vehicles are piloted, parked or awaiting discovery; never cloned.
 export class DiscoveryFleet{
  constructor({registry,fleet,unlocks,surfaces,scene,onDiscover,blocked=()=>false,release=()=>{},prepare=async()=>{}}){
   Object.assign(this,{registry,fleet,unlocks,surfaces,scene,onDiscover,blocked,release,prepare});this.records=new Map();this.near=[];this.frame={};this.hit={};this.activeDiscovery=null;this.placement=new FleetPlacement(surfaces.grid);this.motion=new ParkedVehicleMotion(this);this.loading=false;
@@ -16,6 +16,8 @@ export class DiscoveryFleet{
   this.unsubscribe=unlocks.subscribe(()=>this.sync());
  }
  async initialize(){for(const r of this.records.values())if(this.fleet.cache.has(r.id))await this.ensure(r);this.sync();}
+ canPark(record){return !record.definition.parking?.requiresUnlock||this.unlocks.isUnlocked(record.id);}
+ clearProxies(record){for(const p of record.proxies){this.setSolid(p,false);this.surfaces.grid.remove(p);this.surfaces.count--;}record.proxies.length=0;}
  poseFor(record){return fleetAnchor(record.definition,this.unlocks.isUnlocked(record.id));}
  positionRecord(record,moveModel=true){
   const d=record.definition,anchor=this.poseFor(record);if(!anchor)return;anchor.groundClearance*=record.scale;
@@ -24,7 +26,7 @@ export class DiscoveryFleet{
   this.motion.stop(record);record.groundClearance=anchor.groundClearance;record.heightLift=.04+(anchor.heightOffset??0);this.setPose(record,pose,moveModel);
  }
  setPose(record,pose,moveModel=true){
-  record.pose??={};Object.assign(record.pose,pose);const d=record.definition;
+  record.pose??={};Object.assign(record.pose,pose);if(!this.canPark(record)){this.clearProxies(record);return;}const d=record.definition;
   const c=record.parkDefinition.collision,depth=Math.min(c.radius,c.halfLength),l=Math.max(0,c.halfLength-depth);
   hullFrame(pose,this.frame);const f=this.frame,center=c.centerY??0;
   for(let i=-1;i<=1;i++){
@@ -39,10 +41,11 @@ export class DiscoveryFleet{
  park(record){const group=record.vehicle.group,p=record.pose;group.position.set(p.x,p.y,p.z);group.rotation.set(p.pitch??0,p.heading,p.bank??0,'YXZ');group.scale.copy(record.baseScale).multiplyScalar(record.scale);group.visible=(record.distanceVisible??true)&&!record.evicted;if(group.parent!==this.scene)this.scene.add(group);}
  sync(activeId=this.fleet.activeId){
   for(const r of this.records.values()){
-   r.parked=r.id!==activeId;
+   r.parked=r.id!==activeId&&this.canPark(r);
    if(!r.parked)this.motion.stop(r);
-   const desired=this.poseFor(r);if(desired&&r.anchorUnlocked!==this.unlocks.isUnlocked(r.id)){this.positionRecord(r,false);r.anchorUnlocked=this.unlocks.isUnlocked(r.id);}
-   if(r.vehicle){if(r.parked)this.park(r);else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;r.evicted=false;r.outsideSince=undefined;}}
+   const desired=this.poseFor(r);if(desired&&r.anchorUnlocked!==this.unlocks.isUnlocked(r.id)){this.positionRecord(r,false);r.anchorUnlocked=this.unlocks.isUnlocked(r.id);if(r.definition.parking?.requiresUnlock&&r.anchorUnlocked){r.distanceVisible=undefined;if(r.evicted)this.restoreVisible(r);}}
+   if(!this.canPark(r))this.clearProxies(r);
+   if(r.vehicle){if(r.parked)this.park(r);else if(r.id!==activeId){r.vehicle.group.visible=false;r.vehicle.group.removeFromParent();r.distanceVisible=false;}else {r.vehicle.group.scale.copy(r.baseScale);r.vehicle.group.visible=true;r.evicted=false;r.outsideSince=undefined;}}
    for(const p of r.proxies){this.setSolid(p,!!r.vehicle&&r.parked);p.triggerEnabled=!!r.vehicle&&r.parked&&!this.unlocks.isUnlocked(r.id)&&r.definition.discovery?.enabled===true;p.loadCandidate=!r.vehicle&&p===r.proxies[1];}
   }
  }
@@ -55,6 +58,7 @@ export class DiscoveryFleet{
  push(contact,sub){return this.motion.push(contact,sub);}
  update(sub,dt=0){
   const now=performance.now();if(!this.visibilityAt||now-this.visibilityAt>500){this.visibilityAt=now;for(const r of this.records.values())if(r.vehicle){
+   if(r.id!==this.fleet.activeId&&!this.canPark(r)){r.vehicle.group.visible=false;continue;}
    const distance=Math.hypot(sub.position.x-r.pose.x,sub.position.z-r.pose.z),visible=!r.parked||distance<residency.visibleDistance;r.distanceVisible=visible;
    if(visible)r.outsideSince=undefined;else r.outsideSince??=now;
    if(!visible){r.vehicle.group.visible=false;if(!r.evicted&&(distance>=residency.releaseDistance||now-r.outsideSince>=residency.graceMs)){this.release(r.vehicle);r.evicted=true;}}
@@ -80,7 +84,7 @@ export class DiscoveryFleet{
  }
  restoreVisible(record){
   if(record.restoring)return;record.restoring=true;
-  this.prepare(record.vehicle).then(()=>{record.evicted=false;record.vehicle.group.visible=record.distanceVisible||!record.parked;}).catch(error=>console.warn('Parked GUP graphics unavailable:',record.id,error)).finally(()=>{record.restoring=false;});
+  this.prepare(record.vehicle).then(()=>{record.evicted=false;record.vehicle.group.visible=record.id===this.fleet.activeId||record.parked&&this.canPark(record)&&(record.distanceVisible??true);}).catch(error=>console.warn('Parked GUP graphics unavailable:',record.id,error)).finally(()=>{record.restoring=false;});
  }
  safeSwitch(id,sub){
   const definition=this.registry.find(v=>v.id===id),origin={...sub.position,heading:sub.heading};

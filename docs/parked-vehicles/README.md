@@ -42,3 +42,25 @@ contact duration, so displacement measurements are illustrative, not benchmarks.
 
 ![Before](low-gup-b-push-gup-a-before.png)
 ![After](low-gup-b-push-gup-a-after.png)
+
+## GUP-X discovery gate (DAMAGE-029)
+
+GUP-X's configured `parking.requiresUnlock` keeps its preloaded model detached
+from the world until unlocked. It has no parked collision, discovery or load
+proxies before discovery. Other undiscovered GUPs retain their existing findable
+world models. Earning the final reward makes GUP-X appear at its normal berth;
+switching and saved unlocks retain normal parking. The existing developer unlock
+override is honored and removing it hides GUP-X again unless it was earned.
+
+Visibility updates and asynchronous graphics restoration respect the same gate.
+Resetting progress removes its grid proxies and keeps surface counters balanced.
+Preloading and cached assets remain available for discovery and selection.
+
+Verification: 382 Node tests and production build/diff checks pass. Added three
+focused lifecycle tests for suppressed world/grid presence, reset/override cleanup
+and delayed restore races. `tests/gup-x-parking-browser.cjs` passes production Edge
+low/high fresh saves, visibility passes, base-return reward/modal, normal selection,
+parking after switching and earned-save reload. The existing `gup-x-browser.cjs`
+passes controls, track animation, infinite turbo, override removal and reload,
+with its old locked-parking expectation updated to absence. No page errors.
+Single agent; no physical iPhone or sustained device performance testing.

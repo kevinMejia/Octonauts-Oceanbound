@@ -30,13 +30,13 @@ test('locked vehicles cannot be selected through Fleet, including a pending unlo
  state.unlock('gup-a');const pending=fleet.select('gup-a');await new Promise(r=>setTimeout(r,0));state.reset();release();assert.equal(await pending,false);assert.equal(installed,0);assert.equal(fleet.activeId,'gup-b');
 });
 function makeSurfaces(){const grid=new SurfaceGrid();return {grid,count:0,solidCount:0,add(s){s.co=Math.cos(s.angle??0);s.si=Math.sin(s.angle??0);s.radius=Math.max(s.rx,s.rz);grid.add(s);this.count++;if(s.solid)this.solidCount++;}};}
-async function fixture(){
+async function fixture(registry=vehicles.slice(0,3)){
  const scene=new T.Scene(),surfaces=makeSurfaces(),unlocks=new VehicleUnlocks(vehicles,storage()),loaded=new Map();let discoveries=0,blocked=false,world;
  const model=id=>{const vehicle={id,group:new T.Group()};vehicle.group.add(new T.Mesh(new T.BoxGeometry(),new T.MeshBasicMaterial()));loaded.set(id,vehicle);return vehicle;};
  const initial=model('gup-b');scene.add(initial.group);
  const fleet=new VehicleFleet({initialId:'gup-b',initialVehicle:initial,load:async id=>model(id),canSelect:id=>unlocks.isUnlocked(id),install:(next,old,id)=>{scene.remove(old.group);scene.add(next.group);world.switched(id);}});
- await fleet.get('gup-a');await fleet.get('gup-r');
- world=new DiscoveryFleet({registry:vehicles.slice(0,3),fleet,unlocks,surfaces,scene,onDiscover(){discoveries++;},blocked:()=>blocked});await world.initialize();
+ await fleet.get('gup-a');await fleet.get('gup-r');if(registry.some(v=>v.id==='gup-x'))await fleet.get('gup-x');
+ world=new DiscoveryFleet({registry,fleet,unlocks,surfaces,scene,onDiscover(){discoveries++;},blocked:()=>blocked});await world.initialize();
  return {scene,surfaces,unlocks,fleet,world,loaded,get discoveries(){return discoveries;},block:value=>blocked=value};
 }
 test('cached vehicles are parked or active with no cloned groups, and switching returns the old GUP home',async()=>{
@@ -126,3 +126,11 @@ test('return during grace restarts the timer, while a pending restore stays hidd
  finish();await new Promise(resolve=>setImmediate(resolve));assert.equal(!!r.evicted,false);assert.equal(r.vehicle.group.visible,false);
  clock+=residency.graceMs;tick(161);assert.equal(r.evicted,true);assert.equal(releases,2);
 });
+
+const rewardRegistry=()=>[...vehicles.slice(0,3),vehicles.find(v=>v.id==='gup-x')];
+test('preloaded GUP-X has no parked scene or grid presence until discovery',async()=>{const f=await fixture(rewardRegistry()),r=f.world.records.get('gup-x');assert(f.fleet.cache.has(r.id));assert(r.vehicle);assert.equal(r.parked,false);assert.equal(r.vehicle.group.visible,false);assert.equal(r.vehicle.group.parent,null);assert.equal(r.proxies.length,0);const count=f.surfaces.count;
+ const sub=new SubmarineController();sub.collisionProxy=vehicles[1].collision;Object.assign(sub.position,r.pose);Object.assign(sub.previousPosition,sub.position);for(let i=0;i<3;i++){f.world.visibilityAt=0;f.world.update(sub);assert.equal(r.vehicle.group.visible,false);}const near=[];f.surfaces.grid.query(r.pose.x,r.pose.z,8,near);assert(!near.some(p=>p.parkedId===r.id));assert(f.world.placement.clear(r.pose,r.definition,undefined,'*'));
+ f.unlocks.unlock(r.id);assert(r.parked);assert(r.vehicle.group.visible);assert.equal(r.vehicle.group.parent,f.scene);assert.equal(r.proxies.length,3);assert(r.proxies.every(p=>p.solid&&!p.triggerEnabled));assert.equal(f.surfaces.count,count+3);
+ await f.fleet.select(r.id);assert.equal(r.parked,false);assert(r.vehicle.group.visible);await f.fleet.select('gup-b');assert(r.parked);assert(r.vehicle.group.visible);assert(r.proxies.every(p=>p.solid));});
+test('reset and repeated override toggles never leave invisible GUP-X collision proxies',async()=>{const f=await fixture(rewardRegistry()),r=f.world.records.get('gup-x'),count=f.surfaces.count;for(let i=0;i<3;i++){f.unlocks.setOverride(r.id,true);assert(r.vehicle.group.visible);assert.equal(f.surfaces.count,count+3);f.unlocks.setOverride(r.id,false);assert.equal(r.vehicle.group.parent,null);assert.equal(r.proxies.length,0);assert.equal(f.surfaces.count,count);}f.unlocks.unlock(r.id);f.unlocks.reset();assert.equal(r.vehicle.group.visible,false);assert.equal(r.proxies.length,0);assert.equal(f.surfaces.count,count);});
+test('a late graphics restore cannot reveal locked GUP-X after its unlock is removed',async()=>{const f=await fixture(rewardRegistry()),r=f.world.records.get('gup-x');let done;f.world.prepare=()=>new Promise(resolve=>done=resolve);f.unlocks.setOverride(r.id,true);r.evicted=true;f.world.restoreVisible(r);f.unlocks.setOverride(r.id,false);done();await new Promise(resolve=>setTimeout(resolve,0));assert.equal(r.vehicle.group.visible,false);assert.equal(r.vehicle.group.parent,null);assert.equal(r.proxies.length,0);});

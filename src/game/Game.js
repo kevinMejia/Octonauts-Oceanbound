@@ -79,8 +79,8 @@ export class Game{
  async restoreGraphics(){
   if(this.restoringGraphics)return;this.restoringGraphics=true;const status=document.querySelector('#status');
   try{
-   // Hidden grace-period vehicles lost their GPU data too; prepare them on return.
-   for(const r of this.discovery.records.values())if(r.vehicle&&r.parked&&!r.vehicle.group.visible)r.evicted=true;
+   // Hidden cached vehicles lost their GPU data too; prepare them on return.
+   for(const r of this.discovery.records.values())if(r.vehicle&&r.id!==this.vehicles.activeId&&!r.vehicle.group.visible)r.evicted=true;
    const visible=new Set([this.gup,...[...this.discovery.records.values()].filter(r=>r.vehicle&&r.vehicle.group.visible).map(r=>r.vehicle)]);for(const vehicle of visible)await prepareVehicleTextures(vehicle,this.renderer);await this.renderer.compileAsync(this.scene,this.camera);this.graphicsRecovering=false;this.needsPausedRender=true;status.hidden=true;status.style.pointerEvents='';status.replaceChildren();this.releaseGraphicsPause?.();this.releaseGraphicsPause=null;}
   catch(error){status.hidden=false;status.textContent='Graphics paused. ';status.style.pointerEvents='auto';const retry=document.createElement('button');retry.type='button';retry.textContent='Try again';retry.style.cssText='width:auto;height:auto;padding:12px 18px;font-size:16px;margin-left:12px';retry.onclick=()=>this.restoreGraphics();status.append(retry);console.warn('Graphics recovery unavailable',error);}
   finally{this.restoringGraphics=false;}
