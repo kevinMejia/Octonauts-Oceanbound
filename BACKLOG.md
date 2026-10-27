@@ -290,3 +290,18 @@ Surface crossing already exists; no physics changes were necessary.
 Delivery: user reiterated standing authorization to merge completed work into main
 and push for live testing. Next: commit, fast-forward main, push and check Pages.
 No queued gameplay work started.
+
+## VIEWPORT-016 — Repeated iPhone orientation transitions
+
+Active explicit implementation request; single agent only. Branch
+`fix/iphone-orientation-viewport`. Scope: bounded viewport/body/canvas/projection
+synchronization, preserving HUD design, DPR and gameplay. Investigation found
+window-only renderer resizing with no late viewport reconciliation.
+Status: implemented locally. 361 Node tests, production build and diff check pass.
+Production Edge: both starting orientations, 15 settled and eight rapid transitions
+each, matching viewport/body/canvas/buffer/aspect, HUD bounds, touch Forward and
+no idle resizing/page errors pass. Single agent; no independent agent QA.
+Evidence: docs/viewport/README.md. Physical iPhone Safari, safe areas, simultaneous
+touch and sustained FPS/memory remain unverified. Next: physical iPhone validation.
+User explicitly requested merging to main. Delivery: commit, fast-forward main,
+push and check Pages; physical iPhone validation remains outstanding.
