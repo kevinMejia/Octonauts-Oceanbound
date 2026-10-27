@@ -32,3 +32,8 @@
  #creatureCollection{width:130px;height:44px;gap:12px}.creature-counter{font-size:20px}.creature-fish{width:30px;height:24px}
 }
 @media(prefers-reduced-motion:reduce){#creatureCollection{transition:none}}
+
+/* Match the thin gradient edge and full screen of the unified HUD housing. */
+#compass #vehicleToggle{border:2px solid transparent;border-radius:20px;background:linear-gradient(#087583,#033c50) padding-box,linear-gradient(145deg,#c1e3dc,#639d9e 45%,#8ab4af) border-box;box-shadow:none}
+#compass #vehicleToggle::before{display:none}
+#compass #vehicleToggle::after{inset:0;border-radius:18px;background:repeating-linear-gradient(0deg,transparent 0px,transparent 2.5px,#b8f4ed0e 2.5px,#b8f4ed0e 3px)}

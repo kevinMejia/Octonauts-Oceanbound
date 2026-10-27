@@ -85,3 +85,6 @@ body>header{left:calc(env(safe-area-inset-left,0px) + 88px)}
 @media(max-width:500px){:root{--steering-size:140px}}
 @media(max-height:500px){:root{--steering-size:clamp(80px,calc(100dvh - 270px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)),130px)}}
 #joystick .stick-knob{left:calc(50% - 27px);top:calc(50% - 27px)}
+
+/* Distance travels with the Octopod marker and stays upright with its icon. */
+.base-bearing .base-distance{top:100%;left:50%;width:max-content;transform:translateX(-50%);font:bold 9px/12px Arial,sans-serif;letter-spacing:0;white-space:nowrap;opacity:1;padding:0 3px;border-radius:4px;background:#034e62cc;color:#ffdfa0}

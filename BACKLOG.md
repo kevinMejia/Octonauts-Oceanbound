@@ -391,3 +391,16 @@ Delivery: implementation committed as fcb1ff4. User subsequently explicitly
 authorized updating main and pushing for live testing. Fast-forward delivery
 proceeds under that instruction; no implementation changes or other queued work.
 Next: user playtest and physical iPhone checks; user owns deployment checking.
+
+
+## HUD-024 — Selector border and Octopod compass distance
+
+Explicit visual implementation request, one agent continuing. Scope: small GUP
+selector button uses the unified HUD thin border; replace the standalone Octopod
+label with metres directly beneath its rotating compass icon. Preserve navigation,
+selection and all mechanics. Branch: `fix/compass-selector-hud`. Status: complete
+locally. 374 tests, production build/diff checks and rendered Edge checks pass
+four compass bearings at 390x844, 844x390 and 1280x800; selector interaction
+works with no page errors. Single agent; no subagents or independent agent QA.
+Captures: .local-assets/hud024-*.png. Physical iPhone remains unverified.
+Next: user visual review; no merge or push performed for this refinement.
