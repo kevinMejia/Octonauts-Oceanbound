@@ -433,3 +433,19 @@ Delivery: user explicitly authorized pushing REEF-026 to main. Commit focused
 overpass changes, apply only the overpass commit to main, and push. The earlier
 TIPS-025 implementation was subsequently authorized for main as well. Physical
 device limits remain.
+
+
+## DAMAGE-027 — Hide undiscovered stats and maximize GUP-X Armor
+
+Explicit implementation, commit-to-main and push request. Branch
+`fix/locked-gup-stats`; single agent continuing. Scope: undiscovered selector
+cards hide/remove all Speed/Armor/Hull rows and retain their previous compact
+preview; discovered stats remain. GUP-X uses the existing Armor override at 10/10
+(140 maximum Hull); normal speed and saved current Hull points remain unchanged.
+Status: verified. All 379 tests, production build and diff checks pass. Actual
+Edge checks cover all locked carousel previews at desktop, phone and landscape
+sizes, original compact heights, cleared stat DOM on reused cards, unlock refresh,
+discovered Hull display and GUP-X 10/10 selection. No page errors.
+Single agent; no subagents or independent agent QA. Physical iPhone untested.
+Delivery: commit, fast-forward main and push under explicit authorization.
+Next: user playtest; user owns deployment checking.

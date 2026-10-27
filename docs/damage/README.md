@@ -15,6 +15,8 @@ The normal configured `movement.maxSpeed` (with the controller's existing fallba
 is normalized across the complete registry, including locked vehicles and GUP-X.
 For normalized speed t, Speed = round(1 + 9t), Armor = round(10 - 8t),
 and maximum Hull = 40 + 10 * Armor. Equal fleet speeds use t = .5.
+GUP-X explicitly overrides Armor to 10/10 as requested (140 maximum Hull); its
+configured speed is unchanged. Other vehicles retain inverse speed balancing.
 Current maximum Hull ranges from 60 to 140; temporary turbo, towing and damage
 never alter static ratings. Existing saves default missing/invalid Hull to full.
 
@@ -28,7 +30,7 @@ never alter static ratings. Existing saves default missing/invalid Hull to full.
 | E | 7.80 | 1 | 10 | 140 |
 | F | 11.64 | 5 | 7 | 110 |
 | Q | 15.00 | 8 | 4 | 80 |
-| X | 14.40 | 8 | 4 | 80 |
+| X | 14.40 | 8 | 10 | 140 |
 
 The existing CollisionWorld callback supplies inward contact-normal velocity.
 Moving parked GUP velocity is subtracted along that normal before its push impulse.
@@ -91,7 +93,8 @@ emitting; switches and repairs clear effects. New resources expose disposal.
 No textures, external assets, dependencies or post-processing were added.
 
 The selector keeps its carousel/unlock behavior and gains compact ten-segment
-Speed, Armor and current Hull rows. Hull refreshes on opening. The gameplay Hull
+Speed, Armor and current Hull rows for discovered vehicles. Undiscovered cards
+remove these rows and retain their original compact locked preview. Hull refreshes on opening. The gameplay Hull
 badge follows the existing HUD scale; DOM text/color update only when displayed
 condition changes. Notices use the existing notification stack and monitor style,
 with event/resize measurements that clear the compass and vehicle button.
@@ -157,3 +160,12 @@ The collision proxies remain approximations; damage thresholds and smoke strengt
 are initial balancing values for playtesting. No complete day/night mission
 playthrough was repeated. The pre-existing standalone word-hunt overlap above is
 recorded separately; no unrelated queued feature was started.
+
+### DAMAGE-027 follow-up
+
+Undiscovered selector cards contain no stat rows and use their original compact
+heights. Discovered cards retain all stats. GUP-X now explicitly has 10/10 Armor
+and 140 maximum Hull; saved current Hull points remain intact. 379 Node tests,
+production build/diff checks, and `tests/damage-locked-browser.cjs` pass. Browser
+checks cover locked/unlocked card recycling, three viewport sizes, unlock refresh,
+discovered Hull and normal GUP-X selection. Physical iPhone remains untested.

@@ -5,3 +5,8 @@
 .damage-testing{display:flex;flex-wrap:wrap;gap:6px}.damage-testing button{width:auto!important;min-height:44px;height:auto;font-size:12px;padding:8px}
 @media(max-width:600px){#vehicleSelector .vehicle-card{height:288px}.vehicle-viewport{height:310px}}
 @media(max-height:500px){#vehicleSelector .vehicle-card{height:231px}.vehicle-viewport{height:243px}#vehicleSelector .vehicle-card img{height:95px}.vehicle-stat{font-size:9px;line-height:10px;margin-top:3px}.vehicle-stat svg{width:10px;height:10px}.vehicle-stats{margin-top:2px}.stat-segments i{height:3px}#vehicleSelector{overflow-y:auto}}
+
+/* Undiscovered cards retain the original compact silhouette/name/lock preview. */
+#vehicleSelector .vehicle-card.is-locked{height:222px}
+@media(max-width:600px){#vehicleSelector .vehicle-card.is-locked{height:210px}}
+@media(max-height:500px){#vehicleSelector .vehicle-card.is-locked{height:157px}#vehicleSelector .vehicle-card.is-locked img{height:113px}}
