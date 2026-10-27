@@ -403,4 +403,6 @@ locally. 374 tests, production build/diff checks and rendered Edge checks pass
 four compass bearings at 390x844, 844x390 and 1280x800; selector interaction
 works with no page errors. Single agent; no subagents or independent agent QA.
 Captures: .local-assets/hud024-*.png. Physical iPhone remains unverified.
-Next: user visual review; no merge or push performed for this refinement.
+User explicitly authorized pushing this refinement to main. Delivery: fast-forward
+main and push the verified implementation dc5c801, with no runtime changes.
+Next: user visual review; user owns deployment checking.
