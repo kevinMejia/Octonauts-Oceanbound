@@ -93,6 +93,10 @@ export function installSettings(){
  for(const [key,label] of [['showGupLetters','Show GUP Letters on Compass'],['showOctonautLetters','Show Octonaut Letters on Compass'],['showAnimalIcons','Show Animal Icons on Compass']]){
   const input=check(markerSwitches,key,label,value=>{gameplaySettings[key]=value;window.explorer?.compass?.syncTargets();status.textContent=saveGameplaySettings(storage,gameplaySettings)?'Gameplay settings saved on this device.':'Gameplay settings applied for this session.';});input.checked=gameplaySettings[key];
  }
+ intro(gameplayPanel,'Damage testing','Set the current GUP condition or repair your fleet.');
+ const damageTesting=document.createElement('div');damageTesting.className='damage-testing';
+ for(const percent of [100,50,25,0]){const button=resetButton(damageTesting,'Hull '+percent+'%',()=>{const game=window.explorer;if(game?.damage){game.damage.setPercent(game.sub.vehicleId,percent);status.textContent='Current GUP Hull: '+percent+'%';}});button.dataset.hull=percent;}
+ resetButton(damageTesting,'Repair all GUPs',()=>{window.explorer?.damage?.repairAll();status.textContent='All GUPs fully repaired.';});gameplayPanel.append(damageTesting);
  intro(gameplayPanel,'Start a fresh adventure','Reset GUP, marine animal, and Octonaut discoveries and restart in GUP-B at the Octopod. Audio and camera preferences stay saved.');
  const confirmation=document.createElement('div');confirmation.hidden=true;confirmation.setAttribute('role','group');confirmation.setAttribute('aria-label','Confirm gameplay reset');
  const warning=document.createElement('p');warning.textContent='Reset all GUP, marine animal, and Octonaut discoveries? Your fleet and collection progress will be cleared, the Octonauts will return to their discovery locations, and the game will restart. This cannot be undone.';confirmation.append(warning);
@@ -101,7 +105,7 @@ export function installSettings(){
  const confirm=resetButton(confirmation,'Yes, reset and restart',()=>{
   const game=window.explorer;if(!game?.ready)return;
   confirm.disabled=cancel.disabled=true;game.input.clear();
-  try{game.wordHunt.reset();game.unlocks.reset();game.marineDiscovery.reset();game.crewDiscovery.reset();game.marineCollection.updateCounter();if(!game.wordHunt.progress.saved||!game.unlocks.saved||!game.marineDiscovery.saved||!game.crewDiscovery.saved)throw Error('Save unavailable');location.reload();}
+  try{game.damage.repairAll();game.wordHunt.reset();game.unlocks.reset();game.marineDiscovery.reset();game.crewDiscovery.reset();game.marineCollection.updateCounter();if(!game.wordHunt.progress.saved||!game.unlocks.saved||!game.marineDiscovery.saved||!game.crewDiscovery.saved)throw Error('Save unavailable');location.reload();}
   catch{status.textContent='Progress could not be saved. Please allow site storage and try again.';confirm.disabled=cancel.disabled=false;}
  });confirm.id='confirmGameplayReset';gameplayPanel.append(confirmation);
  dialog.addEventListener('close',()=>{confirmation.hidden=true;reset.hidden=false;});

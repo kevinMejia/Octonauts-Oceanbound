@@ -371,3 +371,22 @@ Edge checks pass five viewport transitions, shared translation, visual group
 centering within 0.12px, 44px touch height and Settings open/close. Screenshot:
 docs/hud-fitted/raised-right.png. CSS-only; no gameplay tests rerun. Next:
 commit/push. No deployment checks; physical iPhone remains unverified.
+
+
+## DAMAGE-023 — Fleet Hull and Octopod repair
+
+Explicit implementation and commit request; branch `feat/gup-damage-repair`.
+Single agent only by user instruction (no independent agent QA). Scope: configured
+fleet ratings, persisted Hull, collision damage, effects, emergency movement,
+physical repair station, selector/HUD and existing settings testing controls.
+Status: implemented and verified locally. 374 Node tests, build/diff checks and
+production Edge low/high damage/repair checks pass. All nine GUPs reach/contact
+the clear south repair marker; GUP-X drives there in emergency mode. Switching,
+persistence, particles, settings, timed repairs during rescue and four-size notice
+layout pass. Existing emulated-touch rescue regression passes. Standalone word-hunt
+HUD overlap test fails identically with damage UI disabled; baseline comparison
+recorded in docs/damage/. Physical iPhone Safari/performance remain unverified.
+No subagents or independent agent QA ran, per the explicit user instruction.
+Delivery: completed and committed locally on `feat/gup-damage-repair`. Next: user
+playtest and physical iPhone checks. No merge/push/deploy authorized for this task;
+no other queued work started.

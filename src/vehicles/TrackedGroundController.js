@@ -1,3 +1,4 @@
+import {damageConfig} from '../config/damageConfig.js';
 import {heightAt} from '../environment/terrainMath.js';
 import {hullFloor} from '../collision/collisionMath.js';
 import {worldConfig} from '../config/worldConfig.js';
@@ -19,9 +20,10 @@ export class TrackedGroundController{
  update(s,dt,input){const count=Math.max(1,Math.ceil(dt/this.config.substep)),step=dt/count;for(let i=0;i<count;i++)this.step(s,step,input);}
  step(s,dt,input){const c=this.config,p=s.position;Object.assign(s.previousPosition,p);
   const thrust=input.brakeReverse&&s.speed>.15?0:input.thrust;
-  s.turbo.request(input.boost);s.turbo.step(dt,thrust>0);
-  const target=thrust*(thrust>=0?(input.cruise?c.maxSpeed*.8:c.maxSpeed)*s.turbo.multiplier:c.maxReverseSpeed)*(s.towingSpeedMultiplier??1);
+  s.turbo.request(input.boost&&!s.emergency);s.turbo.step(dt,thrust>0);
+  const limit=s.emergency?damageConfig.emergencySpeed:1;const target=thrust*(thrust>=0?(input.cruise?c.maxSpeed*.8:c.maxSpeed)*s.turbo.multiplier:c.maxReverseSpeed)*(s.towingSpeedMultiplier??1)*limit;
   s.speed=damp(s.speed,target,input.brakeReverse&&s.speed>.15?c.braking:thrust?c.acceleration*(s.turbo.active?c.turboAcceleration:1):c.drag,dt);
+  if(s.emergency)s.speed=Math.max(-c.maxReverseSpeed*limit,Math.min(c.maxSpeed*limit,s.speed));
   s.steer=damp(s.steer,input.turn,c.steering,dt);
   // Differential tracks can pivot even when forward motion is blocked.
   const speed=Math.abs(s.speed),turn=s.steer*Math.max(c.pivotTurnSpeed*(1-Math.min(1,speed/c.maxSpeed)),Math.min(c.turnSpeed,speed/c.turnRadius))*(1-(1-c.highSpeedSensitivity)*Math.min(1,speed/c.maxSpeed));

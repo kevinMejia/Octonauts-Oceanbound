@@ -13,7 +13,7 @@ export class CollisionWorld{
  }
  record(sub,s,nx,ny,nz,impact,offset){
   const c=this.contact;if(c.active&&impact<=c.impact)return;
-  c.active=true;c.impact=impact;c.nx=nx;c.ny=ny;c.nz=nz;c.surface=s.surface;c.parkedId=s.parkedId??null;c.color=s.color??this.sand.color;c.branch=!!s.branch;
+  c.active=true;c.obstacle=s;c.impact=impact;c.nx=nx;c.ny=ny;c.nz=nz;c.surface=s.surface;c.parkedId=s.parkedId??null;c.color=s.color??this.sand.color;c.branch=!!s.branch;
   const hull=sub.collisionProxy,r=hull?.radius??2.2,h=hull?.halfHeight??1.1;
   const extent=Math.sqrt(r*r*(nx*nx+nz*nz)+h*h*ny*ny);
   const f=this.frame,centerY=s.surface==='sand'?0:hull?.centerY??0;

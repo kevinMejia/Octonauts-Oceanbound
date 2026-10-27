@@ -1,0 +1,165 @@
+{
+  "result": {
+    "stats": {
+      "gup-a": {
+        "speed": 2,
+        "armor": 9,
+        "maxHull": 130,
+        "maxSpeed": 8.64
+      },
+      "gup-b": {
+        "speed": 6,
+        "armor": 6,
+        "maxHull": 100,
+        "maxSpeed": 12.72
+      },
+      "gup-r": {
+        "speed": 10,
+        "armor": 2,
+        "maxHull": 60,
+        "maxSpeed": 16.799999999999997
+      },
+      "gup-c": {
+        "speed": 3,
+        "armor": 9,
+        "maxHull": 130,
+        "maxSpeed": 9.48
+      },
+      "gup-d": {
+        "speed": 4,
+        "armor": 8,
+        "maxHull": 120,
+        "maxSpeed": 10.56
+      },
+      "gup-e": {
+        "speed": 1,
+        "armor": 10,
+        "maxHull": 140,
+        "maxSpeed": 7.800000000000001
+      },
+      "gup-f": {
+        "speed": 5,
+        "armor": 7,
+        "maxHull": 110,
+        "maxSpeed": 11.64
+      },
+      "gup-q": {
+        "speed": 8,
+        "armor": 4,
+        "maxHull": 80,
+        "maxSpeed": 15
+      },
+      "gup-x": {
+        "speed": 8,
+        "armor": 4,
+        "maxHull": 80,
+        "maxSpeed": 14.4
+      }
+    },
+    "station": {
+      "x": 188,
+      "y": 3.9751079729238743,
+      "z": 140,
+      "baseDistance": 40.79215610874228,
+      "near": []
+    },
+    "after": 82,
+    "full": 100,
+    "emitted": 10,
+    "poses": [
+      {
+        "id": "gup-a",
+        "touch": true,
+        "y": 5.320378676115023
+      },
+      {
+        "id": "gup-b",
+        "touch": true,
+        "y": 4.870336579759227
+      },
+      {
+        "id": "gup-r",
+        "touch": true,
+        "y": 4.870297834652626
+      },
+      {
+        "id": "gup-c",
+        "touch": true,
+        "y": 5.749194447157006
+      },
+      {
+        "id": "gup-d",
+        "touch": true,
+        "y": 4.359341308755858
+      },
+      {
+        "id": "gup-e",
+        "touch": true,
+        "y": 5.131705207322126
+      },
+      {
+        "id": "gup-f",
+        "touch": true,
+        "y": 4.57368226236759
+      },
+      {
+        "id": "gup-q",
+        "touch": true,
+        "y": 5.007273221952518
+      },
+      {
+        "id": "gup-x",
+        "touch": true,
+        "y": 3.065566233679486
+      }
+    ]
+  },
+  "layout": [
+    {
+      "w": 390,
+      "h": 844,
+      "dialog": {
+        "x": 10,
+        "y": 163.59375,
+        "w": 370,
+        "h": 516.796875
+      },
+      "confirm": {
+        "y": 583.390625,
+        "h": 52
+      },
+      "scroll": 513
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "dialog": {
+        "x": 16,
+        "y": 6,
+        "w": 812,
+        "h": 378
+      },
+      "confirm": {
+        "y": 329,
+        "h": 44
+      },
+      "scroll": 397
+    },
+    {
+      "w": 320,
+      "h": 568,
+      "dialog": {
+        "x": 10,
+        "y": 18.59375,
+        "w": 300,
+        "h": 530.796875
+      },
+      "confirm": {
+        "y": 452.390625,
+        "h": 52
+      },
+      "scroll": 527
+    }
+  ],
+  "errors": []
+}

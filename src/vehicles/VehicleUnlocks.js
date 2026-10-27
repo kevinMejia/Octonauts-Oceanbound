@@ -16,7 +16,7 @@ export class VehicleUnlocks{
  }
  setOverride(id,value){if(value)this.overrides.add(id);else this.overrides.delete(id);for(const listener of this.listeners)listener(null);}
  isUnlocked(id){return this.ids.has(id)||this.overrides.has(id);}
- save(){try{if(!this.storage)throw Error();this.storage.setItem(this.key,JSON.stringify({version:1,unlocked:[...this.ids]}));this.saved=true;}catch{this.saved=false;}}
+ save(){try{if(!this.storage)throw Error();let raw;try{raw=JSON.parse(this.storage.getItem(this.key)??'null');}catch{}this.storage.setItem(this.key,JSON.stringify({...(!Array.isArray(raw)&&raw||{}),version:1,unlocked:[...this.ids]}));this.saved=true;}catch{this.saved=false;}}
  unlock(id){if(!this.registry.some(v=>v.id===id)||this.ids.has(id))return false;this.ids.add(id);this.save();for(const listener of this.listeners)listener(id);return true;}
  subscribe(listener){this.listeners.add(listener);return ()=>this.listeners.delete(listener);}
  reset(){this.ids=new Set(this.registry.filter(v=>v.unlockedByDefault===true).map(v=>v.id));this.save();for(const listener of this.listeners)listener(null);}

@@ -152,3 +152,16 @@ previews, a cycle freeze switch and automatic headlights. One shadow-free light
 follows the active swimming or tracked GUP; night retains comfortable ambient
 visibility. Preferences save with existing gameplay settings. See
 [implementation, testing and performance limits](docs/day-night/README.md).
+
+
+### GUP Hull and Octopod repairs
+
+Each vehicle now has configured-speed-derived Speed and Armor ratings plus its own
+persisted Hull. Meaningful normal-velocity impacts damage the active GUP; smoke,
+sparks and a small emergency flame show its condition. Zero Hull retains 25% speed
+and disables turbo until repaired. Touch the green crossed-tools marker in the
+south Octopod clearing for a five-second repair; leaving retains partial progress.
+The selector shows all three stats and the gameplay HUD shows Hull percentage.
+Settings > Gameplay includes damage testing controls. See [implementation, balancing
+and verification](docs/damage/README.md), including the existing unrelated word-hunt
+layout failure and outstanding physical iPhone Safari checks.
