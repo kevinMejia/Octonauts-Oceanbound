@@ -5,14 +5,14 @@ export class WordHuntDisplay{
   const make=(tag,className,text)=>{const node=host.createElement(tag);node.className=className;if(text)node.textContent=text;return node;};
   const top=make('div','hunt-heading');this.title=make('span','hunt-title','LETTER DISCOVERED!');const icon=make('span','hunt-icon','✦');icon.setAttribute('aria-hidden','true');this.counter=make('span','hunt-counter');top.append(icon,this.title,this.counter);
   this.word=make('div','hunt-word');this.bursts=[];this.spans=config.letters.map(l=>{const slot=make('span','hunt-slot'),letter=make('span','hunt-letter',l.letter),sparks=[];slot.append(letter);for(let i=0;i<4;i++){const spark=make('i','hunt-spark');spark.setAttribute('aria-hidden','true');slot.append(spark);sparks.push(spark);}this.bursts.push(sparks);this.word.append(slot);return letter;});
-  const bottom=make('div','hunt-footer'),bolt=make('span','hunt-lightning','ϟ');bolt.setAttribute('aria-hidden','true');this.reward=make('span','hunt-hint','Collect all 9 to unlock Infinite Turbo');bottom.append(bolt,this.reward);this.root.append(top,this.word,bottom);host.body.append(this.root);this.hide();
+  const bottom=make('div','hunt-footer'),bolt=make('span','hunt-lightning','ϟ');bolt.setAttribute('aria-hidden','true');this.reward=make('span','hunt-hint','Collect all 9 to unlock Infinite Turbo');bottom.append(bolt,this.reward);this.root.append(top,this.word,bottom);(host.getElementById?.('gameplayNotifications')??host.body).append(this.root);this.hide();
   // Measure only when shown or HUD/viewport sizes change, never each frame.
   this.layout=()=>this.position();const win=host.defaultView;win?.addEventListener('resize',this.layout);win?.visualViewport?.addEventListener('resize',this.layout);
   if(win?.ResizeObserver){this.observer=new win.ResizeObserver(this.layout);for(const id of ['navigation','compass','turboHud','vehicleToggle','creatureCollection']){const hud=host.getElementById(id);if(hud)this.observer.observe(hud);}this.observer.observe(this.root);}
   if(win?.MutationObserver){this.hudObserver=new win.MutationObserver(this.layout);this.hudObserver.observe(host.body,{attributes:true,attributeFilter:['class']});}
  }
  position(){
-  if(this.root.hidden||!this.root.getBoundingClientRect)return;this.root.style.top='';const transform=this.root.style.transform;this.root.style.transform='translateX(-50%)';const panel=this.root.getBoundingClientRect();let top=panel.top;
+  if(this.root.parentElement?.id==='gameplayNotifications'||this.root.hidden||!this.root.getBoundingClientRect)return;this.root.style.top='';const transform=this.root.style.transform;this.root.style.transform='translateX(-50%)';const panel=this.root.getBoundingClientRect();let top=panel.top;
   for(const id of ['navigation','compass','turboHud','vehicleToggle','creatureCollection']){const hud=this.host.getElementById(id);if(!hud||hud.hidden)continue;const r=hud.getBoundingClientRect();if(r.width&&r.left<panel.right+8&&r.right>panel.left-8)top=Math.max(top,r.bottom+12);}
   this.root.style.top=top+'px';this.root.style.transform=transform;
  }

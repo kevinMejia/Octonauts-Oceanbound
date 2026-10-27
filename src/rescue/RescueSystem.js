@@ -14,7 +14,7 @@ export class RescueSystem{
   this.game=game;this.config=config;this.onDelivered=onDelivered;this.active=null;this.time=0;this.noticeLeft=0;this.notices=[];this.near=[];this.rope=new TowRope(game.scene,config.towing);this.water=new TowWater(game.scene,towVisualConfig.water,game.quality==='low');this.collisions=new CollisionWorld(game.interactions.surfaces);this.placement=new FleetPlacement(game.interactions.surfaces.grid);
   const p=octopodConfig.position,o=config.deliveryOffset;this.centre={x:p.x+o[0],y:p.y+o[1],z:p.z+o[2]};
   this.hud=game.rescueNavigation.section;
-  this.notice=document.createElement('div');this.notice.id='rescueNotice';this.notice.hidden=true;this.notice.setAttribute('role','status');this.notice.setAttribute('aria-live','polite');this.noticePanel=document.querySelector('#turboHud');this.noticePanel.append(this.notice);
+  this.notice=document.createElement('div');this.notice.id='rescueNotice';this.notice.hidden=true;this.notice.setAttribute('role','status');this.notice.setAttribute('aria-live','polite');this.noticePanel=document.querySelector('#gameplayNotifications');this.noticePanel.append(this.notice);
   this.constrain=(motion,sub,dt)=>this.constrainMotion(motion,sub,dt);this.adjustTarget=(motion)=>this.liftTarget(motion);this.ground=heightAt;
  }
  start(payload){

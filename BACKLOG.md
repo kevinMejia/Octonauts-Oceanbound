@@ -305,3 +305,13 @@ Evidence: docs/viewport/README.md. Physical iPhone Safari, safe areas, simultane
 touch and sustained FPS/memory remain unverified. Next: physical iPhone validation.
 User explicitly requested merging to main. Delivery: commit, fast-forward main,
 push and check Pages; physical iPhone validation remains outstanding.
+
+
+## HUD-017 — Unified gameplay HUD
+
+Explicitly authorized implementation, commit and push to main. Single agent only.
+Priority: current. Status: verified; delivery authorized. Scope: connected settings/turbo/discovery
+assembly and independent notification stack; no mechanics or viewport changes.
+361 Node tests, build/diff checks, rendered Edge HUD checks and repeated orientation
+regression pass. Evidence: docs/hud/. No subagents ran. Next: commit/push to main
+for user playtest. Physical iPhone validation outstanding.
