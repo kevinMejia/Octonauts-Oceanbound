@@ -1,0 +1,95 @@
+{
+  "cameraRoutes": [
+    {
+      "id": "gup-a",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-a",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-b",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-b",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-r",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-r",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-c",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-c",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-d",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-d",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-e",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-e",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-f",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-f",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-q",
+      "heading": 0,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-q",
+      "heading": 3.141592653589793,
+      "maxPitch": 0
+    },
+    {
+      "id": "gup-x",
+      "heading": 0,
+      "maxPitch": 0.06534149665396918
+    },
+    {
+      "id": "gup-x",
+      "heading": 3.141592653589793,
+      "maxPitch": 0.06548482452726678
+    }
+  ],
+  "cleanup": true
+}

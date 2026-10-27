@@ -406,3 +406,28 @@ Captures: .local-assets/hud024-*.png. Physical iPhone remains unverified.
 User explicitly authorized pushing this refinement to main. Delivery: fast-forward
 main and push the verified implementation dc5c801, with no runtime changes.
 Next: user visual review; user owns deployment checking.
+
+
+## TIPS-025 — Explain turbo activation
+
+Explicit implementation request; branch `feat/turbo-controls-tip`. Single agent.
+Scope: add another welcome tip explaining double-tap Forward/W/Up and holding
+the second press. Existing tip rotation and controls preserved. Status: complete
+locally; all four startup-tip tests, production build and diff checks pass.
+No subagents or independent agent QA ran. Next: user review; no push or merge
+performed for this request.
+
+
+## REEF-026 — Single natural rock overpass
+
+Explicit implementation request; one agent only. Branch feat/reef-overpass.
+Scope: one flagged static formation, safe placement, shared collision and bounded
+coral. No global world/render settings changes or merge/deployment. Implemented locally;
+378 tests, build and diff checks pass. Desktop Edge low/high comparisons, all-fleet
+camera routes and idempotent cleanup checked. Evidence: docs/reef-overpass/.
+Next: user visual/device playtest. Physical iPhone, full mission/tow/turbo interaction
+playthroughs and sustained device performance unverified. No subagents ran.
+
+Delivery: user explicitly authorized pushing REEF-026 to main. Commit focused
+overpass changes, apply only the overpass commit to main, and push. The earlier
+TIPS-025 implementation stays on its feature branch. Physical device limits remain.
