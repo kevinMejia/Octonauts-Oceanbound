@@ -351,3 +351,12 @@ and full housing scanlines. Preserve all state and notification behavior.
 365 tests, build/diff checks and Edge rendered size/layout/state checks pass.
 Evidence: docs/hud-fitted/. Delivery: commit/push under standing user instruction;
 user owns deployment checking. Physical iPhone remains unverified.
+
+
+## HUD-021 — Straight upper edge
+
+Explicit user request, single agent. Scope: flatten SVG housing and texture top
+edge from emblem apex to Turbo; preserve other layout and gameplay. Status: verified.
+Build/diff checks pass; actual Edge portrait capture inspected. Only SVG path
+coordinates changed; no gameplay tests rerun. Next: commit/push under standing
+authorization; user owns deployment checks. Physical iPhone remains untested.
