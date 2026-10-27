@@ -15,7 +15,7 @@ Asset integration changes: shared prepare_vehicle.py optional source tread morph
 
 ## Configuration
 
-`groundVehicleConfig.js` uses metres/seconds/radians: forward 14.4 m/s, reverse 4.8 m/s, acceleration response 2/s, braking 5/s, turn radius 18 m, maximum slope 45 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
+`groundVehicleConfig.js` uses metres/seconds/radians: forward 14.4 m/s, reverse 4.8 m/s, acceleration response 2/s, braking 5/s, turn radius 3 m, maximum slope 45 degrees, ground clearance .65 m, and 120 Hz movement substeps. Turbo uses the existing TurboBoost: 1.9x maximum speed, 2.2x acceleration response, 8 charge/second drain (12.5 seconds), 4/second regeneration. Infinite turbo is the existing word-hunt reward, unchanged.
 
 Swimming movement remains on the existing controller branch. Ground movement ignores rise/jump input, samples centre/front/rear/sides, smooths body pitch and roll, clamps height to terrain support, rejects steep changes, and invokes the existing swept CollisionWorld at each substep. Collision lift/drift is removed after resolution. Towing only affects the existing shared speed multiplier and rear attachment.
 
@@ -61,3 +61,25 @@ turn-rate cap are retained. Twenty focused ground/damage tests, production build
 and diff checks pass. Existing Edge GUP-X controls, tracks, infinite turbo,
 selection, override fallback and reload regression passes without page errors.
 No subagents or physical iPhone testing. Tuning remains available for playtesting.
+
+## Tighter turns and reversed backing steering (GUPX-031)
+
+User clarified that much tighter turns were intended, superseding GUPX-030.
+Configured radius is now 3 m and the moving turn-rate cap is 3.2 rad/s so the
+smaller radius is effective at speed. At normal maximum speed, the same
+flat-ground controller comparison gives a 10 m effective radius instead of 40 m
+(75% smaller). Existing speed sensitivity still limits high-speed steering;
+stationary pivot speed remains .8 rad/s.
+
+Backing reverses the turn direction based on actual signed movement, with a
+configurable .05 m/s threshold keeping normal stationary/escape pivoting stable.
+Braking while still moving forwards retains forward steering until backing up.
+Track differential animation and the existing signed-speed camera anticipation
+continue to follow the controller. No swimming vehicle controls changed.
+
+384 Node tests and production build/diff checks pass, including tighter normal/
+turbo turns, unchanged stationary pivot, both reverse steering directions and
+braking transitions. `tests/gup-x-steering-browser.cjs` passes real keyboard
+left/right in forward/reverse in production Edge. Existing `gup-x-browser.cjs`
+passes movement, tracks, infinite turbo, selection, override fallback and reload
+with no page errors. Single agent; physical iPhone/touch testing remains unverified.

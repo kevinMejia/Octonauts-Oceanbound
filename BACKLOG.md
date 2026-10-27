@@ -493,3 +493,19 @@ checks and existing Edge GUP-X controls/track/turbo/selection/override/reload
 regression pass with no page errors. Single agent; physical iPhone untested.
 Delivery: commit/merge main and push for live testing under the established
 instruction. Earlier requested changes already merged. Next: user playtest.
+
+
+## GUPX-031 — Much tighter turns and reversed backing steering
+
+User clarified the intended direction and explicitly authorized commit/push.
+Branch: `fix/gup-x-tight-reverse-steering`; single agent. Scope: reduce configured
+radius 18 -> 3 m and raise the existing moving turn-rate cap 1.05 -> 3.2 rad/s
+so the reduction is effective at driving speed. Keep stationary pivot tuning.
+Reverse steering follows actual backwards motion, retaining forward steering
+while braking and normal pivoting near rest. Status: verified. 384 tests, build/
+diff checks and actual production Edge forward/reverse left/right keyboard checks
+pass. Existing GUP-X controls/tracks/turbo/selection/override/reload browser
+regression passes without page errors. Effective normal full-speed radius measured
+40 -> 10 m (75% smaller); stationary pivot unchanged. No subagents; physical
+iPhone/touch untested. Delivery: commit and push main as explicitly requested.
+Next: user playtest.

@@ -25,8 +25,8 @@ export class TrackedGroundController{
   s.speed=damp(s.speed,target,input.brakeReverse&&s.speed>.15?c.braking:thrust?c.acceleration*(s.turbo.active?c.turboAcceleration:1):c.drag,dt);
   if(s.emergency)s.speed=Math.max(-c.maxReverseSpeed*limit,Math.min(c.maxSpeed*limit,s.speed));
   s.steer=damp(s.steer,input.turn,c.steering,dt);
-  // Differential tracks can pivot even when forward motion is blocked.
-  const speed=Math.abs(s.speed),turn=s.steer*Math.max(c.pivotTurnSpeed*(1-Math.min(1,speed/c.maxSpeed)),Math.min(c.turnSpeed,speed/c.turnRadius))*(1-(1-c.highSpeedSensitivity)*Math.min(1,speed/c.maxSpeed));
+  // Backing up reverses steering; near rest retains normal escape pivoting.
+  const speed=Math.abs(s.speed),direction=s.speed<-c.reverseSteeringSpeed?-1:1,turn=direction*s.steer*Math.max(c.pivotTurnSpeed*(1-Math.min(1,speed/c.maxSpeed)),Math.min(c.turnSpeed,speed/c.turnRadius))*(1-(1-c.highSpeedSensitivity)*Math.min(1,speed/c.maxSpeed));
   s.heading+=turn*dt;
   const x=p.x,z=p.z,sy=Math.sin(s.heading),cy=Math.cos(s.heading),edge=worldConfig.size/2-12;
   let dx=sy*s.speed*dt,dz=cy*s.speed*dt;
