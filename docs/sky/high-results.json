@@ -1,0 +1,125 @@
+{
+  "cloudPixels": 394488,
+  "costs": [
+    {
+      "enabled": false,
+      "medianMs": 2.7000000001862645,
+      "calls": 115,
+      "textures": 114
+    },
+    {
+      "enabled": true,
+      "medianMs": 2.5,
+      "calls": 116,
+      "textures": 114
+    }
+  ],
+  "rows": [
+    {
+      "phase": 0.25,
+      "daylight": 0.5000068370980328,
+      "sun": [
+        -1,
+        8.754549930001666e-13,
+        -3.0640924755005826e-13
+      ],
+      "visible": true,
+      "opacity": 1,
+      "headlight": 0.49994332056055274,
+      "programs": 111
+    },
+    {
+      "phase": 0.5,
+      "daylight": 0.999993162995459,
+      "sun": [
+        -1.0259453150144867e-12,
+        0.9438583563660174,
+        -0.3303504247281061
+      ],
+      "visible": true,
+      "opacity": 1,
+      "headlight": 8.734182460493706e-8,
+      "programs": 111
+    },
+    {
+      "phase": 0.75,
+      "daylight": 0.5000068370045423,
+      "sun": [
+        1,
+        1.086364671973168e-12,
+        -3.8022763519060875e-13
+      ],
+      "visible": true,
+      "opacity": 1,
+      "headlight": 0.499943321332533,
+      "programs": 111
+    },
+    {
+      "phase": 0,
+      "daylight": 0.0000068371915233811074,
+      "sun": [
+        1.0254321683584506e-12,
+        -0.9438583563660174,
+        0.3303504247281061
+      ],
+      "visible": true,
+      "opacity": 1,
+      "headlight": 0.9999999126419954,
+      "programs": 111
+    },
+    {
+      "y": 15,
+      "visible": false,
+      "opacity": 0
+    },
+    {
+      "y": 40,
+      "visible": false,
+      "opacity": 0
+    },
+    {
+      "y": 44,
+      "visible": false,
+      "opacity": 0
+    },
+    {
+      "y": 46,
+      "visible": true,
+      "opacity": 0.41865691117527326
+    },
+    {
+      "y": 48,
+      "visible": true,
+      "opacity": 1
+    },
+    {
+      "y": 53,
+      "visible": true,
+      "opacity": 1
+    },
+    {
+      "y": 46,
+      "visible": true,
+      "opacity": 0.42120168669274854
+    },
+    {
+      "y": 44,
+      "visible": false,
+      "opacity": 0
+    },
+    {
+      "y": 40,
+      "visible": false,
+      "opacity": 0
+    },
+    {
+      "y": 15,
+      "visible": false,
+      "opacity": 0
+    }
+  ],
+  "deepCalls": 115,
+  "skyDraws": 1,
+  "triangles": 224,
+  "gl": 0
+}

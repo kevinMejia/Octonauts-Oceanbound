@@ -15,6 +15,10 @@ later request to hold a particular change. Do not start unapproved queued work.
 
 ## Active task
 
+Current session: SKY-015 is the explicitly requested active implementation; see
+its final checkpoint below. The older TURBO-004 checkpoint is retained for future
+resumption and has not been started or expanded by this sky task.
+
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
 | TURBO-004 | Vehicle-specific turbo flame positioning and attachment for every GUP | Current | User explicitly said to resume all work, then confirmed continuing | Active after rescue-arrow PR delivery | Inspect each model, configure emitters, implement attachment, verify, deliver a separate PR |
@@ -271,3 +275,18 @@ pass with stable draws/textures/programs/pools and no errors.
 Evidence: docs/night-sediment/. Physical Safari/performance remain unverified.
 Implementation: 1061597. User explicitly authorized merging completed fixes
 into main for live testing. Next: combined verification and Pages deployment.
+
+## SKY-015 — Reusable sky and atmosphere
+
+Explicit user implementation request, single agent only. Branch `feat/reusable-sky`.
+Scope: independent configurable sky, existing clock integration, camera medium
+visibility; preserve existing breach/settling, ground GUP-X and gameplay systems.
+Status: implemented and verified locally. 358 Node tests, build and diff check
+pass. Production Edge low/high sky, surface controls/crossings, GUP-X, emulated
+touch rescue escort and word-hunt HUD checks pass. No subagents or independent
+agent QA ran, per explicit single-agent request. Physical Safari/performance and
+full manual mission playthroughs remain unverified. Evidence: docs/sky/README.md.
+Surface crossing already exists; no physics changes were necessary.
+Delivery: user reiterated standing authorization to merge completed work into main
+and push for live testing. Next: commit, fast-forward main, push and check Pages.
+No queued gameplay work started.
