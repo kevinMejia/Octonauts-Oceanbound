@@ -1,5 +1,5 @@
 /* One viewBox and one shared scale keep the molded contour and controls aligned. */
-#navigation{--hud-font:Arial,sans-serif;--hud-weight:800;--hud-white:#fff;--hud-text-shadow:0 1px 1px #002e45;position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);left:calc(env(safe-area-inset-left,0px) + 12px);font-size:1px;display:grid;grid-template-columns:88em 176em;grid-template-rows:60em 48em;gap:0;width:264em;height:108em;max-width:none;align-items:center;isolation:isolate}
+#navigation{--hud-font:Arial,sans-serif;--hud-weight:800;--hud-label-size:16em;--hud-white:#fff;--hud-text-shadow:0 1px 1px #002e45;position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);left:calc(env(safe-area-inset-left,0px) + 12px);font-size:1px;display:grid;grid-template-columns:88em 176em;grid-template-rows:60em 48em;gap:0;width:264em;height:108em;max-width:none;align-items:center;isolation:isolate}
 #navigation::before{content:none}
 .hud-housing{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:visible}
 #navigation #menuToggle{grid-row:1 / 3;grid-column:1;align-self:start;z-index:1;width:92em;height:92em;margin:2em 0 0 2em;padding:4em;border:0;border-radius:50%;background:none;box-shadow:none;font:inherit;transition:none;transform:none}
@@ -7,13 +7,12 @@
 #navigation #turboHud{grid-column:2;grid-row:1;position:relative;inset:auto;transform:none;width:100%;min-width:0;margin:0;padding:4em 13em 0 7em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;transition:none}
 #navigation .turbo-title{height:24em;gap:14em;text-shadow:var(--hud-text-shadow);color:var(--hud-white)}
 #navigation #turboHud span,#navigation .creature-counter{font-family:var(--hud-font);font-weight:var(--hud-weight);color:var(--hud-white);text-shadow:var(--hud-text-shadow);letter-spacing:.2px;text-indent:0;font-variant-numeric:tabular-nums}
-#navigation #turboHud span{font-size:16em}
+#navigation #turboHud span,#navigation .creature-counter{font-size:var(--hud-label-size)}
 #navigation .turbo-bolt{width:11em;height:17em;filter:none}
 #navigation #turboCharge{height:10em;margin:3em 0 0;border-radius:6em}
-#navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;display:flex;align-items:center;justify-content:center;width:140em;height:max(44px,44em);min-height:44px;margin:0;padding:0 8em max(0px,calc(44px - 44em));gap:14em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;filter:none;transition:none;transform:none}
+#navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;display:flex;align-items:center;justify-content:flex-start;width:92em;height:max(44px,44em);min-height:44px;margin:0 0 0 -14em;padding:0 8em max(0px,calc(44px - 44em));gap:10em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;filter:none;transition:none;transform:none}
 #navigation #creatureCollection::before,#navigation #creatureCollection::after{content:none}
-#navigation .creature-counter{font-size:25em}
-#navigation .creature-fish{width:35em;height:27em;filter:none}
+#navigation .creature-fish{width:var(--hud-label-size);height:var(--hud-label-size);filter:none}
 #navigation #menuToggle[data-keyboard-focus]:focus,#navigation #creatureCollection[data-keyboard-focus]:focus{outline:2px solid #b8ffed;outline-offset:-2px;border-radius:20px}
 @media(max-width:600px),(max-height:500px){#navigation{font-size:.8px}}
 @media(max-width:360px){#navigation{font-size:.72px}}

@@ -341,3 +341,13 @@ Evidence: docs/hud-contour/. No subagents. Next: user visual review; physical
 iPhone remains unverified. User explicitly authorized commit and push to main.
 Delivery: push verified refinement; user owns deployment verification.
 Prior TIPS-018 commit e1bf083 was pushed. User requests no deployment checks.
+
+
+## HUD-020 — Fitted lower row and full screen texture
+
+Explicitly authorized refinement, single agent. Status: verified on main. Scope:
+left-aligned fish/count, straight lower contour, shared TURBO-size typography/icon,
+and full housing scanlines. Preserve all state and notification behavior.
+365 tests, build/diff checks and Edge rendered size/layout/state checks pass.
+Evidence: docs/hud-fitted/. Delivery: commit/push under standing user instruction;
+user owns deployment checking. Physical iPhone remains unverified.
