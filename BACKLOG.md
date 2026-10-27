@@ -328,3 +328,16 @@ hide/resume, cleanup and orientation checks pass. Evidence: docs/startup-tips/.
 No subagents. User explicitly authorized commit/push to main including HUD-017.
 Delivery: commit tips, push combined history and verify Pages. Physical iPhone
 validation remains outstanding.
+
+
+## HUD-019 — Custom contoured housing refinement
+
+Explicitly authorized visual refinement; single agent only. Priority: current.
+Status: verified locally on main. Scope: one scalable SVG contour, simpler surfaces and
+shared typography, preserving controls, state, notifications and viewport.
+365 Node tests, production build/diff checks, rendered Edge typography/controls/
+live meter/counter/notification checks and repeated orientation regression pass.
+Evidence: docs/hud-contour/. No subagents. Next: user visual review; physical
+iPhone remains unverified. User explicitly authorized commit and push to main.
+Delivery: push verified refinement; user owns deployment verification.
+Prior TIPS-018 commit e1bf083 was pushed. User requests no deployment checks.

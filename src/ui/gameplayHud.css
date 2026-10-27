@@ -1,15 +1,22 @@
-/* Permanent assembly shares one safe-area anchor; no viewport JS or decorative loop. */
-#navigation{--badge:88px;--panel:176px;position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);left:calc(env(safe-area-inset-left,0px) + 12px);display:grid;grid-template-columns:var(--badge) var(--panel);grid-template-rows:56px 48px;gap:0;max-width:none;isolation:isolate}
-#navigation::before{content:'';position:absolute;inset:0 0 0 0;border:3px solid #7eaaa9;border-radius:50px 25px 32px 50px;background:linear-gradient(145deg,#15949e,#075463 70%);box-shadow:0 3px 6px #002e4555,inset 0 1px 2px #b0ffef80;z-index:-1}
-#navigation #menuToggle{grid-row:1 / 3;grid-column:1;align-self:start;z-index:7;width:96px;height:96px;padding:4px;border:3px solid #6cbfc0;border-radius:50%;background:linear-gradient(145deg,#24a6ad,#02495f);box-shadow:0 2px 4px #002e4570,inset 0 1px 2px #baffed80}
-#navigation #menuToggle img{width:84px;height:84px}
-#navigation #turboHud{grid-column:2;grid-row:1;position:relative;inset:auto;transform:none;width:auto;min-width:0;margin:0 0 0 -9px;padding:7px 12px 8px 17px;border:3px solid transparent;border-radius:24px;background:linear-gradient(160deg,#087785,#023a4b) padding-box,linear-gradient(145deg,#b0cfca,#3e696c 65%,#94b7b0) border-box;box-shadow:0 2px 3px #002e4560,inset 0 1px 2px #9afaea55;transition:none}
-#navigation .turbo-title{height:19px;gap:14px}
-#navigation #turboHud span{font:bold 16px Arial,sans-serif;letter-spacing:2px}
-#navigation .turbo-bolt{width:12px;height:18px;filter:none}
-#navigation #turboCharge{height:11px;margin-top:4px;border-radius:8px}
-#navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;width:146px;height:48px;margin:0 0 0 -5px;gap:14px;border-radius:22px}
-#navigation .creature-counter{font-size:26px}#navigation .creature-fish{width:36px;height:29px;filter:none}
+/* One viewBox and one shared scale keep the molded contour and controls aligned. */
+#navigation{--hud-font:Arial,sans-serif;--hud-weight:800;--hud-white:#fff;--hud-text-shadow:0 1px 1px #002e45;position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);left:calc(env(safe-area-inset-left,0px) + 12px);font-size:1px;display:grid;grid-template-columns:88em 176em;grid-template-rows:60em 48em;gap:0;width:264em;height:108em;max-width:none;align-items:center;isolation:isolate}
+#navigation::before{content:none}
+.hud-housing{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:visible}
+#navigation #menuToggle{grid-row:1 / 3;grid-column:1;align-self:start;z-index:1;width:92em;height:92em;margin:2em 0 0 2em;padding:4em;border:0;border-radius:50%;background:none;box-shadow:none;font:inherit;transition:none;transform:none}
+#navigation #menuToggle img{width:84em;height:84em}
+#navigation #turboHud{grid-column:2;grid-row:1;position:relative;inset:auto;transform:none;width:100%;min-width:0;margin:0;padding:4em 13em 0 7em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;transition:none}
+#navigation .turbo-title{height:24em;gap:14em;text-shadow:var(--hud-text-shadow);color:var(--hud-white)}
+#navigation #turboHud span,#navigation .creature-counter{font-family:var(--hud-font);font-weight:var(--hud-weight);color:var(--hud-white);text-shadow:var(--hud-text-shadow);letter-spacing:.2px;text-indent:0;font-variant-numeric:tabular-nums}
+#navigation #turboHud span{font-size:16em}
+#navigation .turbo-bolt{width:11em;height:17em;filter:none}
+#navigation #turboCharge{height:10em;margin:3em 0 0;border-radius:6em}
+#navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;display:flex;align-items:center;justify-content:center;width:140em;height:max(44px,44em);min-height:44px;margin:0;padding:0 8em max(0px,calc(44px - 44em));gap:14em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;filter:none;transition:none;transform:none}
+#navigation #creatureCollection::before,#navigation #creatureCollection::after{content:none}
+#navigation .creature-counter{font-size:25em}
+#navigation .creature-fish{width:35em;height:27em;filter:none}
+#navigation #menuToggle[data-keyboard-focus]:focus,#navigation #creatureCollection[data-keyboard-focus]:focus{outline:2px solid #b8ffed;outline-offset:-2px;border-radius:20px}
+@media(max-width:600px),(max-height:500px){#navigation{font-size:.8px}}
+@media(max-width:360px){#navigation{font-size:.72px}}
 /* Existing rescue transitions and word-hunt animation run inside normal-flow slots. */
 #gameplayNotifications{position:absolute;z-index:7;top:calc(env(safe-area-inset-top,0px) + 20px);left:calc(env(safe-area-inset-left,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);display:flex;flex-direction:column;align-items:center;pointer-events:none;text-align:center}
 #gameplayNotifications #rescueHud,#gameplayNotifications #rescueNotice{width:min(260px,100%);flex-shrink:0}
@@ -17,5 +24,3 @@
 #gameplayNotifications #wordHuntNotice{position:relative;left:50%;align-self:flex-start;top:auto;width:min(350px,100%);margin:0 0 8px;flex-shrink:0}
 /* Shared top-center lane clears the assembly and compass on phone-sized widths. */
 @media(max-width:1000px){#gameplayNotifications{top:calc(env(safe-area-inset-top,0px) + 126px)}}
-@media(max-width:600px),(max-height:500px){#navigation{--badge:68px;--panel:142px;grid-template-rows:48px 44px}#navigation #menuToggle{width:76px;height:76px}#navigation #menuToggle img{width:64px;height:64px}#navigation #turboHud{padding:5px 10px 6px 15px}#navigation #turboHud span{font-size:13px}#navigation .turbo-title{height:16px;gap:9px}#navigation .turbo-bolt{width:10px;height:15px}#navigation #turboCharge{height:9px}#navigation #creatureCollection{width:126px;height:44px;gap:12px}#navigation .creature-counter{font-size:23px}#navigation .creature-fish{width:30px;height:25px}}
-@media(max-width:360px){#navigation{--panel:120px}#navigation #creatureCollection{width:116px}#navigation .turbo-title{gap:5px}}
