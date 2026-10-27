@@ -387,6 +387,7 @@ layout pass. Existing emulated-touch rescue regression passes. Standalone word-h
 HUD overlap test fails identically with damage UI disabled; baseline comparison
 recorded in docs/damage/. Physical iPhone Safari/performance remain unverified.
 No subagents or independent agent QA ran, per the explicit user instruction.
-Delivery: completed and committed locally on `feat/gup-damage-repair`. Next: user
-playtest and physical iPhone checks. No merge/push/deploy authorized for this task;
-no other queued work started.
+Delivery: implementation committed as fcb1ff4. User subsequently explicitly
+authorized updating main and pushing for live testing. Fast-forward delivery
+proceeds under that instruction; no implementation changes or other queued work.
+Next: user playtest and physical iPhone checks; user owns deployment checking.

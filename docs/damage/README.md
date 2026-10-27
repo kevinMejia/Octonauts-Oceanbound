@@ -1,7 +1,8 @@
 # GUP damage and repair
 
 Implemented on `feat/gup-damage-repair`, using one agent as explicitly requested.
-No subagents or independent agent QA ran. No merge, push or deployment performed.
+No subagents or independent agent QA ran. User subsequently explicitly authorized
+fast-forwarding main and pushing the completed feature for live testing.
 
 ## Behavior and configuration
 
