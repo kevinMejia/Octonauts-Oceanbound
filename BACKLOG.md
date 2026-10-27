@@ -360,3 +360,14 @@ edge from emblem apex to Turbo; preserve other layout and gameplay. Status: veri
 Build/diff checks pass; actual Edge portrait capture inspected. Only SVG path
 coordinates changed; no gameplay tests rerun. Next: commit/push under standing
 authorization; user owns deployment checks. Physical iPhone remains untested.
+
+
+## HUD-022 — Raise right-hand HUD content
+
+Explicit implementation and commit/push request; single agent. Scope: shared
+5.5-unit upward translation of Turbo and fish/count, preserving internal spacing,
+housing, touch sizes and state. Status: verified. Build/diff checks and actual
+Edge checks pass five viewport transitions, shared translation, visual group
+centering within 0.12px, 44px touch height and Settings open/close. Screenshot:
+docs/hud-fitted/raised-right.png. CSS-only; no gameplay tests rerun. Next:
+commit/push. No deployment checks; physical iPhone remains unverified.

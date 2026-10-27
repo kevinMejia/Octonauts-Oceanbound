@@ -11,6 +11,8 @@
 #navigation .turbo-bolt{width:11em;height:17em;filter:none}
 #navigation #turboCharge{height:10em;margin:3em 0 0;border-radius:6em}
 #navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;display:flex;align-items:center;justify-content:flex-start;width:92em;height:max(44px,44em);min-height:44px;margin:0 0 0 -14em;padding:0 8em max(0px,calc(44px - 44em));gap:10em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;filter:none;transition:none;transform:none}
+/* Lift the right-hand content together without moving its housing or touch sizes. */
+#navigation #turboHud,#navigation #creatureCollection{transform:translateY(-5.5em)}
 #navigation #creatureCollection::before,#navigation #creatureCollection::after{content:none}
 #navigation .creature-fish{width:var(--hud-label-size);height:var(--hud-label-size);filter:none}
 #navigation #menuToggle[data-keyboard-focus]:focus,#navigation #creatureCollection[data-keyboard-focus]:focus{outline:2px solid #b8ffed;outline-offset:-2px;border-radius:20px}
