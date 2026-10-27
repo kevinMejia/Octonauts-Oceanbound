@@ -509,3 +509,23 @@ regression passes without page errors. Effective normal full-speed radius measur
 40 -> 10 m (75% smaller); stationary pivot unchanged. No subagents; physical
 iPhone/touch untested. Delivery: commit and push main as explicitly requested.
 Next: user playtest.
+
+
+## HUD-032 — Turbo battery preview
+
+User requested a visual preview, not replacement of the live meter. Status:
+preview complete in the thread visualization directory, with two battery layouts,
+a sideways lightning icon and interactive existing-rate drain/refill simulation.
+Browser preview drain/refill checks pass. No game turbo files changed.
+Next: user design review; implementation is not authorized by the preview request.
+
+## HUD-033 — Remove bottom-left location/tagline
+
+Explicit follow-up request received during HUD-032; queued until its preview was
+complete, then implemented separately on `fix/remove-shallows-caption`. Scope:
+remove the visible THE SHALLOWS / A little curiosity... footer from index.html.
+Preserve HUD, turbo and all gameplay. Single agent. Status: verified. Production
+build/diff checks pass; actual Edge desktop/phone checks confirm no footer or
+caption, original HUD/turbo retained and no page errors. Physical iPhone untested.
+Delivery: commit/push under the existing delivery pattern. Next: battery design
+review; no battery implementation or other queued work started.
