@@ -94,7 +94,7 @@ No textures, external assets, dependencies or post-processing were added.
 
 The selector keeps its carousel/unlock behavior and gains compact ten-segment
 Speed, Armor and current Hull rows for discovered vehicles. Undiscovered cards
-remove these rows and retain their original compact locked preview. Hull refreshes on opening. The gameplay Hull
+remove these rows while retaining the same card dimensions, with a centered locked silhouette. Hull refreshes on opening. The gameplay Hull
 badge follows the existing HUD scale; DOM text/color update only when displayed
 condition changes. Notices use the existing notification stack and monitor style,
 with event/resize measurements that clear the compass and vehicle button.
@@ -169,3 +169,8 @@ and 140 maximum Hull; saved current Hull points remain intact. 379 Node tests,
 production build/diff checks, and `tests/damage-locked-browser.cjs` pass. Browser
 checks cover locked/unlocked card recycling, three viewport sizes, unlock refresh,
 discovered Hull and normal GUP-X selection. Physical iPhone remains untested.
+
+DAMAGE-028: locked cards now match discovered card sizes and center the GUP
+silhouette, retaining the lock above, name below and no stat rows. Ten focused
+tests, production build/diff checks and the updated locked-card browser check pass
+desktop, phone and landscape layouts, unlock refresh and normal selection.

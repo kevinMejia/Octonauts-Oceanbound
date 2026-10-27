@@ -449,3 +449,26 @@ discovered Hull display and GUP-X 10/10 selection. No page errors.
 Single agent; no subagents or independent agent QA. Physical iPhone untested.
 Delivery: commit, fast-forward main and push under explicit authorization.
 Next: user playtest; user owns deployment checking.
+
+
+## DAMAGE-028 — Full-size locked GUP cards
+
+Explicit implementation and commit/push-to-main request. Single agent continuing;
+branch `fix/locked-gup-card-layout`. Scope: locked cards share discovered card
+dimensions, with centered GUP silhouette, lock above and name below; stats stay
+absent. No changes to discovered cards, unlocks or vehicle mechanics.
+Status: verified. Ten focused damage tests, production build/diff checks and
+actual Edge checks pass matching card heights and centered silhouettes at desktop,
+phone and landscape sizes, hidden stats, unlock refresh and GUP-X selection.
+Single agent; physical iPhone untested. Delivery: commit and push to main.
+Next: DAMAGE-029, explicitly requested during final delivery.
+
+
+## DAMAGE-029 — Hide parked GUP-X until discovery
+
+Explicit follow-up implementation request. Priority: next. Authorization: user
+request, with the current commit/push delivery instruction retained. Status: queued
+until DAMAGE-028 delivery. Scope: GUP-X has no visible or solid parked presence
+until earned discovery; preserve loading, final reward flow and later selection.
+Dependency: finish DAMAGE-028. Next: inspect final-reward/parked fleet integration,
+implement the smallest shared-system fix and validate, then commit/push separately.
