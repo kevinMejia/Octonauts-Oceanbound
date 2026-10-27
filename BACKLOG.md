@@ -414,8 +414,9 @@ Explicit implementation request; branch `feat/turbo-controls-tip`. Single agent.
 Scope: add another welcome tip explaining double-tap Forward/W/Up and holding
 the second press. Existing tip rotation and controls preserved. Status: complete
 locally; all four startup-tip tests, production build and diff checks pass.
-No subagents or independent agent QA ran. Next: user review; no push or merge
-performed for this request.
+No subagents or independent agent QA ran. User explicitly authorized delivery
+of both TIPS-025 and REEF-026 to main. Welcome-tip commit applied to main;
+next: verification and push.
 
 
 ## REEF-026 — Single natural rock overpass
@@ -430,4 +431,5 @@ playthroughs and sustained device performance unverified. No subagents ran.
 
 Delivery: user explicitly authorized pushing REEF-026 to main. Commit focused
 overpass changes, apply only the overpass commit to main, and push. The earlier
-TIPS-025 implementation stays on its feature branch. Physical device limits remain.
+TIPS-025 implementation was subsequently authorized for main as well. Physical
+device limits remain.

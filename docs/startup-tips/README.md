@@ -5,7 +5,7 @@ progress callback and existing 650ms Play reveal. Background, ring, emblem, titl
 Play behavior and failure/retry remain. Tips occupy a fixed two-line space above
 Play in both states to avoid text-dependent movement. Reduced motion skips fades.
 
-startupTipsConfig holds twelve stable IDs, categories, text generators and
+startupTipsConfig holds thirteen stable IDs, categories, text generators and
 eligibility predicates. GUP-X wording reflects VehicleUnlocks.checkFinal: all
 required other GUPs plus return to the Octopod. Effective unlocks include the
 existing Settings override. Animal totals come from MarineDiscovery.records;
@@ -41,3 +41,6 @@ Dynamic Island, toolbar expansion/collapse, hardware touch and sustained startup
 performance remain manual checks. Automated viewport checks use desktop Edge,
 not iOS. Long-duration timer checks use a fake clock; real welcome dwell was
 several rotations, not several minutes.
+
+TIPS-025 adds a general turbo controls tip: double-tap Forward, W or Up and
+hold the second press. All four focused tip tests and production build pass.

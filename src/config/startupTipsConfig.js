@@ -8,6 +8,7 @@ export const startupTipsConfig={interval:4000,fadeOut:200,fadeIn:250,tips:[
  {id:'gup-x',category:'vehicles',text:'Unlock the other GUPs, then return to the Octopod for GUP-X!',eligible:s=>!!s.fleet&&s.fleet.registry.some(v=>v.finalReward&&!s.fleet.isUnlocked(v.id))},
  {id:'switch',category:'vehicles',text:'Switch GUPs to explore the ocean in different ways!'},
  {id:'turbo',category:'vehicles',text:'Use Turbo to explore the ocean even faster!'},
+ {id:'turbo-controls',category:'vehicles',text:'Double-tap Forward, W or ↑ and hold the second press to use Turbo!'},
  {id:'letters',category:'collectibles',text:'Find all the OCTONAUTS letters to unlock infinite Turbo!',eligible:s=>!!s.hunt&&!s.hunt.infiniteTurbo},
  {id:'hidden',category:'exploration',text:'Look behind rocks and coral for hidden discoveries!'},
  {id:'explore',category:'exploration',text:'Keep exploring! There’s always something new to discover!'},
