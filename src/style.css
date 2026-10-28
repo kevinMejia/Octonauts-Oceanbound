@@ -11,7 +11,7 @@ html,body,body *{-webkit-user-select:none;user-select:none;-webkit-touch-callout
 .turbo-bolt{display:block;width:8px;height:11px;flex-shrink:0;fill:#9affed;filter:drop-shadow(0 0 2px #5cf6e955)}
 #turboCharge{position:relative;display:block;width:100%;height:7px;margin:3px 0 0;border:1px solid #527f82;border-radius:4px;background:#033747;box-shadow:inset 0 1px 2px #001f35aa,0 0 3px #71fbe522;overflow:hidden}
 #turboCharge::after{content:'';position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(135deg,transparent 0px,transparent 3px,#002e4140 3px,#002e4140 4px);pointer-events:none}
-#turboFill{width:100%;height:100%;background:linear-gradient(180deg,#92fff1,#20dbe4 55%,#13b5c9);box-shadow:0 0 4px #64ffea88;border-radius:inherit;transform:scaleX(0);transform-origin:left center}
+#turboFill{transform:scaleX(0);transform-origin:left center}
 .boosting #turboCharge{filter:drop-shadow(0 0 5px #68eaff)}
 @media(any-pointer:coarse){}
 @media(max-width:500px){#joystick{width:140px;height:140px}.stick-knob{left:43px;top:43px}.touch-enabled .vertical{flex-direction:column}}

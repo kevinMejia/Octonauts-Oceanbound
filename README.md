@@ -165,3 +165,8 @@ The selector shows all three stats and the gameplay HUD shows Hull percentage.
 Settings > Gameplay includes damage testing controls. See [implementation, balancing
 and verification](docs/damage/README.md), including the existing unrelated word-hunt
 layout failure and outstanding physical iPhone Safari checks.
+
+
+The gameplay turbo indicator now uses the approved curved energy window with a
+uniform inset around the badge and housing. Charge, controls and rewards use the
+existing systems. [Geometry, screenshots and validation](docs/contoured-turbo/README.md).

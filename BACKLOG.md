@@ -517,7 +517,8 @@ User requested a visual preview, not replacement of the live meter. Status:
 preview complete in the thread visualization directory, with two battery layouts,
 a sideways lightning icon and interactive existing-rate drain/refill simulation.
 Browser preview drain/refill checks pass. No game turbo files changed.
-Next: user design review; implementation is not authorized by the preview request.
+User subsequently approved the refined curved design; implementation is tracked
+in HUD-034. The original preview request alone did not change the game.
 
 ## HUD-033 — Remove bottom-left location/tagline
 
@@ -529,3 +530,19 @@ build/diff checks pass; actual Edge desktop/phone checks confirm no footer or
 caption, original HUD/turbo retained and no page errors. Physical iPhone untested.
 Delivery: commit/push under the existing delivery pattern. Next: battery design
 review; no battery implementation or other queued work started.
+
+
+## HUD-034 — Approved contoured turbo window
+
+User approved the curved preview and explicitly requested implementation with
+even margins. Branch `feat/contoured-turbo-meter`; one agent continuing. Scope:
+replace TURBO title/slim bar with the approved curved energy window, one lightning
+icon, shared six-unit inset, existing TurboMeter and unchanged gameplay/controls.
+Status: verified. 386 Node tests, production build and diff checks pass. Actual
+Edge renders at 1280x800, 390x844, 844x390 and 320x568 pass six-unit clear margins
+(accounting for housing stroke), 0/25/50/100% fill, existing drain/recharge/pickup/
+infinite behavior, actual keyboard boost, Settings and collection controls.
+One-time SVG geometry; fixed-spacing hatching and unchanged per-frame meter update.
+Single agent; no subagents or independent agent QA. Physical iPhone untested.
+Evidence: docs/contoured-turbo/. Delivery: commit and push main under the existing
+workflow. Next: user playtest; no other queued implementation started.

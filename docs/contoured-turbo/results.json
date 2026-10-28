@@ -1,0 +1,204 @@
+{
+  "layouts": [
+    {
+      "width": 1280,
+      "height": 800,
+      "scale": 1,
+      "nav": {
+        "x": 12,
+        "y": 12,
+        "right": 276,
+        "bottom": 120
+      },
+      "rim": {
+        "x": 83.95800018310547,
+        "y": 21,
+        "right": 266.99999237060547,
+        "bottom": 63
+      },
+      "badge": {
+        "x": 18,
+        "y": 18,
+        "width": 84,
+        "height": 84
+      },
+      "topGap": 6,
+      "rightGap": 6.000007629394531,
+      "values": [
+        {
+          "charge": 0,
+          "aria": 0,
+          "width": 0
+        },
+        {
+          "charge": 25,
+          "aria": 25,
+          "width": 0
+        },
+        {
+          "charge": 50,
+          "aria": 50,
+          "width": 0
+        },
+        {
+          "charge": 100,
+          "aria": 100,
+          "width": 0
+        }
+      ],
+      "curves": 25
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scale": 0.8,
+      "nav": {
+        "x": 12,
+        "y": 12,
+        "right": 223.1875,
+        "bottom": 98.390625
+      },
+      "rim": {
+        "x": 69.56298828125,
+        "y": 19.20099449157715,
+        "right": 215.98793029785156,
+        "bottom": 52.79900932312012
+      },
+      "badge": {
+        "x": 16.796875,
+        "y": 16.796875,
+        "width": 67.1875,
+        "height": 67.1875
+      },
+      "topGap": 6.0012431144714355,
+      "rightGap": 6.015087127685547,
+      "values": [
+        {
+          "charge": 0,
+          "aria": 0,
+          "width": 0
+        },
+        {
+          "charge": 25,
+          "aria": 25,
+          "width": 0
+        },
+        {
+          "charge": 50,
+          "aria": 50,
+          "width": 0
+        },
+        {
+          "charge": 100,
+          "aria": 100,
+          "width": 0
+        }
+      ],
+      "curves": 25
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scale": 0.8,
+      "nav": {
+        "x": 12,
+        "y": 12,
+        "right": 223.1875,
+        "bottom": 98.390625
+      },
+      "rim": {
+        "x": 69.56298828125,
+        "y": 19.20099449157715,
+        "right": 215.98793029785156,
+        "bottom": 52.79900932312012
+      },
+      "badge": {
+        "x": 16.796875,
+        "y": 16.796875,
+        "width": 67.1875,
+        "height": 67.1875
+      },
+      "topGap": 6.0012431144714355,
+      "rightGap": 6.015087127685547,
+      "values": [
+        {
+          "charge": 0,
+          "aria": 0,
+          "width": 0
+        },
+        {
+          "charge": 25,
+          "aria": 25,
+          "width": 0
+        },
+        {
+          "charge": 50,
+          "aria": 50,
+          "width": 0
+        },
+        {
+          "charge": 100,
+          "aria": 100,
+          "width": 0
+        }
+      ],
+      "curves": 25
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "scale": 0.72,
+      "nav": {
+        "x": 12,
+        "y": 12,
+        "right": 202.078125,
+        "bottom": 89.75
+      },
+      "rim": {
+        "x": 63.82133102416992,
+        "y": 18.478124618530273,
+        "right": 195.57343673706055,
+        "bottom": 48.709373474121094
+      },
+      "badge": {
+        "x": 16.3125,
+        "y": 16.3125,
+        "width": 60.46875,
+        "height": 60.46875
+      },
+      "topGap": 5.997395303514269,
+      "rightGap": 6.036893420749237,
+      "values": [
+        {
+          "charge": 0,
+          "aria": 0,
+          "width": 0
+        },
+        {
+          "charge": 25,
+          "aria": 25,
+          "width": 0
+        },
+        {
+          "charge": 50,
+          "aria": 50,
+          "width": 0
+        },
+        {
+          "charge": 100,
+          "aria": 100,
+          "width": 0
+        }
+      ],
+      "curves": 25
+    }
+  ],
+  "errors": [],
+  "drain": true,
+  "recharge": true,
+  "pickup": true,
+  "infinite": true,
+  "keyboardBoost": true,
+  "settings": true,
+  "collection": true
+}

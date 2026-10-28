@@ -4,15 +4,19 @@
 .hud-housing{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:visible}
 #navigation #menuToggle{grid-row:1 / 3;grid-column:1;align-self:start;z-index:1;width:92em;height:92em;margin:2em 0 0 2em;padding:4em;border:0;border-radius:50%;background:none;box-shadow:none;font:inherit;transition:none;transform:none}
 #navigation #menuToggle img{width:84em;height:84em}
-#navigation #turboHud{grid-column:2;grid-row:1;position:relative;inset:auto;transform:none;width:100%;min-width:0;margin:0;padding:4em 13em 0 7em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;transition:none}
+#navigation #turboHud{position:absolute;left:0;top:0;transform:none;width:264em;height:60em;min-width:0;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;transition:none;pointer-events:none}
 #navigation .turbo-title{height:24em;gap:14em;text-shadow:var(--hud-text-shadow);color:var(--hud-white)}
 #navigation #turboHud span,#navigation .creature-counter{font-family:var(--hud-font);font-weight:var(--hud-weight);color:var(--hud-white);text-shadow:var(--hud-text-shadow);letter-spacing:.2px;text-indent:0;font-variant-numeric:tabular-nums}
 #navigation #turboHud span,#navigation .creature-counter{font-size:var(--hud-label-size)}
 #navigation .turbo-bolt{width:11em;height:17em;filter:none}
-#navigation #turboCharge{height:10em;margin:3em 0 0;border-radius:6em}
+#navigation #turboCharge{position:static;width:100%;height:100%;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible}
+#navigation #turboCharge::after{content:none}
+#navigation .turbo-window{display:block;width:100%;height:100%;overflow:visible}
+#navigation #turboFill{transform-box:fill-box;transform-origin:left center;box-shadow:none}
+#navigation .turbo-charge-bolt{fill:#f0fffa;filter:drop-shadow(0 1px 1px #024554)}
 #navigation #creatureCollection{grid-column:2;grid-row:2;align-self:start;justify-self:start;display:flex;align-items:center;justify-content:flex-start;width:92em;height:max(44px,44em);min-height:44px;margin:0 0 0 -14em;padding:0 8em max(0px,calc(44px - 44em));gap:10em;border:0;border-radius:0;background:none;box-shadow:none;font:inherit;filter:none;transition:none;transform:none}
 /* Lift the right-hand content together without moving its housing or touch sizes. */
-#navigation #turboHud,#navigation #creatureCollection{transform:translateY(-5.5em)}
+#navigation #creatureCollection{transform:translateY(-5.5em)}
 #navigation #creatureCollection::before,#navigation #creatureCollection::after{content:none}
 #navigation .creature-fish{width:var(--hud-label-size);height:var(--hud-label-size);filter:none}
 #navigation #menuToggle[data-keyboard-focus]:focus,#navigation #creatureCollection[data-keyboard-focus]:focus{outline:2px solid #b8ffed;outline-offset:-2px;border-radius:20px}
