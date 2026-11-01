@@ -13,6 +13,22 @@ when available, and distinguish pushed from confirmed live. This explicit user
 authorization supersedes the earlier no-automatic-merge/deploy default. Honor any
 later request to hold a particular change. Do not start unapproved queued work.
 
+## Dolphin Rescue control and bump revision — 2026-11-01
+
+User approved restoring free-roam camera/UI/controls, removing forced player
+progression, and making debris rebound and coast after bumps. Root implementation;
+independent `dolphin_qa` review. Standard vehicle profile, speeds, turbo, HUD and
+settings reused. Dolphins retain independent forward progression; GUP starts
+beside/behind them. Vehicle selection/unlock override remain disabled only while
+this GUP-B mission owns the temporary controller, then restore on exit. Debris
+uses 3D contact-normal impulses with restitution, mass, underwater drag and floor
+support. Thirteen focused tests cover one-contact clearing, resting and incoming
+contacts and vertical bumps. All 73 test files and production build pass. Final
+Chromium checks pass normal HUD/settings, no-input stationary GUP vs advancing
+dolphins, standard speed, turbo, mission lifecycle and mobile HUD bounds with no
+page/console errors. Independent QA reports no blockers. Delivery is commit/push
+to main under standing authorization; full manual/device testing stays with user.
+
 ## Dolphin Rescue — current session (2026-11-01)
 
 User explicitly authorized a complete Dolphin Rescue mission, verification, and a

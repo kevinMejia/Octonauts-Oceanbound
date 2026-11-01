@@ -19,8 +19,8 @@ W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag 
 ## Dolphin Rescue
 
 Select the glowing **Dolphin Rescue** badge beside the Octopod to launch a separate
-150-second escort through a polluted bay. Use the usual GUP-B controls to push
-floating litter away from three sleeping dolphins; three bumps end the mission.
+150-second escort through a polluted bay, using the free-roam HUD, camera and
+GUP-B controls. Follow the dolphins and bump floating litter away; three bumps end the mission.
 Replay or return to your unchanged exploration world from the mission dialogs.
 Configuration, architecture and verification limits: [Dolphin Rescue](docs/dolphin-rescue/README.md).
 

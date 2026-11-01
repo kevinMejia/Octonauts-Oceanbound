@@ -19,17 +19,21 @@ state, pooled debris proxies, instanced bay art and a compact HUD/dialog. The ma
 frame loop branches only while the mission is active. The exploration controller,
 vehicle, visibility, camera ground/profile/orbit and atmosphere vent references
 are restored on return; fleet ownership and discovery/rescue saves are not changed.
-Exploration systems stop updating during the mission. Gameplay-changing settings
-and fleet UI are hidden until return. Terrain height is injected into the shared
+Exploration systems stop updating during the mission. The normal free-roam HUD and settings remain visible. Vehicle switching and the
+GUP-X unlock checkbox are temporarily disabled while piloting this mission’s
+GUP-B, and their prior states return on exit. Terrain height is injected into the shared
 controller/camera/collision queries so the independent flat bay never collides
 with invisible exploration hills.
 
 All mission tuning is in `src/config/dolphinRescueConfig.js`. The default route is
-600 metres at a 4 m/s current: 150 active simulation seconds, including a 70 metre
+600 metres at a 4 m/s dolphin pace: 150 active simulation seconds, including a 70 metre
 clean-water release area. The escort advances even without thrust and influences
 its lateral formation gently from the GUP. Existing steering, forward/reverse,
-rise/dive and orbit controls remain available. The current and bounded lead keep
-the GUP near the dolphins; turbo is disabled for this mission.
+rise/dive and orbit controls remain available. The GUP starts just behind and beside the dolphins. Its movement, normal GUP-B
+speeds, turbo, camera profile, saved camera settings and orbit controls match free
+roam. Only dolphins progress automatically: the player can stop, reverse, swim
+alongside or move ahead without escort position clamps or forced current. Mission
+status uses the same notification lane and panel styling as existing rescues.
 
 There are eleven procedural, palette-colored litter types: boxes, crates,
 bottles, containers, tires, boots, cans, nets, ropes, planks and household objects.
@@ -41,7 +45,11 @@ new physics library, grabber or collection mechanic. Shared resources survive;
 mission-owned instance buffers, materials and geometry are disposed on exit.
 
 Obstructions enter alternately from each side, with stage-based size/mass/type and
-frequency. Push the whole object beyond the configured escort half-width plus its
+frequency. A bump transfers momentum along the contact normal, opposite the GUP’s contact
+side, with configurable restitution and mass. Incoming drifting debris can also
+bounce off a stationary GUP. Debris continues coasting after contact ends; lighter
+underwater drag settles it gradually. Vertical bumps work too and the floor stops
+debris sinking through the seabed. Move the whole object beyond the configured escort half-width plus its
 radius and padding. Each obstruction can register at most one group strike, with
 a short global cooldown. The third strike fails; replay resets distance, pool,
 formation and strikes. Final-stage encounters are a quicker alternating sequence,
@@ -65,13 +73,14 @@ button, launch/exit/replay dialogs and keyboard input. It accelerates determinis
 state updates to exercise three-strike failure and successful completion; the
 success case explicitly moves obstacles aside. That case verifies lifecycle and
 state transitions, not human performance through the complete mission. Actual
-collision response against the current is covered separately by shared-controller
-and CollisionWorld tests, with no manual impulse calls.
+single-contact response and coast-to-clear behavior are covered separately by
+shared-controller and CollisionWorld tests, with no manual impulse calls.
 
 Node tests cover continuous separated formation, 150-second distance completion,
 clearance extents, swept dolphin hits, one-hit-per-obstruction, three-strike
 failure, mass/cooldown/drag, spawn progression/pool reset, full-route flat-ground
-isolation and real GUP contact clearing against the current. Existing test files
+isolation, one-contact clearing after the GUP releases, incoming-drift reflection
+and vertical rebounds. Existing test files
 also cover unchanged exploration systems. Browser evidence is saved alongside
 this document only after checks actually run.
 
@@ -79,7 +88,9 @@ Observed automated results: all 73 Node test files pass; production build passes
 with GLB validation and versioned module imports; `git diff --check` passes. Real
 independent QA reviewed the final source and reran focused checks/build. Browser
 results are recorded in `browser-results.json`: entry/launch, mapped keyboard
-controls, three dolphin visuals, 5,400 decorative instances, six-slot pool,
+controls including turbo, normal HUD/settings, a stationary GUP without input
+while dolphins advance, normal movement speeds, three dolphin visuals, 5,400
+decorative instances, six-slot pool,
 scripted failure/restart/completion/replay, exact world restoration, relaunch and
 portrait/landscape HUD bounds passed with no page or console errors. Mobile
 checks establish HUD geometry only; the test disables the animation loop for
