@@ -594,3 +594,18 @@ One-time SVG geometry; fixed-spacing hatching and unchanged per-frame meter upda
 Single agent; no subagents or independent agent QA. Physical iPhone untested.
 Evidence: docs/contoured-turbo/. Delivery: commit and push main under the existing
 workflow. Next: user playtest; no other queued implementation started.
+
+
+## CAMERA-035 — Normal dolphin mission camera follow
+
+Explicit current investigation/fix request. Branch fix/dolphin-normal-camera.
+Remote contained three newer commits including the debris-protection mission;
+checkout fast-forwarded before changes. Cause: abe9c9b explicitly disabled heading
+follow and recentering. Scope: inherit normal GUP-B camera and saved preferences;
+preserve mission terrain, collision and controls. Verified locally: 400 existing Node tests and new mission-config regression pass;
+production build/diff checks pass. Independent QA found no runtime defects. Actual
+Edge touch emulation passes heading follow, simultaneous Forward/steering in both
+finger orders, release, orbit return and exit restoration with no page errors.
+Rendering was suppressed during touch measurements; physical iPhone untested.
+Next: user playtest. User explicitly authorized merge and push. Delivery: commit verified changes,
+fast-forward main and push; physical iPhone validation remains outstanding.

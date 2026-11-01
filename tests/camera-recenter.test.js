@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {updateOrbitRecenter,cameraViewHeading} from '../src/camera/cameraMath.js';
+import {dolphinRescueConfig} from '../src/config/dolphinRescueConfig.js';
 const config={autoRecenterEnabled:true,recenterDelay:1.5,recenterSmoothTime:.65,recenterAngleTolerance:.01};
 const state=()=>({active:false,x:0,y:0});
 test('orbit remains fully manual through dragging and the release delay',()=>{
@@ -19,10 +20,18 @@ test('recenter is frame-rate independent and can be disabled',()=>{
  const orbit={x:1,y:.3,last:0};updateOrbitRecenter(orbit,false,1,5,{...config,autoRecenterEnabled:false},state());assert.equal(orbit.x,1);
 });
 
-test('mission camera keeps its heading and manual orbit while GUP steering changes',()=>{
+test('optional fixed camera profile keeps its heading and manual orbit while GUP steering changes',()=>{
  const profile={followHeading:false,heading:0,autoRecenterEnabled:false},orbit={x:.8,y:.2,last:0},s=state();
  for(let i=0;i<600;i++){const heading=i/60;assert.equal(cameraViewHeading(heading,profile),0);updateOrbitRecenter(orbit,false,1/60,100+i/60,config,s,profile.autoRecenterEnabled);}
  assert.equal(orbit.x,.8);assert.equal(orbit.y,.2);assert.equal(config.autoRecenterEnabled,true);
  for(const heading of [-2,0,2])assert.equal(cameraViewHeading(heading,{}),heading);
  const world={x:.8,y:.2,last:0};updateOrbitRecenter(world,false,1,100,config,state());assert(world.x<.8);
+});
+
+
+test('dolphin mission inherits heading follow and the saved recenter preference',()=>{
+ const profile=dolphinRescueConfig.camera;
+ for(const heading of [-2,0,2])assert.equal(cameraViewHeading(heading,profile),heading);
+ const enabled={x:.8,y:.2,last:0};updateOrbitRecenter(enabled,false,1,100,config,state(),profile.autoRecenterEnabled);assert(enabled.x<.8);
+ const disabled={x:.8,y:.2,last:0};updateOrbitRecenter(disabled,false,1,100,{...config,autoRecenterEnabled:false},state(),profile.autoRecenterEnabled);assert.equal(disabled.x,.8);assert.equal(disabled.y,.2);
 });

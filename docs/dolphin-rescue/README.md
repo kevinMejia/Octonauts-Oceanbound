@@ -31,11 +31,8 @@ clean-water release area. The escort advances even without thrust and influences
 its lateral formation gently from the GUP. Existing steering, forward/reverse,
 rise/dive and orbit controls remain available. The GUP starts just behind and beside the dolphins. Its movement, normal GUP-B
 speeds, turbo, saved camera distance/height and orbit controls match free roam.
-The mission camera follows position while retaining its view direction: steering
-the GUP does not spin the camera, and a manually chosen camera angle stays put
-instead of automatically recentering. The mission opts into this behavior through
-the existing shared chase-camera profile; free-roam heading follow and saved
-recenter preferences are unchanged after return. Only dolphins progress automatically: the player can stop, reverse, swim
+The mission camera uses normal GUP-B heading follow and the saved orbit recenter
+preferences, matching free roam. Only dolphins progress automatically: the player can stop, reverse, swim
 alongside or move ahead without escort position clamps or forced current. Mission
 status uses the same notification lane and panel styling as existing rescues.
 
@@ -128,3 +125,19 @@ measurements to avoid treating software GPU timing as input behavior. Results
 are written to `touch-results.json` only on success. The final run passes all
 these checks with no page errors or pointer-cancellation events. Physical iPhone/Safari remains
 unverified. Existing open tabs retain their loaded modules until reloaded.
+
+## Normal follow restoration
+
+The fixed-heading override introduced in abe9c9b made steering feel different
+from free roam. The mission now inherits the normal GUP-B camera profile and
+saved recenter preference. Flat mission terrain and bay camera obstacles remain.
+The historical touch results above describe the previous fixed-heading behavior;
+the touch harness now checks heading follow and recentering.
+
+Current verification: all 400 pre-existing Node tests plus the added mission-config
+regression pass, as do production build and diff checks. Independent agent QA
+reviewed the runtime diff. Actual Edge touch emulation passes heading follow,
+simultaneous steering/Forward in both finger orders, release, orbit recenter and
+exit restoration with no page errors. Updated touch-results.json contains this
+run. Rendering was suppressed during input measurements; physical iPhone remains
+unverified.
