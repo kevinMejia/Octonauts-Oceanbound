@@ -22,4 +22,3 @@ test('fog hook retains prior shading and native fog with instanced world-space p
 test('custom particle shaders and fog-disabled materials remain untouched',()=>{
  const materials=[new T.ShaderMaterial(),new T.MeshBasicMaterial({fog:false})],root=new T.Group();for(const material of materials)root.add(new T.Mesh(new T.BoxGeometry(),material));const hooks=materials.map(m=>m.onBeforeCompile),fog=new CorridorFog(profile);fog.apply(root);assert.equal(fog.records.length,0);for(const [i,m] of materials.entries())assert.equal(m.onBeforeCompile,hooks[i]);fog.dispose();
 });
-
