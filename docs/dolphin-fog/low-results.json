@@ -1,0 +1,121 @@
+{
+  "quality": "low",
+  "probes": {
+    "before": [
+      [
+        23,
+        124,
+        152,
+        255
+      ],
+      [
+        19,
+        122,
+        154,
+        255
+      ]
+    ],
+    "after": [
+      [
+        106,
+        149,
+        118,
+        255
+      ],
+      [
+        19,
+        122,
+        154,
+        255
+      ]
+    ],
+    "centreDifference": 142,
+    "sideDifference": 0
+  },
+  "views": [
+    {
+      "width": 1280,
+      "height": 800,
+      "budgets": [
+        {
+          "frame": 46,
+          "calls": 221,
+          "triangles": 666087,
+          "points": 320,
+          "lines": 0
+        },
+        {
+          "frame": 48,
+          "calls": 221,
+          "triangles": 666087,
+          "points": 320,
+          "lines": 0
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "budgets": [
+        {
+          "frame": 50,
+          "calls": 210,
+          "triangles": 665207,
+          "points": 320,
+          "lines": 0
+        },
+        {
+          "frame": 52,
+          "calls": 210,
+          "triangles": 665207,
+          "points": 320,
+          "lines": 0
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "budgets": [
+        {
+          "frame": 54,
+          "calls": 222,
+          "triangles": 666167,
+          "points": 320,
+          "lines": 0
+        },
+        {
+          "frame": 56,
+          "calls": 222,
+          "triangles": 666167,
+          "points": 320,
+          "lines": 0
+        }
+      ]
+    }
+  ],
+  "cycles": [
+    {
+      "restored": true,
+      "programs": 95,
+      "geometries": 744,
+      "fog": 0.0055878260869565224,
+      "reusedFloorDifference": 20.228345648604268
+    },
+    {
+      "restored": true,
+      "programs": 95,
+      "geometries": 744,
+      "fog": 0.0055878260869565224,
+      "reusedFloorDifference": 20.228345648604268
+    },
+    {
+      "restored": true,
+      "programs": 95,
+      "geometries": 744,
+      "fog": 0.0055878260869565224
+    }
+  ],
+  "errors": [],
+  "limitations": "Production Edge software WebGL, fixed-view pixel comparison and emulated phone viewports. Not physical iPhone or sustained native GPU performance."
+}

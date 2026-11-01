@@ -63,8 +63,8 @@ no unrelated queued work was started.
 
 ## Active task
 
-Current session: DOLPHIN-038 makes sleeping dolphins follow a fixed straight
-course. DOLPHIN-037 was delivered as da4296e on main. Earlier
+Current session: DOLPHIN-039 clears forward corridor fog while preserving the
+side banks. DOLPHIN-038 was delivered as b9f28cf on main. Earlier
 checkpoints below are retained for context; no queued work has been started.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
@@ -687,3 +687,19 @@ acceleration, release, reverse, steering and turbo, with root facing fixed.
 Pause, debris contact, terminal state and restoration regressions pass.
 Unrelated HUD preview PNGs preserved. Evidence: docs/dolphin-straight/. Next: commit and established main/push delivery,
 then user/device playtest. No subagents or independent QA; physical iPhone untested.
+
+
+## DOLPHIN-039 — Clearer forward corridor fog
+
+Explicit current request: retain side fog but reduce fog in front during Dolphin
+Rescue. DOLPHIN-038 delivered b9f28cf. Branch polish/dolphin-forward-fog. Scope:
+mission-only smooth native-fog density reduction inside the route (55% centre,
+full density at side banks), no camera, path or gameplay changes. Temporary
+material hooks retain existing shading and restore on exit/failure; no extra
+passes/assets. Single agent under mission instruction. Status: verified locally. 414 tests, build/diff checks pass. Actual production
+Edge low/high desktop/portrait/landscape comparisons show clearer centre pixels
+and identical side probe pixels, with no draw/triangle increase or page errors.
+Three lifecycle cycles restore hooks/fog with stable programs/geometry; low
+shared-shader cache reuse also passes. Evidence: docs/dolphin-fog/. No agents or
+independent QA; physical iPhone/native FPS untested. Next: established commit,
+main/push delivery, then user playtest.

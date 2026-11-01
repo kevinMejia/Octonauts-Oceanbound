@@ -162,3 +162,9 @@ limits](../dolphin-timing/README.md). Free-roam timing is unchanged.
 Dolphins now hold a fixed lane, depth and forward facing while swimming straight
 at 4 m/s. Their route does not receive GUP input or position. Tail animation and
 closed eyes remain. See [current course and verification](../dolphin-straight/README.md).
+
+## Forward visibility
+
+The sandy route has lighter native distance fog, blending smoothly to the same
+full-strength side-bank fog. Settings and before/after verification are in
+[forward fog polish](../dolphin-fog/README.md). Free-roam fog remains unchanged.

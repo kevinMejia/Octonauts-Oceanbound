@@ -1,0 +1,119 @@
+{
+  "quality": "high",
+  "probes": {
+    "before": [
+      [
+        22,
+        120,
+        149,
+        255
+      ],
+      [
+        18,
+        119,
+        150,
+        255
+      ]
+    ],
+    "after": [
+      [
+        106,
+        147,
+        116,
+        255
+      ],
+      [
+        18,
+        119,
+        150,
+        255
+      ]
+    ],
+    "centreDifference": 144,
+    "sideDifference": 0
+  },
+  "views": [
+    {
+      "width": 1280,
+      "height": 800,
+      "budgets": [
+        {
+          "frame": 47,
+          "calls": 217,
+          "triangles": 827822,
+          "points": 800,
+          "lines": 0
+        },
+        {
+          "frame": 49,
+          "calls": 217,
+          "triangles": 827822,
+          "points": 800,
+          "lines": 0
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "budgets": [
+        {
+          "frame": 51,
+          "calls": 207,
+          "triangles": 827022,
+          "points": 800,
+          "lines": 0
+        },
+        {
+          "frame": 53,
+          "calls": 207,
+          "triangles": 827022,
+          "points": 800,
+          "lines": 0
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "budgets": [
+        {
+          "frame": 55,
+          "calls": 218,
+          "triangles": 827902,
+          "points": 800,
+          "lines": 0
+        },
+        {
+          "frame": 57,
+          "calls": 218,
+          "triangles": 827902,
+          "points": 800,
+          "lines": 0
+        }
+      ]
+    }
+  ],
+  "cycles": [
+    {
+      "restored": true,
+      "programs": 99,
+      "geometries": 798,
+      "fog": 0.0055878260869565224
+    },
+    {
+      "restored": true,
+      "programs": 99,
+      "geometries": 798,
+      "fog": 0.0055878260869565224
+    },
+    {
+      "restored": true,
+      "programs": 99,
+      "geometries": 798,
+      "fog": 0.0055878260869565224
+    }
+  ],
+  "errors": [],
+  "limitations": "Production Edge software WebGL, fixed-view pixel comparison and emulated phone viewports. Not physical iPhone or sustained native GPU performance."
+}
