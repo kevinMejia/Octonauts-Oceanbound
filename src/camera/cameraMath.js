@@ -28,8 +28,9 @@ export function dampOrbit(value,velocity,smoothTime,dt){
  const omega=2/Math.max(.05,smoothTime),t=Math.max(0,dt),decay=Math.exp(-omega*t),temp=(velocity+omega*value)*t;
  return {value:(value+temp)*decay,velocity:(velocity-omega*temp)*decay};
 }
-export function updateOrbitRecenter(orbit,dragging,dt,now,config,state){
- if(dragging||!config.autoRecenterEnabled||now-orbit.last<config.recenterDelay){state.active=false;state.x=0;state.y=0;return;}
+export const cameraViewHeading=(heading,profile)=>profile?.followHeading===false?(profile.heading??0):heading;
+export function updateOrbitRecenter(orbit,dragging,dt,now,config,state,enabled=config.autoRecenterEnabled){
+ if(dragging||!enabled||now-orbit.last<config.recenterDelay){state.active=false;state.x=0;state.y=0;return;}
  if(!state.active){orbit.x=Math.atan2(Math.sin(orbit.x),Math.cos(orbit.x));state.active=true;state.x=0;state.y=0;}
  for(const axis of ['x','y']){const next=dampOrbit(orbit[axis],state[axis],config.recenterSmoothTime,dt);orbit[axis]=next.value;state[axis]=next.velocity;
   if(Math.abs(orbit[axis])<config.recenterAngleTolerance&&Math.abs(state[axis])<config.recenterAngleTolerance){orbit[axis]=0;state[axis]=0;}

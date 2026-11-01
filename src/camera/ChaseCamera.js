@@ -4,7 +4,7 @@ import {gameplaySettings} from '../ui/gameplayPreferences.js';
 import * as T from 'three';
 import {cameraConfig as c} from '../config/cameraConfig.js';
 import {heightAt} from '../environment/terrainMath.js';
-import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter} from './cameraMath.js';
+import {smoothFactor,speedFraming,aspectDistance,updateOrbitRecenter,cameraViewHeading} from './cameraMath.js';
 import {terrainArmHeight,terrainViewHeight} from './groundCameraMath.js';
 const radians=Math.PI/180;
 export class ChaseCamera{
@@ -89,16 +89,16 @@ export class ChaseCamera{
  clearShake(){if(this.hasBase){this.camera.position.copy(this.basePosition);this.camera.quaternion.copy(this.baseRotation);}this.shake.reset();}
  // Restore the unshaken pose before follow smoothing so offsets never accumulate.
  update(dt,sub,input){if(this.hasBase){this.camera.position.copy(this.basePosition);this.camera.quaternion.copy(this.baseRotation);}const o=input.orbit,p=sub.position;
-  updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
+  updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter,this.profile?.autoRecenterEnabled??c.autoRecenterEnabled);
   const ground=this.profile?.ground,speed=speedFraming(sub.speed,c),distance=Math.max(ground?.minDistance??this.profile?.minDistance??0,c.distance*(this.profile?.distanceMultiplier??1))*aspectDistance(this.camera.aspect,c)*(1+speed*(ground?.speedDistanceIncrease??c.speedDistanceIncrease));
   let limit=1;if(ground){limit=this.updateGround(dt,sub,o,distance,speed,ground);}
   else{this.groundProfile=null;
   const floor=this.ground(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
   const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(Math.max(this.profile?.minHeight??0,c.height*(this.profile?.heightMultiplier??1)),distance)+o.y));
-  const angle=sub.heading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
+  const viewHeading=cameraViewHeading(sub.heading,this.profile),angle=viewHeading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
   this.pivot.set(p.x,p.y+.6,p.z);
   this.desired.set(p.x-Math.sin(angle)*distance,p.y+height,p.z-Math.cos(angle)*distance);
-  this.focus.set(p.x+Math.sin(sub.heading)*c.lookAhead,p.y+Math.max(.4,Math.min(2,c.height-(c.distance+c.lookAhead)*Math.tan(c.downwardAngle*radians)+c.framingLift)),p.z+Math.cos(sub.heading)*c.lookAhead);
+  this.focus.set(p.x+Math.sin(viewHeading)*c.lookAhead,p.y+Math.max(.4,Math.min(2,c.height-(c.distance+c.lookAhead)*Math.tan(c.downwardAngle*radians)+c.framingLift)),p.z+Math.cos(viewHeading)*c.lookAhead);
   if(this.initial){this.camera.position.copy(this.desired);this.target.copy(this.focus);}
   else{this.camera.position.lerp(this.desired,smoothFactor(c.positionSmoothing,dt));this.target.lerp(this.focus,smoothFactor(c.rotationSmoothing,dt));}
   // Check the smoothed path as well: turns must not cut through a reef corner.

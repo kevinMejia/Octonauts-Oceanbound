@@ -30,8 +30,12 @@ All mission tuning is in `src/config/dolphinRescueConfig.js`. The default route 
 clean-water release area. The escort advances even without thrust and influences
 its lateral formation gently from the GUP. Existing steering, forward/reverse,
 rise/dive and orbit controls remain available. The GUP starts just behind and beside the dolphins. Its movement, normal GUP-B
-speeds, turbo, camera profile, saved camera settings and orbit controls match free
-roam. Only dolphins progress automatically: the player can stop, reverse, swim
+speeds, turbo, saved camera distance/height and orbit controls match free roam.
+The mission camera follows position while retaining its view direction: steering
+the GUP does not spin the camera, and a manually chosen camera angle stays put
+instead of automatically recentering. The mission opts into this behavior through
+the existing shared chase-camera profile; free-roam heading follow and saved
+recenter preferences are unchanged after return. Only dolphins progress automatically: the player can stop, reverse, swim
 alongside or move ahead without escort position clamps or forced current. Mission
 status uses the same notification lane and panel styling as existing rescues.
 
@@ -107,3 +111,20 @@ full fluid or rigid-body simulation. A complete manual 150-second escort and
 physical iPhone/Safari multitouch remain unverified. Software Chromium results
 are not a native GPU performance benchmark; the existing frame-delta clamp can
 extend wall-clock duration on severely slow rendering devices.
+
+## Phone steering and stable camera regression
+
+The deployed `690a1f2` build already accepted joystick steering and Forward with
+independent fingers. A sustained Chromium touch diagnostic reproduced the GUP
+turning while the heading-follow camera swung around it. This revision separates
+mission camera heading from GUP steering and disables mission orbit recentering;
+it does not change the shared joystick or GUP controls.
+
+`node tests/dolphin-touch-browser.cjs` tests actual Chromium multi-touch dispatch
+with a continuous game loop: joystick-only steering without camera rotation,
+Forward plus joystick in both finger orders, released controls, and a manual
+camera drag held past the normal recenter delay. It suppresses rendering during
+measurements to avoid treating software GPU timing as input behavior. Results
+are written to `touch-results.json` only on success. The final run passes all
+these checks with no page errors or pointer-cancellation events. Physical iPhone/Safari remains
+unverified. Existing open tabs retain their loaded modules until reloaded.

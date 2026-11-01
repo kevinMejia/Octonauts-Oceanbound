@@ -13,6 +13,21 @@ when available, and distinguish pushed from confirmed live. This explicit user
 authorization supersedes the earlier no-automatic-merge/deploy default. Honor any
 later request to hold a particular change. Do not start unapproved queued work.
 
+## Dolphin Rescue phone camera follow-up — 2026-11-01
+
+User reports loss of directional control and camera moving by itself on a phone
+using joystick + Forward. Verified Pages successfully deployed `690a1f2`; live
+HTML loads build `d1ed39be2a37`. Actual Chromium touch diagnostic reproduces
+joystick steering + Forward reaching the GUP while the heading-follow camera
+swings around it. No pointer-ownership failure established. Mission-only fix
+keeps camera heading stable and disables automatic orbit recentering while
+retaining position follow, normal GUP controls, camera distance/height and world
+camera preferences. Root implementation; independent `dolphin_qa` review and all
+73 test files/build pass. Sustained actual Chromium touch-dispatch checks pass
+steering without camera rotation, both finger orders, release cleanup and a held
+manual camera angle; evidence is `docs/dolphin-rescue/touch-results.json`. Physical
+Safari testing remains with user. Commit/push to main remains authorized.
+
 ## Dolphin Rescue control and bump revision — 2026-11-01
 
 User approved restoring free-roam camera/UI/controls, removing forced player

@@ -1,0 +1,207 @@
+{
+  "checks": "real touch joystick turns GUP without rotating camera; Forward + joystick in both finger orders; release clears input; manual touch camera angle held beyond recenter delay; normal free-roam camera restored",
+  "before": {
+    "heading": 0,
+    "position": {
+      "x": -6,
+      "y": 11,
+      "z": -430
+    },
+    "camera": [
+      0.00944047218997045,
+      0.9898354224833307,
+      0.11754547986958792,
+      -0.07949700651159791
+    ],
+    "orbit": {
+      "x": 0,
+      "y": 0,
+      "last": -100
+    },
+    "controls": {
+      "thrust": 0,
+      "brakeReverse": false,
+      "turn": 0,
+      "rise": 0,
+      "boost": false
+    }
+  },
+  "turn": {
+    "heading": -0.5341105539941817,
+    "position": {
+      "x": -6,
+      "y": 11,
+      "z": -430
+    },
+    "camera": [
+      0.00944047218997045,
+      0.9898354224833307,
+      0.11754547986958792,
+      -0.07949700651159791
+    ],
+    "orbit": {
+      "x": 0,
+      "y": 0,
+      "last": -100
+    },
+    "controls": {
+      "thrust": 0,
+      "brakeReverse": false,
+      "turn": -0.7053872053872055,
+      "rise": 0,
+      "boost": false
+    }
+  },
+  "both": {
+    "heading": -0.7407676596970589,
+    "position": {
+      "x": -6.064088357890671,
+      "y": 11,
+      "z": -429.929836270868
+    },
+    "camera": [
+      0.009430557155061458,
+      0.9898429928265394,
+      0.11753274674708,
+      -0.07942271454710603
+    ],
+    "orbit": {
+      "x": 0,
+      "y": 0,
+      "last": -100
+    },
+    "controls": {
+      "thrust": 1,
+      "brakeReverse": false,
+      "turn": 0.7053872053872055,
+      "rise": 0,
+      "boost": false
+    }
+  },
+  "moving": {
+    "heading": -0.3848919629481278,
+    "position": {
+      "x": -8.131094780692505,
+      "y": 11,
+      "z": -426.5641108625445
+    },
+    "camera": [
+      0.008766951861149704,
+      0.9903659714190256,
+      0.11629590943589031,
+      -0.07465684602763187
+    ],
+    "orbit": {
+      "x": 0,
+      "y": 0,
+      "last": -100
+    },
+    "controls": {
+      "thrust": 1,
+      "brakeReverse": false,
+      "turn": 0.7053872053872055,
+      "rise": 0,
+      "boost": false
+    }
+  },
+  "stopped": {
+    "heading": -0.15983647807716628,
+    "position": {
+      "x": -9.121747518133619,
+      "y": 11,
+      "z": -422.4150316192659
+    },
+    "camera": [
+      0.009430851011813093,
+      0.9898443714678151,
+      0.11750809912021226,
+      -0.07944196601188531
+    ],
+    "orbit": {
+      "x": 0,
+      "y": 0,
+      "last": -100
+    },
+    "controls": {
+      "thrust": 0,
+      "brakeReverse": false,
+      "turn": 0,
+      "rise": 0,
+      "boost": false
+    }
+  },
+  "manualOrbit": {
+    "x": 0.2,
+    "y": 0.04,
+    "last": 39.486300000000746
+  },
+  "heldOrbit": {
+    "x": 0.2,
+    "y": 0.04,
+    "last": 39.486300000000746
+  },
+  "events": [
+    [
+      "pointerdown",
+      5,
+      "joystick"
+    ],
+    [
+      "pointerup",
+      5,
+      "joystick"
+    ],
+    [
+      "pointerdown",
+      6,
+      "forward"
+    ],
+    [
+      "pointerdown",
+      7,
+      "joystick"
+    ],
+    [
+      "pointerup",
+      7,
+      "joystick"
+    ],
+    [
+      "pointerup",
+      6,
+      "forward"
+    ],
+    [
+      "pointerdown",
+      8,
+      "joystick"
+    ],
+    [
+      "pointerdown",
+      9,
+      "forward"
+    ],
+    [
+      "pointerup",
+      8,
+      "joystick"
+    ],
+    [
+      "pointerup",
+      9,
+      "forward"
+    ],
+    [
+      "pointerdown",
+      10,
+      "ocean"
+    ],
+    [
+      "pointerup",
+      10,
+      "ocean"
+    ]
+  ],
+  "errors": [],
+  "limitations": "Chromium touch emulation with the continuous game loop and rendering suppressed during measurements. Not physical iPhone/Safari testing."
+}

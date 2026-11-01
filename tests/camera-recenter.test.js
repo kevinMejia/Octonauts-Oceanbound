@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {updateOrbitRecenter} from '../src/camera/cameraMath.js';
+import {updateOrbitRecenter,cameraViewHeading} from '../src/camera/cameraMath.js';
 const config={autoRecenterEnabled:true,recenterDelay:1.5,recenterSmoothTime:.65,recenterAngleTolerance:.01};
 const state=()=>({active:false,x:0,y:0});
 test('orbit remains fully manual through dragging and the release delay',()=>{
@@ -17,4 +17,12 @@ test('new drag cancels return velocity immediately and restarts the release time
 test('recenter is frame-rate independent and can be disabled',()=>{
  const run=hz=>{const orbit={x:1,y:.3,last:0},s=state();for(let i=0;i<hz;i++)updateOrbitRecenter(orbit,false,1/hz,2+i/hz,config,s);return orbit.x;};assert.ok(Math.abs(run(30)-run(120))<1e-10);
  const orbit={x:1,y:.3,last:0};updateOrbitRecenter(orbit,false,1,5,{...config,autoRecenterEnabled:false},state());assert.equal(orbit.x,1);
+});
+
+test('mission camera keeps its heading and manual orbit while GUP steering changes',()=>{
+ const profile={followHeading:false,heading:0,autoRecenterEnabled:false},orbit={x:.8,y:.2,last:0},s=state();
+ for(let i=0;i<600;i++){const heading=i/60;assert.equal(cameraViewHeading(heading,profile),0);updateOrbitRecenter(orbit,false,1/60,100+i/60,config,s,profile.autoRecenterEnabled);}
+ assert.equal(orbit.x,.8);assert.equal(orbit.y,.2);assert.equal(config.autoRecenterEnabled,true);
+ for(const heading of [-2,0,2])assert.equal(cameraViewHeading(heading,{}),heading);
+ const world={x:.8,y:.2,last:0};updateOrbitRecenter(world,false,1,100,config,state());assert(world.x<.8);
 });
