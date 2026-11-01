@@ -1,0 +1,28 @@
+{
+  "checks": "entry,launch,keyboard mapping,3 dolphin visuals,static instancing,pool bound,simulated failure,restart,simulated completion,replay,world restore,relaunch,portrait/landscape HUD",
+  "input": {
+    "controls": {
+      "thrust": 1,
+      "brakeReverse": false,
+      "turn": 1,
+      "rise": 1,
+      "boost": false
+    },
+    "before": {
+      "x": 0,
+      "y": 11,
+      "z": -403.6
+    },
+    "after": {
+      "x": 0.000005997088576318751,
+      "y": 11.002442893899271,
+      "z": -403.5297330847192
+    },
+    "heading": 0.001665741361889098,
+    "dolphins": 3,
+    "instances": 5400,
+    "capacity": 6
+  },
+  "errors": [],
+  "limitations": "Accelerated state simulation; not a manual full mission, touch-device test, or native GPU benchmark."
+}

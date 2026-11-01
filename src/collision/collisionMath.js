@@ -9,7 +9,7 @@ export function hullFrame(sub,out){
  out.zx=sy*cp;out.zy=-sp;out.zz=cy*cp;
  return out;
 }
-export function hullFloor(sub,x=sub.position.x,z=sub.position.z,ground=heightAt){
+export function hullFloor(sub,x=sub.position.x,z=sub.position.z,ground=sub.ground??heightAt){
  const c=sub.collisionProxy,r=c?.radius??2.2,l=c?.halfLength??3,clearance=c?.terrainClearance??submarineConfig.minTerrainClearance;
  const sy=Math.sin(sub.heading),cy=Math.cos(sub.heading),pitch=Math.sin(sub.pitch||0)*l,bank=Math.sin(sub.bank||0)*r;
  // Centre, bow, stern and both sides; account for tilted lower hull on dunes.

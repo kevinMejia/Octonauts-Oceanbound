@@ -1,6 +1,6 @@
 # Octonauts Underwater Explorer
 
-A standalone Three.js underwater exploration proof of concept. Pilot a Blender-authored GUP-B through a 1.6 km seeded sandy world. No missions or ground-vehicle physics, or external runtime CDN dependencies.
+A standalone Three.js underwater exploration proof of concept. Pilot a Blender-authored GUP-B through a 1.6 km seeded sandy world. Includes the independently accessible Dolphin Rescue escort mission. No external runtime CDN dependencies.
 
 ## Run
 
@@ -15,6 +15,14 @@ node --test tests/*.test.js
 Open http://localhost:5173/. ES modules must be served over HTTP.
 
 W/Up forward, S/Down reverse, A/D or arrows steer, Space rise, Shift dive. Drag the ocean to orbit; camera returns after release. Touch devices receive a proportional analog thumbstick for steering and rise/dive, plus Forward and Brake/Reverse buttons. Touch selection, callouts, magnification, drag and zoom gestures are suppressed on gameplay surfaces, following Little Big Dirt. Landscape is preferred; portrait is supported. Release thrust to hover. Open the hamburger menu, then Settings to adjust camera distance behind (Z, 6-40 m) and height above (Y, 1-20 m). Changes apply live and save on this device; Reset Camera restores the defaults. Turbo uses the same rules as Little Big Dirt: double-tap W/Up and hold the second press, or double-tap the Forward button within 300 ms and hold the second press. Turbo adds 80% forward speed and acceleration, lasts 15 seconds on a full charge (draining 20/3 charge per second), and passively recharges 1/second. Floating lightning restores 25 charge and respawns after 5 seconds. The meter starts empty; depleted turbo requires releasing and rearming.
+
+## Dolphin Rescue
+
+Select the glowing **Dolphin Rescue** badge beside the Octopod to launch a separate
+150-second escort through a polluted bay. Use the usual GUP-B controls to push
+floating litter away from three sleeping dolphins; three bumps end the mission.
+Replay or return to your unchanged exploration world from the mission dialogs.
+Configuration, architecture and verification limits: [Dolphin Rescue](docs/dolphin-rescue/README.md).
 
 ## Assets and architecture
 

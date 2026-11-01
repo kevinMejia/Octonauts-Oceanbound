@@ -13,6 +13,23 @@ when available, and distinguish pushed from confirmed live. This explicit user
 authorization supersedes the earlier no-automatic-merge/deploy default. Honor any
 later request to hold a particular change. Do not start unapproved queued work.
 
+## Dolphin Rescue — current session (2026-11-01)
+
+User explicitly authorized a complete Dolphin Rescue mission, verification, and a
+commit/push to origin/main. Scope: separate 2–3 minute distance escort mission,
+instanced polluted bay, three animated sleeping dolphins, pooled pushable debris,
+three-strike safety/HUD, Octopod world entry, restart and safe return. Existing
+world controls, camera, atmosphere, collision primitives and dolphin visuals are
+reused. Starting revision `ab12359`, clean main; no pre-existing local changes.
+Implementation used real `dolphin_developer`, coordinator fixes and independent
+`dolphin_qa` review. All 73 test files, production build and diff checks pass.
+Chromium entry/launch/keyboard, scripted failure/restart/completion/replay, world
+restore/relaunch and mobile HUD geometry checks pass with no page/console errors.
+Actual final entry/bay captures pass independent visual review. Full manual escort,
+physical iPhone/Safari and native GPU performance remain unverified; see
+`docs/dolphin-rescue/README.md`. This change is authorized for commit/push to main;
+no unrelated queued work was started.
+
 ## Active task
 
 Current session: SKY-015 is the explicitly requested active implementation; see

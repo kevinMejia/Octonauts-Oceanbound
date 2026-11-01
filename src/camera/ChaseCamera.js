@@ -90,11 +90,11 @@ export class ChaseCamera{
  // Restore the unshaken pose before follow smoothing so offsets never accumulate.
  update(dt,sub,input){if(this.hasBase){this.camera.position.copy(this.basePosition);this.camera.quaternion.copy(this.baseRotation);}const o=input.orbit,p=sub.position;
   updateOrbitRecenter(o,!!input.drag,dt,performance.now()/1000,c,this.recenter);
-  const ground=this.profile?.ground,speed=speedFraming(sub.speed,c),distance=Math.max(ground?.minDistance??0,c.distance*(this.profile?.distanceMultiplier??1))*aspectDistance(this.camera.aspect,c)*(1+speed*(ground?.speedDistanceIncrease??c.speedDistanceIncrease));
+  const ground=this.profile?.ground,speed=speedFraming(sub.speed,c),distance=Math.max(ground?.minDistance??this.profile?.minDistance??0,c.distance*(this.profile?.distanceMultiplier??1))*aspectDistance(this.camera.aspect,c)*(1+speed*(ground?.speedDistanceIncrease??c.speedDistanceIncrease));
   let limit=1;if(ground){limit=this.updateGround(dt,sub,o,distance,speed,ground);}
   else{this.groundProfile=null;
-  const floor=heightAt(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
-  const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(c.height*(this.profile?.heightMultiplier??1),distance)+o.y));
+  const floor=this.ground(p.x,p.z),near=Math.max(0,1-(p.y-floor)/c.nearFloorDistance);
+  const elevation=Math.max(c.minOrbitElevation*radians,Math.min(c.maxOrbitElevation*radians,Math.atan2(Math.max(this.profile?.minHeight??0,c.height*(this.profile?.heightMultiplier??1)),distance)+o.y));
   const angle=sub.heading+c.horizontalAngle*radians+o.x,height=Math.tan(elevation)*distance+near*c.nearFloorLift;
   this.pivot.set(p.x,p.y+.6,p.z);
   this.desired.set(p.x-Math.sin(angle)*distance,p.y+height,p.z-Math.cos(angle)*distance);
@@ -103,7 +103,7 @@ export class ChaseCamera{
   else{this.camera.position.lerp(this.desired,smoothFactor(c.positionSmoothing,dt));this.target.lerp(this.focus,smoothFactor(c.rotationSmoothing,dt));}
   // Check the smoothed path as well: turns must not cut through a reef corner.
   if(c.collisionEnabled&&this.obstacles){limit=this.obstacles.limit(this.pivot,this.camera.position,c);this.camera.position.lerpVectors(this.pivot,this.camera.position,limit);}
-  this.camera.position.y=Math.max(heightAt(this.camera.position.x,this.camera.position.z)+c.terrainClearance,this.camera.position.y);
+  this.camera.position.y=Math.max(this.ground(this.camera.position.x,this.camera.position.z)+c.terrainClearance,this.camera.position.y);
   }
   // At forced close range, aim at the hull rather than beyond its bow.
   // This keeps the vehicle readable when a structure restricts camera space.
