@@ -27,8 +27,8 @@ with invisible exploration hills.
 
 All mission tuning is in `src/config/dolphinRescueConfig.js`. The default route is
 600 metres at a 4 m/s dolphin pace: 150 active simulation seconds, including a 70 metre
-clean-water release area. The escort advances even without thrust and influences
-its lateral formation gently from the GUP. Existing steering, forward/reverse,
+clean-water release area. The dolphins advance straight at fixed speed independently of GUP inputs,
+with constant lateral formation offsets and depth. Existing steering, forward/reverse,
 rise/dive and orbit controls remain available. The GUP starts just behind and beside the dolphins. Its movement, normal GUP-B
 speeds, turbo, saved camera distance/height and orbit controls match free roam.
 The mission camera uses normal GUP-B heading follow and the saved orbit recenter
@@ -156,3 +156,9 @@ The mission now consumes real elapsed time through bounded small physics steps,
 rendering once per frame. This fixes dropped simulation time below 20 FPS without
 changing configured speeds or collision rules. See [timing validation and stall
 limits](../dolphin-timing/README.md). Free-roam timing is unchanged.
+
+## Straight sleeping-dolphin course
+
+Dolphins now hold a fixed lane, depth and forward facing while swimming straight
+at 4 m/s. Their route does not receive GUP input or position. Tail animation and
+closed eyes remain. See [current course and verification](../dolphin-straight/README.md).

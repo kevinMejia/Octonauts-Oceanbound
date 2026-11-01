@@ -8,7 +8,7 @@ import {vehicleById} from '../src/config/vehicleConfig.js';
 const close=(a,b,tolerance=1e-8)=>assert(Math.abs(a-b)<tolerance,`${a} != ${b}`);
 function run(hz,controls={thrust:0,turn:0,rise:0,boost:false},seconds=4){
  const state=new DolphinRescueState(),sub=new SubmarineController(),v=vehicleById('gup-b');sub.selectVehicle(v.id,v.movement,v);sub.ground=()=>0;sub.position.y=11;sub.position.z=-430;sub.turbo.charge=100;
- for(let frame=0;frame<hz*seconds;frame++)advanceMission(1/hz,dt=>{state.update(dt,sub.position.x);sub.update(dt,controls);});
+ for(let frame=0;frame<hz*seconds;frame++)advanceMission(1/hz,dt=>{state.update(dt);sub.update(dt,controls);});
  return {state,sub};
 }
 test('dolphins retain 4 real-time m/s across 60, 30, 20, 10, 6 and 4 FPS',()=>{

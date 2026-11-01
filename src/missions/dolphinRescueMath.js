@@ -17,7 +17,7 @@ export function pushDebris(o,contact,time,c=defaults){
 }
 export class DolphinRescueState{
  constructor(config=defaults){this.config=config;this.reset();}
- reset(){const c=this.config;this.rng=random(c.seed);this.time=0;this.distance=0;this.strikes=0;this.cleared=0;this.spawned=0;this.status='running';this.nextSpawn=c.route.introSeconds;this.lastCollision=-Infinity;this.notice='Protect the dolphins! Clear the path ahead.';this.noticeUntil=7;this.leaderX=0;
+ reset(){const c=this.config;this.rng=random(c.seed);this.time=0;this.distance=0;this.strikes=0;this.cleared=0;this.spawned=0;this.status='running';this.nextSpawn=c.route.introSeconds;this.lastCollision=-Infinity;this.notice='Protect the dolphins! Clear the path ahead.';this.noticeUntil=7;
   this.dolphins=c.escort.formation.map(([x,z],i)=>({x,y:c.route.depth,z:c.route.startZ+z,previous:{x,y:c.route.depth,z:c.route.startZ+z},phase:i*1.9,reaction:0}));
   this.obstacles=Array.from({length:c.debris.capacity},(_,id)=>({id,active:false,generation:0,x:0,y:0,z:0,vx:0,vy:0,vz:0,spin:0,angle:0,lastHit:-Infinity}));
  }
@@ -27,10 +27,9 @@ export class DolphinRescueState{
   const type=c.debris.types[this.spawned===0?0:Math.floor(this.rng()*stage.types)],side=this.spawned%2?-1:1;
   Object.assign(o,type,{active:true,generation:o.generation+1,x:side*c.debris.spawnSide,y:c.route.depth,z:this.z+c.route.speed*stage.reaction,vx:0,vy:0,vz:0,spin:0,angle:this.rng()*.6,pushed:false,cleared:false,struck:false,side,targetX:(this.rng()-.5)*1.8,lastHit:-Infinity});this.spawned++;return true;
  }
- update(dt,playerX=0){
+ update(dt){
   if(this.status!=='running'||!(dt>0))return;const c=this.config;dt=Math.min(dt,.05);this.time+=dt;this.distance=Math.min(c.route.length,this.distance+c.route.speed*dt);
-  this.leaderX+=(clamp(playerX*c.escort.routeInfluence,-.55,.55)-this.leaderX)*(1-Math.exp(-c.escort.response*dt));
-  for(const [i,d] of this.dolphins.entries()){Object.assign(d.previous,{x:d.x,y:d.y,z:d.z});const [x,z]=c.escort.formation[i];d.x=x+this.leaderX+Math.sin(this.time*.65+d.phase)*c.escort.wobble;d.y=c.route.depth+Math.sin(this.time*1.1+d.phase)*.14;d.z=this.z+z;d.reaction=Math.max(0,d.reaction-dt);}
+  for(const [i,d] of this.dolphins.entries()){Object.assign(d.previous,{x:d.x,y:d.y,z:d.z});const [x,z]=c.escort.formation[i];d.x=x;d.y=c.route.depth;d.z=this.z+z;d.reaction=Math.max(0,d.reaction-dt);}
   if(this.time>=this.nextSpawn&&this.distance<c.route.length-c.route.cleanDistance){const stage=c.debris.stages.find(s=>this.progress<s.until)??c.debris.stages.at(-1);if(this.spawn())this.nextSpawn=this.time+stage.interval;}
   const drag=Math.exp(-c.debris.drag*dt);
   for(const o of this.obstacles){if(!o.active)continue;

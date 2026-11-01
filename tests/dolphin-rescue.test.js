@@ -8,6 +8,19 @@ test('dolphins continuously progress in a bounded, separated formation independe
  for(const d of s.dolphins){assert(Math.abs(d.x)<c.escort.halfWidth);assert(d.z>c.route.startZ+13);}
  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert(Math.hypot(s.dolphins[i].x-s.dolphins[j].x,s.dolphins[i].z-s.dolphins[j].z)>3);
 });
+test('sleeping dolphins hold straight fixed lanes and depth for the whole route',()=>{
+ const s=new DolphinRescueState();
+ for(let frame=0;frame<150*60;frame++){
+  for(const o of s.obstacles)if(o.active)o.x=8;s.update(1/60);
+  for(const [i,d] of s.dolphins.entries()){const [x,z]=c.escort.formation[i];assert.equal(d.x,x);assert.equal(d.y,c.route.depth);assert(Math.abs(d.z-(c.route.startZ+z+c.route.speed*s.time))<1e-6);}
+ }
+ assert.equal(s.status,'complete');assert.equal(s.strikes,0);
+});
+test('a debris strike never pushes dolphins off their straight course',()=>{
+ const s=new DolphinRescueState();s.hit({struck:false},s.dolphins[0]);s.update(1/60);
+ for(const [i,d] of s.dolphins.entries()){assert.equal(d.x,c.escort.formation[i][0]);assert.equal(d.y,c.route.depth);assert(Math.abs(d.z-c.route.startZ-c.escort.formation[i][1]-c.route.speed/60)<1e-8);}
+ assert(s.dolphins[0].reaction>0);assert.equal(s.strikes,1);
+});
 test('configured 150-second distance journey completes only after the clean-water section',()=>{
  const s=new DolphinRescueState();step(s,149,s=>{for(const o of s.obstacles)if(o.active)o.x=8;});assert.equal(s.status,'running');assert(s.progress>.99);step(s,2,s=>{for(const o of s.obstacles)if(o.active)o.x=8;});assert.equal(s.status,'complete');assert.equal(s.progress,1);assert(s.spawned>12);assert(s.obstacles.length<=6);
  const distance=s.distance;step(s,5);assert.equal(s.distance,distance);

@@ -63,11 +63,11 @@ export class DolphinRescue{
   mesh.position.set(o.x,o.y,o.z);mesh.rotation.set(.1*Math.sin(this.state.time+o.id),o.angle,.07*Math.sin(this.state.time*.8+o.id));
   Object.assign(p,{debris:o,x:o.x,y:o.y,z:o.z,rx:o.radius,ry:o.halfHeight,rz:o.radius,radius:o.radius,solid:true});if(p.registered)this.surfaces.grid.move(p);else{this.surfaces.add(p);p.registered=true;}
  }
- syncVisuals(dt){const s=this.state;for(const o of s.obstacles)this.syncObstacle(o);for(const [i,d] of s.dolphins.entries()){const v=this.visuals[i];v.group.position.set(d.x,d.y+Math.sin(d.reaction*15)*d.reaction*.3,d.z);v.group.rotation.set(Math.sin(s.time*1.3+d.phase)*.025,Math.atan2(d.x-d.previous.x,Math.max(.01,d.z-d.previous.z))*.5,Math.sin(s.time*.8+d.phase)*.035);v.animate(s.time+d.phase,dt);}this.bay.update(this.game.sub.position.z);this.updateHud();}
+ syncVisuals(dt){const s=this.state;for(const o of s.obstacles)this.syncObstacle(o);for(const [i,d] of s.dolphins.entries()){const v=this.visuals[i];v.group.position.set(d.x,d.y,d.z);v.group.rotation.set(0,0,0);v.animate(s.time+d.phase,dt);}this.bay.update(this.game.sub.position.z);this.updateHud();}
  updateHud(){const s=this.state;this.progress.value=s.progress*100;this.strikes.textContent=s.strikes+'/3 Hits';this.safety.textContent='3/3 Dolphins Safe';const text=s.time<s.noticeUntil&&s.strikes?s.notice:'Clear the path ahead';if(this.objective.textContent!==text)this.objective.textContent=text;this.hud.dataset.strikes=s.strikes;}
  stepSimulation(dt){
   const g=this.game,s=this.state,sub=g.sub;
-  s.update(dt,sub.position.x);for(const o of s.obstacles)this.syncObstacle(o);
+  s.update(dt);for(const o of s.obstacles)this.syncObstacle(o);
   g.damage.tick(dt);g.syncEmergency();sub.update(dt,this.controls);
   g.audio.playCollision(sub.collisionContact);g.gup.update(dt,sub);g.chase.update(dt,sub,g.input);
   if(s.status!=='running'){this.finish();return false;}return true;

@@ -63,8 +63,8 @@ no unrelated queued work was started.
 
 ## Active task
 
-Current session: DOLPHIN-037 fixes confirmed simulation-time loss in the dolphin
-mission. DOLPHIN-036 was delivered as bb989a1 on main. Earlier
+Current session: DOLPHIN-038 makes sleeping dolphins follow a fixed straight
+course. DOLPHIN-037 was delivered as da4296e on main. Earlier
 checkpoints below are retained for context; no queued work has been started.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
@@ -672,3 +672,18 @@ docs/dolphin-timing/. Live software GPU phases improve ~1.16 -> 3.52–3.74 m/s;
 frames beyond 250ms still discard time by design. Physical iPhone/native FPS
 unverified. Single agent, no independent QA. Touch steering/Forward/camera regression passes. Next: commit and deliver under
 the established main/push instruction, then user/device playtest.
+
+
+## DOLPHIN-038 — Straight sleeping-dolphin route
+
+Explicit current request: dolphins follow a straight fixed path independently of
+accelerating/coasting/stopping GUP. Branch fix/dolphin-straight-route. DOLPHIN-037
+delivered as da4296e. Scope: remove lateral GUP influence, route wobble, vertical
+bob and root body sway; keep sleeping eyes/tail animation, fixed 4 m/s course,
+formation offsets, existing timing fix and gameplay rules. Single agent continuing
+under mission instruction. Status: verified locally. 411 Node tests, production build/diff checks pass.
+Actual production Edge tests verify identical dolphin/model paths across idle,
+acceleration, release, reverse, steering and turbo, with root facing fixed.
+Pause, debris contact, terminal state and restoration regressions pass.
+Unrelated HUD preview PNGs preserved. Evidence: docs/dolphin-straight/. Next: commit and established main/push delivery,
+then user/device playtest. No subagents or independent QA; physical iPhone untested.
