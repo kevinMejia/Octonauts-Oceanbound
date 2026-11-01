@@ -63,8 +63,8 @@ no unrelated queued work was started.
 
 ## Active task
 
-Current session: DOLPHIN-036 is the explicitly requested active task, including
-UI/environment polish, full mission Hull, and commit/push to main. Earlier
+Current session: DOLPHIN-037 fixes confirmed simulation-time loss in the dolphin
+mission. DOLPHIN-036 was delivered as bb989a1 on main. Earlier
 checkpoints below are retained for context; no queued work has been started.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
@@ -625,3 +625,50 @@ Final screenshots reviewed; touch/camera regression passes. A combined high
 startup capture retry timed out; fresh-browser high validation passed. Unrelated untracked HUD preview PNGs preserved.
 Delivery: verified work ready for the explicitly authorized commit, merge and push
 to main. Next: user playtest; physical iPhone and sustained performance unverified.
+
+## DOLPHIN-037 — Perceived dolphin slowdown on acceleration
+
+Explicit current investigation and request to halve the perceived slowdown.
+Priority: current; prior DOLPHIN-036 delivered as bb989a1 on main. Static inspection
+finds no acceleration-dependent slowdown: dolphin route speed is fixed 4 m/s,
+GUP-B normal maximum is 12.72 m/s (22.896 turbo). Forward relative closing speed
+is 8.72 m/s at normal full speed. No runtime change yet. Asked whether user wants
+dolphins to gain half the GUP's extra forward speed (8.36 m/s at normal maximum)
+or wants a slower mission GUP. Adaptive dolphin speed changes mission duration;
+await this scope clarification before changing movement/progression. No agents
+ran. Next: implement the clarified tuning and verify affected gameplay criteria.
+
+
+DOLPHIN-037 runtime checkpoint: user rejected the relative-speed interpretation
+and requested actual checking. Ran real production Edge software-WebGL 390x844
+continuous-loop diagnostics, idle/acceleration/coast/turbo, with frame/dt/world
+travel telemetry, then rendering-disabled comparisons. Real slowdown exists:
+Game caps elapsed to .05 s/frame and drops excess time; state uses capped dt.
+At <20 FPS movement and animation lose wall-clock time. Observed idle 1.164 m/s,
+accelerating 1.162, turbo 1.145 at about 6 FPS; approximately 71% below intended
+4 m/s. Rendering-disabled acceleration reached 3.999 m/s. These are software GPU
+observations, not physical iPhone performance. Did NOT reproduce a substantial
+acceleration-specific drop; it must not be claimed as confirmed on user's device.
+Evidence: .local-assets/dolphin-speed/low.json and low-turbo.json (ignored local
+telemetry). No runtime tuning changes, no agents, no commit/push. Prior proposed
+adaptive dolphin-speed change is not approved and should not be started. Next:
+address/measure frame-time loss within mission scope; preserve collision stability
+and avoid mistaking configured simulation speed for real elapsed-time movement.
+
+
+DOLPHIN-037 implementation: user asks how to fix the confirmed timing issue.
+Branch fix/dolphin-frame-timing. Implement mission-only elapsed-time catch-up in
+<=1/60 s physics steps, max .25 s per frame, one render/presentation update.
+Discard stall debt and first delta after launch/replay/pause. Keep route speed,
+movement tuning, debris rules and free-roam timestep unchanged. Single agent
+continuing under prior mission instruction; checks pending. Next: unit and actual
+slow-frame browser verification, then deliver under standing main/push instruction.
+
+DOLPHIN-037 verification: 409 Node tests, production build/diff checks pass.
+Actual production Edge live rendering recovers accepted elapsed time; 4–60 FPS
+controlled route/physics parity, 60/10 FPS debris contacts, one render/frame,
+pause/resume, long-stall cap/no debt, completion and world return pass. Evidence:
+docs/dolphin-timing/. Live software GPU phases improve ~1.16 -> 3.52–3.74 m/s;
+frames beyond 250ms still discard time by design. Physical iPhone/native FPS
+unverified. Single agent, no independent QA. Touch steering/Forward/camera regression passes. Next: commit and deliver under
+the established main/push instruction, then user/device playtest.

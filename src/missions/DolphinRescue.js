@@ -9,6 +9,7 @@ import {InteractionSurfaces} from '../effects/InteractionSurfaces.js';
 import {CollisionWorld} from '../collision/CollisionWorld.js';
 import {CameraObstacles} from '../camera/CameraObstacles.js';
 import {focusGameplay} from '../ui/focusGameplay.js';
+import {advanceMission} from './missionTiming.js';
 import {DolphinBay} from './DolphinBay.js';
 import {DolphinRescueState,pushDebris} from './dolphinRescueMath.js';
 const missionGround=()=>0;
@@ -16,7 +17,7 @@ const symbol='<svg viewBox="0 0 64 48" aria-hidden="true"><path d="M6 29C16 11 3
 // Registered mission owns its transient scene and controller, never exploration saves.
 export class DolphinRescue{
  constructor(game){
-  this.game=game;this.id=config.id;this.active=false;this.busy=false;this.projected=new T.Vector3();this.anchor=new T.Vector3().fromArray(config.entry.offset).add(new T.Vector3(octopodConfig.position.x,octopodConfig.position.y,octopodConfig.position.z));
+  this.game=game;this.step=dt=>this.stepSimulation(dt);this.id=config.id;this.active=false;this.busy=false;this.projected=new T.Vector3();this.anchor=new T.Vector3().fromArray(config.entry.offset).add(new T.Vector3(octopodConfig.position.x,octopodConfig.position.y,octopodConfig.position.z));
   this.marker=document.createElement('button');this.marker.id='dolphinRescueEntry';this.marker.type='button';this.marker.hidden=true;this.marker.setAttribute('aria-label','Dolphin Rescue mission near the Octopod');this.marker.innerHTML=symbol+'<span>Dolphin Rescue</span>';document.body.append(this.marker);this.marker.onclick=()=>this.openBriefing();
   this.hud=document.createElement('section');this.hud.id='dolphinRescueHud';this.hud.hidden=true;this.hud.setAttribute('aria-label','Dolphin Rescue mission');this.hud.innerHTML='<div class="dolphin-heading">'+symbol+'<b>DOLPHIN RESCUE</b></div><button type="button" id="dolphinExit">Exit</button><div class="dolphin-safety"><span id="dolphinSafety">3/3 Dolphins Safe</span><b id="dolphinStrikes">0/3 Hits</b></div><p id="dolphinObjective" role="status" aria-live="polite">Clear the path ahead</p><progress id="dolphinProgress" max="100" value="0" aria-label="Mission progress"></progress>';document.querySelector('#navigation').append(this.hud);this.hud.querySelector('#dolphinExit').onclick=()=>this.openExit();this.progress=this.hud.querySelector('progress');this.objective=this.hud.querySelector('#dolphinObjective');this.strikes=this.hud.querySelector('#dolphinStrikes');this.safety=this.hud.querySelector('#dolphinSafety');
   this.dialog=document.createElement('dialog');this.dialog.id='dolphinRescueDialog';this.dialog.setAttribute('aria-labelledby','dolphinMissionTitle');this.dialog.innerHTML='<div class="dolphin-dialog-emblem">'+symbol+'</div><p class="dolphin-eyebrow">OCTONAUTS • KWAZII’S MISSION</p><h2 id="dolphinMissionTitle">Dolphin Rescue</h2><p id="dolphinMissionDescription"></p><p id="dolphinMissionHint"></p><div class="dolphin-dialog-actions"><button id="dolphinLaunch" type="button">Launch mission</button><button id="dolphinReturn" type="button">Back to ocean</button></div>';document.body.append(this.dialog);this.title=this.dialog.querySelector('h2');this.description=this.dialog.querySelector('#dolphinMissionDescription');this.hint=this.dialog.querySelector('#dolphinMissionHint');this.launchButton=this.dialog.querySelector('#dolphinLaunch');this.returnButton=this.dialog.querySelector('#dolphinReturn');this.launchButton.onclick=()=>this.active?this.restart():this.launch();this.returnButton.onclick=()=>this.active?this.leave():this.closeDialog();this.dialog.addEventListener('cancel',e=>{e.preventDefault();if(this.active&&this.state.status!=='running')this.leave();else this.closeDialog();});this.dialog.addEventListener('close',()=>{this.release?.();this.release=null;this.game.input.clear();focusGameplay();});
@@ -56,7 +57,7 @@ export class DolphinRescue{
   finally{this.busy=false;this.launchButton.disabled=false;this.launchButton.onclick=()=>this.active?this.restart():this.launch();}
  }
  closeLoadingDialog(){this.dialog.close();}
- resetPose(){const g=this.game,s=g.sub,r=config.route;Object.assign(s.position,{x:r.spawnX,y:r.depth,z:r.startZ+r.spawnOffset});Object.assign(s.previousPosition,s.position);s.heading=0;s.speed=s.vertical=s.heave=s.steer=s.pitch=s.bank=0;s.collisionDrift.x=s.collisionDrift.z=0;g.damage.setPercent('gup-b',100);g.syncEmergency();g.damageDisplay.refresh();g.input.clear();g.chase.clearShake();g.chase.initial=true;g.gup.update(0,s);g.chase.update(0,s,g.input);}
+ resetPose(){this.resetFrame=true;const g=this.game,s=g.sub,r=config.route;Object.assign(s.position,{x:r.spawnX,y:r.depth,z:r.startZ+r.spawnOffset});Object.assign(s.previousPosition,s.position);s.heading=0;s.speed=s.vertical=s.heave=s.steer=s.pitch=s.bank=0;s.collisionDrift.x=s.collisionDrift.z=0;g.damage.setPercent('gup-b',100);g.syncEmergency();g.damageDisplay.refresh();g.input.clear();g.chase.clearShake();g.chase.initial=true;g.gup.update(0,s);g.chase.update(0,s,g.input);}
  syncObstacle(o){const p=this.proxies[o.id],mesh=this.obstacleMeshes[o.id];mesh.visible=o.active;if(!o.active){if(p.registered){this.surfaces.grid.remove(p);this.surfaces.count--;this.surfaces.solidCount--;p.registered=false;}p.solid=false;return;}
   if(mesh.userData.generation!==o.generation){mesh.geometry=this.bay.geometries.get(o.kind);mesh.userData.generation=o.generation;mesh.scale.setScalar(o.radius/(o.kind==='tire'?1.25:o.kind==='container'?.98:o.kind==='crate'?1.1:1));}
   mesh.position.set(o.x,o.y,o.z);mesh.rotation.set(.1*Math.sin(this.state.time+o.id),o.angle,.07*Math.sin(this.state.time*.8+o.id));
@@ -64,20 +65,22 @@ export class DolphinRescue{
  }
  syncVisuals(dt){const s=this.state;for(const o of s.obstacles)this.syncObstacle(o);for(const [i,d] of s.dolphins.entries()){const v=this.visuals[i];v.group.position.set(d.x,d.y+Math.sin(d.reaction*15)*d.reaction*.3,d.z);v.group.rotation.set(Math.sin(s.time*1.3+d.phase)*.025,Math.atan2(d.x-d.previous.x,Math.max(.01,d.z-d.previous.z))*.5,Math.sin(s.time*.8+d.phase)*.035);v.animate(s.time+d.phase,dt);}this.bay.update(this.game.sub.position.z);this.updateHud();}
  updateHud(){const s=this.state;this.progress.value=s.progress*100;this.strikes.textContent=s.strikes+'/3 Hits';this.safety.textContent='3/3 Dolphins Safe';const text=s.time<s.noticeUntil&&s.strikes?s.notice:'Clear the path ahead';if(this.objective.textContent!==text)this.objective.textContent=text;this.hud.dataset.strikes=s.strikes;}
- update(dt,time){
-  const g=this.game,s=this.state;if(!this.active)return;g.metrics.beginFrame();
-  if(s.status==='running'){
-   this.state.update(dt,g.sub.position.x);for(const o of s.obstacles)this.syncObstacle(o);
-   const controls=g.input.read(),sub=g.sub;
-   // The exact free-roam movement path: only dolphins advance automatically.
-   g.damage.tick(dt);g.syncEmergency();sub.update(dt,controls);
-   g.turboEffects.update(dt,sub.turbo.active);g.turboMeter.update(sub.turbo.charge);document.body.classList.toggle('boosting',sub.turbo.active);
-   g.damageDisplay.update(dt);
-   g.audio.playCollision(sub.collisionContact);g.audio.update(dt,sub,controls);g.gup.update(dt,sub);g.compass.update(dt,g.gup.group);g.chase.update(dt,sub,g.input);
-   if(s.status!=='running')this.finish();
-  }
-  this.syncVisuals(dt);g.atmosphere.update(time,dt,g.sub,g.gup.group,g.camera,g.renderer.getPixelRatio());g.metrics.beginRender();g.renderScene(dt,true);g.metrics.endRender();g.metrics.update(performance.now(),g.profile,g.quality,g.scene);
+ stepSimulation(dt){
+  const g=this.game,s=this.state,sub=g.sub;
+  s.update(dt,sub.position.x);for(const o of s.obstacles)this.syncObstacle(o);
+  g.damage.tick(dt);g.syncEmergency();sub.update(dt,this.controls);
+  g.audio.playCollision(sub.collisionContact);g.gup.update(dt,sub);g.chase.update(dt,sub,g.input);
+  if(s.status!=='running'){this.finish();return false;}return true;
  }
+ update(elapsed,time){
+  const g=this.game,s=this.state;if(!this.active)return 0;g.metrics.beginFrame();this.controls=g.input.read();
+  const dt=s.status==='running'&&!this.resetFrame?advanceMission(elapsed,this.step):0;this.resetFrame=false;
+  // Physics catches up in small steps; presentation and GPU work happen once.
+  g.turboEffects.update(dt,g.sub.turbo.active);g.turboMeter.update(g.sub.turbo.charge);document.body.classList.toggle('boosting',g.sub.turbo.active);
+  g.damageDisplay.update(dt);g.audio.update(dt,g.sub,this.controls);g.compass.update(dt,g.gup.group);
+  this.syncVisuals(dt);g.atmosphere.update(time+dt,dt,g.sub,g.gup.group,g.camera,g.renderer.getPixelRatio());g.metrics.beginRender();g.renderScene(dt,true);g.metrics.endRender();g.metrics.update(performance.now(),g.profile,g.quality,g.scene);return dt;
+ }
+
  finish(){const success=this.state.status==='complete';this.game.sub.speed=0;this.game.input.clear();if(success){this.game.audio.playRescue();const p=this.state.dolphins[0];this.game.atmosphere.propulsion.discoveryBurst(p.x,p.y,p.z);}this.showDialog(success?'Mission Complete!':'Mission Failed',success?'All three dolphins are safe!':'Three bumps! Let’s try clearing the path again.',''+this.state.cleared+' obstacles cleared • '+Math.round(this.state.progress*100)+'% of the bay crossed',success?'Replay Mission':'Try again','Return to Octopod');this.launchButton.onclick=()=>this.restart();}
  restart(){if(!this.active||this.busy)return;for(const o of this.state.obstacles){o.active=false;this.syncObstacle(o);}this.state.reset();this.resetPose();this.syncVisuals(0);this.dialog.close();this.game.needsPausedRender=true;}
  restoreWorld(){const g=this.game,s=this.saved;if(!s)return;this.releaseDamage?.();this.releaseDamage=null;g.damage=s.damage;g.atmosphere.underwaterFogDensity=s.fogDensity;g.sub=s.sub;g.gup=s.gup;if(s.parent)s.parent.add(s.vehicle.group);else s.vehicle.group.removeFromParent();s.vehicle.group.position.copy(s.position);s.vehicle.group.quaternion.copy(s.quaternion);s.vehicle.group.visible=s.visible;for(const [o,visible] of s.scene)o.visible=visible;g.chase.ground=s.ground;g.chase.profile=s.profile;g.chase.obstacles=s.obstacles;g.chase.clearShake();g.chase.initial=true;Object.assign(g.input.orbit,s.orbit);g.input.clear();s.turboParent?.add(g.turboEffects.group);g.turboEffects.intensity=s.turboIntensity;g.turboEffects.group.visible=s.turboVisible;document.body.classList.toggle('boosting',g.sub.turbo.active);g.vehicleSelector.hud.disabled=s.vehicleDisabled;g.vehicleSelector.updateHUD();if(document.querySelector('#unlockGupX'))document.querySelector('#unlockGupX').disabled=s.unlockDisabled;g.syncEmergency();g.damageDisplay.refresh();g.atmosphere.propulsion.vents=s.vents;g.atmosphere.propulsion.nearVents=s.nearVents;g.atmosphere.propulsion.nextVentCheck=s.nextVentCheck;g.audio.setVehicle(g.gup.definition.audio);g.gup.update(0,g.sub);g.chase.update(0,g.sub,g.input);g.turboMeter.update(g.sub.turbo.charge);this.saved=null;}

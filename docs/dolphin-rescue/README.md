@@ -149,3 +149,10 @@ compact HUD, responsive action buttons, shared sand/reef assets, mission fog and
 full starting/replay Hull. Free-roam fleet Hull is restored on return. Camera,
 movement and mission mechanics remain unchanged. This follow-up uses one agent
 as explicitly requested; the earlier independent QA is not claimed for it.
+
+## Slow-frame timing correction
+
+The mission now consumes real elapsed time through bounded small physics steps,
+rendering once per frame. This fixes dropped simulation time below 20 FPS without
+changing configured speeds or collision rules. See [timing validation and stall
+limits](../dolphin-timing/README.md). Free-roam timing is unchanged.

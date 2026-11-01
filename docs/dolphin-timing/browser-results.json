@@ -1,0 +1,137 @@
+{
+  "live": [
+    {
+      "phase": "idle",
+      "frames": 18,
+      "wall": 3.008300000000745,
+      "advanced": 2.6487000000000003,
+      "worldSpeed": 3.521856197851736,
+      "speedPerSimSecond": 4,
+      "accepted": 2.6487000000000003,
+      "lastSpeed": 0
+    },
+    {
+      "phase": "accelerating",
+      "frames": 18,
+      "wall": 2.765699999999255,
+      "advanced": 2.572400000000002,
+      "worldSpeed": 3.720432440251217,
+      "speedPerSimSecond": 4.000000000000004,
+      "accepted": 2.5724000000000014,
+      "lastSpeed": 12.687848765859643
+    },
+    {
+      "phase": "turbo",
+      "frames": 17,
+      "wall": 2.9405,
+      "advanced": 2.747,
+      "worldSpeed": 3.7367794592756596,
+      "speedPerSimSecond": 4.000000000000028,
+      "accepted": 2.7470000000000003,
+      "lastSpeed": 22.89590062892258
+    }
+  ],
+  "resume": {
+    "phase": "resume",
+    "elapsed": 0.006900000000001455,
+    "advanced": 0,
+    "wall": 26044,
+    "travel": 0,
+    "speed": 22.89590062892258
+  },
+  "controlled": [
+    {
+      "normal": {
+        "advanced": 1.4999999999999996,
+        "rendered": 90,
+        "position": {
+          "x": -6,
+          "y": 11,
+          "z": -416.3870999013816
+        },
+        "speed": 12.250846110656227,
+        "travel": 5.999999999999998,
+        "hit": false,
+        "obstacle": {
+          "x": 0,
+          "z": 0,
+          "vx": 0,
+          "vz": 0
+        },
+        "collision": false
+      },
+      "slow": {
+        "advanced": 1.5000000000000002,
+        "rendered": 15,
+        "position": {
+          "x": -6,
+          "y": 11,
+          "z": -416.3870999013816
+        },
+        "speed": 12.250846110656227,
+        "travel": 5.999999999999998,
+        "hit": false,
+        "obstacle": {
+          "x": 0,
+          "z": 0,
+          "vx": 0,
+          "vz": 0
+        },
+        "collision": false
+      }
+    },
+    {
+      "normal": {
+        "advanced": 1.4999999999999996,
+        "rendered": 90,
+        "position": {
+          "x": -6.302826492543018,
+          "y": 11.011620465489889,
+          "z": -419.43687873467917
+        },
+        "speed": 11.571530464742782,
+        "travel": 5.999999999999998,
+        "hit": true,
+        "obstacle": {
+          "x": -3.52340414132867,
+          "z": -414.8747081296636,
+          "vx": 1.1781913860651705,
+          "vz": 5.729171908421987
+        },
+        "collision": true
+      },
+      "slow": {
+        "advanced": 1.5000000000000002,
+        "rendered": 15,
+        "position": {
+          "x": -6.302826492543018,
+          "y": 11.011620465489889,
+          "z": -419.43687873467917
+        },
+        "speed": 11.571530464742782,
+        "travel": 5.999999999999998,
+        "hit": true,
+        "obstacle": {
+          "x": -3.52340414132867,
+          "z": -414.8747081296636,
+          "vx": 1.1781913860651705,
+          "vz": 5.729171908421987
+        },
+        "collision": true
+      }
+    }
+  ],
+  "stall": {
+    "advanced": 0.24999999999999997,
+    "first": 0.9999999999999999,
+    "next": 0.016666666666666666,
+    "distance": 1.0666666666666667
+  },
+  "terminal": {
+    "advanced": 0.016666666666666666,
+    "status": "complete",
+    "open": true
+  },
+  "errors": [],
+  "limitations": "Actual Edge software-WebGL live rendering plus scripted slow-frame/collision checks. Not physical iPhone, sustained native GPU FPS, or a full manual escort."
+}

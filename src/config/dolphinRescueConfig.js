@@ -1,6 +1,7 @@
 // Metres, seconds and exponential underwater response rates. No world-save state.
 export const dolphinRescueConfig={
  id:'dolphin-rescue',name:'Dolphin Rescue',seed:41024,
+ timing:{maxStep:1/60,maxFrameTime:.25}, // Up to 15 small steps, one render; discard long-stall debt.
  entry:{offset:[38,19,32],maxDistance:180},
  route:{startZ:-420,length:600,speed:4,introSeconds:6,cleanDistance:70,depth:11,spawnX:-6,spawnOffset:-10},
  camera:{}, // Inherit normal GUP-B heading follow and saved orbit recenter preferences.
