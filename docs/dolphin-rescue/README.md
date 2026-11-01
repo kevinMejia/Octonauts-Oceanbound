@@ -141,3 +141,11 @@ simultaneous steering/Forward in both finger orders, release, orbit recenter and
 exit restoration with no page errors. Updated touch-results.json contains this
 run. Rendering was suppressed during input measurements; physical iPhone remains
 unverified.
+
+## UI, reef and mission Hull polish
+
+See [current implementation and validation](../dolphin-polish/README.md) for the
+compact HUD, responsive action buttons, shared sand/reef assets, mission fog and
+full starting/replay Hull. Free-roam fleet Hull is restored on return. Camera,
+movement and mission mechanics remain unchanged. This follow-up uses one agent
+as explicitly requested; the earlier independent QA is not claimed for it.

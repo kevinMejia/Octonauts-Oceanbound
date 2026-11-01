@@ -36,7 +36,7 @@ export function atmosphere(scene,profile=environmentConfig.profiles.high,rendere
  const airSun=new T.Vector3();let lastTime=0;
  const refresh=(sub,camera)=>{const time=lastTime;
   const position=sub.position,eye=camera.position,air=airBlend(eye.y,eye.x,eye.z,time),wet=1-air,depth=Math.max(0,Math.min(1,(worldConfig.surface-eye.y)/config.atmosphere.depthRange));
-  scene.fog.color.copy(baseFog).lerp(depthTint,depth*(profile.depthTintStrength??config.atmosphere.depthTintStrength));scene.fog.color.lerp(sky,air);scene.fog.density=config.atmosphere.fogDensity*(1+depth*.08)*wet+c.airFogDensity*air;scene.background.copy(scene.fog.color);sun.intensity=(profile.sunIntensity??visualConfig.lighting.sunIntensity)*(1-depth*.06)*(1-air*.12);hemi.intensity=(profile.hemisphereIntensity??visualConfig.lighting.hemisphereIntensity)*(1+air*.15);
+  scene.fog.color.copy(baseFog).lerp(depthTint,depth*(profile.depthTintStrength??config.atmosphere.depthTintStrength));scene.fog.color.lerp(sky,air);scene.fog.density=(api.underwaterFogDensity??config.atmosphere.fogDensity)*(1+depth*.08)*wet+c.airFogDensity*air;scene.background.copy(scene.fog.color);sun.intensity=(profile.sunIntensity??visualConfig.lighting.sunIntensity)*(1-depth*.06)*(1-air*.12);hemi.intensity=(profile.hemisphereIntensity??visualConfig.lighting.hemisphereIntensity)*(1+air*.15);
   dome.position.copy(eye);dome.material.uniforms.airBlend.value=air;surface.position.x=eye.x;surface.position.z=eye.z;surface.material.uniforms.air.value=air;dome.material.uniforms.time.value=time;dome.material.uniforms.depthBlend.value=depth;surface.material.uniforms.time.value=time;sun.position.set(position.x-42,78,position.z+40);sun.target.position.set(position.x,0,position.z);sun.target.updateMatrixWorld();causticTime.value=time;
   sunRays.update(time,position,scene.fog.density);sunRays.material.uniforms.intensity.value=(profile.rayIntensity??(low?config.sunRays.lowIntensity:config.sunRays.intensity))*wet;ambient.material.uniforms.opacity.value=config.ambient.opacity*wet;
   const nightAmount=cycle?.night??0,warmth=cycle?.warmth??0;
@@ -54,8 +54,8 @@ export function atmosphere(scene,profile=environmentConfig.profiles.high,rendere
   const skyTint=dome.material.uniforms.cycleTint.value,waterTint=surface.material.uniforms.cycleTint.value;
   skyTint.set(gain(nightAmount,night.skyTint[0]),gain(nightAmount,night.skyTint[1]),gain(nightAmount,night.skyTint[2]));waterTint.set(gain(nightAmount,night.waterTint[0]),gain(nightAmount,night.waterTint[1]),gain(nightAmount,night.waterTint[2]));
  };
- return {ambient,propulsion,reflection,sunRays,surface,dome,sun,hemi,sky:skyEnvironment,refresh,update(time,dt,sub,vehicle,camera,pixelRatio){lastTime=time;refresh(sub,camera);
+ const api={ambient,propulsion,reflection,sunRays,surface,dome,sun,hemi,sky:skyEnvironment,refresh,update(time,dt,sub,vehicle,camera,pixelRatio){lastTime=time;refresh(sub,camera);
   ambient.update(time,camera,pixelRatio);propulsion.waterVisibility=1-surface.material.uniforms.air.value;propulsion.update(dt,time,sub,vehicle,camera,pixelRatio);
   if(inspect){output??=document.body.appendChild(Object.assign(document.createElement('output'),{id:'waterMetrics',hidden:true}));output.dataset.metrics=JSON.stringify({bubbles:propulsion.activeBubbles,reefBubbles:propulsion.activeReefBubbles,flow:propulsion.activeStreaks,ambient:ambient.count,bubbleBudget:propulsion.bubbles.items.length,flowBudget:propulsion.streaks.items.length,quality:low?'low':'high',speed:sub.speed,boost:sub.turbo.active,depth:worldConfig.surface-sub.position.y});}
- }};
+ }};return api;
 }

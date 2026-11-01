@@ -1,6 +1,8 @@
 import * as T from 'three';
 import {mergeGeometries} from '../../vendor/BufferGeometryUtils.js';
-import {random} from '../environment/terrainMath.js';
+import {visualConfig} from '../config/visualConfig.js';
+import {dolphinSceneryLayout} from './dolphinSceneryLayout.js';
+import {noise,random} from '../environment/terrainMath.js';
 import {applyWaterCaustics} from '../environment/waterCaustics.js';
 import {dolphinRescueConfig as defaults} from '../config/dolphinRescueConfig.js';
 
@@ -38,7 +40,9 @@ export class DolphinBay{
   this.config=config;this.group=new T.Group();this.group.name='Dolphin Rescue polluted bay';this.chunks=[];this.geometries=new Map();const c=config,e=c.environment,low=game.quality==='low',rng=random(c.seed),dummy=new T.Object3D(),color=new T.Color();
   this.material=new T.MeshStandardMaterial({vertexColors:true,roughness:.88,flatShading:true});applyWaterCaustics(this.material,.6,low);
   const kinds=['box','crate','bottle','container','tire','boot','can','net','rope','planks','household'];for(const kind of kinds)this.geometries.set(kind,litterGeometry(kind));
-  const floor=new T.PlaneGeometry(160,c.route.length+400,1,1);floor.rotateX(-Math.PI/2);const positions=floor.attributes.position,uv=floor.attributes.uv,colors=[];for(let i=0;i<positions.count;i++){uv.setXY(i,positions.getX(i)/12,positions.getZ(i)/12);colors.push(.85,.86,.8);}floor.setAttribute('color',new T.Float32BufferAttribute(colors,3));this.floor=new T.Mesh(floor,game.terrain.material);this.floor.position.z=c.route.startZ+c.route.length/2;this.floor.receiveShadow=true;this.group.add(this.floor);
+  const floor=new T.PlaneGeometry(160,c.route.length+400,20,Math.ceil((c.route.length+400)/8));floor.rotateX(-Math.PI/2);const positions=floor.attributes.position,uv=floor.attributes.uv,colors=[],centre=c.route.startZ+c.route.length/2;
+  for(let i=0;i<positions.count;i++){const x=positions.getX(i),z=positions.getZ(i)+centre,variation=.83+noise(x/18,z/18)*.17;uv.setXY(i,x/visualConfig.sand.tileMetres,z/visualConfig.sand.tileMetres);colors.push(variation,variation,variation*.98);}
+  floor.setAttribute('color',new T.Float32BufferAttribute(colors,3));this.floor=new T.Mesh(floor,game.terrain.material);this.floor.position.z=centre;this.floor.receiveShadow=true;this.group.add(this.floor);
   this.coreGeometry=new T.IcosahedronGeometry(1,1);this.coreMaterial=new T.MeshStandardMaterial({color:0x63766b,roughness:1,flatShading:true});
   const count=e.itemsPerChunk[game.quality],end=c.route.startZ+c.route.length-c.route.cleanDistance;
   for(let z=c.route.startZ-90;z<end;z+=e.chunkLength){
@@ -58,7 +62,21 @@ export class DolphinBay{
   // Sparse clean-water kelp silhouettes frame the release area, no obstacles.
   this.kelpMaterial=new T.MeshStandardMaterial({color:0x4c9b80,roughness:1});this.kelpGeometry=new T.ConeGeometry(1,6,5);for(let i=0;i<24;i++){const kelp=new T.Mesh(this.kelpGeometry,this.kelpMaterial);kelp.position.set((i%2?1:-1)*(14+rng()*18),2,c.route.startZ+c.route.length-c.route.cleanDistance+15+rng()*150);kelp.scale.set(.6+rng(),.5+rng(),.6+rng());this.group.add(kelp);}
  }
+ addScenery(game,surfaces){
+  const sources=new Map(),bounds=new Map();
+  for(const kind of this.config.environment.scenery.kinds){const batch=game.decor.batches.find(b=>b.kind===kind);if(!batch)continue;const mesh=batch.low,g=mesh.geometry;g.computeBoundingBox();const b=g.boundingBox;
+   sources.set(kind,mesh);bounds.set(kind,{minY:b.min.y,maxY:b.max.y,radius:Math.hypot(Math.max(Math.abs(b.min.x),Math.abs(b.max.x)),Math.max(Math.abs(b.min.z),Math.abs(b.max.z)))});
+  }
+  this.scenery=dolphinSceneryLayout(bounds,game.quality,this.config);this.sceneryBatches=[];const buckets=new Map(),e=this.config.environment,dummy=new T.Object3D(),tint=new T.Color(0xffffff);
+  for(const r of this.scenery){const index=Math.floor((r.z-this.config.route.startZ+90)/e.chunkLength),key=index+':'+r.kind;let bucket=buckets.get(key);
+   if(!bucket){bucket={kind:r.kind,index,records:[]};buckets.set(key,bucket);}bucket.records.push(r);
+   if(r.solid){const proxy={x:r.x,y:(r.top-.08)/2,z:r.z,rx:r.radius,ry:(r.top+.08)/2,rz:r.radius,surface:'rock',solid:true};surfaces.add(proxy);r.proxy=proxy;}
+  }
+  for(const b of buckets.values()){const source=sources.get(b.kind),mesh=new T.InstancedMesh(source.geometry,source.material,b.records.length);mesh.name='Bay reef '+b.kind;
+   for(const [i,r] of b.records.entries()){dummy.position.set(r.x,r.y,r.z);dummy.rotation.set(0,r.angle,0);dummy.scale.setScalar(r.scale);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);mesh.setColorAt(i,tint);}mesh.computeBoundingSphere();mesh.receiveShadow=true;this.group.add(mesh);this.sceneryBatches.push({mesh,z:this.config.route.startZ-90+(b.index+.5)*e.chunkLength});
+  }
+ }
  obstacle(kind){return new T.Mesh(this.geometries.get(kind),this.material);}
- update(z){for(const chunk of this.chunks)chunk.visible=Math.abs(chunk.position.z-z)<this.config.environment.drawDistance;}
+ update(z){for(const b of this.sceneryBatches??[])b.mesh.visible=Math.abs(b.z-z)<this.config.environment.drawDistance;for(const chunk of this.chunks)chunk.visible=Math.abs(chunk.position.z-z)<this.config.environment.drawDistance;}
  dispose(){this.group.traverse(o=>{if(o.isInstancedMesh)o.dispose();});for(const g of this.geometries.values())g.dispose();this.floor.geometry.dispose();this.coreGeometry.dispose();this.kelpGeometry.dispose();this.material.dispose();this.coreMaterial.dispose();this.kelpMaterial.dispose();this.group.removeFromParent();}
 }

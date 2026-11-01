@@ -63,9 +63,9 @@ no unrelated queued work was started.
 
 ## Active task
 
-Current session: SKY-015 is the explicitly requested active implementation; see
-its final checkpoint below. The older TURBO-004 checkpoint is retained for future
-resumption and has not been started or expanded by this sky task.
+Current session: DOLPHIN-036 is the explicitly requested active task, including
+UI/environment polish, full mission Hull, and commit/push to main. Earlier
+checkpoints below are retained for context; no queued work has been started.
 
 | ID | Request | Priority | Authorization | Status | Dependency / next action |
 | --- | --- | --- | --- | --- | --- |
@@ -609,3 +609,19 @@ finger orders, release, orbit return and exit restoration with no page errors.
 Rendering was suppressed during touch measurements; physical iPhone untested.
 Next: user playtest. User explicitly authorized merge and push. Delivery: commit verified changes,
 fast-forward main and push; physical iPhone validation remains outstanding.
+
+
+## DOLPHIN-036 — Mission UI, reef polish and full starting Hull
+
+Explicit implementation and main/push request, attachment UI/environment scope
+plus full Hull on entry. Single agent only per user; no independent agent QA.
+Branch feat/dolphin-rescue-polish. Preserve camera, movement, dolphins, debris,
+conditions and free roam. Scope: compact left HUD, responsive shared mission
+modal, actual sand/reef assets, safe sparse scenery, existing fog at 60–80m,
+session-only full mission Hull on launch/replay. Status: implemented; 403 Node tests, production build/diff checks pass. Actual
+production Edge low/high layouts, repeated orientations, 100% launch/replay Hull,
+fleet-save/world/fog restoration and three cleanup cycles per quality pass.
+Final screenshots reviewed; touch/camera regression passes. A combined high
+startup capture retry timed out; fresh-browser high validation passed. Unrelated untracked HUD preview PNGs preserved.
+Delivery: verified work ready for the explicitly authorized commit, merge and push
+to main. Next: user playtest; physical iPhone and sustained performance unverified.
