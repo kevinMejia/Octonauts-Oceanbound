@@ -1,0 +1,96 @@
+{
+  "checks": [
+    "production high profile loads and draws terrain/GUP without shader/texture errors",
+    "all five reset poses remain stationary and collision-free",
+    "actual W input drives GUP through the large arch",
+    "solid arch ring expels a deliberately embedded GUP",
+    "arena makes no localStorage writes",
+    "real CDP multitouch simultaneous stick+Forward in both finger orders, release cleanup",
+    "portrait and landscape mobile controls fit viewport",
+    "reset clears held input and timing samples",
+    "exit reaches normal startup with test-area link and browser Back restores runnable arena"
+  ],
+  "errors": [],
+  "limitations": "Chromium software WebGL; controlled controller stepping with real keyboard/touch events, not physical iPhone or native GPU performance.",
+  "high": {
+    "quality": "high",
+    "leaves": 30520,
+    "position": {
+      "x": 0,
+      "y": 21,
+      "z": -52,
+      "name": "Canyon",
+      "heading": 0
+    },
+    "calls": 115,
+    "triangles": 1849028,
+    "resolution": [
+      640,
+      400
+    ]
+  },
+  "arch": {
+    "start": {
+      "x": -17,
+      "y": 7,
+      "z": -34,
+      "name": "Large arch",
+      "heading": 1.5707963267948966
+    },
+    "end": {
+      "x": 18.6551780294747,
+      "y": 9.170291422228525,
+      "z": -35.881213660158394,
+      "name": "Large arch",
+      "heading": 1.5707963267948966
+    },
+    "worst": -3.000583489781012
+  },
+  "wall": {
+    "position": {
+      "x": -5.802349006499271,
+      "y": 18.96022288593459,
+      "z": -34.930246543191984,
+      "name": "Large arch",
+      "heading": 1.5707963267948966
+    },
+    "density": -3.059572989879498
+  },
+  "low": {
+    "quality": "low",
+    "leaves": 6307,
+    "position": {
+      "x": 0,
+      "y": 21,
+      "z": -52,
+      "name": "Canyon",
+      "heading": 0
+    },
+    "calls": 75,
+    "triangles": 709630,
+    "resolution": [
+      390,
+      844
+    ]
+  },
+  "mobileBoxes": {
+    "stick": {
+      "x": 20,
+      "y": 680,
+      "width": 140,
+      "height": 140
+    },
+    "forward": {
+      "x": 282,
+      "y": 640,
+      "width": 84,
+      "height": 84
+    },
+    "panel": {
+      "x": 12,
+      "y": 12,
+      "width": 366,
+      "height": 199
+    }
+  }
+}

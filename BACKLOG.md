@@ -703,3 +703,26 @@ Three lifecycle cycles restore hooks/fog with stable programs/geometry; low
 shared-shader cache reuse also passes. Evidence: docs/dolphin-fog/. No agents or
 independent QA; physical iPhone/native FPS untested. Next: established commit,
 main/push delivery, then user playtest.
+
+
+## ABYSSAL-040 — Drivable Abyssal Garden test area
+
+User explicitly requested a test area using Noniv/abyssal-garden to drive a GUP
+through gaps and inspect appearance/performance. Active branch:
+`feat/abyssal-test-arena`, baseline `5e3e4ab`. Scope: separately accessible arena,
+upstream environment reuse with MIT attribution/pinned provenance, existing GUP
+controls, navigable openings, reset/exit and live performance statistics. Preserve
+the existing world and progression. Status: verified. Real implementation agent
+`arena_developer` runs with repository role guidance; independent QA follows.
+Custom TOML roles are not loaded by this host. Original WGSL density terrain was
+baked offline at 2m spacing using actual WebGPU, then upstream surface nets; no
+runtime WebGPU dependency. Five viewpoints, reset, detail and statistics implemented.
+All 77 test files and production build pass. Actual Chromium captures show terrain,
+kelp, arch and wreck; independent `arena_qa` passes controlled real-keyboard arch
+traversal, ring collision, multitouch both finger orders, save isolation and exit/Back.
+Final independent live-loop QA passes real W movement and correctly populated
+foreground performance statistics, including frames over one second. No blockers.
+Evidence is in docs/abyssal-arena/. Delivery: commit and push main under standing
+authorization; separate test page does not change normal world gameplay. Physical
+iPhone/native GPU performance must be assessed by user; do not infer from software
+GPU browser measurements.

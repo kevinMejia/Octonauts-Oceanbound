@@ -178,3 +178,7 @@ layout failure and outstanding physical iPhone Safari checks.
 The gameplay turbo indicator now uses the approved curved energy window with a
 uniform inset around the badge and housing. Charge, controls and rewards use the
 existing systems. [Geometry, screenshots and validation](docs/contoured-turbo/README.md).
+
+### Abyssal Garden test area
+
+The startup screen links to a separate driving experiment at [`abyssal.html`](abyssal.html). Pilot GUP-B through a port of Abyssal Garden’s canyon/arch terrain, procedural kelp and wreck, with low/high detail, reset/viewpoints and live performance statistics. The normal exploration world and saved progress stay separate. See [source attribution, adaptation and validation limits](docs/abyssal-arena/README.md).

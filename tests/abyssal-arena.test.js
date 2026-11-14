@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {DensityField} from '../src/arena/DensityField.js';
+import {abyssalArenaConfig as config} from '../src/config/abyssalArenaConfig.js';
+import {meshShip,meshFluke,kelpColumn,rseed} from '../vendor/abyssal-garden/procedural.js';
+const meta=JSON.parse(readFileSync(new URL('../assets/abyssal/terrain.json',import.meta.url))),data=new Int8Array(readFileSync(new URL('../assets/abyssal/density.bin',import.meta.url))),field=new DensityField(meta,data);
+test('baked terrain buffers agree with metadata and valid indices',()=>{assert.equal(readFileSync(new URL('../assets/abyssal/positions.bin',import.meta.url)).byteLength,meta.vertices*12);const bytes=readFileSync(new URL('../assets/abyssal/indices.bin',import.meta.url)),indices=new Uint32Array(bytes.buffer,bytes.byteOffset,bytes.byteLength/4);assert.equal(indices.length,meta.indices);for(const i of indices)assert.ok(i<meta.vertices);assert.equal(data.length,meta.nx*meta.ny*meta.nz);});
+test('viewpoints spawn in navigable water with clearance from rocks',()=>{for(const p of config.viewpoints){assert.ok(field.sample(p.x,p.y,p.z)<-1,p.name+' centre');assert.ok(field.sample(p.x,p.y-1,p.z)<-.2,p.name+' hull');const sub={position:{...p},previousPosition:{...p},heading:p.heading,collisionProxy:{halfLength:2.9},speed:0};field.resolve(sub);assert.equal(sub.position.x,p.x,p.name+' no collision recovery');assert.equal(sub.position.y,p.y);assert.equal(sub.position.z,p.z);}});
+test('large upstream arch opening stays empty while ring remains solid',()=>{assert.ok(field.sample(0,6,-34)<0);assert.ok(field.sample(0,18,-34)>0);});
+test('density interpolation resolves a hull away from a flat solid slab',()=>{const m={nx:8,ny:8,nz:8,step:1,origin:[0,0,0]},d=new Int8Array(512);for(let z=0;z<8;z++)for(let y=0;y<8;y++)for(let x=0;x<8;x++)d[x+8*(y+8*z)]=(3-y)*8;const f=new DensityField(m,d),sub={position:{x:4,y:3,z:4},previousPosition:{x:4,y:5,z:4},heading:0,collisionProxy:{halfLength:1},speed:1};f.resolve(sub);assert.ok(sub.position.y>3);assert.ok(f.sample(sub.position.x,sub.position.y,sub.position.z)<0);});
+test('upstream geometry and kelp generators remain deterministic',()=>{const a=meshShip().build(),b=meshShip().build();assert.deepEqual(a.ib,b.ib);assert.equal(a.nv,b.nv);assert.ok(meshFluke().nv>1000);rseed(1);const x=kelpColumn(0,0,0,20,0,.08);rseed(1);assert.deepEqual(x,kelpColumn(0,0,0,20,0,.08));assert.ok(x.length>30);});
