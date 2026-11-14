@@ -722,7 +722,13 @@ kelp, arch and wreck; independent `arena_qa` passes controlled real-keyboard arc
 traversal, ring collision, multitouch both finger orders, save isolation and exit/Back.
 Final independent live-loop QA passes real W movement and correctly populated
 foreground performance statistics, including frames over one second. No blockers.
-Evidence is in docs/abyssal-arena/. Delivery: commit and push main under standing
-authorization; separate test page does not change normal world gameplay. Physical
+Evidence is in docs/abyssal-arena/. Verified implementation commit `2b1015b`
+is pushed to `feat/abyssal-test-arena`; reviewable PR #5 is open:
+https://github.com/kevinMejia/Octonauts-Oceanbound/pull/5 . Automatic approval
+review rejected direct main publication because trusted current-conversation
+authorization was insufficient for that shared-repository mutation. Safer branch/PR
+delivery succeeded. Status: awaiting explicit user approval to merge PR #5 and
+publish through Pages. No main update/deployment occurred. Separate test page
+does not change normal world gameplay. Physical
 iPhone/native GPU performance must be assessed by user; do not infer from software
 GPU browser measurements.
