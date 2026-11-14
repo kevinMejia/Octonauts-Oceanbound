@@ -1,0 +1,39 @@
+{
+  "before": {
+    "quality": "low",
+    "leaves": 6307,
+    "position": {
+      "x": 0,
+      "y": 21,
+      "z": -52,
+      "name": "Canyon",
+      "heading": 0
+    },
+    "calls": 115,
+    "triangles": 1187672,
+    "resolution": [
+      640,
+      400
+    ]
+  },
+  "after": {
+    "quality": "low",
+    "leaves": 6307,
+    "position": {
+      "x": 0,
+      "y": 21,
+      "z": -50.9265769461694,
+      "name": "Canyon",
+      "heading": 0
+    },
+    "calls": 115,
+    "triangles": 1187672,
+    "resolution": [
+      640,
+      400
+    ]
+  },
+  "stats": "1 FPS · 1466.7 ms · p95 1466.7 ms\n115 draws · 1,187,672 triangles · 640×400 · low\n6,307 kelp blades · GUP 0, 21, -51 m",
+  "errors": [],
+  "limitations": "640x400 software-rendered Chromium; values are diagnostic, not native device performance."
+}

@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/Noniv/abyssal-garden",
+  "commit": "c628d18c708ce12849085f3e4ec4a0136e5efd5b",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Maksymilian Dendura",
+  "index_sha256": "989bc96134c97f7595aa3b720976ad51be3fd4c4376ab2d06a6aee653ecaa5d4",
+  "index_modified": false,
+  "source_modified": false,
+  "source_path": "source/",
+  "upstream_readme": "README.upstream.md",
+  "notes": "Original self-contained WebGPU renderer, shaders, world generation, controls and synthesized audio. Wrapper is outside this directory. No runtime CDN dependencies.",
+  "source_sha256": {
+    "build.mjs": "00b0d1c5e4f9bf4e814f4cbea777bb6a61598cc5458d40bc08b2f30f8a990469",
+    "package-lock.json": "29013b77a2fb2142ccaf8dbfce1a9c72f349535e1bd8117592402dde4e3b333e",
+    "package.json": "d08c66c9a054914da23819afd0167ebe7290c89d3abc13bffd0d79dcb201021b",
+    "src/audio.js": "efd4feba3e36b2b5b7d3faf33a04f3c87df1f3999679e25185e297fd427076e7",
+    "src/dev.js": "946e3dd4210a9b81792c4e7a7fbe5db65a3daeb5f454bcf3b628ad90ab0c17ef",
+    "src/main.js": "aac0fa8d0f90b1ba0f5240e62dacfcc77e713a990616072f220f95b273c03632",
+    "src/math.js": "a792e5547d7f8011e39231e979b8abb592e1ad306fad67ed583af5aa0e549cae",
+    "src/quality.js": "3d0f5e35ad6c90f3168c0d58a8ba220a807d90e04c74a58c0853242034d7d6e5",
+    "src/shaders.js": "a4744f7b16a2c3930e5097175937e6556fd3d82b668fbcb457154981eec87b29",
+    "src/world.js": "7fc2821ecc95c4284a29fab3a6d6db77998be1872a65c2831de76ccb83719e73",
+    "template.html": "fc6f8f08c816c57dc98690af43cc34b2e579c41ef8f190a7af390d5b2bbcb32f"
+  }
+}

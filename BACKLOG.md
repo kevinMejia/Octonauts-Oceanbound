@@ -703,3 +703,55 @@ Three lifecycle cycles restore hooks/fog with stable programs/geometry; low
 shared-shader cache reuse also passes. Evidence: docs/dolphin-fog/. No agents or
 independent QA; physical iPhone/native FPS untested. Next: established commit,
 main/push delivery, then user playtest.
+
+
+## ABYSSAL-040 — Drivable Abyssal Garden test area
+
+User explicitly requested a test area using Noniv/abyssal-garden to drive a GUP
+through gaps and inspect appearance/performance. Active branch:
+`feat/abyssal-test-arena`, baseline `5e3e4ab`. Scope: separately accessible arena,
+upstream environment reuse with MIT attribution/pinned provenance, existing GUP
+controls, navigable openings, reset/exit and live performance statistics. Preserve
+the existing world and progression. Status: verified. Real implementation agent
+`arena_developer` runs with repository role guidance; independent QA follows.
+Custom TOML roles are not loaded by this host. Original WGSL density terrain was
+baked offline at 2m spacing using actual WebGPU, then upstream surface nets; no
+runtime WebGPU dependency. Five viewpoints, reset, detail and statistics implemented.
+All 77 test files and production build pass. Actual Chromium captures show terrain,
+kelp, arch and wreck; independent `arena_qa` passes controlled real-keyboard arch
+traversal, ring collision, multitouch both finger orders, save isolation and exit/Back.
+Final independent live-loop QA passes real W movement and correctly populated
+foreground performance statistics, including frames over one second. No blockers.
+Evidence is in docs/abyssal-arena/. Verified implementation commit `2b1015b`
+is pushed to `feat/abyssal-test-arena`; reviewable PR #5 is open:
+https://github.com/kevinMejia/Octonauts-Oceanbound/pull/5 . Automatic approval
+review rejected direct main publication because trusted current-conversation
+authorization was insufficient for that shared-repository mutation. Safer branch/PR
+delivery succeeded. Status: awaiting explicit user approval to merge PR #5 and
+publish through Pages. No main update/deployment occurred. Separate test page
+does not change normal world gameplay. Physical
+iPhone/native GPU performance must be assessed by user; do not infer from software
+GPU browser measurements.
+
+
+### ABYSSAL-040 visual fidelity correction — 2026-11-14
+
+User rejected the port appearance: it looks nothing like the source repository.
+This corrects the same test-area task, rather than adding unrelated work. PR #5
+stays unmerged. Root acknowledges Three.js lighting/fog/material/vegetation
+replacement removed the source appearance despite preserving geometry. Active
+revision: make the byte-identical upstream WebGPU scene the default test with
+its native first-person navigation (original request allows navigating gaps),
+original detail menu and performance monitor. Preserve the old GUP adaptation
+only as explicitly labeled comparison. Do not claim native GUP integration; that
+requires separate rendering integration. Actual source scene/readable source
+are retained locally with MIT provenance. Implementation agent resumed; final
+independent QA followed. Status: corrected default verified by exact-source and
+wrapper checks: 78 test files, build dd8fd76dd86d, byte-identical production native
+HTML, all original readable source hashes and MIT preservation pass. Independent
+unsupported-WebGPU browser checks pass responsive full viewport, explicit notice,
+no silent fallback, links and controls. Raw supported software-WebGPU source did
+not reach Dive in within 180s; separate production diagnostic remained Sculpting
+the seabed after 30s. No successful native render/navigation/performance result
+or screenshot is claimed. User's hardware testing remains required. Next: push
+this correction to PR #5; keep main/publication untouched pending approval.

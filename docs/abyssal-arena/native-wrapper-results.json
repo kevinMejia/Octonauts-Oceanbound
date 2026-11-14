@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "production wrapper loads original native file without renderer substitution",
+    "unsupported WebGPU notice opens explicitly",
+    "native original reports WebGPU requirement",
+    "iframe full viewport",
+    "panel hide/reopen works",
+    "controls fit portrait and landscape",
+    "honest first-person and comparison links",
+    "back to ocean uses original startup link"
+  ],
+  "notice": "WebGPU is unavailable in this browser or on this GPU. Try a compatible Chrome/Edge browser, or open the clearly labeled GUP adaptation comparison above. The original environment has not been replaced with a fallback.",
+  "native": "No WebGPU adapter found.",
+  "links": [
+    {
+      "href": "./index.html",
+      "text": "Back to ocean"
+    },
+    {
+      "href": "./abyssal-adapted.html",
+      "text": "GUP adaptation comparison"
+    },
+    {
+      "href": "./vendor/abyssal-garden/native/index.html?v=dd8fd76dd86d",
+      "text": "Open original full screen ↗"
+    }
+  ],
+  "errors": [],
+  "limitations": "Browser launched with WebGPU disabled to exercise unsupported path. Native GPU navigation/performance not measured in this run."
+}

@@ -178,3 +178,9 @@ layout failure and outstanding physical iPhone Safari checks.
 The gameplay turbo indicator now uses the approved curved energy window with a
 uniform inset around the badge and housing. Charge, controls and rewards use the
 existing systems. [Geometry, screenshots and validation](docs/contoured-turbo/README.md).
+
+### Abyssal Garden test area
+
+The startup screen’s **TRY ORIGINAL ABYSSAL GARDEN** link opens [`abyssal.html`](abyssal.html), running the original WebGPU environment and renderer unchanged. Navigate in first person through the original kelp, canyons, arches and wreck; use its menu for Low/Medium/High and H for performance statistics. Requires WebGPU; no GUP is integrated into this original-renderer test yet.
+
+The earlier Three.js GUP experiment remains at [`abyssal-adapted.html`](abyssal-adapted.html), clearly labeled as an adapted prototype with different rendering. Its appearance is not representative of the original repository. See [source provenance, controls and validation limits](docs/abyssal-arena/README.md).
