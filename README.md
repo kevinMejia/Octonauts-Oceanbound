@@ -181,4 +181,6 @@ existing systems. [Geometry, screenshots and validation](docs/contoured-turbo/RE
 
 ### Abyssal Garden test area
 
-The startup screen links to a separate driving experiment at [`abyssal.html`](abyssal.html). Pilot GUP-B through a port of Abyssal Garden’s canyon/arch terrain, procedural kelp and wreck, with low/high detail, reset/viewpoints and live performance statistics. The normal exploration world and saved progress stay separate. See [source attribution, adaptation and validation limits](docs/abyssal-arena/README.md).
+The startup screen’s **TRY ORIGINAL ABYSSAL GARDEN** link opens [`abyssal.html`](abyssal.html), running the original WebGPU environment and renderer unchanged. Navigate in first person through the original kelp, canyons, arches and wreck; use its menu for Low/Medium/High and H for performance statistics. Requires WebGPU; no GUP is integrated into this original-renderer test yet.
+
+The earlier Three.js GUP experiment remains at [`abyssal-adapted.html`](abyssal-adapted.html), clearly labeled as an adapted prototype with different rendering. Its appearance is not representative of the original repository. See [source provenance, controls and validation limits](docs/abyssal-arena/README.md).

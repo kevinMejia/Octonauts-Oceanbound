@@ -1,6 +1,24 @@
-# Abyssal Garden driving experiment
+# Abyssal Garden environment tests
 
-Open `abyssal.html` (production: `dist/abyssal.html`), or choose **TRY ABYSSAL TEST AREA** on the normal startup screen. This separate page loads only its test environment and GUP-B. **Back to ocean** opens the normal game. Existing discoveries, damage, mission state and graphics preferences are not written by the experiment.
+The default `abyssal.html` now runs the **original WebGPU environment**. The earlier Three.js GUP adaptation did not preserve the original appearance and must not be used to judge its visual quality or native-renderer performance.
+
+## Original renderer — default test
+
+Choose **TRY ORIGINAL ABYSSAL GARDEN** on the startup screen or open `abyssal.html`. A full-viewport iframe runs `vendor/abyssal-garden/native/index.html` byte-for-byte from the pinned upstream revision. Terrain, kelp, shaders, fog, lighting, bloom, controls and synthesized audio are unchanged. The small controls bar is collapsible and does not resize the original view; Open original full screen opens the same file without wrapper chrome.
+
+This is **first-person swimming, with no GUP model or vehicle integration yet**. Dive in, use mouse + WASD, E/Q for up/down, Shift faster, 1–6 for viewpoints, Esc for the menu, M for sound and H for performance stats. Its menu supplies the original Low/Medium/High settings. Touch uses upstream experimental finger navigation. These controls are the original demo’s controls, rather than Oceanbound’s vehicle controls.
+
+Requires WebGPU and compatible browser/GPU; unsupported platforms receive an explicit wrapper notice. There is no silent substitution with WebGL. A separate, clearly labeled adapted GUP comparison remains available at `abyssal-adapted.html`.
+
+The upstream self-contained HTML has SHA-256 `989bc96134c97f7595aa3b720976ad51be3fd4c4376ab2d06a6aee653ecaa5d4`. `native/PROVENANCE.json` pins the revision; original readable source, build script, package/lock files, template, README and MIT license are retained in `vendor/abyssal-garden/native/`. No build/install is required to run the committed original HTML. Source modifications can use upstream’s documented Node/esbuild workflow in that native directory; the main game build only copies these files. Upstream stores its own `abyssal` quality preferences on this site’s origin, independently of Oceanbound’s settings keys.
+
+Native correction validation: all 78 test files and production build `dd8fd76dd86d` pass. Independent QA verified exact native/source fingerprints, byte-identical production copying, and the wrapper’s unsupported-WebGPU notice, full viewport, responsive controls, links and absence of silent renderer substitution. [Wrapper browser results](native-wrapper-results.json) record that unsupported-path check.
+
+A supported software-WebGPU attempt on the untouched upstream scene did not reach Dive in within 180 seconds. A separate production-wrapper diagnostic remained at “Sculpting the seabed…” after 30 seconds ([diagnostic](native-software-startup.json)). Therefore native supported-device rendering, navigation and performance have not been verified here, and no new native gameplay screenshot is claimed. These software-GPU limitations are not measurements of a physical phone. The prior Three.js screenshots/results below describe only that adaptation and establish no native-renderer fidelity or performance result. Physical-device testing remains outstanding.
+
+## Adapted GUP comparison — earlier prototype
+
+Open `abyssal-adapted.html` (production: `dist/abyssal-adapted.html`) for the earlier Three.js prototype. It loads only its adapted environment and GUP-B. **Back to ocean** opens the normal game. Existing discoveries, damage, mission state and graphics preferences are not written by the experiment.
 
 Use the normal W/A/S/D or arrow controls, Space to rise, Shift to dive, and drag to orbit. On touchscreens use the shared steer/depth stick and Forward / Brake buttons. Reset GUP returns to the selected viewpoint. Explore offers the canyon, kelp basin, large arch, wreck and purple grotto. Detail reloads only this experiment with `?quality=low` or `?quality=high`; no saved settings change. Turbo uses the shared controller and starts charged for testing, without modifying saved world charge.
 
@@ -39,7 +57,7 @@ predict phone or native GPU performance. Simulation accepts at most 150ms per
 frame in small physics steps, so movement loses wall-clock time below about
 6.7 FPS rather than making an unsafe large collision step.
 
-Actual captures: [canyon low](canyon-low.png), [large arch](arch-low.png),
+Earlier adapted-prototype captures (not the default original renderer): [canyon low](canyon-low.png), [large arch](arch-low.png),
 [wreck](wreck-low.png), [canyon high](canyon-high.png), [mobile low](mobile-low.png).
 A real implementation agent and separate independent QA agent ran; the coordinator
 also baked original shader terrain and inspected rendered views. No custom TOML

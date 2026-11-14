@@ -732,3 +732,26 @@ publish through Pages. No main update/deployment occurred. Separate test page
 does not change normal world gameplay. Physical
 iPhone/native GPU performance must be assessed by user; do not infer from software
 GPU browser measurements.
+
+
+### ABYSSAL-040 visual fidelity correction — 2026-11-14
+
+User rejected the port appearance: it looks nothing like the source repository.
+This corrects the same test-area task, rather than adding unrelated work. PR #5
+stays unmerged. Root acknowledges Three.js lighting/fog/material/vegetation
+replacement removed the source appearance despite preserving geometry. Active
+revision: make the byte-identical upstream WebGPU scene the default test with
+its native first-person navigation (original request allows navigating gaps),
+original detail menu and performance monitor. Preserve the old GUP adaptation
+only as explicitly labeled comparison. Do not claim native GUP integration; that
+requires separate rendering integration. Actual source scene/readable source
+are retained locally with MIT provenance. Implementation agent resumed; final
+independent QA followed. Status: corrected default verified by exact-source and
+wrapper checks: 78 test files, build dd8fd76dd86d, byte-identical production native
+HTML, all original readable source hashes and MIT preservation pass. Independent
+unsupported-WebGPU browser checks pass responsive full viewport, explicit notice,
+no silent fallback, links and controls. Raw supported software-WebGPU source did
+not reach Dive in within 180s; separate production diagnostic remained Sculpting
+the seabed after 30s. No successful native render/navigation/performance result
+or screenshot is claimed. User's hardware testing remains required. Next: push
+this correction to PR #5; keep main/publication untouched pending approval.

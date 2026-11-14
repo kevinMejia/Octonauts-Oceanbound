@@ -1,6 +1,6 @@
 import pathlib, shutil, json, struct, hashlib, re
 ROOT=pathlib.Path(__file__).resolve().parents[1];out=ROOT/'dist';out.mkdir(exist_ok=True)
-for name in ['index.html','abyssal.html','src','vendor']:
+for name in ['index.html','abyssal.html','abyssal-adapted.html','src','vendor']:
  p=ROOT/name
  if p.is_dir():shutil.copytree(p,out/name,dirs_exist_ok=True)
  else:shutil.copy2(p,out/name)
@@ -24,7 +24,7 @@ for p in (out/'assets/models').rglob('*.glb'):
 print('Production site built; all GLB headers and lengths verified.')
 
 # Version the module graph together: Safari may otherwise reuse old imports after a deploy.
-hash_input=b''.join(p.read_bytes() for p in sorted((ROOT/'src').rglob('*')) if p.is_file())+(ROOT/'index.html').read_bytes()+(ROOT/'abyssal.html').read_bytes()
+hash_input=b''.join(p.read_bytes() for p in sorted((ROOT/'src').rglob('*')) if p.is_file())+(ROOT/'index.html').read_bytes()+(ROOT/'abyssal.html').read_bytes()+(ROOT/'abyssal-adapted.html').read_bytes()
 hash_input+=b''.join((ROOT/'assets/models'/name).read_bytes() for name in models)
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/textures').glob('*')) if p.is_file())
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/models/reef-formations').glob('*')) if p.is_file())
@@ -37,8 +37,9 @@ hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/icons').rglob(
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'assets/abyssal').rglob('*')) if p.is_file())
 hash_input+=b''.join(p.read_bytes() for p in sorted((ROOT/'vendor/abyssal-garden').rglob('*')) if p.is_file())
 version=hashlib.sha256(hash_input).hexdigest()[:12]
-for p in [out/'index.html',out/'abyssal.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
+for p in [out/'index.html',out/'abyssal.html',out/'abyssal-adapted.html',*list((out/'src').rglob('*.js')),*list((out/'vendor').glob('*.js'))]:
  text=p.read_text(encoding='utf-8')
+ if p==out/'abyssal.html':text=text.replace('./vendor/abyssal-garden/native/index.html', './vendor/abyssal-garden/native/index.html?v='+version)
  text=re.sub(r"([\"'])(\.{1,2}/[^\"'\s]+\.(?:js|css))\1",lambda m:m[1]+m[2]+'?v='+version+m[1],text)
  if p.suffix=='.js' and 'src' in p.relative_to(out).parts:
   text=re.sub(r"(new URL\([^;\n]+?,import\.meta\.url\)\.href)",lambda m:m[1]+"+'?v="+version+"'",text)
